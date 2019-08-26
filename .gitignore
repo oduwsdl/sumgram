@@ -1,0 +1,8 @@
+# Compiled python modules.
+*.pyc
+
+/build/
+/dist/
+/*.egg-info
+/*.egg
+
