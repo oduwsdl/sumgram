@@ -98,6 +98,26 @@ $ sumgram -t 10 --add-stopwords="image" cols/harvey/
   10   harvey photo                                         8     0.19 
 ``` 
 
+### Generate top sumgrams from collection of URLs:
+This requires dereferencing the URLs and [removing the HTML boilerplate](https://ws-dl.blogspot.com/2017/03/2017-03-20-survey-of-5-boilerplate.html). This example requires the [installation of NwalaTextUtils](https://github.com/oduwsdl/NwalaTextUtils).
+```
+from NwalaTextUtils.textutils import prlGetTxtFrmURIs
+from sumgram.sumgram import get_top_ngrams
+
+ngram = 2
+uris_lst = [
+  'http://www.euro.who.int/en/health-topics/emergencies/pages/news/news/2015/03/united-kingdom-is-declared-free-of-ebola-virus-disease',
+  'https://time.com/3505982/ebola-new-cases-world-health-organization/',
+  'https://www.scientificamerican.com/article/why-ebola-survivors-struggle-with-new-symptoms/'
+]
+
+doc_lst = prlGetTxtFrmURIs(uris_lst)
+sumgrams = get_top_ngrams(ngram, doc_lst)
+
+with open('sumgrams.json', 'w') as outfile:
+    json.dump(sumgrams, outfile)
+```
+
 ### Full usage
 ```
 sumgram [options] path/to/collection/of/text/files/
