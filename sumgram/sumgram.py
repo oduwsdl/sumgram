@@ -1115,7 +1115,7 @@ def get_args():
 	parser.add_argument('-s', '--sentences-rank-count', help='The count of top ranked sentences to generate', type=int, default=10)	
 	parser.add_argument('-t', '--top-ngram-count', help='The count of top ngrams to generate', type=int, default=10)
 	
-	parser.add_argument('--add-stopwords', help='Comma-separated list of addition stopwords', default='')
+	parser.add_argument('--add-stopwords', help='Comma-separated list of additional stopwords', default='')
 	parser.add_argument('--corenlp-host', help='Stanford CoreNLP Server host (needed for decent sentence tokenizer)', default='localhost')
 	parser.add_argument('--corenlp-port', help='Stanford CoreNLP Server port (needed for decent sentence tokenizer)', default='9000')
 	parser.add_argument('--corenlp-max-sentence-words', help='Stanford CoreNLP maximum words per sentence', default=100)
