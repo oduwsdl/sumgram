@@ -16,6 +16,11 @@ Just type
 ```
 $ pip install sumgram
 ```
+OR
+```
+$ git clone https://github.com/oduwsdl/sumgram.git
+$ cd sumgram; pip install .; cd ..; rm -rf sumgram;
+```
 ## Recommended Requirement
 For the best results, we recommend [installing and running Stanford CoreNLP Server](https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html) for two reasons.
 First, the "pos" in `pos_glue_split_ngrams` stands for Parts Of Speech. This algorithm needs a Part of Speech annotator in order to "glue" split ngrams, hence the need for Stanford CoreNLP server. However, if you do not install Stanford CoreNLP Server, sumgram is robust enough to attempt to glue split ngrams with the second algorithm `mvg_window_glue_split_ngrams`. 
