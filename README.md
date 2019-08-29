@@ -101,6 +101,7 @@ $ sumgram -t 10 --add-stopwords="image" cols/harvey/
 ### Generate top sumgrams from collection of URLs:
 This requires dereferencing the URLs and [removing the HTML boilerplate](https://ws-dl.blogspot.com/2017/03/2017-03-20-survey-of-5-boilerplate.html). This example requires the [installation of NwalaTextUtils](https://github.com/oduwsdl/NwalaTextUtils).
 ```
+import json
 from NwalaTextUtils.textutils import prlGetTxtFrmURIs
 from sumgram.sumgram import get_top_ngrams
 
