@@ -974,7 +974,7 @@ def get_user_stopwords(comma_sep_stopwords):
 def get_top_ngrams(n, doc_dct_lst, params=None):
 	
 	print('\nget_top_ngram():')
-	np.set_printoptions(threshold=np.nan, linewidth=120)
+	np.set_printoptions(threshold=np.inf, linewidth=120)
 
 	if( params is None or isinstance(params, dict) == False ):
 		params = {}
