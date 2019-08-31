@@ -50,7 +50,7 @@ params = {
 }
 
 ngram = 2
-sumgrams = get_top_ngrams(ngram, doc_lst, params=params)
+sumgrams = get_top_ngrams(doc_lst, ngram, params=params)
 with open('sumgrams.json', 'w') as outfile:
   json.dump(sumgrams, outfile)
 ```
@@ -118,7 +118,7 @@ uris_lst = [
 ]
 
 doc_lst = prlGetTxtFrmURIs(uris_lst)
-sumgrams = get_top_ngrams(ngram, doc_lst)
+sumgrams = get_top_ngrams(doc_lst, ngram)
 
 with open('sumgrams.json', 'w') as outfile:
     json.dump(sumgrams, outfile)
