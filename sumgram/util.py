@@ -351,9 +351,9 @@ def dumpJsonToFile(outfilename, dictToWrite, indentFlag=True, extraParams=None):
 		outfile.close()
 
 		if( extraParams['verbose'] ):
-			logger.info('\twriteTextToFile(), wrote:', outfilename)
+			logger.info('\twriteTextToFile(), wrote: ' + outfilename)
 	except:
-		genericErrorInfo( '\terror: outfilename:', outfilename )
+		genericErrorInfo( '\terror: outfilename: ', outfilename )
 
 def readTextFromFile(infilename):
 

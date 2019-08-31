@@ -129,28 +129,30 @@ with open('sumgrams.json', 'w') as outfile:
 sumgram [options] path/to/collection/of/text/files/
 
 Options:
--n                                  Base n (int) for generating top ngrams, if n = 2, bigrams are generated
--o, --output                        Output file
--s, --sentences-rank-count          The count of top ranked sentences to generate
--t, --top-ngram-count               The count of top ngrams to generate
+-n=2                                      Base n (int) for generating top ngrams, if n = 2, bigrams are generated
+-o, --output                              Output file
+-s, --sentences-rank-count=10             The count of top ranked sentences to generate
+-t, --top-ngram-count=10                  The count of top ngrams to generate
 
---add-stopwords                     Comma-separated list of addition stopwords
---corenlp-host                      Stanford CoreNLP Server host (needed for decent sentence tokenizer)
---corenlp-port                      Stanford CoreNLP Server port (needed for decent sentence tokenizer)
---corenlp-max-sentence-words        Stanford CoreNLP maximum words per sentence
---debug-verbose                     Print statements needed for debugging purpose
---include-postings                  Include inverted index of term document mappings
---mvg-window-min-proper-noun-rate   Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram
---ngram-printing-mw                 Mininum width for printing ngrams
---no-rank-docs                      Do not rank documents flag (default is True)
---no-rank-sentences                 Do not rank sentences flag (default is True)
---no-pos-glue-split-ngrams          Do not glue split top ngrams with POS method (default is True)
---no-mvg-window-glue-split-ngrams   Do not glue split top ngrams with MOVING WINDOW method (default is True)
---pos-glue-split-ngrams-coeff       Coeff. for permitting matched ngram replacement. Interpreted as 1/coeff
---pretty-print                      Pretty print JSON output
---rm-subset-top-ngrams-coeff        Coeff. for permitting matched ngram replacement. Interpreted as 1/coeff
---sentence-tokenizer                For sentence ranking: Regex string that specifies tokens for sentence tokenization
---shift                             Factor to shift top ngram calculation
---token-pattern                     Regex string that specifies tokens for document tokenization
---title                             Text label to be used as a heading when printing top ngrams
+--add-stopwords                           Comma-separated list of addition stopwords
+--corenlp-host=localhost                  Stanford CoreNLP Server host (needed for decent sentence tokenizer)
+--corenlp-port=9000                       Stanford CoreNLP Server port (needed for decent sentence tokenizer)
+--corenlp-max-sentence-words=100          Stanford CoreNLP maximum words per sentence
+--include-postings=False                  Include inverted index of term document mappings
+--log-file                                Log output filename
+--log-format                              Log print format, see: https://docs.python.org/3/howto/logging-cookbook.html
+--log-level=INFO                          Log level from OPTIONS: {CRITICAL, ERROR, WARNING, INFO, DEBUG, NOTSET}
+--mvg-window-min-proper-noun-rate=0.5     Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram
+--ngram-printing-mw=50                    Mininum width for printing ngrams
+--no-rank-docs=False                      Do not rank documents flag
+--no-rank-sentences=False                 Do not rank sentences flag
+--no-pos-glue-split-ngrams=False          Do not glue split top ngrams with POS method (default is True)
+--no-mvg-window-glue-split-ngrams=False   Do not glue split top ngrams with MOVING WINDOW method (default is True)
+--pos-glue-split-ngrams-coeff=2           Coeff. for permitting matched ngram replacement. Interpreted as 1/coeff, e.g., 1/2
+--pretty-print=False                      Pretty print JSON output
+--rm-subset-top-ngrams-coeff=2            Coeff. for permitting matched ngram replacement. Interpreted as 1/coeff, e.g., 1/2
+--sentence-tokenizer='[.?!][ \n]|\n+'     For sentence ranking: Regex string that specifies tokens for sentence tokenization
+--shift=0                                 Factor to shift top ngram calculation
+--token-pattern                           Regex string that specifies tokens for document tokenization. Default = '\b[a-zA-Z\'\’-]+[a-zA-Z]+\b|\d+[.,]?\d*'
+--title                                   Text label to be used as a heading when printing top ngrams
 ```

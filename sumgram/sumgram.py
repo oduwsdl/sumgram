@@ -950,7 +950,7 @@ def get_user_stopwords(comma_sep_stopwords):
 	add_stopwords = comma_sep_stopwords.split(',')
 	return set( [s.strip().lower() for s in add_stopwords] )
 
-def get_top_ngrams(n, doc_dct_lst, params=None):
+def get_top_ngrams(doc_dct_lst, n=2, params=None):
 	
 	np.set_printoptions(threshold=np.inf, linewidth=120)
 
@@ -1104,18 +1104,17 @@ def get_args():
 	parser.add_argument('--corenlp-host', help='Stanford CoreNLP Server host (needed for decent sentence tokenizer)', default='localhost')
 	parser.add_argument('--corenlp-port', help='Stanford CoreNLP Server port (needed for decent sentence tokenizer)', default='9000')
 	parser.add_argument('--corenlp-max-sentence-words', help='Stanford CoreNLP maximum words per sentence', default=100)
-	parser.add_argument('--debug-verbose', help='Print statements needed for debugging purpose', action='store_true')
 	parser.add_argument('--include-postings', help='Include inverted index of term document mappings', action='store_true')#default is false except not included, in which case it's true
 	parser.add_argument('--log-file', help='Log output filename', default='')
 	parser.add_argument('--log-format', help='Log print format, see: https://docs.python.org/3/howto/logging-cookbook.html', default='')
 	parser.add_argument('--log-level', help='Log level from OPTIONS: {CRITICAL, ERROR, WARNING, INFO, DEBUG, NOTSET}', default='INFO')
 	parser.add_argument('--mvg-window-min-proper-noun-rate', help='Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram', type=float, default=0.5)
 	parser.add_argument('--ngram-printing-mw', help='Mininum width for printing ngrams', type=int, default=50)
-	parser.add_argument('--no-rank-docs', help='Do not rank documents flag (default is True)', action='store_true')
-	parser.add_argument('--no-rank-sentences', help='Do not rank sentences flag (default is True)', action='store_true')
+	parser.add_argument('--no-rank-docs', help='Do not rank documents flag (default is False)', action='store_true')
+	parser.add_argument('--no-rank-sentences', help='Do not rank sentences flag (default is False)', action='store_true')
 	
-	parser.add_argument('--no-pos-glue-split-ngrams', help='Do not glue split top ngrams with POS method (default is True)', action='store_true')
-	parser.add_argument('--no-mvg-window-glue-split-ngrams', help='Do not glue split top ngrams with MOVING WINDOW method (default is True)', action='store_true')
+	parser.add_argument('--no-pos-glue-split-ngrams', help='Do not glue split top ngrams with POS method (default is False)', action='store_true')
+	parser.add_argument('--no-mvg-window-glue-split-ngrams', help='Do not glue split top ngrams with MOVING WINDOW method (default is False)', action='store_true')
 
 	parser.add_argument('--pos-glue-split-ngrams-coeff', help='Coeff for permitting matched ngram replacement. Interpreted as 1/coeff', type=int, default=2)
 	parser.add_argument('--pretty-print', help='Pretty print JSON output', action='store_true')
@@ -1144,7 +1143,7 @@ def get_default_args(user_params):
 
 
 def proc_req(doc_lst, params):
-	report = get_top_ngrams(params['n'], doc_lst, params)
+	report = get_top_ngrams(doc_lst, params['n'], params)
 	if( params['output'] is not None ):
 		dumpJsonToFile( params['output'], report, indentFlag=params['pretty_print'] )
 
