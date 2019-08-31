@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 import re
 import requests
@@ -7,28 +8,16 @@ import sys
 from subprocess import check_output, CalledProcessError
 from multiprocessing import Pool
 
-def genericErrorInfo(errOutfileName='', errPrefix=''):
+logger = logging.getLogger('SumGram.sumgram')
+
+def genericErrorInfo(slug=''):
 	exc_type, exc_obj, exc_tb = sys.exc_info()
 	fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
 	
-	errorMessage = fname + ', ' + str(exc_tb.tb_lineno)  + ', ' + str(sys.exc_info())
-	print('\tERROR:', errorMessage)
-	
-	mode = 'w'
-	if( os.path.exists(errOutfileName) ):
-		mode = 'a'
+	errMsg = fname + ', ' + str(exc_tb.tb_lineno)  + ', ' + str(sys.exc_info())
+	logger.error(errMsg + slug)
 
-	if( len(errPrefix) != 0 ):
-		errPrefix = errPrefix + ': '
-
-	errOutfileName = errOutfileName.strip()
-	if( len(errOutfileName) != 0 ):
-		outfile = open(errOutfileName, mode)
-		outfile.write(getNowFilename() + '\n')
-		outfile.write('\t' + errPrefix + errorMessage + '\n')
-		outfile.close()
-
-	return  sys.exc_info()
+	return errMsg
 
 def getStopwordsSet(frozenSetFlag=False):
 	
@@ -362,11 +351,9 @@ def dumpJsonToFile(outfilename, dictToWrite, indentFlag=True, extraParams=None):
 		outfile.close()
 
 		if( extraParams['verbose'] ):
-			print('\twriteTextToFile(), wrote:', outfilename)
+			logger.info('\twriteTextToFile(), wrote:', outfilename)
 	except:
-		if( extraParams['verbose'] ):
-			print('\terror: outfilename:', outfilename)
-		genericErrorInfo()
+		genericErrorInfo( '\terror: outfilename:', outfilename )
 
 def readTextFromFile(infilename):
 
@@ -376,8 +363,7 @@ def readTextFromFile(infilename):
 		with open(infilename, 'r') as infile:
 			text = infile.read()
 	except:
-		print('\treadTextFromFile()error filename:', infilename)
-		genericErrorInfo()
+		genericErrorInfo('\treadTextFromFile() error filename:', infilename)
 	
 
 	return text
@@ -455,7 +441,7 @@ def nlpSentenceAnnotate(text, parsed={}, host='localhost', port='9000'):
 				#payload['sentences'][-1]['sentence'] = singleSentence.strip()
 				payload['sentences'][-1]['lemmatized_sentence'] = lemmatizedSentence.strip()
 	except CalledProcessError:
-		print('\tERROR: subprocess.CalledProcessError')
+		logger.error('ERROR: subprocess.CalledProcessError')
 	except:
 		genericErrorInfo()
 
@@ -466,9 +452,9 @@ def nlpServerStartStop(msg='start'):
 	if( msg == 'start' ):
 		try:
 			if( nlpIsServerOn() ):
-				print('\tCoreNLP Server already on - no-op')
+				logger.info('\tCoreNLP Server already on - no-op')
 			else:
-				print('\tStarting CoreNLP Server')
+				logger.info('\tStarting CoreNLP Server')
 				#docker run --rm -d -p 9000:9000 --name stanfordcorenlp anwala/stanfordcorenlp
 				check_output([
 					'docker', 
@@ -510,7 +496,7 @@ def parallelProxy(job):
 
 	if( 'print' in job ):
 		if( len(job['print']) != 0 ):
-			print(job['print'])
+			logger.info(job['print'])
 
 	return {'input': job, 'output': output, 'misc': job['misc']}
 

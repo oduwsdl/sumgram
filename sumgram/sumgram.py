@@ -1,11 +1,17 @@
 import argparse
 import copy
+import logging
 import numpy as np
 import re
 import os
 import sys
 
 from sklearn.feature_extraction.text import CountVectorizer
+
+logger = logging.getLogger('SumGram.sumgram')
+file_handler = None
+console_handler = logging.StreamHandler()
+
 
 def get_dual_stopwords(add_stopwords):
 	return add_stopwords | getStopwordsSet()
@@ -188,12 +194,7 @@ def get_ranked_docs(ngram_lst, doc_dct_lst):
 	ranked_docs = {}
 	N = len(ngram_lst)
 
-	#print('\nget_ranked_docs(): N =', N)
-
 	for i in range( len(ngram_lst) ):
-
-		#print('\t\ti:', i)
-		#print('\t\tt:', ngram_lst[i][0])
 
 		for posting in ngram_lst[i]['postings']:
 			
@@ -217,7 +218,7 @@ def rank_sents_frm_top_ranked_docs(ngram_sentences, ranked_docs, all_doc_sentenc
 
 	extra_params.setdefault('sentences_rank_count', 20)
 
-	print('\nrank_sents_frm_top_ranked_docs():')
+	logger.info('\nrank_sents_frm_top_ranked_docs():')
 
 	all_top_ranked_docs_sentences = []
 	for doc in ranked_docs:
@@ -433,7 +434,6 @@ def is_ngram_subset(parent, child, stopwords):
 
 def get_sentence_match_ngram(ngram, ngram_toks, sentences, doc_indx):
 
-	debug_verbose = False
 	phrase_cands = []
 
 	for i in range(len(sentences)):
@@ -451,12 +451,11 @@ def get_sentence_match_ngram(ngram, ngram_toks, sentences, doc_indx):
 			ngram_start, ngram_length = indx_where_ngram_ends(ngram_start_indx, ngram_toks, sent_toks)
 
 			if( ngram_start_indx == -1 ):
-				if( debug_verbose ):
-					print('\nDID NOT FIND NGRAM POST SPLITTING' * 10)
-					print('\tngram:', ngram)
-					print('\tsentence:', sentence)
-					print('\tsent_tok not printed')
-					print()
+				logger.debug('\nDID NOT FIND NGRAM POST SPLITTING' * 10)
+				logger.debug('\tngram: ' + str(ngram))
+				logger.debug('\tsentence: ' + sentence)
+				logger.debug('\tsent_tok not printed')
+				logger.debug('')
 				continue
 
 			sentence_dets = {
@@ -509,14 +508,13 @@ def rank_mltwd_proper_nouns(ngram, ngram_toks, sentences, params=None):
 
 			sent_toks_count = len(sent['toks'])
 
-			if( params['debug_verbose'] ):
-				print( '\n\twindow_size:', window_size )
-				print( '\tngram:', ngram_toks )
-				print( '\tngram in sent (start/length):', ngram_start, ngram_length )
-				print( '\tsent keys:', sent.keys() )
-				print( '\tori:', sent['ori_sent'] )
-				print( '\tsent:', i, 'of', sent_count, ':', sent['toks'] )
-				print( '\tsent_len:', sent_toks_count)
+			logger.debug( '\n\twindow_size: ' + str(window_size) )
+			logger.debug( '\tngram: ' + str(ngram_toks) )
+			logger.debug( '\tngram in sent (start/length): ' + str(ngram_start) + '/' + str(ngram_length) )
+			logger.debug( '\tsent keys: ' + str(sent.keys()) )
+			logger.debug( '\tori: ' + sent['ori_sent'] )
+			logger.debug( '\tsent: ' + str(i) + ' of ' + str(sent_count) + ': ' + str(sent['toks']) )
+			logger.debug( '\tsent_len: ' + str(sent_toks_count))
 
 			if( window_size == 1 and sent_toks_count > max_sent_toks ):
 				max_sent_toks = sent_toks_count
@@ -551,16 +549,9 @@ def rank_mltwd_proper_nouns(ngram, ngram_toks, sentences, params=None):
 					phrase_counts[ lrb ][multi_word_proper_noun_lrb]['freq'] += 1
 					phrase_counts[ lrb ][multi_word_proper_noun_lrb]['rate'] = round( phrase_counts[lrb][multi_word_proper_noun_lrb]['freq']/sent_count, 4 )
 				
-				if( params['debug_verbose'] ):
-					print( '\t\t' + lrb + ':', multi_word_proper_noun_lrb )
-			
-			if( params['debug_verbose'] ):
-				print( '\t\tsent_count:', sent_count )
-
-
-
-		if( params['debug_verbose'] ):
-			print('\n\twindow_size:', window_size, 'results:')
+				logger.debug( '\t\t' + lrb + ': ' + multi_word_proper_noun_lrb )		
+			logger.debug( '\t\tsent_count: ' + str(sent_count) )
+		logger.debug('\n\twindow_size: ' + str(window_size) + ' results:')
 
 
 		#find multi-word proper noun with the highest frequency for left, right, and both sentence building policies
@@ -569,8 +560,7 @@ def rank_mltwd_proper_nouns(ngram, ngram_toks, sentences, params=None):
 			multiprpnoun_lrb = sorted(multiprpnoun_lrb.items(), key=lambda x: x[1]['rate'], reverse=True)
 			if( len(multiprpnoun_lrb) != 0 ):
 				
-				if( params['debug_verbose'] ):
-					print('\t\tmax', lrb + ':', multiprpnoun_lrb[0])
+				logger.debug('\t\tmax ' + lrb + ': ' + str(multiprpnoun_lrb[0]))
 				
 				rate = multiprpnoun_lrb[0][1]['rate']
 				if( rate > max_multiprpnoun_lrb[window_size]['rate'] ):
@@ -578,30 +568,27 @@ def rank_mltwd_proper_nouns(ngram, ngram_toks, sentences, params=None):
 					max_multiprpnoun_lrb[window_size]['rate'] = rate
 					max_multiprpnoun_lrb[window_size]['lrb'] = lrb
 
-		if( params['debug_verbose'] ):
-			print('\tlast max for this window_size:', max_multiprpnoun_lrb[window_size])
-			print('\tmax_sent_toks:', max_sent_toks)
-			print()
+
+		logger.debug('\tlast max for this window_size: ' + str(max_multiprpnoun_lrb[window_size]))
+		logger.debug('\tmax_sent_toks: ' + str(max_sent_toks))
+		logger.debug('')
 
 		if( params['mvg_window_min_proper_noun_rate'] > max_multiprpnoun_lrb[window_size]['rate'] or window_size == max_sent_toks ):
-			
-			if( params['debug_verbose'] ):
-				print("\tbreaking criteria reached: mvg_window_min_proper_noun_rate > max_multiprpnoun_lrb[window_size]['rate'] OR window_size (" + str(window_size) + ") == max_sent_toks (" + str(max_sent_toks) + ")")
-				print('\tmvg_window_min_proper_noun_rate:', params['mvg_window_min_proper_noun_rate'])
-				print("\tmax_multiprpnoun_lrb[window_size]['rate']:", max_multiprpnoun_lrb[window_size]['rate'])			
-		
+			logger.debug("\tbreaking criteria reached: mvg_window_min_proper_noun_rate > max_multiprpnoun_lrb[window_size]['rate'] OR window_size (" + str(window_size) + ") == max_sent_toks (" + str(max_sent_toks) + ")")
+			logger.debug('\tmvg_window_min_proper_noun_rate: ' + str(params['mvg_window_min_proper_noun_rate']))
+			logger.debug("\tmax_multiprpnoun_lrb[window_size]['rate']: " + str(max_multiprpnoun_lrb[window_size]['rate']))
 			break
 
 	while( window_size != 0 ):
 		#get best match longest multi-word ngram 
 		if( max_multiprpnoun_lrb[window_size]['rate'] >= params['mvg_window_min_proper_noun_rate'] ):
+			
 			final_multi_word_proper_noun['proper_noun'] = max_multiprpnoun_lrb[window_size]['ngram']
 			final_multi_word_proper_noun['rate'] = max_multiprpnoun_lrb[window_size]['rate']
 
-			if( params['debug_verbose'] ):
-				print('\tfinal winning max:', max_multiprpnoun_lrb[window_size])
-				print('\twindow_size:', window_size)
-
+			
+			logger.debug('\tfinal winning max: ' + str(max_multiprpnoun_lrb[window_size]))
+			logger.debug('\twindow_size: ' + str(window_size))
 			break
 
 		window_size -= 1
@@ -678,11 +665,9 @@ def pos_glue_split_ngrams(top_ngrams, k, pos_glue_split_ngrams_coeff, ranked_mul
 
 def mvg_window_glue_split_ngrams(top_ngrams, k, all_doc_sentences, params=None):
 
-	print('\nmvg_window_glue_split_ngrams():')
+	logger.debug('\nmvg_window_glue_split_ngrams():')
 	if( params is None ):
 		params = {}
-
-	#params['debug_verbose'] = True
 
 	multi_word_proper_noun_dedup_set = set()#it's possible for different ngrams to resolve to the same multi-word proper noun so deduplicate favoring higher ranked top_ngrams
 
@@ -701,8 +686,7 @@ def mvg_window_glue_split_ngrams(top_ngrams, k, all_doc_sentences, params=None):
 		phrase_cands = []
 		phrase_cands_minus_toks = []
 
-		if( params['debug_verbose'] ):
-			print('\t', i, 'ngram:', ngram)
+		logger.debug('\t' + str(i) + ' ngram: ' + str(ngram))
 
 		for doc_dct in top_ngrams[i]['postings']:
 			
@@ -739,10 +723,9 @@ def mvg_window_glue_split_ngrams(top_ngrams, k, all_doc_sentences, params=None):
 
 		top_ngrams[i]['parent_sentences'] = phrase_cands_minus_toks
 			
-		if( params['debug_verbose'] ):
-			print('*' * 200)
-			print('*' * 200)
-			print()
+		logger.debug('*' * 200)
+		logger.debug('*' * 200)
+		logger.debug('')
 
 
 
@@ -767,7 +750,7 @@ def rm_subset_top_ngrams(top_ngrams, k, rm_subset_top_ngrams_coeff, params):
 	if( rm_subset_top_ngrams_coeff == 0 ):
 		rm_subset_top_ngrams_coeff = 1
 
-	debug_verbose = False
+	
 	ngram_tok_sizes = {}
 	stopwords = get_dual_stopwords( params['add_stopwords'] )
 
@@ -828,24 +811,20 @@ def rm_subset_top_ngrams(top_ngrams, k, rm_subset_top_ngrams_coeff, params):
 							top_ngrams[child_indx].setdefault('ngram_history', [])
 							top_ngrams[child_indx]['ngram_history'].append(new_ngram_dct)
 
-							if( debug_verbose ):
-								print('\teven though parent (' + str(parent_indx) + ') is in lower index than child:', child_indx)
-								print('\treplacing child_ngram_cand:', '"' + child_ngram_cand + '" with parent_ngram_cand: "' + parent_ngram_cand + '"')
-								print('\treplacing parent/child tf:', top_ngrams[parent_indx]['term_freq'], top_ngrams[child_indx]['term_freq'])
-								print()
+							logger.debug('\teven though parent (' + str(parent_indx) + ') is in lower index than child: ' + str(child_indx))
+							logger.debug('\treplacing child_ngram_cand:' + '"' + child_ngram_cand + '" with parent_ngram_cand: "' + parent_ngram_cand + '"')
+							logger.debug('\treplacing parent/child tf: ' + str(top_ngrams[parent_indx]['term_freq']) + ' ' + str(top_ngrams[child_indx]['term_freq']) )
+							logger.debug('')
 						else:
 							
 							top_ngrams[child_indx]['ngram'] = ''
 
-							if( debug_verbose ):
-								print('\teven though parent (' + str(parent_indx) + ') is in lower index than child:', child_indx)
-								print('\twould have replaced child_ngram_cand:', '"' + child_ngram_cand + '" with parent_ngram_cand: "' + parent_ngram_cand + '"')
-								print('\twould have replaced parent/child tf:', top_ngrams[parent_indx]['term_freq'], top_ngrams[child_indx]['term_freq'])
-								print('\tbut this parent has already adopted a child so delete this child.')
-								print()
+							logger.debug('\teven though parent (' + str(parent_indx) + ') is in lower index than child:', child_indx)
+							logger.debug('\twould have replaced child_ngram_cand:', '"' + child_ngram_cand + '" with parent_ngram_cand: "' + parent_ngram_cand + '"')
+							logger.debug('\twould have replaced parent/child tf:', top_ngrams[parent_indx]['term_freq'], top_ngrams[child_indx]['term_freq'])
+							logger.debug('\tbut this parent has already adopted a child so delete this child.')
+							logger.debug('')
 					
-
-				
 
 	return top_ngrams
 	
@@ -860,13 +839,13 @@ def print_top_ngrams(n, top_ngrams, top_ngram_count, params=None):
 	mw = params['ngram_printing_mw']
 	ngram_count = len(top_ngrams)
 
-	print('Summary for', ngram_count, 'top n-grams (base n: ' + str(n) + '):')
-	print()
+	logger.info('Summary for ' + str(ngram_count) + ' top n-grams (base n: ' + str(n) + '):')
+	logger.info('')
 
 	if( params['title'] != '' ):
-		print( params['title'] )
+		logger.info( params['title'] )
 
-	print( '{:^6} {:<{mw}} {:^6} {:<6}'.format('rank', 'ngram', 'TF', 'TF-Rate', mw=mw) )
+	logger.info( '{:^6} {:<{mw}} {:^6} {:<6}'.format('rank', 'ngram', 'TF', 'TF-Rate', mw=mw) )
 	for i in range(top_ngram_count):
 		
 		if( i == ngram_count ):
@@ -877,12 +856,12 @@ def print_top_ngrams(n, top_ngrams, top_ngram_count, params=None):
 		if( len(ngram_txt) > mw ) :
 			ngram_txt = ngram_txt[:mw-3] + '...'
 
-		print( "{:^6} {:<{mw}} {:^6} {:^6}".format(i+1, ngram_txt, ngram['term_freq'], "{:.2f}".format(ngram['term_rate']), mw=mw) )
-	print()
+		logger.info( "{:^6} {:<{mw}} {:^6} {:^6}".format(i+1, ngram_txt, ngram['term_freq'], "{:.2f}".format(ngram['term_rate']), mw=mw) )
+	logger.info('')
 
 def extract_top_ngrams(doc_lst, doc_dct_lst, n, params):
 
-	print('\nextract_top_ngrams(): token_pattern:', params['token_pattern'])
+	logger.info('\nextract_top_ngrams(): token_pattern: ' + params['token_pattern'])
 	
 	'''
 		Note on unified all_doc_sentences and top_ngrams text processing:
@@ -973,7 +952,6 @@ def get_user_stopwords(comma_sep_stopwords):
 
 def get_top_ngrams(n, doc_dct_lst, params=None):
 	
-	print('\nget_top_ngram():')
 	np.set_printoptions(threshold=np.inf, linewidth=120)
 
 	if( params is None or isinstance(params, dict) == False ):
@@ -988,12 +966,18 @@ def get_top_ngrams(n, doc_dct_lst, params=None):
 
 	params = get_default_args(params)
 	
+	params.setdefault('log_dets', {'level': logging.CRITICAL})
+	set_logger_dets( params['log_dets'] )
+
 	params['add_stopwords'] = get_user_stopwords( params['add_stopwords'] ) 
 	params.setdefault('binary_tf_flag', True)#Multiple occurrence of term T in a document counts as 1, TF = total number of times term appears in collection
 	params['stanford_corenlp_server'] = nlpIsServerOn()
 
+	logger.info('\nget_top_ngram():')
 	if( params['stanford_corenlp_server'] == False ):
-		print('\n\tAttempting to start Stanford CoreNLP Server (we need it to segment sentences)\n')
+		
+		logger.info('\n\tAttempting to start Stanford CoreNLP Server (we need it to segment sentences)\n')
+		
 		nlpServerStartStop('start')
 		params['stanford_corenlp_server'] = nlpIsServerOn()
 	
@@ -1020,8 +1004,8 @@ def get_top_ngrams(n, doc_dct_lst, params=None):
 		del doc_dct_lst[i]['text'] 
 
 	multi_word_proper_nouns = rank_proper_nouns(multi_word_proper_nouns)
-	print('\tdone adding sentences')
-	print('\tshift:', params['shift'])
+	logger.info('\tdone adding sentences')
+	logger.info('\tshift: ' + str(params['shift']))
 		
 	top_ngrams = extract_top_ngrams(doc_lst, doc_dct_lst, n, params)
 
@@ -1041,11 +1025,12 @@ def get_top_ngrams(n, doc_dct_lst, params=None):
 	if( shift_factor >= len(top_ngrams) ):
 		shift_factor = 0
 
-	print('\ttop_ngrams.len:', len(top_ngrams))
+	logger.info('\ttop_ngrams.len: ' + str(len(top_ngrams)))
 	if( shift_factor > 0 ):
+		
 		params['top_ngram_shift_factor'] = shift_factor
 		top_ngrams = top_ngrams[shift_factor:]
-		print('\ttop_ngrams.post shift len:', len(top_ngrams))
+		logger.info('\ttop_ngrams.post shift len: ' + str(len(top_ngrams)))
 
 
 	doc_count = len(doc_dct_lst)
@@ -1063,8 +1048,8 @@ def get_top_ngrams(n, doc_dct_lst, params=None):
 	params['tf_normalizing_divisor'] = N
 	report = { 'n': n, 'top_ngram_count': params['top_ngram_count']}
 
-	print('\tdoc_lst.len:', doc_count)
-	print('\ntop ngrams before finding multi-word proper nouns:')
+	logger.info('\tdoc_lst.len:' + str(doc_count))
+	logger.info('\ntop ngrams before finding multi-word proper nouns:')
 	print_top_ngrams( n, top_ngrams, params['top_ngram_count'], params=params )
 	
 	if( params['no_pos_glue_split_ngrams'] == False ):
@@ -1074,11 +1059,11 @@ def get_top_ngrams(n, doc_dct_lst, params=None):
 	if( params['no_mvg_window_glue_split_ngrams'] == False ):
 		mvg_window_glue_split_ngrams( top_ngrams, params['top_ngram_count'] * 2, all_doc_sentences, params=params )
 	
-	print('\ntop ngrams after finding multi-word proper nouns:')
+	logger.info('\ntop ngrams after finding multi-word proper nouns:')
 	print_top_ngrams( n, top_ngrams, params['top_ngram_count'], params=params )
 	
 	top_ngrams = rm_subset_top_ngrams( top_ngrams, params['top_ngram_count'] * 2, params['rm_subset_top_ngrams_coeff'], params )
-	print('\ntop ngrams after removing subset phrases:')
+	logger.info('\ntop ngrams after removing subset phrases:')
 	print_top_ngrams( n, top_ngrams, params['top_ngram_count'], params=params )
 
 	top_ngrams = rm_empty_ngrams( top_ngrams, params['top_ngram_count'] * 2 )
@@ -1092,7 +1077,7 @@ def get_top_ngrams(n, doc_dct_lst, params=None):
 
 	
 	report['top_ngrams'] = top_ngrams[:params['top_ngram_count']]
-	print('\ntop ngrams after shifting empty slots:')
+	logger.info('\ntop ngrams after shifting empty slots:')
 	print_top_ngrams( n, top_ngrams, params['top_ngram_count'], params=params )
 
 	#fmt_report() need to be called last since it potentially could modify merged_ngrams
@@ -1101,7 +1086,7 @@ def get_top_ngrams(n, doc_dct_lst, params=None):
 	report['params']['collection_doc_count'] = doc_count
 
 	if( params['stanford_corenlp_server'] == False ):
-		print('\n\tStanford CoreNLP Server was OFF after an attempt to start it, so regex_get_sentences() was used to segment sentences.\n\tWe highly recommend you install and run it \n\t(see: https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html)\n\tbecause Stanford CoreNLP does a better job segmenting sentences than regex.\n')
+		logger.info('\n\tStanford CoreNLP Server was OFF after an attempt to start it, so regex_get_sentences() was used to segment sentences.\n\tWe highly recommend you install and run it \n\t(see: https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html)\n\tbecause Stanford CoreNLP does a better job segmenting sentences than regex.\n')
 
 	return report
 
@@ -1121,6 +1106,9 @@ def get_args():
 	parser.add_argument('--corenlp-max-sentence-words', help='Stanford CoreNLP maximum words per sentence', default=100)
 	parser.add_argument('--debug-verbose', help='Print statements needed for debugging purpose', action='store_true')
 	parser.add_argument('--include-postings', help='Include inverted index of term document mappings', action='store_true')#default is false except not included, in which case it's true
+	parser.add_argument('--log-file', help='Log output filename', default='')
+	parser.add_argument('--log-format', help='Log print format, see: https://docs.python.org/3/howto/logging-cookbook.html', default='')
+	parser.add_argument('--log-level', help='Log level from OPTIONS: {CRITICAL, ERROR, WARNING, INFO, DEBUG, NOTSET}', default='INFO')
 	parser.add_argument('--mvg-window-min-proper-noun-rate', help='Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram', type=float, default=0.5)
 	parser.add_argument('--ngram-printing-mw', help='Mininum width for printing ngrams', type=int, default=50)
 	parser.add_argument('--no-rank-docs', help='Do not rank documents flag (default is True)', action='store_true')
@@ -1159,13 +1147,90 @@ def proc_req(doc_lst, params):
 	report = get_top_ngrams(params['n'], doc_lst, params)
 	if( params['output'] is not None ):
 		dumpJsonToFile( params['output'], report, indentFlag=params['pretty_print'] )
+
+def set_logger_dets(logger_dets):
+
+	if( len(logger_dets) == 0 ):
+		return
+
+	if( 'level' in logger_dets ):
+		logger.setLevel( logger_dets['level'] )
+	else:
+		logger.setLevel( logging.INFO )
+
+	if( 'file' in logger_dets ):
+		logger_dets['file'] = logger_dets['file'].strip()
+		
+		if( logger_dets['file'] != '' ):
+			file_handler = logging.FileHandler( logger_dets['file'] )
+			proc_log_handler(file_handler, logger_dets)
+
+	proc_log_handler(console_handler, logger_dets)
 	
+def proc_log_handler(handler, logger_dets):
+	
+	if( handler is None ):
+		return
+		
+	if( 'level' in logger_dets ):
+		handler.setLevel( logger_dets['level'] )	
+		
+		if( logger_dets['level'] == logging.ERROR ):
+			formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s :\n%(message)s')
+			handler.setFormatter(formatter)
+
+	if( 'format' in logger_dets ):
+		
+		logger_dets['format'] = logger_dets['format'].strip()
+		if( logger_dets['format'] != '' ):
+			formatter = logging.Formatter( logger_dets['format'] )
+			handler.setFormatter(formatter)
+
+	logger.addHandler(handler)
+
+
+def set_log_defaults(params):
+	
+	params['log_dets'] = {}
+
+	if( params['log_level'] == '' ):
+		params['log_dets']['level'] = logging.INFO
+	else:
+		
+		log_levels = {
+			'CRITICAL': 50,
+			'ERROR': 40,
+			'WARNING': 30,
+			'INFO': 20,
+			'DEBUG': 10,
+			'NOTSET': 0
+		}
+
+		params['log_level'] = params['log_level'].strip().upper()
+
+		if( params['log_level'] in log_levels ):
+			params['log_dets']['level'] = log_levels[ params['log_level'] ]
+		else:
+			params['log_dets']['level'] = logging.INFO
+	
+	params['log_format'] = params['log_format'].strip()
+	params['log_file'] = params['log_file'].strip()
+
+	if( params['log_format'] != '' ):
+		params['log_dets']['format'] = params['log_format']
+
+	if( params['log_file'] != '' ):
+		params['log_dets']['file'] = params['log_file']
+
+
 def main():
 	parser = get_args()
 
 	args = parser.parse_args()
 	params = vars(args)
 	
+	set_log_defaults(params)
+
 	doc_lst = getText(args.path)
 	proc_req(doc_lst, params)
 
