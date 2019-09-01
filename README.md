@@ -141,7 +141,7 @@ Options:
 --include-postings=False                  Include inverted index of term document mappings
 --log-file                                Log output filename
 --log-format                              Log print format, see: https://docs.python.org/3/howto/logging-cookbook.html
---log-level=INFO                          Log level from OPTIONS: {CRITICAL, ERROR, WARNING, INFO, DEBUG, NOTSET}
+--log-level=info                          Log level from OPTIONS: {critical, error, warning, info, debug, notset}
 --mvg-window-min-proper-noun-rate=0.5     Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram
 --ngram-printing-mw=50                    Mininum width for printing ngrams
 --no-rank-docs=False                      Do not rank documents flag

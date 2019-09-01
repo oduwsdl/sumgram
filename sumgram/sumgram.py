@@ -208,8 +208,7 @@ def get_ranked_docs(ngram_lst, doc_dct_lst):
 			ranked_docs.setdefault( doc_indx, {'score': 0, 'doc_id': doc_dct_lst[doc_indx]['doc_id'], 'doc_details': fmt_posting( doc_dct_lst[doc_indx] )} )
 			ranked_docs[doc_indx]['score'] += (N - i)
 
-	ranked_docs = sortDctByKey(ranked_docs, 'score')
-	return ranked_docs
+	return sortDctByKey(ranked_docs, 'score')
 
 def rank_sents_frm_top_ranked_docs(ngram_sentences, ranked_docs, all_doc_sentences, extra_params=None):
 
@@ -859,6 +858,18 @@ def print_top_ngrams(n, top_ngrams, top_ngram_count, params=None):
 		logger.info( "{:^6} {:<{mw}} {:^6} {:^6}".format(i+1, ngram_txt, ngram['term_freq'], "{:.2f}".format(ngram['term_rate']), mw=mw) )
 	logger.info('')
 
+def print_top_doc_sent(report):
+
+	if( 'ranked_docs' in report ):
+		if( len(report['ranked_docs']) != 0 ):
+			logger.info('\nTop ranked document index: ' + str(report['ranked_docs'][0]['doc_id']))
+
+
+	if( 'ranked_sentences' in report ):
+		if( len(report['ranked_sentences']) != 0 ):
+			logger.info('\nTop ranked sentence: ' + str(report['ranked_sentences'][0]['sentence']) )
+
+
 def extract_top_ngrams(doc_lst, doc_dct_lst, n, params):
 
 	logger.info('\nextract_top_ngrams(): token_pattern: ' + params['token_pattern'])
@@ -1075,10 +1086,13 @@ def get_top_ngrams(doc_dct_lst, n=2, params=None):
 			ngram_sentences = combine_ngrams( top_ngrams[:params['top_ngram_count']] )
 			report['ranked_sentences'] = rank_sents_frm_top_ranked_docs( ngram_sentences, report['ranked_docs'], all_doc_sentences, params )
 
+		#remove doc_indx
+		report['ranked_docs'] = [d[1] for d in report['ranked_docs']]
 	
 	report['top_ngrams'] = top_ngrams[:params['top_ngram_count']]
 	logger.info('\ntop ngrams after shifting empty slots:')
 	print_top_ngrams( n, top_ngrams, params['top_ngram_count'], params=params )
+	print_top_doc_sent( report )
 
 	#fmt_report() need to be called last since it potentially could modify merged_ngrams
 	fmt_report( report['top_ngrams'], params )
@@ -1107,7 +1121,7 @@ def get_args():
 	parser.add_argument('--include-postings', help='Include inverted index of term document mappings', action='store_true')#default is false except not included, in which case it's true
 	parser.add_argument('--log-file', help='Log output filename', default='')
 	parser.add_argument('--log-format', help='Log print format, see: https://docs.python.org/3/howto/logging-cookbook.html', default='')
-	parser.add_argument('--log-level', help='Log level from OPTIONS: {CRITICAL, ERROR, WARNING, INFO, DEBUG, NOTSET}', default='INFO')
+	parser.add_argument('--log-level', help='Log level from OPTIONS: {critical, error, warning, info, debug, notset}', default='info')
 	parser.add_argument('--mvg-window-min-proper-noun-rate', help='Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram', type=float, default=0.5)
 	parser.add_argument('--ngram-printing-mw', help='Mininum width for printing ngrams', type=int, default=50)
 	parser.add_argument('--no-rank-docs', help='Do not rank documents flag (default is False)', action='store_true')
