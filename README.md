@@ -1,6 +1,6 @@
 # sumgram
 
-sumgram is a tool that summarizes a collection of text documents by generating the most frequent sumgrams (multiple ngrams) in the collection. Unlike convention ngram generators that split multi-word proper nouns, sumgram works hard to avoid this by applying two (`pos_glue_split_ngrams` and `mvg_window_glue_split_ngrams`) algorithms. The algorithms also enable sumgram to generate multiple ngrams, or "sumgrams" (bigrams, trigrams, k-grams, etc.) as part of the summary, instead of limiting the summary to a single ngram class (e.g., bigrams).
+sumgram is a tool that summarizes a collection of text documents by generating the most frequent sumgrams (multiple ngrams) in the collection. Unlike convention ngram generators that split multi-word proper nouns, sumgram works hard to avoid this by applying two ([`pos_glue_split_ngrams`](#pos_glue_split_ngrams) and `mvg_window_glue_split_ngrams`) algorithms. The algorithms also enable sumgram to generate multiple ngrams, or "sumgrams" (bigrams, trigrams, k-grams, etc.) as part of the summary, instead of limiting the summary to a single ngram class (e.g., bigrams).
 
 From Fig. 1, the 4-gram "centers for disease control and prevention" was split into 3 different  bigrams ("centers disease", "disease control", and "control prevention") by a conventional algorithm that generates bigrams. But sumgram detected and "glued" such split ngrams.
 
@@ -156,3 +156,5 @@ Options:
 --token-pattern                           Regex string that specifies tokens for document tokenization. Default = '\b[a-zA-Z\'\’-]+[a-zA-Z]+\b|\d+[.,]?\d*'
 --title                                   Text label to be used as a heading when printing top ngrams
 ```
+
+## pos_glue_split_ngrams
