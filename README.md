@@ -176,9 +176,11 @@ The `pos_glue_split_ngrams` process is outlined as follows:
   IN: Preposition or subordinating conjunction
   ```
   According to `pos_glue_split_ngrams`, the following ngram sequences are MWPNs:
+
   `"Hurricane harvey"` (NNP NNP)
   `"Centers for Disease Control"` (NNP IN NNP NNP)
   `"Federal Emergency Management Agency"` (NNP NNP NNP NNP)
+
 * Let TF_C = Term Frequency of fragment child ngram (e.g., `emergency management`). Let TF_P = Term Frequency of MWPN (e.g., `federal emergency management agency`). `pos_glue_split_ngrams` replaces a fragment child ngram with parent MWPN, if `TF_P > TF_C / pos_glue_split_ngrams_coeff`. The restriction is done in order to avoid replacing a high-quality fragment child ngram with poor-quality MWPN
 
 ## mvg_window_glue_split_ngrams
