@@ -1,6 +1,6 @@
 # sumgram
 
-sumgram is a tool that summarizes a collection of text documents by generating the most frequent sumgrams (multiple ngrams) in the collection. Unlike convention ngram generators that split multi-word proper nouns, sumgram works hard to avoid this by applying two ([`pos_glue_split_ngrams`](#pos_glue_split_ngrams) and `mvg_window_glue_split_ngrams`) algorithms. The algorithms also enable sumgram to generate multiple ngrams, or "sumgrams" (bigrams, trigrams, k-grams, etc.) as part of the summary, instead of limiting the summary to a single ngram class (e.g., bigrams).
+sumgram is a tool that summarizes a collection of text documents by generating the most frequent sumgrams (multiple ngrams) in the collection. Unlike convention ngram generators that split multi-word proper nouns, sumgram works hard to avoid this by applying two ([`pos_glue_split_ngrams`](#pos_glue_split_ngrams) and [`mvg_window_glue_split_ngrams`](#mvg_window_glue_split_ngrams)) algorithms. The algorithms also enable sumgram to generate multiple ngrams, or "sumgrams" (bigrams, trigrams, k-grams, etc.) as part of the summary, instead of limiting the summary to a single ngram class (e.g., bigrams).
 
 From Fig. 1, the 4-gram "centers for disease control and prevention" was split into 3 different  bigrams ("centers disease", "disease control", and "control prevention") by a conventional algorithm that generates bigrams. But sumgram detected and "glued" such split ngrams.
 
@@ -157,4 +157,28 @@ Options:
 --title                                   Text label to be used as a heading when printing top ngrams
 ```
 
+### Algorithms for detecting and gluing split Multi-Word Proper Noun (MWPN) ngrams
+
 ## pos_glue_split_ngrams
+
+This algorithm is the first measure to merge split multi-word ngrams. For example, the fragment ngram 
+`emergency management` 
+was split (base ngram = 2) from its parent MWPN:
+`federal emergency management agency`. 
+
+The `pos_glue_split_ngrams` process is outlined as follows:
+* All tokens in all the sentences are labeled with their respective Parts of Speech (POS) with Stanford CoreNLP's POS annotator.
+* WMPNs are identified by this rule: a WMPN is a `contiguous sequence of NNP` or `a contiguous sequence of NNP interleaved with CC or IN`. For example, given the follow [POS label descriptions](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html)
+  ```
+  NNP: Proper Noun Singular
+  NNPS: Proper Noun plural
+  CC: Coordinating conjunction
+  IN: Preposition or subordinating conjunction
+  ```
+  According to `pos_glue_split_ngrams`, the following ngram sequences are MWPNs:
+  `"Hurricane harvey"` (NNP NNP)
+  `"Centers for Disease Control"` (NNP IN NNP NNP)
+  `"Federal Emergency Management Agency"` (NNP NNP NNP NNP)
+* Let TF_C = Term Frequency of fragment child ngram (e.g., `emergency management`). Let TF_P = Term Frequency of MWPN (e.g., `federal emergency management agency`). `pos_glue_split_ngrams` replaces a fragment child ngram with parent MWPN, if `TF_P > TF_C / pos_glue_split_ngrams_coeff`. The restriction is done in order to avoid replacing a high-quality fragment child ngram with poor-quality MWPN
+
+## mvg_window_glue_split_ngrams
