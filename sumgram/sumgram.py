@@ -105,21 +105,32 @@ def get_docs_sentence_score(ngram_sentences, sentences, doc_indx, doc_id, params
 		if( sentence == '' ):
 			continue
 
-		#ensure the splitting pattern corresponds to that used for ngrams
-		sent_set = set( re.findall(params['token_pattern'], sentence.lower()) )
-		ov = calc_avg_sentence_overlap( ngram_sentences, sent_set )
+		if( 'avg_overlap' in sentences[i] ):
+			#used to avoid calculating overlap for bad (sentences that are too long and could not be split by ssplit or regex) sentences
+			ov = sentences[i]['avg_overlap']
+		else:
+			#ensure the splitting pattern corresponds to that used for ngrams
+			sent_set = set( re.findall(params['token_pattern'], sentence.lower()) )
+			ov = calc_avg_sentence_overlap( ngram_sentences, sent_set )
 		
-		sentences_lst.append({
+		sent = {
 			'avg_overlap': ov,
 			'sentence': sentence,
 			'doc_indx': doc_indx,
 			'doc_id': doc_id,
 			'sent_indx': i
-		})
+		}
+
+		for key, val in sentences[i].items():
+			if( key == 'sentence' ):
+				continue
+			sent[key] = val
+
+		sentences_lst.append(sent)
 	
 	return sentences_lst
 
-def extract_doc_sentences(text, sentence_tokenizer, dedup_set, multi_word_proper_nouns, params=None):
+def extract_doc_sentences(text, sent_tokenizer_pattern, dedup_set, multi_word_proper_nouns, params=None):
 
 	if( text == '' ):
 		return []
@@ -132,7 +143,7 @@ def extract_doc_sentences(text, sentence_tokenizer, dedup_set, multi_word_proper
 
 	filtered_sentences = []
 
-	if( params['stanford_corenlp_server'] ):
+	if( params['stanford_corenlp_server'] and params['sentence_tokenizer'] == 'ssplit' ):
 		doc = nlpSentenceAnnotate(text.replace('\n', ' '), host=params['corenlp_host'], port=params['corenlp_port'])
 	else:
 		doc = {}
@@ -155,22 +166,22 @@ def extract_doc_sentences(text, sentence_tokenizer, dedup_set, multi_word_proper
 				
 				if( tok_len > params['corenlp_max_sentence_words'] ):
 					#this sentence is too long so force split 
-					filtered_sentences += regex_get_sentences(sent['sentence'], sentence_tokenizer, dedup_set)
+					filtered_sentences += regex_get_sentences(sent['sentence'], sent_tokenizer_pattern, dedup_set, params['corenlp_max_sentence_words'])
 				else:
-					filtered_sentences.append({ 'sentence': sentence, 'tok_len': tok_len })
+					filtered_sentences.append({ 'sentence': sentence, 'segmenter': 'ssplit' })
 
 	#if corenlp sentence segmentation is not used, use regex sentence segmentation
 	if( len(filtered_sentences) == 0 ):
-		filtered_sentences = regex_get_sentences(text, sentence_tokenizer, dedup_set)
+		filtered_sentences = regex_get_sentences(text, sent_tokenizer_pattern, dedup_set, params['corenlp_max_sentence_words'])
 
 	return filtered_sentences
 
-def regex_get_sentences(text, sentence_tokenizer, dedup_set):
+def regex_get_sentences(text, sent_tokenizer_pattern, dedup_set, corenlp_max_sentence_words):
 
 	if( text == '' ):
 		return []
 
-	sentences = re.split(sentence_tokenizer, text)
+	sentences = re.split(sent_tokenizer_pattern, text)
 	filtered_sentences = []
 
 	for sentence in sentences:
@@ -184,7 +195,12 @@ def regex_get_sentences(text, sentence_tokenizer, dedup_set):
 			continue
 	
 		dedup_set.add(lowercase_sent)
-		filtered_sentences.append({ 'sentence': sentence })
+		sent = { 'sentence': sentence, 'segmenter': sent_tokenizer_pattern }
+
+		if( len(sentence.split(' ')) > corenlp_max_sentence_words ):
+			sent['avg_overlap'] = -1
+
+		filtered_sentences.append(sent)
 
 	return filtered_sentences
 
@@ -720,7 +736,8 @@ def mvg_window_glue_split_ngrams(top_ngrams, k, all_doc_sentences, params=None):
 			top_ngrams[i].setdefault('ngram_history', [])
 			top_ngrams[i]['ngram_history'].append(new_ngram_dct)
 
-		top_ngrams[i]['parent_sentences'] = phrase_cands_minus_toks
+		if( params['no_parent_sentences'] == False ):
+			top_ngrams[i]['parent_sentences'] = phrase_cands_minus_toks
 			
 		logger.debug('*' * 200)
 		logger.debug('*' * 200)
@@ -998,6 +1015,7 @@ def get_top_ngrams(doc_dct_lst, n=2, params=None):
 	all_doc_sentences = {}
 	multi_word_proper_nouns = {}
 	dedup_set = set()
+	logger.info('\tsentence segmentation - start')
 	for i in range(len(doc_dct_lst)):
 		
 		doc_dct_lst[i].setdefault('doc_id', i)
@@ -1006,7 +1024,7 @@ def get_top_ngrams(doc_dct_lst, n=2, params=None):
 		#placing sentences inside doc_dct_lst[i] accounted for more runtime overhead
 		all_doc_sentences[i] = extract_doc_sentences( 
 			doc_dct_lst[i]['text'], 
-			params['sentence_tokenizer'], 
+			params['sentence_pattern'], 
 			dedup_set, 
 			multi_word_proper_nouns, 
 			params=params
@@ -1015,7 +1033,7 @@ def get_top_ngrams(doc_dct_lst, n=2, params=None):
 		del doc_dct_lst[i]['text'] 
 
 	multi_word_proper_nouns = rank_proper_nouns(multi_word_proper_nouns)
-	logger.info('\tdone adding sentences')
+	logger.info('\tsentence segmentation - end')
 	logger.info('\tshift: ' + str(params['shift']))
 		
 	top_ngrams = extract_top_ngrams(doc_lst, doc_dct_lst, n, params)
@@ -1092,7 +1110,7 @@ def get_top_ngrams(doc_dct_lst, n=2, params=None):
 	report['top_ngrams'] = top_ngrams[:params['top_ngram_count']]
 	logger.info('\ntop ngrams after shifting empty slots:')
 	print_top_ngrams( n, top_ngrams, params['top_ngram_count'], params=params )
-	print_top_doc_sent( report )
+	
 
 	#fmt_report() need to be called last since it potentially could modify merged_ngrams
 	fmt_report( report['top_ngrams'], params )
@@ -1119,22 +1137,26 @@ def get_args():
 	parser.add_argument('--corenlp-port', help='Stanford CoreNLP Server port (needed for decent sentence tokenizer)', default='9000')
 	parser.add_argument('--corenlp-max-sentence-words', help='Stanford CoreNLP maximum words per sentence', default=100)
 	parser.add_argument('--include-postings', help='Include inverted index of term document mappings', action='store_true')#default is false except not included, in which case it's true
+	
 	parser.add_argument('--log-file', help='Log output filename', default='')
 	parser.add_argument('--log-format', help='Log print format, see: https://docs.python.org/3/howto/logging-cookbook.html', default='')
-	parser.add_argument('--log-level', help='Log level from OPTIONS: {critical, error, warning, info, debug, notset}', default='info')
+	parser.add_argument('--log-level', help='Log level', choices=['critical', 'error', 'warning', 'info', 'debug', 'notset'], default='info')
+	
 	parser.add_argument('--mvg-window-min-proper-noun-rate', help='Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram', type=float, default=0.5)
 	parser.add_argument('--ngram-printing-mw', help='Mininum width for printing ngrams', type=int, default=50)
-	parser.add_argument('--no-rank-docs', help='Do not rank documents flag (default is False)', action='store_true')
-	parser.add_argument('--no-rank-sentences', help='Do not rank sentences flag (default is False)', action='store_true')
 	
+	parser.add_argument('--no-mvg-window-glue-split-ngrams', help='Do not glue split top ngrams with Moving Window method (default is False)', action='store_true')
+	parser.add_argument('--no-parent-sentences', help='Do not include sentences that mention top ngrams in top ngrams payload (default is False)', action='store_true')
 	parser.add_argument('--no-pos-glue-split-ngrams', help='Do not glue split top ngrams with POS method (default is False)', action='store_true')
-	parser.add_argument('--no-mvg-window-glue-split-ngrams', help='Do not glue split top ngrams with MOVING WINDOW method (default is False)', action='store_true')
+	parser.add_argument('--no-rank-sentences', help='Do not rank sentences flag (default is False)', action='store_true')
+	parser.add_argument('--no-rank-docs', help='Do not rank documents flag (default is False)', action='store_true')
 
 	parser.add_argument('--pos-glue-split-ngrams-coeff', help='Coeff for permitting matched ngram replacement. Interpreted as 1/coeff', type=int, default=2)
 	parser.add_argument('--pretty-print', help='Pretty print JSON output', action='store_true')
 	parser.add_argument('--rm-subset-top-ngrams-coeff', help='Coeff. for permitting matched ngram replacement. Interpreted as 1/coeff', type=int, default=2)
 	
-	parser.add_argument('--sentence-tokenizer', help='For sentence ranking: Regex string that specifies tokens for sentence tokenization', default='[.?!][ \n]|\n+')
+	parser.add_argument('--sentence-pattern', help='For sentence ranking: Regex string that specifies tokens for sentence tokenization', default='[.?!][ \n]|\n+')
+	parser.add_argument('--sentence-tokenizer', help='For sentence ranking: Method for segmenting sentences', choices=['ssplit', 'regex'], default='ssplit')
 	parser.add_argument('--shift', help='Factor to shift top ngram calculation', type=int, default=0)
 	parser.add_argument('--token-pattern', help='Regex string that specifies tokens for document tokenization', default=r'(?u)\b[a-zA-Z\'\’-]+[a-zA-Z]+\b|\d+[.,]?\d*')
 	parser.add_argument('--title', help='Text label to be used as a heading when printing top ngrams', default='')
@@ -1246,7 +1268,6 @@ def main():
 
 	doc_lst = getText(args.path)
 	proc_req(doc_lst, params)
-
 
 if __name__ == 'sumgram.sumgram':
 	from sumgram.util import dumpJsonToFile

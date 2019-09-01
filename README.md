@@ -21,18 +21,34 @@ OR
 $ git clone https://github.com/oduwsdl/sumgram.git
 $ cd sumgram; pip install .; cd ..; rm -rf sumgram;
 ```
-## Recommended Requirement
+## Recommended Requirement and Performance Considerations
+### Recommended Requirement
 For the best results, we recommend [installing and running Stanford CoreNLP Server](https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html) for two reasons.
 First, the "pos" in `pos_glue_split_ngrams` stands for Parts Of Speech. This algorithm needs a Part of Speech annotator in order to "glue" split ngrams, hence the need for Stanford CoreNLP server. However, if you do not install Stanford CoreNLP Server, sumgram is robust enough to attempt to glue split ngrams with the second algorithm `mvg_window_glue_split_ngrams`. 
 
-Second, as part of ranking sentences, sumgram needs to segment the sentences in the documents. Stanford CoreNLP's [`ssplit`](https://stanfordnlp.github.io/CoreNLP/ssplit.html) annotator splits sentences after tokenization, and exploits the decisions of the tokenizer. Probabilitic methods (such as `ssplit`) for segmenting sentences are often outperform rule-based methods that use regular expressions to define sentece boundaries. If you do not install Stanford CoreNLP however, sumgram adopt a regular expression (`[.?!][ \n]|\n+`) to mark sentence boudaries. This rule can be passed (```--sentence-tokenizer``` - command line, ```sentence_tokenizer``` - python) as an argument to sumgram.
+Second, as part of ranking sentences, sumgram needs to segment the sentences in the documents. Stanford CoreNLP's [`ssplit`](https://stanfordnlp.github.io/CoreNLP/ssplit.html) annotator splits sentences after tokenization, and exploits the decisions of the tokenizer. Probabilitic methods (such as `ssplit`) for segmenting sentences often outperform rule-based methods that use regular expressions to define sentence boundaries. If you do not install Stanford CoreNLP however, sumgram will adopt a regular expression (`[.?!][ \n]|\n+`) to mark sentence boundaries. This rule can be passed (```--sentence-pattern``` - command line, ```sentence_tokenizer``` - python) as an argument to sumgram.
+
+### Performance Considerations
+`pos_glue_split_ngrams` imposes additional runtime overhead on sumgram. You may choose to force sumgram to avoid using the ssplit annotator (implicitly switching off `pos_glue_split_ngrams`) by setting `--sentence-tokenizer=regex`. Please note that the command line argument `--no-pos-glue-split-ngrams` does not switch off Stanford CoreNLP's ssplit, it merely avoids the use of the `pos_glue_split_ngrams`.
+
+By default --no-parent-sentences is OFF, this means that the sentences that mention the top sumgrams are included in the final dictionary output of sumgram (output of get_top_ngrams()), thus increasing the size of the output. To avoid this, include the `--no-parent-sentences` option.
 
 ## Usage
 ### Basic usage:
 ```
 $ sumgram path/to/collection/of/text/files/
 ```
-### python script usage:
+### Python script usage:
+[Command line options](#full-usage) may be activated by setting the argument in the `params` dictionary passed as an argument to `get_top_ngrams()`. To set a single or multi-character command line argument, follow the following transformation example:
+
+```
+params = {}
+params['n'] = 2                      #For command line argument -n
+params['output'] = 'sumgrams.json'   #For command line argument --output
+params['sentences_rank_count'] = 20  #For command line argument --sentences-rank-count
+```
+
+Following is an example Python script usage of sumgram done by calling the `get_top_ngrams()` function.
 ```
 import json
 from sumgram.sumgram import get_top_ngrams
@@ -144,14 +160,17 @@ Options:
 --log-level=info                          Log level from OPTIONS: {critical, error, warning, info, debug, notset}
 --mvg-window-min-proper-noun-rate=0.5     Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram
 --ngram-printing-mw=50                    Mininum width for printing ngrams
+
+--no-mvg-window-glue-split-ngrams=False   Do not glue split top ngrams with MOVING WINDOW method (default is True)
+--no-parent-sentences                     Do not include sentences that mention top ngrams in top ngrams payload (default is False)
+--no-pos-glue-split-ngrams=False          Do not glue split top ngrams with POS method (default is True)
 --no-rank-docs=False                      Do not rank documents flag
 --no-rank-sentences=False                 Do not rank sentences flag
---no-pos-glue-split-ngrams=False          Do not glue split top ngrams with POS method (default is True)
---no-mvg-window-glue-split-ngrams=False   Do not glue split top ngrams with MOVING WINDOW method (default is True)
+
 --pos-glue-split-ngrams-coeff=2           Coeff. for permitting matched ngram replacement. Interpreted as 1/coeff, e.g., 1/2
 --pretty-print=False                      Pretty print JSON output
 --rm-subset-top-ngrams-coeff=2            Coeff. for permitting matched ngram replacement. Interpreted as 1/coeff, e.g., 1/2
---sentence-tokenizer='[.?!][ \n]|\n+'     For sentence ranking: Regex string that specifies tokens for sentence tokenization
+--sentence-pattern='[.?!][ \n]|\n+'     For sentence ranking: Regex string that specifies tokens for sentence tokenization
 --shift=0                                 Factor to shift top ngram calculation
 --token-pattern                           Regex string that specifies tokens for document tokenization. Default = '\b[a-zA-Z\'\’-]+[a-zA-Z]+\b|\d+[.,]?\d*'
 --title                                   Text label to be used as a heading when printing top ngrams
