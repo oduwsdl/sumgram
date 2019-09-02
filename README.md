@@ -178,13 +178,15 @@ Options:
 --corenlp-port=9000                       Stanford CoreNLP Server port (needed for decent sentence tokenizer)
 --corenlp-max-sentence-words=100          Stanford CoreNLP maximum words per sentence
 --include-postings=False                  Include inverted index of term document mappings
+
 --log-file                                Log output filename
 --log-format                              Log print format, see: https://docs.python.org/3/howto/logging-cookbook.html
 --log-level=info                          Log level from OPTIONS: {critical, error, warning, info, debug, notset}
+
 --mvg-window-min-proper-noun-rate=0.5     Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram
 --ngram-printing-mw=50                    Mininum width for printing ngrams
 
---no-mvg-window-glue-split-ngrams=False   Do not glue split top ngrams with MOVING WINDOW method (default is True)
+--no-mvg-window-glue-split-ngrams=False   Do not glue split top ngrams with Moving Window method (default is False)
 --no-parent-sentences                     Do not include sentences that mention top ngrams in top ngrams payload (default is False)
 --no-pos-glue-split-ngrams=False          Do not glue split top ngrams with POS method (default is True)
 --no-rank-docs=False                      Do not rank documents flag
@@ -193,7 +195,9 @@ Options:
 --pos-glue-split-ngrams-coeff=2           Coeff. for permitting matched ngram replacement. Interpreted as 1/coeff, e.g., 1/2
 --pretty-print=False                      Pretty print JSON output
 --rm-subset-top-ngrams-coeff=2            Coeff. for permitting matched ngram replacement. Interpreted as 1/coeff, e.g., 1/2
+
 --sentence-pattern='[.?!][ \n]|\n+'       For sentence ranking: Regex string that specifies tokens for sentence tokenization
+--sentence-tokenizer=ssplit               For sentence ranking: Method for segmenting sentences, options: {ssplit, regex}
 --shift=0                                 Factor to shift top ngram calculation
 --token-pattern                           Regex string that specifies tokens for document tokenization. Default = '\b[a-zA-Z\'\’-]+[a-zA-Z]+\b|\d+[.,]?\d*'
 --title                                   Text label to be used as a heading when printing top ngrams
