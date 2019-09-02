@@ -11,6 +11,12 @@ From Fig. 1, the 4-gram "centers for disease control and prevention" was split i
 ![hurricane harvey ngrams](pics/sumgrams_harvey.png)
 ## Additional Features
 In addition to generating top sumgrams, sumgram ranks sentences and documents.
+### Ranking documents (`--no-rank-sentences` to switch off)
+`get_ranked_docs()` ranks documents by giving credit to documents that have highly ranked terms in the ranked list of ngrams. A document's score is awarded by accumulating the points awarded by the position of terms in the ranked list of ngrams. Please note that documents without terms in ranked list of ngrams are not awarded points. Therefore, some documents may not be ranked because they performed poorly - did not have any term in the ranked list of ngrams.
+
+### Ranking sentences (`--no-rank-docs` to switch off)
+`rank_sents_frm_top_ranked_docs()` ranks sentences in the top ranked documents exclusively, and gives credit to sentences with a high average overlap between the sentence tokens and the tokens in the top ngrams. For all sentences in a top ranked documents, a sentence's score (average overlap) is measured by calculating the average overlap between the terms in the top ngrams and the given sentence. This accounts for how many different tokens in the top ngrams that are present in a sentence.
+
 ## Installation
 Just type
 ```
@@ -26,12 +32,12 @@ $ cd sumgram; pip install .; cd ..; rm -rf sumgram;
 For the best results, we recommend [installing and running Stanford CoreNLP Server](https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html) for two reasons.
 First, the "pos" in `pos_glue_split_ngrams` stands for Parts Of Speech. This algorithm needs a Part of Speech annotator in order to "glue" split ngrams, hence the need for Stanford CoreNLP server. However, if you do not install Stanford CoreNLP Server, sumgram is robust enough to attempt to glue split ngrams with the second algorithm `mvg_window_glue_split_ngrams`. 
 
-Second, as part of ranking sentences, sumgram needs to segment the sentences in the documents. Stanford CoreNLP's [`ssplit`](https://stanfordnlp.github.io/CoreNLP/ssplit.html) annotator splits sentences after tokenization, and exploits the decisions of the tokenizer. Probabilitic methods (such as `ssplit`) for segmenting sentences often outperform rule-based methods that use regular expressions to define sentence boundaries. If you do not install Stanford CoreNLP however, sumgram will adopt a regular expression (`[.?!][ \n]|\n+`) to mark sentence boundaries. This rule can be passed (```--sentence-pattern``` - command line, ```sentence_tokenizer``` - python) as an argument to sumgram.
+Second, as part of ranking sentences, sumgram needs to segment the sentences in the documents. Stanford CoreNLP's [`ssplit`](https://stanfordnlp.github.io/CoreNLP/ssplit.html) annotator splits sentences after tokenization, and exploits the decisions of the tokenizer. Probabilitic methods (such as `ssplit`) for segmenting sentences often outperform rule-based methods that use regular expressions to define sentence boundaries. If you do not install Stanford CoreNLP however, sumgram will adopt a regular expression (`[.?!][ \n]|\n+`) to mark sentence boundaries. This rule can be passed (```--sentence-pattern``` - command line, ```sentence_pattern``` - python) as an argument to sumgram.
 
 ### Performance Considerations
 `pos_glue_split_ngrams` imposes additional runtime overhead on sumgram. You may choose to force sumgram to avoid using the ssplit annotator (implicitly switching off `pos_glue_split_ngrams`) by setting `--sentence-tokenizer=regex`. Please note that the command line argument `--no-pos-glue-split-ngrams` does not switch off Stanford CoreNLP's ssplit, it merely avoids the use of the `pos_glue_split_ngrams`.
 
-By default --no-parent-sentences is OFF, this means that the sentences that mention the top sumgrams are included in the final dictionary output of sumgram (output of get_top_ngrams()), thus increasing the size of the output. To avoid this, include the `--no-parent-sentences` option.
+By default `--no-parent-sentences` is switched off, this means that the sentences that mention the top sumgrams are included in the final dictionary output of sumgram (output of `get_top_ngrams()`), thus increasing the size of the output. To avoid this, include the `--no-parent-sentences` option.
 
 ## Usage
 ### Basic usage:
@@ -39,7 +45,7 @@ By default --no-parent-sentences is OFF, this means that the sentences that ment
 $ sumgram path/to/collection/of/text/files/
 ```
 ### Python script usage:
-[Command line options](#full-usage) may be activated by setting the argument in the `params` dictionary passed as an argument to `get_top_ngrams()`. To set a single or multi-character command line argument, follow the following transformation example:
+[Command line options](#full-usage) may be activated by setting the argument in the `params` dictionary passed as an argument to `get_top_ngrams()`. To set a single or multi-character command line argument, consider the following transformation example:
 
 ```
 params = {}
@@ -48,7 +54,7 @@ params['output'] = 'sumgrams.json'   #For command line argument --output
 params['sentences_rank_count'] = 20  #For command line argument --sentences-rank-count
 ```
 
-Following is an example Python script usage of sumgram done by calling the `get_top_ngrams()` function.
+The following is an example Python script usage of sumgram done by calling the `get_top_ngrams()` function.
 ```
 import json
 from sumgram.sumgram import get_top_ngrams
@@ -105,6 +111,23 @@ This collection has lots of images, but the "image" term might obscure more sali
 rerun the command, but this time consider "image" a stopword. As seen below such modification exposed more salient bigrams such as "buffalo bayou" and "coast guard"
 
 ```
+$ sumgram -t 10 --add-stopwords="image" cols/harvey/
+ rank  ngram                                                TF   TF-Rate
+  1    hurricane harvey                                     20    0.47 
+  2    tropical storm harvey                                10    0.23 
+  3    2017 houston transtar inc.                           9     0.21 
+  4    2017. photo                                          9     0.21 
+  5    corpus christi                                       9     0.21 
+  6    texas photo                                          9     0.21 
+  7    27, 2017                                             8     0.19 
+  8    buffalo bayou                                        8     0.19 
+  9    coast guard                                          8     0.19 
+  10   harvey photo                                         8     0.19 
+``` 
+
+### Use application from Python Docker container to generate top 10 (t = 10) sumgrams for the [Archive-It Hurricane Harvey Collection](https://archive-it.org/collections/9323):
+```
+$ docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp --network=host python:3.7.3-stretch bash
 $ sumgram -t 10 --add-stopwords="image" cols/harvey/
  rank  ngram                                                TF   TF-Rate
   1    hurricane harvey                                     20    0.47 
