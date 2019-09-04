@@ -993,9 +993,6 @@ def get_top_ngrams(doc_dct_lst, n=2, params=None):
 		n = 1
 
 	params = get_default_args(params)
-	
-	params.setdefault('log_dets', {'level': logging.CRITICAL})
-	set_logger_dets( params['log_dets'] )
 
 	params['add_stopwords'] = get_user_stopwords( params['add_stopwords'] ) 
 	params.setdefault('binary_tf_flag', True)#Multiple occurrence of term T in a document counts as 1, TF = total number of times term appears in collection
@@ -1265,6 +1262,7 @@ def main():
 	params = vars(args)
 	
 	set_log_defaults(params)
+	set_logger_dets( params['log_dets'] )
 
 	doc_lst = getText(args.path)
 	proc_req(doc_lst, params)
