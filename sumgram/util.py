@@ -8,7 +8,7 @@ import sys
 from subprocess import check_output, CalledProcessError
 from multiprocessing import Pool
 
-logger = logging.getLogger('SumGram.sumgram')
+logger = logging.getLogger('sumGram.sumgram')
 
 def genericErrorInfo(slug=''):
 	exc_type, exc_obj, exc_tb = sys.exc_info()

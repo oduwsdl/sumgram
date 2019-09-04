@@ -8,10 +8,7 @@ import sys
 
 from sklearn.feature_extraction.text import CountVectorizer
 
-logger = logging.getLogger('SumGram.sumgram')
-file_handler = None
-console_handler = logging.StreamHandler()
-
+logger = logging.getLogger('sumGram.sumgram')
 
 def get_dual_stopwords(add_stopwords):
 	return add_stopwords | getStopwordsSet()
@@ -1184,6 +1181,8 @@ def set_logger_dets(logger_dets):
 
 	if( len(logger_dets) == 0 ):
 		return
+
+	console_handler = logging.StreamHandler()
 
 	if( 'level' in logger_dets ):
 		logger.setLevel( logger_dets['level'] )
