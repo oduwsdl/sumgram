@@ -6,6 +6,7 @@ import re
 import os
 import sys
 
+from datetime import datetime
 from sklearn.feature_extraction.text import CountVectorizer
 
 logger = logging.getLogger('sumGram.sumgram')
@@ -1069,7 +1070,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 		params['tf_label'] = 'Collection Term Frequency (1 term count per document)'
 
 	params['tf_normalizing_divisor'] = N
-	report = { 'n': n, 'top_sumgram_count': params['top_sumgram_count']}
+	report = { 'base_ngram': n, 'top_sumgram_count': params['top_sumgram_count']}
 
 	logger.info('\tdoc_lst.len:' + str(doc_count))
 	logger.info('\ntop ngrams before finding multi-word proper nouns:')
@@ -1107,10 +1108,11 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 	
 
 	#fmt_report() need to be called last since it potentially could modify merged_ngrams
+	report['created_at_utc'] = datetime.utcnow().isoformat().split('.')[0] + 'Z'
 	fmt_report( report['top_sumgrams'], params )
 	report['params'] = params
 	report['params']['collection_doc_count'] = doc_count
-
+	
 	if( params['stanford_corenlp_server'] == False ):
 		logger.info('\n\tStanford CoreNLP Server was OFF after an attempt to start it, so regex_get_sentences() was used to segment sentences.\n\tWe highly recommend you install and run it \n\t(see: https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html)\n\tbecause Stanford CoreNLP does a better job segmenting sentences than regex.\n')
 
@@ -1121,7 +1123,7 @@ def get_args():
 	parser = argparse.ArgumentParser()
 	parser.add_argument('path', help='Folder path containing input documents or path to single file')
 	
-	parser.add_argument('-n', help='The base n (integer) for generating top sumgrams, if n = 2, bigrams would be the base ngram', type=int, default=2)
+	parser.add_argument('-n', '--base-ngram', help='The base n (integer) for generating top sumgrams, if n = 2, bigrams would be the base ngram', type=int, default=2)
 	parser.add_argument('-o', '--output', help='Output file')
 	parser.add_argument('-s', '--sentences-rank-count', help='The count of top ranked sentences to generate', type=int, default=10)	
 	parser.add_argument('-t', '--top-sumgram-count', help='The count of top sumgrams to generate', type=int, default=10)
@@ -1173,7 +1175,7 @@ def get_default_args(user_params):
 
 
 def proc_req(doc_lst, params):
-	report = get_top_sumgrams(doc_lst, params['n'], params)
+	report = get_top_sumgrams(doc_lst, params['base_ngram'], params)
 	if( params['output'] is not None ):
 		dumpJsonToFile( params['output'], report, indentFlag=params['pretty_print'] )
 

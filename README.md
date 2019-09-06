@@ -165,7 +165,11 @@ with open('sumgrams.json', 'w') as outfile:
 ```
 
 ### Sumgrams output
-
+The output ([harvey_sumgrams.json](sumgrams/harvey_sumgrams.json)) generated from the following command
+```
+sumgram  -t 20 -o harvey_sumgrams.json --pretty-print cols/harvey/
+```
+is as follows:
 
 ### Full usage
 ```
