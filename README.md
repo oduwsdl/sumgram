@@ -12,10 +12,10 @@ From Fig. 1, the 4-gram "centers for disease control and prevention" was split i
 
 ## Additional Features
 In addition to generating top sumgrams, sumgram ranks sentences and documents.
-### Ranking documents (`--no-rank-sentences` to switch off)
+### Ranking documents (`--no-rank-docs` to switch off)
 `get_ranked_docs()` ranks documents by giving credit to documents that have highly ranked terms in the ranked list of ngrams. A document's score is awarded by accumulating the points awarded by the position of terms in the ranked list of ngrams. Please note that documents without terms in ranked list of ngrams are not awarded points. Therefore, some documents may not be ranked because they performed poorly - did not have any term in the ranked list of ngrams.
 
-### Ranking sentences (`--no-rank-docs` to switch off)
+### Ranking sentences (`--no-rank-sentences` to switch off)
 `rank_sents_frm_top_ranked_docs()` ranks sentences in the top ranked documents exclusively, and gives credit to sentences with a high average overlap between the sentence tokens and the tokens in the top ngrams. For all sentences in a top ranked documents, a sentence's score (average overlap) is measured by calculating the average overlap between the terms in the top ngrams and the given sentence. This accounts for how many different tokens in the top ngrams that are present in a sentence.
 
 ## Installation
@@ -164,12 +164,38 @@ with open('sumgrams.json', 'w') as outfile:
     json.dump(sumgrams, outfile)
 ```
 
-### Sumgrams output
-The output ([harvey_sumgrams.json](sumgrams/harvey_sumgrams.json)) generated from the following command
+### Sumgram output
+Highlights of selected fields in the output ([harvey_sumgrams.json](sumgrams/harvey_sumgrams.json)) generated from the following command.
 ```
-sumgram  -t 20 -o harvey_sumgrams.json --pretty-print cols/harvey/
+sumgram -t 20 -o harvey_sumgrams.json --pretty-print cols/harvey/
 ```
-is as follows:
+- **base_ngram** (int)
+- **top_sumgram_count** (int)
+- **ranked_docs** (optional, default ON) array[objects]): 
+    - (object)
+        - **score**: [Score assigned to document](#ranking-sentences---no-rank-docs-to-switch-off) (int)
+        - **doc_id**: auto-generated identifier for document (int)
+        - **doc_details** (object): user-supplied document details 
+- **ranked_sentences** (optional, default ON) (array[objects]): 
+    - (object)
+    - **avg_overlap** (float): Average overlap between sentence and all the different top sumgrams
+    - **sentence** (string)
+    - **doc_indx** (int): Integer position of document where sentence was extracted
+    - **doc_id** (int)
+    - **sent_indx** (int): Integer position of sentence within document sentence was extracted
+    - **segmenter** (string): Method (ssplit or regex) used for segmenting this sentence
+- **top_sumgrams**: array[objects])
+    - (object)
+    - **ngram** (string): ngram or sumgram (conjoined ngram)
+    - **term_freq** (int): The total number of times ngram occurs in the collection. Every ngram is counted once within a document if the collection contains multiple documents but not if the collection has a single document
+    - **term_rate** (int): `term_freq` as fraction of total collection
+    - **parent_sentences** array[objects]: sentences that mention `ngram` 
+    - **sumgram_history** array[objects]: historical information showing how `ngram` was was conjoined to form a sumgram 
+    - (object)
+        - **prev_ngram** (string): previous state of `ngram`
+        - **annotator** (string): annotator ([pos](#pos_glue_split_ngrams) or [mvg_window](#mvg_window_glue_split_ngrams)) responsible for conjoining ngrams to form sumgram
+        - **cur_ngram** (string): current state of `ngram`
+        - **proper_noun_rate** (float): fraction of `ngram` tokens that are labeled `NNP`
 
 ### Full usage
 ```
@@ -179,7 +205,7 @@ Options:
 -n=2                                      The base n (int) for generating top sumgrams, if n = 2, bigrams become the base ngram
 -o, --output                              Output file
 -s, --sentences-rank-count=10             The count of top ranked sentences to generate
--t, --top-ngram-count=10                  The count of top sumgrams to generate
+-t, --top-sumgram-count=10                  The count of top sumgrams to generate
 
 --add-stopwords                           Comma-separated list of addition stopwords
 --corenlp-host=localhost                  Stanford CoreNLP Server host (needed for decent sentence tokenizer)
