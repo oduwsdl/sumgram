@@ -168,7 +168,7 @@ with open('sumgrams.json', 'w') as outfile:
 sumgram [options] path/to/collection/of/text/files/
 
 Options:
--n=2                                      Base n (int) for generating top ngrams, if n = 2, bigrams are generated
+-n=2                                      The base n (int) for generating top sumgrams, if n = 2, bigrams become the base ngram
 -o, --output                              Output file
 -s, --sentences-rank-count=10             The count of top ranked sentences to generate
 -t, --top-ngram-count=10                  The count of top ngrams to generate
@@ -200,7 +200,7 @@ Options:
 --sentence-tokenizer=ssplit               For sentence ranking: Method for segmenting sentences, options: {ssplit, regex}
 --shift=0                                 Factor to shift top ngram calculation
 --token-pattern                           Regex string that specifies tokens for document tokenization. Default = '\b[a-zA-Z\'\’-]+[a-zA-Z]+\b|\d+[.,]?\d*'
---title                                   Text label to be used as a heading when printing top ngrams
+--title                                   Text label to be used as a heading when printing top sumgrams
 ```
 
 ### Algorithms for detecting and gluing split Multi-Word Proper Noun (MWPN) ngrams
