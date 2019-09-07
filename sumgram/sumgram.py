@@ -977,8 +977,6 @@ def get_user_stopwords(comma_sep_stopwords):
 	return set( [s.strip().lower() for s in add_stopwords] )
 
 def get_top_sumgrams(doc_dct_lst, n=2, params=None):
-	
-	np.set_printoptions(threshold=np.inf, linewidth=120)
 
 	if( params is None or isinstance(params, dict) == False ):
 		params = {}
@@ -1120,12 +1118,12 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 
 def get_args():
 
-	parser = argparse.ArgumentParser()
+	parser = argparse.ArgumentParser(formatter_class=lambda prog: argparse.HelpFormatter(prog, max_help_position=30))
 	parser.add_argument('path', help='Folder path containing input documents or path to single file')
 	
 	parser.add_argument('-n', '--base-ngram', help='The base n (integer) for generating top sumgrams, if n = 2, bigrams would be the base ngram', type=int, default=2)
 	parser.add_argument('-o', '--output', help='Output file')
-	parser.add_argument('-s', '--sentences-rank-count', help='The count of top ranked sentences to generate', type=int, default=10)	
+	parser.add_argument('-s', '--sentences-rank-count', help='The count of top ranked sentences to generate', type=int, default=10)
 	parser.add_argument('-t', '--top-sumgram-count', help='The count of top sumgrams to generate', type=int, default=10)
 	
 	parser.add_argument('--add-stopwords', help='Comma-separated list of additional stopwords', default='')
