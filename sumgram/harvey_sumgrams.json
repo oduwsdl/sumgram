@@ -1,0 +1,1840 @@
+{
+    "base_ngram": 2,
+    "top_sumgram_count": 20,
+    "ranked_docs": [
+        {
+            "score": 331,
+            "doc_id": 8,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/ffd7d9061ec48bb7b4247024b57d96aa.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 331,
+            "doc_id": 11,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/550ddaa908b70a73480e4e05a85b3b89.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 297,
+            "doc_id": 1,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/9b89dde57a4ed2556c016f9743061cc1.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 241,
+            "doc_id": 5,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/83c8ce633e9c9f5609f34fe3a71b2357.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 175,
+            "doc_id": 14,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/d9f68325eb99a5d0af37c296fdc28e15.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 169,
+            "doc_id": 13,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/b1b64037a381e7736b04fc334716d4a4.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 164,
+            "doc_id": 16,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/b91a475e9fb3313e0ea6820c5182f8c2.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 152,
+            "doc_id": 12,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/08803837d3fc3c13dd29d3181d7e9cb2.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 151,
+            "doc_id": 0,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/cce48972c398e326a65f9fccb26ab3c7.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 132,
+            "doc_id": 3,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/52464e2abedfcd87bb44bc45a759f7b1.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 129,
+            "doc_id": 10,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/d41e876f3a8f5dc0b637cddec4b818af.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 127,
+            "doc_id": 9,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/e5ce4291e5648920e917432c36aec2d5.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 98,
+            "doc_id": 15,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/8fda56f41641c03c99edb3d0027e3780.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 92,
+            "doc_id": 4,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/d1c88773a9c89a1770cff800b95a463d.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 84,
+            "doc_id": 6,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/1248608ce8fdbce4307caf4091615039.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 73,
+            "doc_id": 18,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/7efe16c1cc69fc558484f88054720ffe.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 66,
+            "doc_id": 7,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/16cc0f1c8be12a4f4d9afecce2b85d8c.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 58,
+            "doc_id": 19,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/0eb10401b99c42b8be9ef8e94ced6588.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 56,
+            "doc_id": 2,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/5c4cb811e4f8867e2f5506ecd38fcc95.txt"
+                    }
+                }
+            }
+        },
+        {
+            "score": 30,
+            "doc_id": 17,
+            "doc_details": {
+                "input": {
+                    "args": {
+                        "infilename": "/Users/AlexanderNwala/Documents/cols/harvey/147349e8ae96ba1564221c5a9adb114b.txt"
+                    }
+                }
+            }
+        }
+    ],
+    "ranked_sentences": [
+        {
+            "avg_overlap": 0.3808250000000001,
+            "sentence": "by Dan Lamothe , Jessica Contrera and Sarah Larimer by Dan Lamothe , Jessica Contrera and Sarah Larimer September 5 Follow @danlamothe Follow mjcontrera Follow @slarimer CORPUS CHRISTI, Tex. — For the first time since Hurricane Harvey made landfall on Aug. 25, the Coast Guard did not have to carry out rescue missions in storm-ravaged Southeast Texas on Sunday.",
+            "doc_indx": 1,
+            "doc_id": 1,
+            "sent_indx": 5,
+            "segmenter": "ssplit"
+        },
+        {
+            "avg_overlap": 0.355835,
+            "sentence": "A week after Hurricane Harvey slammed into the coast near Corpus Christi, Texas, and then dumped foot after foot of rain on Houston and its neighbors, we crisscrossed the 200 miles between the two cities to witness what the storm had left behind.",
+            "doc_indx": 16,
+            "doc_id": 16,
+            "sent_indx": 17,
+            "segmenter": "ssplit"
+        },
+        {
+            "avg_overlap": 0.34749,
+            "sentence": "David J. Phillip, AP Tiffaany Duron and her daughter Emma Sledge, 3, hug their dog Daisy on Aug, 30, 2017, outside the George R. Brown Convention Center where they took shelter after Hurricane Harvey flooded their home in Houston.",
+            "doc_indx": 8,
+            "doc_id": 8,
+            "sent_indx": 173,
+            "segmenter": "ssplit"
+        },
+        {
+            "avg_overlap": 0.33916,
+            "sentence": "Emily Kask, AFP/Getty Images Blake Kuklin prepares to rescue more people at Eldridge Parkway in the Energy Corridor of west Houston, where residents were evacuating from their flooded homes and apartments after Hurricane Harvey on Aug. 30, 2017.",
+            "doc_indx": 8,
+            "doc_id": 8,
+            "sent_indx": 118,
+            "segmenter": "ssplit"
+        },
+        {
+            "avg_overlap": 0.33916,
+            "sentence": "Harvey struck the Coastal Bend as a Category 4 hurricane on Aug. 25, 2017.",
+            "doc_indx": 8,
+            "doc_id": 8,
+            "sent_indx": 147,
+            "segmenter": "ssplit"
+        },
+        {
+            "avg_overlap": 0.33916,
+            "sentence": "Elizabeth Conley, Houston Chronicle via AP Fullscreen A car sits submerged on the I-10 East Frontage Road in the Energy Corridor of west Houston, Texas where families were rescued from their flooded homes and apartments due to high water coming from the Addicks Reservoir after Hurricane Harvey on Aug. 30, 2017 in Houston, Texas.",
+            "doc_indx": 8,
+            "doc_id": 8,
+            "sent_indx": 155,
+            "segmenter": "ssplit"
+        },
+        {
+            "avg_overlap": 0.33916,
+            "sentence": "(Photo: Courtney Sacco/Caller-Times) CONNECT TWEET LINKEDIN COMMENTEMAILMORE CORPUS CHRISTI, Texas — Hurricane Harvey decimated communities along the Gulf Coast of Texas and left large swaths of the Lone Star State underwater when it roared ashore about three weeks ago.",
+            "doc_indx": 3,
+            "doc_id": 3,
+            "sent_indx": 3,
+            "segmenter": "ssplit"
+        },
+        {
+            "avg_overlap": 0.33082500000000004,
+            "sentence": "The country that initially promised to help victims of Hurricane Harvey north of the border now says \"conditions of both countries have changed,\" referring to Hurricane Katia, which made landfall on Mexico's Gulf coast on Saturday, and a powerful earthquake  that killed 95 people  in southern Mexico last week.",
+            "doc_indx": 9,
+            "doc_id": 9,
+            "sent_indx": 1,
+            "segmenter": "ssplit"
+        },
+        {
+            "avg_overlap": 0.32249500000000003,
+            "sentence": "Scott Olson, Getty Images Residents living around the Energy Corridor of west Houston, Texas are rescued from flooded homes and apartments due to high water coming from the Addicks Reservoir after Hurricane Harvey on Aug. 30, 2017.",
+            "doc_indx": 8,
+            "doc_id": 8,
+            "sent_indx": 171,
+            "segmenter": "ssplit"
+        },
+        {
+            "avg_overlap": 0.32249000000000005,
+            "sentence": "Danielle Parhizkaran, Northjersey.com via USA TODAY NETWORK President Trump poses for a as he hands out food at the NRG Center in Houston where he met with evacuees from Hurricane Harvey.",
+            "doc_indx": 8,
+            "doc_id": 8,
+            "sent_indx": 66,
+            "segmenter": "ssplit"
+        }
+    ],
+    "top_sumgrams": [
+        {
+            "ngram": "hurricane harvey",
+            "term_freq": 18,
+            "term_rate": 0.9,
+            "parent_sentences": [
+                {
+                    "sentence": "(September 1, 2017) (Sign up for our free video newsletter here http://bit.ly/2n6VKPR ) Don Lee Contact Reporter Between the shutdown of oil refineries and chemical plants, impaired roads and ports, and widespread damage to homes, businesses and cars, the economic toll from Hurricane Harvey is now being estimated as the second-costliest natural disaster in U.S. history, trailing only the devastation caused by Hurricane Katrina in 2005.",
+                    "sent_indx": 2,
+                    "doc_indx": 0
+                },
+                {
+                    "sentence": "With Hurricane Harvey barreling toward his house in Corpus Christi and his family waiting it out in San Antonio, the young man’s mother made a comment that will stick with him.",
+                    "sent_indx": 10,
+                    "doc_indx": 0
+                },
+                {
+                    "sentence": "It caught 22-year-old... With Hurricane Harvey barreling toward his house in Corpus Christi and his family waiting it out in San Antonio, the young man’s mother made a comment that will stick with him.",
+                    "sent_indx": 12,
+                    "doc_indx": 0
+                },
+                {
+                    "sentence": "by Dan Lamothe , Jessica Contrera and Sarah Larimer by Dan Lamothe , Jessica Contrera and Sarah Larimer September 5 Follow @danlamothe Follow mjcontrera Follow @slarimer CORPUS CHRISTI, Tex. — For the first time since Hurricane Harvey made landfall on Aug. 25, the Coast Guard did not have to carry out rescue missions in storm-ravaged Southeast Texas on Sunday.",
+                    "sent_indx": 5,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "1 of 64 Recovery, rescues and cleanup in Texas after Hurricane Harvey View Photos In Harvey?s aftermath, authorities confronted crises on several fronts.",
+                    "sent_indx": 13,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "He said the bill contains the amount of Hurricane Harvey funding requested by the White House, which includes $7.4 billion for the Federal Emergency Management Agency disaster relief fund.",
+                    "sent_indx": 21,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "Texas is still assessing the destruction Hurricane Harvey left behind.",
+                    "sent_indx": 24,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "[The health dangers from Hurricane Harvey’s floods and Houston’s chemical plants] The challenges of disease, air pollution and housing will remain daunting in the coming days, but for officials, attention can't be focused only on Texas, as Hurricane Irma draws closer to the U.S. FEMA already has sent resources eastward.",
+                    "sent_indx": 57,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "Mysterious fanged sea creature washes ashore during Hurricane Harvey | FOX 4 Kansas City WDAF-TV | News, Weather, Sports Google TEXAS CITY, Texas – Like a mix between a shark and an earthworm ripped from someone’s nightmares, the mystery sea creature that washed ashore in Texas during Hurricane Harvey appears to have been identified.",
+                    "sent_indx": 0,
+                    "doc_indx": 2
+                },
+                {
+                    "sentence": "Hurricane Harvey: Drone view shows continuing cleanup on Texas coast Share CLOSE Hurricane Harvey decimated communities along the Coastal Bend and left large swaths of the Lone Star State underwater when it roared ashore about three weeks ago.",
+                    "sent_indx": 0,
+                    "doc_indx": 3
+                },
+                {
+                    "sentence": "(Photo: Courtney Sacco/Caller-Times) CONNECT TWEET LINKEDIN COMMENTEMAILMORE CORPUS CHRISTI, Texas — Hurricane Harvey decimated communities along the Gulf Coast of Texas and left large swaths of the Lone Star State underwater when it roared ashore about three weeks ago.",
+                    "sent_indx": 3,
+                    "doc_indx": 3
+                },
+                {
+                    "sentence": "Texas mom drives into Hurricane Harvey to get son to hospital for brain surgery - TODAY.com Texas mom drives into Hurricane Harvey to get son to hospital for brain surgery 2017-09-08T11:31:00.000Z pin email While Houstonians were evacuating before the arrival of Hurricane Harvey , San Antonio mom Lilliana Castro was doing quite the opposite.",
+                    "sent_indx": 0,
+                    "doc_indx": 4
+                },
+                {
+                    "sentence": "Lilliana Castro and Memorial Hermann-Texas Medical Center Lilliana Castro captured a photo of Houston floodwaters on her ride to Children's Memorial Hermann Hospital during Hurricane Harvey.",
+                    "sent_indx": 15,
+                    "doc_indx": 4
+                },
+                {
+                    "sentence": "Hurricane Harvey: The Devastation and What Comes Next - The New York Times If you can do so safely, please share your own photos and videos here , or leave us a voice mail message .",
+                    "sent_indx": 0,
+                    "doc_indx": 6
+                },
+                {
+                    "sentence": "Hurricane Harvey could be a 'flooding disaster' for Texas Posted!",
+                    "sent_indx": 0,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "With one fan already running in this bedroom, Helen Benjamin reaches to turn on the ceiling fan after opening the windows to let her house air out after flooding caused by Hurricane Harvey in Houston.",
+                    "sent_indx": 2,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Larry McCormack, The Tennessean Willie Neal takes apart a bed on the first floor after it was flooded by water from Hurricane Harvey in Houston.",
+                    "sent_indx": 3,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Larry McCormack, The Tennessean Imana Malbroue, 10, looks at her mother's iPad as she, her mother Kim and her grandmother share a room at a downtown hotel after their homes were flooded by Hurricane Harvey.",
+                    "sent_indx": 5,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Guiseppe Barranco, The Beaumont Enterprise, via AP Volunteers and residents help the Michigan Army National Guard load a Chinook helicopter with hay for cattle stranded by Hurricane Harvey in Hamshire, Texas.",
+                    "sent_indx": 9,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Gregory Bull, AP Gaston Kirby walks through floodwater inside his home in the aftermath of Hurricane Harvey near the Addicks and Barker Reservoirs, in Houston.",
+                    "sent_indx": 12,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Scott Olson, Getty Images Jesus Ramirez removes the wood floors from his home damaged by floodwaters in the aftermath of Hurricane Harvey on Sept. 4, 2017, in Houston.",
+                    "sent_indx": 14,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "David J. Phillip, AP Jesus Ramirez removes the wood floors from his home damaged by floodwaters in the aftermath of Hurricane Harvey on Sept. 4, 2017, in Houston.",
+                    "sent_indx": 15,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "David J. Phillip, AP Fullscreen Anna Ucheomumu, left, high fives Houston Texans defensive end J.J. Watt after loading a car with relief supplies to people impacted by Hurricane Harvey on  Sept. 3, 2017, in Houston.",
+                    "sent_indx": 16,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "J.J. Watt's Hurricane Harvey Relief Fund, which raised more than $18 million to date to help those affected by the storm.",
+                    "sent_indx": 17,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Pool Photo by Brett Coomer Volunteers unload a truck of relief supplies for people impacted by Hurricane Harvey on Sept. 3, 2017, in Houston.",
+                    "sent_indx": 18,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Pool Photo by Brett Coomer Fullscreen Houston Texans defensive end Christian Covington carries water while distributing relief supplies to people impacted by Hurricane Harvey on Sept. 3, 2017, in Houston.",
+                    "sent_indx": 19,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Pool Photo by Brett Coomer Tom Powell takes a moment on the porch of his flooded cottage after viewing the extensive damage done by Hurricane Harvey in Fort Bend, Texas.",
+                    "sent_indx": 20,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Danielle Parhizkaran, Northjersey.com via USA TODAY NETWOR Justin Schultz uses a tractor to help remove debris from neighbors' homes destroyed by floodwaters in the aftermath of Hurricane Harvey on Sept. 3, 2017, in Spring, Texas.",
+                    "sent_indx": 21,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Joe Raedle, Getty Images Volunteer Max Stenger, left, embraces flood victim Gloria Bancker while helping clean up Bancker's home which was destroyed by floodwaters in the aftermath of Hurricane Harvey on Sept. 3, 2017, in Spring, Texas.",
+                    "sent_indx": 23,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "The church building was flooded with two feet of water during Hurricane Harvey prompting services to be held outside.",
+                    "sent_indx": 25,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Steve Gonzales, Houston Chronicle via AP Fullscreen Elvira Vera jumps out of her car to embrace Houston Texans defensive end J.J. Watt as he distributes relief supplies to people impacted by Hurricane Harvey on Sept. 3, 2017, in Houston.",
+                    "sent_indx": 30,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Watt's Hurricane Harvey Relief Fund has raised more than $18 million to date to help those affected by the storm.",
+                    "sent_indx": 31,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "He is in Aransas County helping rescue dogs, cats and other animals left by owners before and after Hurricane Harvey.",
+                    "sent_indx": 33,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Pastor Osteen drew criticism after initially not opening the doors of his church to victims of Hurricane Harvey.",
+                    "sent_indx": 47,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Scott Olson, Getty Images Members of the Cypress Creek Christian Church hold Sunday services at Basel's Gymnastics after their church was severely damaged from flooding during Hurricane Harvey on Sept. 3, 2017 in Spring, Texas.",
+                    "sent_indx": 50,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Scott Olson, Getty Images Search and rescue teams go into a mobile home community to look for any residents who may have weathered Hurricane Harvey in Beaumont, Texas on Sept. 2, 2017.",
+                    "sent_indx": 52,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "The city is still without water after Hurricane Harvey.",
+                    "sent_indx": 65,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Danielle Parhizkaran, Northjersey.com via USA TODAY NETWORK President Trump poses for a as he hands out food at the NRG Center in Houston where he met with evacuees from Hurricane Harvey.",
+                    "sent_indx": 66,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Larry McCormack , The Tennessean via USA TODAY NETWORK Workers pick up debris in a staircase of a four-story hotel exposed when the wall fell during Hurricane Harvey, Sept. 2, 2017, in Rockport, Texas.",
+                    "sent_indx": 69,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Gerald Herbert, AP Fredi Ochoa removes wood from a home damaged by floodwaters in the aftermath of Hurricane Harvey, Sept. 2, 2017, in Houston.",
+                    "sent_indx": 74,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Joe Raedle, Getty Images Fullscreen Dry wall, furniture and carpets sit outside of Staci Beinart's home on Sept. 1, 2017, after flooding from Hurricane Harvey damaged the Meyerland neighborhood of Houston.",
+                    "sent_indx": 86,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "He ended up going out in the flooding during Hurricane Harvey and rescued about 300 people stranded in their homes in the Houston area.",
+                    "sent_indx": 89,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "The river carries water left by Hurricane Harvey.",
+                    "sent_indx": 95,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Eric Gay, AP Homes are submerged by water from the flooded Brazos River in the aftermath of Hurricane Harvey Friday, near Freeport, Texas.",
+                    "sent_indx": 96,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "The family is from Port Aransas, TX, an area devastated by Hurricane Harvey.",
+                    "sent_indx": 103,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Rachel Denny Clow, Caller-Times National Guard troops will be helping out with recovery from Hurricane Harvey in Port Arthur, Texas.",
+                    "sent_indx": 107,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "They are from Port Aransas, TX, an area devastated by Hurricane Harvey.",
+                    "sent_indx": 113,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Emily Kask, AFP/Getty Images Blake Kuklin prepares to rescue more people at Eldridge Parkway in the Energy Corridor of west Houston, where residents were evacuating from their flooded homes and apartments after Hurricane Harvey on Aug. 30, 2017.",
+                    "sent_indx": 118,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Many along Linda Vista and Oak Knoll drives started cleaning out their homes as they begin to rebuild after Hurricane Harvey.",
+                    "sent_indx": 121,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Nick Oza, The Arizona Republic via the USA TODAY Network Survivors of Hurricane Harvey wait  at a shelter while rescuers, and others volunteers, help to evacuate others in Port Arthur, Texas, on Aug. 31.",
+                    "sent_indx": 125,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Win McNamee, Getty Images A patient waits for rescue from a health care facility in Port Arthur, Texas, on Aug. 30, 2017, that was flooded after Hurricane Harvey.",
+                    "sent_indx": 135,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "The home sustained major damage from Hurricane Harvey.",
+                    "sent_indx": 141,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Rachel Denny Clow, Caller-Times, via USA TODAY NETWORK An aerial view of Hurricane Harvey damage in Port Aransas, Texas, on Aug. 30, 2017.",
+                    "sent_indx": 144,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Courtney Sacco and Matt Woolbright, Caller-Times, via USA TODAY NETWORK An aerial view of Hurricane Harvey damage in Port Aransas, Texas, on Aug. 30, 2017.",
+                    "sent_indx": 145,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Courtney Sacco and Matt Woolbright, Caller-Times, via USA TODAY NETWORK Hurricane Harvey damage in Port Aransas, Texas, on Aug. 30, 2017.",
+                    "sent_indx": 146,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Jay Janner, Austin American-Statesman via AP Rescue workers and volunteers help to rescue residents of an apartment complex after it was inundated with water following Hurricane Harvey on Aug. 30, 2017, in Houston.",
+                    "sent_indx": 152,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Elizabeth Conley, Houston Chronicle via AP Fullscreen A car sits submerged on the I-10 East Frontage Road in the Energy Corridor of west Houston, Texas where families were rescued from their flooded homes and apartments due to high water coming from the Addicks Reservoir after Hurricane Harvey on Aug. 30, 2017 in Houston, Texas.",
+                    "sent_indx": 155,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Lee Celano, The Advertiser via USA TODAY NETWORK People wait in line to buy groceries at a Food Town during the aftermath of Hurricane Harvey on Aug. 30, 2017 in Houston, Texas.",
+                    "sent_indx": 158,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Brendan Smialowski, AFP/Getty Images People shop at a Food Town grocery store during the aftermath of Hurricane Harvey on Aug. 30, 2017 in Houston, Texas.",
+                    "sent_indx": 159,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "David J. Phillip, AP Friends reunite in the middle of a flooded intersection as water continues to rise in their neighborhood following Hurricane Harvey on Aug. 30, 2017 in Houston, Texas.",
+                    "sent_indx": 161,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "David J. Phillip, AP Cars sit along the street in an apartment complex after it was inundated with water following Hurricane Harvey on Aug. 30, 2017 in Houston.",
+                    "sent_indx": 163,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Scott Olson, Getty Images Michael Boyd passes his son Skylar over to a rescue worker as they are evacuated on an airboat from their apartment complex after it was inundated with water following Hurricane Harvey on Aug. 30, 2017 in Houston.",
+                    "sent_indx": 164,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Dasi with her husband and four kids evacuated their Richmond home Sunday after it flooded as a result of Hurricane Harvey.",
+                    "sent_indx": 167,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "David J. Phillip, AP A resident checks the depth of water outside his home as it continues to rise following Hurricane Harvey on Aug. 30, 2017 in Houston.",
+                    "sent_indx": 170,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Scott Olson, Getty Images Residents living around the Energy Corridor of west Houston, Texas are rescued from flooded homes and apartments due to high water coming from the Addicks Reservoir after Hurricane Harvey on Aug. 30, 2017.",
+                    "sent_indx": 171,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "David J. Phillip, AP Tiffaany Duron and her daughter Emma Sledge, 3, hug their dog Daisy on Aug, 30, 2017, outside the George R. Brown Convention Center where they took shelter after Hurricane Harvey flooded their home in Houston.",
+                    "sent_indx": 173,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Lee Celano, The Advertiser via USA TODAY NETWORK Sheri Gagliano collects toys from the damaged home of a friend following Hurricane Harvey in Bayside, Texas.",
+                    "sent_indx": 174,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Gabe Hernandez, Caller-Times via USA TODAY NETWORK Howard Hoffmann looks through his damaged home following Hurricane Harvey in Bayside, Texas.",
+                    "sent_indx": 176,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Gabe Hernandez, Caller-Times via USA TODAY NETWORK AEP workers repair power poles following Hurricane Harvey in Refugio, Texas.",
+                    "sent_indx": 177,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Scott Clause, The Advertiser via USA TODAY NETWORK Miguel Santiago cleans debris outside a friend's home, following Hurricane Harvey in Refugio, Texas.",
+                    "sent_indx": 181,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Nick Oza, The Arizona Republic, via USA TODAY Network A family pet is rescued in the aftermath of Hurricane Harvey in Houston on Aug. 29, 2017.",
+                    "sent_indx": 184,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "The shop was flattened by Hurricane Harvey.",
+                    "sent_indx": 186,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Rachel Denny Clow, Caller-Times, via USA TODAY Network Aug 29, 2017; Houston, TX, USA; Water floods I-10 on Aug. 29, 2017 in Houston after Hurricane Harvey.",
+                    "sent_indx": 188,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Scott Clause, The Advertiser, via USA TODAY Network Businesses in downtown Rockport, Texas received extensive damage from from Hurricane Harvey on Aug. 29, 2017.",
+                    "sent_indx": 191,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Mexico Reverses Hurricane Harvey Aid Offer to Texas After Own Crises On 9/11/17 at 1:45 PM Close World Mexico U.S.-Mexico Border Hurricane Irma Hurricane Katia Donald Trump Trump's twitter Mexico isn't going to help Texas after all.",
+                    "sent_indx": 0,
+                    "doc_indx": 9
+                },
+                {
+                    "sentence": "The country that initially promised to help victims of Hurricane Harvey north of the border now says \"conditions of both countries have changed,\" referring to Hurricane Katia, which made landfall on Mexico's Gulf coast on Saturday, and a powerful earthquake  that killed 95 people  in southern Mexico last week.",
+                    "sent_indx": 1,
+                    "doc_indx": 9
+                },
+                {
+                    "sentence": "Hurricane Harvey recovery: Parts of Texas still in rescue and recovery mode - CNN Harvey photographer: Victims were in disbelief 05:06 After the water, mildew and mold Other residents have already emptied their once-flooded homes of all their contents, including the waterlogged drywall.",
+                    "sent_indx": 0,
+                    "doc_indx": 10
+                },
+                {
+                    "sentence": "As needs are still being assessed, all five living former presidents have teamed up to raise money for Hurricane Harvey victims.",
+                    "sent_indx": 24,
+                    "doc_indx": 10
+                },
+                {
+                    "sentence": "Coastal Texas town prepares to rebuild after Hurricane Harvey Activate your digital access.",
+                    "sent_indx": 0,
+                    "doc_indx": 12
+                },
+                {
+                    "sentence": "Coastal Texas town prepares to rebuild after Hurricane Harvey Madlin Mekelburg , USA Today Network Austin Bureau Published 4:33 p.m. CT Sept. 14, 2017 | Updated 4:33 p.m. CT Sept. 14, 2017 Share CLOSE Now that Hurricane Harvey has left the Coastal Bend, here are some post-storm safety tips.",
+                    "sent_indx": 1,
+                    "doc_indx": 12
+                },
+                {
+                    "sentence": "Homes sustained major damage from Hurricane Harvey.",
+                    "sent_indx": 3,
+                    "doc_indx": 12
+                },
+                {
+                    "sentence": "(Photo: Rachel Denny Clow/Caller-Times)Buy Photo 189 CONNECT TWEET LINKEDIN COMMENTEMAILMORE ROCKPORT, Texas — In this coastal community decimated by Hurricane Harvey, officials are starting to have conversations about rebuilding, now that utilities and water services have been largely restored in the city.",
+                    "sent_indx": 4,
+                    "doc_indx": 12
+                },
+                {
+                    "sentence": "Long hours during and after Hurricane Harvey meant that many employees were working – and living – at the center.",
+                    "sent_indx": 9,
+                    "doc_indx": 12
+                },
+                {
+                    "sentence": "Buy Photo Rockport Mayor C.J Wax during an emergency City Council meeting regarding Hurricane Harvey cleanup at the Rockport Service Center on Friday, Sept. 1, 2017.",
+                    "sent_indx": 15,
+                    "doc_indx": 12
+                },
+                {
+                    "sentence": "More: Hurricane Harvey: Dispatches from Rockport Volunteers with the Building Officials Association of Texas have descended on Rockport to help conduct damage assessments of all the structures in town.",
+                    "sent_indx": 29,
+                    "doc_indx": 12
+                },
+                {
+                    "sentence": "Buy Photo Rockport City Council holds an emergency meeting regarding Hurricane Harvey cleanup at the Rockport Service Center on Friday, Sept. 1, 2017.",
+                    "sent_indx": 43,
+                    "doc_indx": 12
+                },
+                {
+                    "sentence": "More: Buried car may have been driven over after Hurricane Harvey The state’s Harvey response team has plans to establish a group to review infrastructure assessments and other data collected from storm-ravaged areas to recommend improvements to construction and other best practices.",
+                    "sent_indx": 50,
+                    "doc_indx": 12
+                },
+                {
+                    "sentence": "A portion of the Rockport Center for the Arts' roof was lost when Hurricane Harvey made landfall in Rockport Aug. 25, 2017.",
+                    "sent_indx": 54,
+                    "doc_indx": 12
+                },
+                {
+                    "sentence": "Texas officials: Hurricane Harvey death toll at 82, ‘mass casualties have absolutely not happened’ - The Washington Post [ Schools reopen in Houston, buoying hope for recovery ] State officials said Texas was prepared for the worst when the hurricane slammed into the Gulf Coast, and they said those preparations appear to have paid off.",
+                    "sent_indx": 0,
+                    "doc_indx": 13
+                },
+                {
+                    "sentence": "Yes, climate change made Harvey and Irma worse - CNN Facebook Twitter Instagram FILE - This photo made available by NASA shows Hurricane Harvey over Texas on Saturday, Aug. 26, 2017, seen from the International Space Station.",
+                    "sent_indx": 0,
+                    "doc_indx": 14
+                },
+                {
+                    "sentence": "Neighborhoods near Interstate 10 in Houston sit in floodwaters in the wake of Hurricane Harvey.",
+                    "sent_indx": 22,
+                    "doc_indx": 14
+                },
+                {
+                    "sentence": "Newborn Survives Both Hurricane Harvey and Irma With Her Parents: 'It's Unbelievable' Email Though little Gabriella Coane is less than a month old, she has already experienced two historic events.",
+                    "sent_indx": 0,
+                    "doc_indx": 15
+                },
+                {
+                    "sentence": "Gabriella was born on August 20, just a week before Hurricane Harvey pummeled cities around Texas, leading to the evacuation and displacement of tens of thousands of residents.",
+                    "sent_indx": 1,
+                    "doc_indx": 15
+                },
+                {
+                    "sentence": "What Hurricane Harvey left behind 04:26 Path of destruction: What Hurricane Harvey left in its wake Story by Mallory Simon , CNN Video by McKenna Ewen and Anne Lagamayo, CNN Updated 10:11 AM ET, Tue September 5, 2017 Chat with us in Facebook Messenger.",
+                    "sent_indx": 0,
+                    "doc_indx": 16
+                },
+                {
+                    "sentence": "And then, at the Pioneer Beach Resort in Port Aransas it becomes clear that Hurricane Harvey came through with a vengeance.",
+                    "sent_indx": 3,
+                    "doc_indx": 16
+                },
+                {
+                    "sentence": "A week after Hurricane Harvey slammed into the coast near Corpus Christi, Texas, and then dumped foot after foot of rain on Houston and its neighbors, we crisscrossed the 200 miles between the two cities to witness what the storm had left behind.",
+                    "sent_indx": 17,
+                    "doc_indx": 16
+                },
+                {
+                    "sentence": "Ed Ziegler stands by his restaurant, now a ruin after Hurricane Harvey.",
+                    "sent_indx": 42,
+                    "doc_indx": 16
+                },
+                {
+                    "sentence": "Here's how you can help the victims of Hurricane Harvey Back in Port Aransas, Ed Ziegler watches volunteers wash mud off chairs and says, \"Now that I've seen the actions of people, my hope is restored.",
+                    "sent_indx": 160,
+                    "doc_indx": 16
+                },
+                {
+                    "sentence": "Full coverage of the aftermath of Hurricane Harvey But for all that powerful positivity, it's hard not to think of the fear of people like Felicia Darden.",
+                    "sent_indx": 163,
+                    "doc_indx": 16
+                },
+                {
+                    "sentence": "YMCA of Honolulu collects donations for Hurricane Harvey victims | KHON2 Click to share on Pinterest (Opens in new window) A three-day donation drive for families affected by Hurricane Harvey kicked off Friday at YMCA of Honolulu.",
+                    "sent_indx": 0,
+                    "doc_indx": 17
+                },
+                {
+                    "sentence": "Rapid City church raises $13,000 for Hurricane Harvey victims Rapid City church raises $13,000 for Hurricane Harvey victims By Brent Wise |  Posted: Sat 7:21 PM, Sep 16, 2017  |  Updated: Mon 8:33 AM, Sep 18, 2017 RAPID CITY, S.D. (KOTA TV) - Water brings people together and that song rings true in Rapid City.",
+                    "sent_indx": 0,
+                    "doc_indx": 18
+                },
+                {
+                    "sentence": "The Emmanuel Episcopal Church in downtown Rapid City served authentic Gulf Coast chicken and sausage gumbo to help victims in Houston affected by Hurricane Harvey.",
+                    "sent_indx": 2,
+                    "doc_indx": 18
+                },
+                {
+                    "sentence": "Money for Hurricane Harvey victims raised by Hanover-Horton schools | \t\t\t\t\t\tMLive.com Money for Hurricane Harvey victims raised by Hanover-Horton schools Comment Updated on September 16, 2017 at 12:02 PM Posted on September 16, 2017 at 12:00 PM Students in the Hanover-Horton School District raised more than $2,560 to help families in the Katy Independent School District recover from Hurricane Harvey.",
+                    "sent_indx": 0,
+                    "doc_indx": 19
+                },
+                {
+                    "sentence": "Students in the Hanover-Horton School District raised more than $2,560 to help families in the Katy Independent School District recover from Hurricane Harvey.",
+                    "sent_indx": 2,
+                    "doc_indx": 19
+                },
+                {
+                    "sentence": "( Courtesy Photo asurma@mlive.com HANOVER TWP., MI -  Hanover-Horton School District students may not have been directly affected by Hurricane Harvey, but that didn't stop them from doing their part to help those who were.",
+                    "sent_indx": 3,
+                    "doc_indx": 19
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "the federal emergency management agency",
+            "term_freq": 8,
+            "term_rate": 0.4,
+            "sumgram_history": [
+                {
+                    "prev_ngram": "emergency management",
+                    "annotator": "pos",
+                    "cur_freq": 7,
+                    "cur_ngram": "federal emergency management agency"
+                },
+                {
+                    "prev_ngram": "federal emergency management agency",
+                    "annotator": "mvg_window",
+                    "cur_ngram": "the federal emergency management agency",
+                    "proper_noun_rate": 1.0
+                }
+            ],
+            "parent_sentences": [
+                {
+                    "sentence": "More than 32,000 people have been housed in shelters, and the Federal Emergency Management Agency is expecting nearly a half million people to seek some sort of disaster aid.",
+                    "sent_indx": 30,
+                    "doc_indx": 0
+                },
+                {
+                    "sentence": "He said the bill contains the amount of Hurricane Harvey funding requested by the White House, which includes $7.4 billion for the Federal Emergency Management Agency disaster relief fund.",
+                    "sent_indx": 21,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "Here’s the latest: • With record floodwaters, more than 450,000 people are likely to seek federal aid, the Federal Emergency Management Agency said on Monday.",
+                    "sent_indx": 9,
+                    "doc_indx": 5
+                },
+                {
+                    "sentence": "Managing the shelters that are housing tens of thousands of them remains “the biggest battle that we have right now,” Brock Long, the administrator of the Federal Emergency Management Agency, said on Thursday.",
+                    "sent_indx": 4,
+                    "doc_indx": 6
+                },
+                {
+                    "sentence": "The state also is requesting further assistance from the Federal Emergency Management Agency.",
+                    "sent_indx": 23,
+                    "doc_indx": 10
+                },
+                {
+                    "sentence": "City officials have been working with the Federal Emergency Management Agency, Texas leaders and employees from other cities and states to assess the damage caused by the storm, clear debris and look to start the rebuilding process.",
+                    "sent_indx": 12,
+                    "doc_indx": 12
+                },
+                {
+                    "sentence": "About 21,000 households are living in 2,000 hotels in 33 states, according to Tony Robinson, the Federal Emergency Management Agency’s regional director.",
+                    "sent_indx": 6,
+                    "doc_indx": 13
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "a category 4 hurricane",
+            "term_freq": 7,
+            "term_rate": 0.35,
+            "sumgram_history": [
+                {
+                    "prev_ngram": "category 4",
+                    "annotator": "mvg_window",
+                    "cur_ngram": "category 4 hurricane",
+                    "proper_noun_rate": 0.6667
+                },
+                {
+                    "prev_ngram": "category 4 hurricane",
+                    "cur_ngram": "a category 4 hurricane",
+                    "annotator": "subset"
+                }
+            ],
+            "parent_sentences": [
+                {
+                    "sentence": "\"As soon as one ends, we need to make sure we are ready for the next event,\" Adm. Paul Zukunft, the Coast Guard commandant, said Monday as Irma, which had become a Category 4 hurricane by late in the day, churned in the Atlantic.",
+                    "sent_indx": 7,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "The Category 4 hurricane turned what should have been a three-hour trip into five hours of nightmarish driving.",
+                    "sent_indx": 17,
+                    "doc_indx": 4
+                },
+                {
+                    "sentence": "Map of Hurricane Harvey’s Path SEVERITY Category 4 3 2 1 Tropical storm Source: National Weather Service The flooding could get worse in Houston.",
+                    "sent_indx": 35,
+                    "doc_indx": 5
+                },
+                {
+                    "sentence": "Harvey struck the Coastal Bend as a Category 4 hurricane on Aug. 25, 2017.",
+                    "sent_indx": 147,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Bruce Coane Because Bruce has lived in the Miami area for more than 20 years, the approaching Category 4 storm didn’t worry him too much.",
+                    "sent_indx": 12,
+                    "doc_indx": 15
+                },
+                {
+                    "sentence": "Harvey, a Category 4 hurricane, made landfall Aug. 25 and left a path of destruction in its wake in East Texas.",
+                    "sent_indx": 4,
+                    "doc_indx": 19
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "corpus christi",
+            "term_freq": 7,
+            "term_rate": 0.35,
+            "parent_sentences": [
+                {
+                    "sentence": "With Hurricane Harvey barreling toward his house in Corpus Christi and his family waiting it out in San Antonio, the young man’s mother made a comment that will stick with him.",
+                    "sent_indx": 10,
+                    "doc_indx": 0
+                },
+                {
+                    "sentence": "If there’s nothing left when we get back to Corpus Christi, she said, we’re going back to Mexico.",
+                    "sent_indx": 11,
+                    "doc_indx": 0
+                },
+                {
+                    "sentence": "It caught 22-year-old... With Hurricane Harvey barreling toward his house in Corpus Christi and his family waiting it out in San Antonio, the young man’s mother made a comment that will stick with him.",
+                    "sent_indx": 12,
+                    "doc_indx": 0
+                },
+                {
+                    "sentence": "by Dan Lamothe , Jessica Contrera and Sarah Larimer by Dan Lamothe , Jessica Contrera and Sarah Larimer September 5 Follow @danlamothe Follow mjcontrera Follow @slarimer CORPUS CHRISTI, Tex. — For the first time since Hurricane Harvey made landfall on Aug. 25, the Coast Guard did not have to carry out rescue missions in storm-ravaged Southeast Texas on Sunday.",
+                    "sent_indx": 5,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "(Photo: Courtney Sacco/Caller-Times) CONNECT TWEET LINKEDIN COMMENTEMAILMORE CORPUS CHRISTI, Texas — Hurricane Harvey decimated communities along the Gulf Coast of Texas and left large swaths of the Lone Star State underwater when it roared ashore about three weeks ago.",
+                    "sent_indx": 3,
+                    "doc_indx": 3
+                },
+                {
+                    "sentence": "They will arrive in Corpus Christi in the morning for a briefing on relief efforts, and then head to Austin for a tour of the Emergency Operations Center and a briefing with state leaders.",
+                    "sent_indx": 19,
+                    "doc_indx": 5
+                },
+                {
+                    "sentence": "Views of the flooding in Aransas Pass, a town about 20 miles northeast of Corpus Christi.",
+                    "sent_indx": 43,
+                    "doc_indx": 5
+                },
+                {
+                    "sentence": "The Texas Department of State Health Services has begun aerial insecticide spraying in Refugio and Bee Counties near Corpus Christi.",
+                    "sent_indx": 22,
+                    "doc_indx": 10
+                },
+                {
+                    "sentence": "A benefit show will be hosted by the Corpus Christi Songwriters Sunday Sept. 10 at the Executive Surf Club.",
+                    "sent_indx": 55,
+                    "doc_indx": 12
+                },
+                {
+                    "sentence": "From Corpus Christi to Houston, Texas  (CNN) It begins with a couple of shingles in the road, a power line down here or there.",
+                    "sent_indx": 1,
+                    "doc_indx": 16
+                },
+                {
+                    "sentence": "A week after Hurricane Harvey slammed into the coast near Corpus Christi, Texas, and then dumped foot after foot of rain on Houston and its neighbors, we crisscrossed the 200 miles between the two cities to witness what the storm had left behind.",
+                    "sent_indx": 17,
+                    "doc_indx": 16
+                },
+                {
+                    "sentence": "At Van Vleck, a town closer to Houston than Corpus Christi, the rivers had taken over entire neighborhoods, rising 3 or 4 feet from the ground, residents said.",
+                    "sent_indx": 96,
+                    "doc_indx": 16
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "the gulf coast",
+            "term_freq": 7,
+            "term_rate": 0.35,
+            "sumgram_history": [
+                {
+                    "prev_ngram": "gulf coast",
+                    "annotator": "mvg_window",
+                    "cur_ngram": "the gulf coast",
+                    "proper_noun_rate": 0.5
+                }
+            ],
+            "parent_sentences": [
+                {
+                    "sentence": "In the week after Harvey hit, more than 1 million pounds of dangerous air pollutants have been released from oil refineries and chemical plants on the Texas Gulf coast, according to public regulatory filings that were pulled together by the Center for Biological Diversity.",
+                    "sent_indx": 41,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "Preeti Desai, social media manager with the National Audubon Society, tweeted photos of the fanged, faceless body after finding it on a beach in Texas City, which lies along the Gulf Coast near Galveston.",
+                    "sent_indx": 1,
+                    "doc_indx": 2
+                },
+                {
+                    "sentence": "(Photo: Courtney Sacco/Caller-Times) CONNECT TWEET LINKEDIN COMMENTEMAILMORE CORPUS CHRISTI, Texas — Hurricane Harvey decimated communities along the Gulf Coast of Texas and left large swaths of the Lone Star State underwater when it roared ashore about three weeks ago.",
+                    "sent_indx": 3,
+                    "doc_indx": 3
+                },
+                {
+                    "sentence": "It was expected to move to the northeast, along the Gulf coast toward far eastern Texas and southwest Louisiana.",
+                    "sent_indx": 21,
+                    "doc_indx": 5
+                },
+                {
+                    "sentence": "The city of Dallas is opening a “mega-shelter” to house up to 5,000 evacuees from the battered Gulf Coast, and Mayor Mike Rawlings said on Monday the North Texas city has been asked to brace for “numbers that could be up in the tens of thousands.”",
+                    "sent_indx": 50,
+                    "doc_indx": 5
+                },
+                {
+                    "sentence": "The country that initially promised to help victims of Hurricane Harvey north of the border now says \"conditions of both countries have changed,\" referring to Hurricane Katia, which made landfall on Mexico's Gulf coast on Saturday, and a powerful earthquake  that killed 95 people  in southern Mexico last week.",
+                    "sent_indx": 1,
+                    "doc_indx": 9
+                },
+                {
+                    "sentence": "Texas officials: Hurricane Harvey death toll at 82, ‘mass casualties have absolutely not happened’ - The Washington Post [ Schools reopen in Houston, buoying hope for recovery ] State officials said Texas was prepared for the worst when the hurricane slammed into the Gulf Coast, and they said those preparations appear to have paid off.",
+                    "sent_indx": 0,
+                    "doc_indx": 13
+                },
+                {
+                    "sentence": "The Emmanuel Episcopal Church in downtown Rapid City served authentic Gulf Coast chicken and sausage gumbo to help victims in Houston affected by Hurricane Harvey.",
+                    "sent_indx": 2,
+                    "doc_indx": 18
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "president trump",
+            "term_freq": 7,
+            "term_rate": 0.35,
+            "parent_sentences": [
+                {
+                    "sentence": "CAPTION Hollywood came for President Trump at the 2017 Emmy Awards.",
+                    "sent_indx": 56,
+                    "doc_indx": 0
+                },
+                {
+                    "sentence": "Hollywood came for President Trump at the 2017 Emmy Awards.",
+                    "sent_indx": 61,
+                    "doc_indx": 0
+                },
+                {
+                    "sentence": "President Trump declared a National Day of Prayer for Harvey victims.",
+                    "sent_indx": 15,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "• The White House announced that President Trump and the first lady, Melania Trump, would be visiting Texas on Tuesday.",
+                    "sent_indx": 18,
+                    "doc_indx": 5
+                },
+                {
+                    "sentence": "At a news conference with President Sauli Niinisto of Finland, President Trump said he had spoken with Governor Abbott.",
+                    "sent_indx": 66,
+                    "doc_indx": 5
+                },
+                {
+                    "sentence": "As clean up and repairs continue at the church just outside of Houston, parishioners turned a high school auditorium into their sanctuary on a Sunday that was declared National Day of Prayer for Harvey victims by President Trump.",
+                    "sent_indx": 45,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Danielle Parhizkaran, Northjersey.com via USA TODAY NETWORK President Trump poses for a as he hands out food at the NRG Center in Houston where he met with evacuees from Hurricane Harvey.",
+                    "sent_indx": 66,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "The offer came despite a tweet from President Trump, days earlier, that Mexico would reimburse America for his proposed border wall.",
+                    "sent_indx": 5,
+                    "doc_indx": 9
+                },
+                {
+                    "sentence": "When asked Thursday whether the recent hurricanes had changed his views on climate change, President Trump said, \"we've had bigger storms than this\" -- contradicting the hyperbolic language he had used to describe Irma days earlier as it neared Florida.",
+                    "sent_indx": 25,
+                    "doc_indx": 14
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "flooded homes",
+            "term_freq": 6,
+            "term_rate": 0.3,
+            "parent_sentences": [
+                {
+                    "sentence": "Emily Kask, AFP/Getty Images Blake Kuklin prepares to rescue more people at Eldridge Parkway in the Energy Corridor of west Houston, where residents were evacuating from their flooded homes and apartments after Hurricane Harvey on Aug. 30, 2017.",
+                    "sent_indx": 118,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Brett Coomer, Houston Chronicle via AP Flooded homes are shown near Lake Houston following Tropic Storm Harvey  in Houston.",
+                    "sent_indx": 134,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Elizabeth Conley, Houston Chronicle via AP Fullscreen A car sits submerged on the I-10 East Frontage Road in the Energy Corridor of west Houston, Texas where families were rescued from their flooded homes and apartments due to high water coming from the Addicks Reservoir after Hurricane Harvey on Aug. 30, 2017 in Houston, Texas.",
+                    "sent_indx": 155,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Scott Olson, Getty Images Residents living around the Energy Corridor of west Houston, Texas are rescued from flooded homes and apartments due to high water coming from the Addicks Reservoir after Hurricane Harvey on Aug. 30, 2017.",
+                    "sent_indx": 171,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Hurricane Harvey recovery: Parts of Texas still in rescue and recovery mode - CNN Harvey photographer: Victims were in disbelief 05:06 After the water, mildew and mold Other residents have already emptied their once-flooded homes of all their contents, including the waterlogged drywall.",
+                    "sent_indx": 0,
+                    "doc_indx": 10
+                },
+                {
+                    "sentence": "Debris from flooded homes is piled outside in Lakewood near the home of Daniela Alvarado and Leonardo Aguirre.",
+                    "sent_indx": 4,
+                    "doc_indx": 10
+                },
+                {
+                    "sentence": "In the wake of Hurricanes Harvey and Irma, many flooded homes are at risk of acquiring mold.",
+                    "sent_indx": 12,
+                    "doc_indx": 13
+                },
+                {
+                    "sentence": "It might seem premature when people in the Caribbean, Florida and Texas are still mucking out their flooded homes.",
+                    "sent_indx": 6,
+                    "doc_indx": 14
+                },
+                {
+                    "sentence": "Front yard after front yard is full of belongings brought out from flooded homes.",
+                    "sent_indx": 128,
+                    "doc_indx": 16
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "tropical storm harvey",
+            "term_freq": 6,
+            "term_rate": 0.3,
+            "sumgram_history": [
+                {
+                    "prev_ngram": "tropical storm",
+                    "annotator": "mvg_window",
+                    "cur_ngram": "tropical storm harvey",
+                    "proper_noun_rate": 0.7143
+                }
+            ],
+            "parent_sentences": [
+                {
+                    "sentence": "A significant percentage of model forecasts have Irma striking the U.S. East Coast as early as Saturday or Sunday, with tropical storm winds arriving in Florida as soon as Friday.",
+                    "sent_indx": 10,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "Thanks to building code updates input after tropical storm Allison in 2001, the hospital managed to avoid power outages or significant flooding.",
+                    "sent_indx": 36,
+                    "doc_indx": 4
+                },
+                {
+                    "sentence": "Watch in Times Video » embed The rains from Tropical Storm Harvey pounded the Houston region on Monday, stranding thousands of residents — many on rooftops — awaiting rescue.",
+                    "sent_indx": 3,
+                    "doc_indx": 5
+                },
+                {
+                    "sentence": "Video Houston Flooding Is Deadly as Harvey Lingers Harvey, now a tropical storm, pummeled Houston and the surrounding region, bringing catastrophic flooding and killing at least five people.",
+                    "sent_indx": 22,
+                    "doc_indx": 5
+                },
+                {
+                    "sentence": "Map of Hurricane Harvey’s Path SEVERITY Category 4 3 2 1 Tropical storm Source: National Weather Service The flooding could get worse in Houston.",
+                    "sent_indx": 35,
+                    "doc_indx": 5
+                },
+                {
+                    "sentence": "David J. Phillip, AP Workers repair a section of Union Pacific railroad tracks that were washed away by flooding during Hurricane and Tropical Storm Harvey in Crosby, Texas.",
+                    "sent_indx": 13,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Church members and area residents filled the storm damaged sanctuary to worship together one week after floodwaters from Tropical Storm Harvey inundated the city and much of Southeast Texas.",
+                    "sent_indx": 27,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Larry McCormack , The Tennessean via USA TODAY NETWORK Fullscreen Becky May wipes away tears as she prays with members of the Pine Forest Baptist Church, as they hold Sunday services in the parking lot outside their damaged church, in the aftermath of Tropical Storm Harvey in Vidor, Texas on Sept. 3, 2017.",
+                    "sent_indx": 38,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Gerald Herbert, AP A crucifix stands in front of a flooded church in the aftermath of Tropical Storm Harvey in Vidor, Texas on Sept. 3, 2017.",
+                    "sent_indx": 43,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Gregory Bull, AP Fullscreen Parishioners of the Lakewood Church led by Pastor Joel Osteen pray together during a service at the church as the city starts the process of rebuilding after severe flooding during Hurricane and Tropical Storm Harvey on Sept. 3, 2017, in Houston.",
+                    "sent_indx": 46,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Charlie Riedel, AP Michael Brown walks outside his flooded home, as he searches for belongings, in the aftermath of Tropical Storm Harvey, in Port Arthur, Texas, Sept. 2, 2017.",
+                    "sent_indx": 73,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "David J. Phillip, AP Paul England, Jr. helps Michael Brown, not pictured, search for belongings inside his flooded home, in the aftermath of Tropical Storm Harvey, in Port Arthur, Texas, Saturday, Sept. 2, 2017.",
+                    "sent_indx": 75,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Gerald Herbert, AP Paul England pilots his boat through floodwaters in the aftermath of Tropical Storm Harvey, in Port Arthur, Texas, Sept. 2, 2017.",
+                    "sent_indx": 76,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "David J. Phillip, AP Tibisay Vegas cleans out her car after it was inundated with water as she begins the process of rebuilding after torrential rains caused widespread flooding during Hurricane and Tropical Storm Harvey on Sept. 2, 2017, in Houston, Texas.",
+                    "sent_indx": 83,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Danielle Parhizkaran, Northjersey.com People begin the process of cleaning up the damage to their property, Friday,  after torrential rains caused widespread flooding during Hurricane and Tropical Storm Harvey  in Houston.",
+                    "sent_indx": 99,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "The Hartzell's entire first floor was flooded as Clear Creek overflowed it's banks during Tropical Storm Harvey.",
+                    "sent_indx": 111,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Scott Olson, Getty Images Residents post a warning, Friday, to looters as they recover from damage to their homes after torrential rains caused widespread flooding during Hurricane and Tropical Storm Harvey in the Atascocita subdivision in Humble, Texas.",
+                    "sent_indx": 116,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Nick Oza, The Arizona Republic via the USA TODAY Network Floodwaters from Tropical Storm Harvey surround homes in Port Arthur, Texas, on Aug. 31, 2017.",
+                    "sent_indx": 127,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Gerald Herbert, AP Cars drive through flooded streets from Tropical Storm Harvey in Orange, Texas, on Aug. 31, 2017.",
+                    "sent_indx": 128,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Deimos Imaging, an UrtheCast company Floodwaters fill the road running through the Lakes On Eldridge North subdivision in the aftermath of Tropical Storm Harvey in Houston.",
+                    "sent_indx": 133,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Nick Oza, The Arizona Republic, via USA TODAY Newtwork Residents are rescued from a Port Arthur, Texas, nursing home on Aug. 30, 2017, as waters rise from tropical storm Harvey.",
+                    "sent_indx": 149,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "The van was carried into the bayou during Tropical Storm Harvey as the water went over the bridge.",
+                    "sent_indx": 154,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Brendan Smialowski, AFP/Getty Images Steven Reinitz helps remove items damaged by floodwaters from Tropical Storm Harvey from his parents home on Aug. 30, 2017, in Houston.",
+                    "sent_indx": 160,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Scott Olson, Getty Images Michael Saghian walks across the living room of his home damaged by floodwaters from Tropical Storm Harvey on Aug. 30, 2017, in Houston.",
+                    "sent_indx": 162,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Scott Olson, Getty Images Jose Martinez, left, and William Majano remove drywall and baseboards from a home damaged by floodwaters from Tropical Storm Harvey on Aug. 30, 2017, in Houston.",
+                    "sent_indx": 165,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Erich Schlegel, Getty Images Jose Martinez works to remove drywall from a home damaged by floodwaters from Tropical Storm Harvey on Aug. 30, 2017, in Houston.",
+                    "sent_indx": 172,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "But the National Oceanic and Atmospheric Administration last month called it \"premature\" to conclude that human activities have had a detectable impact on Atlantic hurricane activity , although it added that global warming by the end of the century will probably make tropical storms more intense.",
+                    "sent_indx": 30,
+                    "doc_indx": 14
+                },
+                {
+                    "sentence": "For example, Tropical Storm Allison dumped more than 30 inches of rain over Texas in 2001, causing widespread flooding around Houston.",
+                    "sent_indx": 46,
+                    "doc_indx": 14
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "the agency said",
+            "term_freq": 5,
+            "term_rate": 0.25,
+            "sumgram_history": [
+                {
+                    "prev_ngram": "agency said",
+                    "annotator": "mvg_window",
+                    "cur_ngram": "the agency said",
+                    "proper_noun_rate": 0.6667
+                }
+            ],
+            "parent_sentences": [
+                {
+                    "sentence": "\"Teams are in place to investigate possible damage to these sites as soon as floodwaters recede, and personnel are able to safely access the sites,\" the agency said .",
+                    "sent_indx": 48,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "Here’s the latest: • With record floodwaters, more than 450,000 people are likely to seek federal aid, the Federal Emergency Management Agency said on Monday.",
+                    "sent_indx": 9,
+                    "doc_indx": 5
+                },
+                {
+                    "sentence": "The agency said remnants from Harvey dumped nearly 9 inches (23 centimeters) of rain in some areas over a 24-hour period and crews responded to dozens of calls overnight requesting aid.",
+                    "sent_indx": 2,
+                    "doc_indx": 7
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "the george r. brown convention center",
+            "term_freq": 5,
+            "term_rate": 0.25,
+            "sumgram_history": [
+                {
+                    "prev_ngram": "convention center",
+                    "annotator": "pos",
+                    "cur_freq": 3,
+                    "cur_ngram": "george r. brown convention center"
+                },
+                {
+                    "prev_ngram": "george r. brown convention center",
+                    "annotator": "mvg_window",
+                    "cur_ngram": "the george r. brown convention center",
+                    "proper_noun_rate": 0.8889
+                }
+            ],
+            "parent_sentences": [
+                {
+                    "sentence": "Those who had been housed in smaller shelter locations, such as churches and schools, have been bussed to larger facilities, such as the George R. Brown Convention Center in Houston, where more than 7,000 people are being sheltered.",
+                    "sent_indx": 30,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "Houston’s George R. Brown Convention Center has become a shelter for those displaced by Harvey.",
+                    "sent_indx": 67,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "Comic book and Disney characters greeted children entering the George R. Brown Convention Center in Houston, TX on Friday.",
+                    "sent_indx": 98,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Nick Oza, The Arizona Republic via USA TODAY NETWORK Houston Mayor Sylvester Turner greets a resident in the George R. Brown Convention Center on Aug 30, 2017.",
+                    "sent_indx": 150,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Erich Schlegel, Getty Images A man files a missing person report for his father in the George R. Brown Convention Center in Houston on Aug. 30, 2017.",
+                    "sent_indx": 156,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Lee Celano, The Advertiser via USA TODAY NETWORK Ronnie 'Merlot' Coleman, Jr., cuts Jermaine Brown's hair, left, as Ricky Carter cuts Reginald Phillips' hair, for free, in the George R. Brown Convention Center in Houston on Aug. 30, 2017.",
+                    "sent_indx": 157,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "David J. Phillip, AP Tiffaany Duron and her daughter Emma Sledge, 3, hug their dog Daisy on Aug, 30, 2017, outside the George R. Brown Convention Center where they took shelter after Hurricane Harvey flooded their home in Houston.",
+                    "sent_indx": 173,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Scott Clause, Daily Advertiser via USA TODAY Network Vivian Bell watches her grand children, Kevin Bass, left, and Ka'Nya Bass, inside the Red Cross shelter at the George R. Brown Convention Center on Aug. 29, 2017.",
+                    "sent_indx": 194,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Bruce Coane “To see all the suffering going on was quite awful, everyone’s possessions were on the curbs,” Bruce, who volunteered at the George R. Brown Convention Center during the storm, tells PEOPLE.",
+                    "sent_indx": 3,
+                    "doc_indx": 15
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "the houston area",
+            "term_freq": 5,
+            "term_rate": 0.25,
+            "sumgram_history": [
+                {
+                    "prev_ngram": "houston area",
+                    "annotator": "mvg_window",
+                    "cur_ngram": "the houston area",
+                    "proper_noun_rate": 0.8
+                }
+            ],
+            "parent_sentences": [
+                {
+                    "sentence": "Although the brunt of Harvey’s cost will be borne in southeast Texas, particularly the sprawling Houston area, the effects will be felt more broadly.",
+                    "sent_indx": 6,
+                    "doc_indx": 0
+                },
+                {
+                    "sentence": "• Some 100,000 customers in the Houston area are without power, Floyd LeBlanc of CenterPoint Energy said.",
+                    "sent_indx": 12,
+                    "doc_indx": 5
+                },
+                {
+                    "sentence": "• More than 30 inches of rain has fallen on parts of the Houston area since Thursday, the National Weather Service reported, causing catastrophic flooding that officials have called the worst in the state’s history.",
+                    "sent_indx": 17,
+                    "doc_indx": 5
+                },
+                {
+                    "sentence": "He ended up going out in the flooding during Hurricane Harvey and rescued about 300 people stranded in their homes in the Houston area.",
+                    "sent_indx": 89,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "You know I feel for the people around us, the Houston area, the Rockport area,\" she says.",
+                    "sent_indx": 83,
+                    "doc_indx": 16
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "hurricane irma",
+            "term_freq": 5,
+            "term_rate": 0.25,
+            "parent_sentences": [
+                {
+                    "sentence": "Texas continues Harvey recovery efforts as Hurricane Irma looms in the Atlantic - The Washington Post Texas continues Harvey recovery efforts as Hurricane Irma looms in the Atlantic The inside track on Washington politics.",
+                    "sent_indx": 0,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "Instead, the service began moving a number of helicopters out of Texas and into Puerto Rico, Florida and Georgia, in anticipation of another landfall threat brewing for the U.S. coast: Hurricane Irma.",
+                    "sent_indx": 6,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "[The health dangers from Hurricane Harvey’s floods and Houston’s chemical plants] The challenges of disease, air pollution and housing will remain daunting in the coming days, but for officials, attention can't be focused only on Texas, as Hurricane Irma draws closer to the U.S. FEMA already has sent resources eastward.",
+                    "sent_indx": 57,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "Mexico Reverses Hurricane Harvey Aid Offer to Texas After Own Crises On 9/11/17 at 1:45 PM Close World Mexico U.S.-Mexico Border Hurricane Irma Hurricane Katia Donald Trump Trump's twitter Mexico isn't going to help Texas after all.",
+                    "sent_indx": 0,
+                    "doc_indx": 9
+                },
+                {
+                    "sentence": "One America Appeal is also prepared to raise money to help Americans impacted by Hurricane Irma if needed.",
+                    "sent_indx": 26,
+                    "doc_indx": 10
+                },
+                {
+                    "sentence": "Kelly McClenthen returns to her flooded home with boyfriend Daniel Harrison in the aftermath of Hurricane Irma in Bonita Springs, Florida.",
+                    "sent_indx": 37,
+                    "doc_indx": 14
+                },
+                {
+                    "sentence": "“The next day, we drove 10 hours to Miami—that’s when we heard  Hurricane Irma was headed our way!”",
+                    "sent_indx": 11,
+                    "doc_indx": 15
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "last week",
+            "term_freq": 5,
+            "term_rate": 0.25,
+            "parent_sentences": [
+                {
+                    "sentence": "Thousands of cars sit drying at the racetrack after floodwaters from Harvey swept through the area last week.",
+                    "sent_indx": 11,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "The country that initially promised to help victims of Hurricane Harvey north of the border now says \"conditions of both countries have changed,\" referring to Hurricane Katia, which made landfall on Mexico's Gulf coast on Saturday, and a powerful earthquake  that killed 95 people  in southern Mexico last week.",
+                    "sent_indx": 1,
+                    "doc_indx": 9
+                },
+                {
+                    "sentence": "Federal funds, including the $15 billion disaster relief package passed by Congress last week, have been immediately allocated: Already last week, Houston and Harris County received $91 million and $44 million, respectively, to help pay for debris removal.",
+                    "sent_indx": 10,
+                    "doc_indx": 13
+                },
+                {
+                    "sentence": "'This brings it home' Last week, Scott Pruitt, head of the Environmental Protection Agency, said it would be \"insensitive\" to talk about global warming as Irma took aim at Florida.",
+                    "sent_indx": 23,
+                    "doc_indx": 14
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "army national guard",
+            "term_freq": 5,
+            "term_rate": 0.25,
+            "sumgram_history": [
+                {
+                    "prev_ngram": "national guard",
+                    "annotator": "mvg_window",
+                    "cur_ngram": "army national guard",
+                    "proper_noun_rate": 0.5
+                }
+            ],
+            "parent_sentences": [
+                {
+                    "sentence": "Governor Abbott activated the entire Texas National Guard , except those already deployed or preparing to deploy on other missions, to aid in storm rescue and recovery.",
+                    "sent_indx": 48,
+                    "doc_indx": 5
+                },
+                {
+                    "sentence": "Danielle Parhizkaran, Northjersey.com Hay bales are pushed from a Michigan Army National Guard Chinook helicopter in the Hamshire area of Texas.",
+                    "sent_indx": 7,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Guiseppe Barranco, The Beaumont Enterprise, via AP Volunteers and residents help the Michigan Army National Guard load a Chinook helicopter with hay for cattle stranded by Hurricane Harvey in Hamshire, Texas.",
+                    "sent_indx": 9,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Rachel Denny Clow, Caller-Times National Guard troops will be helping out with recovery from Hurricane Harvey in Port Arthur, Texas.",
+                    "sent_indx": 107,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Earlier this week, livestock stranded in water received 210,000 pounds of hay, delivered by the Texas Army National Guard.",
+                    "sent_indx": 9,
+                    "doc_indx": 13
+                },
+                {
+                    "sentence": "Within a short time, several feet of water began to flood the town, sending police and National Guard units into action to block off roads that were no longer safe.",
+                    "sent_indx": 121,
+                    "doc_indx": 16
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "in port aransas",
+            "term_freq": 5,
+            "term_rate": 0.25,
+            "sumgram_history": [
+                {
+                    "prev_ngram": "port aransas",
+                    "annotator": "mvg_window",
+                    "cur_ngram": "in port aransas",
+                    "proper_noun_rate": 0.7143
+                }
+            ],
+            "parent_sentences": [
+                {
+                    "sentence": "Wochit Debris from homes damaged by Hurricanes Harvey line Lydia Ann Channel in Port Aransas on Wednesday, Sept. 14, 2017.",
+                    "sent_indx": 2,
+                    "doc_indx": 3
+                },
+                {
+                    "sentence": "In Port Aransas, some structures appear to have dodged total devastation from the outside, but piles of furniture and carpeting growing along the roads are evident of the 5-feet of storm surge that covered the town.",
+                    "sent_indx": 5,
+                    "doc_indx": 3
+                },
+                {
+                    "sentence": "Scott Olson, Getty Images Tim Wilson, with his dog Koa, attends a makeshift outdoor worship service on Sept. 3, 2017, in Port Aransas, Texas.",
+                    "sent_indx": 41,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "The family is from Port Aransas, TX, an area devastated by Hurricane Harvey.",
+                    "sent_indx": 103,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "The school district in Port Aransas has declared school indefinitely closed.",
+                    "sent_indx": 104,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "They are from Port Aransas, TX, an area devastated by Hurricane Harvey.",
+                    "sent_indx": 113,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Rachel Denny Clow, Caller-Times, via USA TODAY NETWORK An aerial view of Hurricane Harvey damage in Port Aransas, Texas, on Aug. 30, 2017.",
+                    "sent_indx": 144,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Courtney Sacco and Matt Woolbright, Caller-Times, via USA TODAY NETWORK An aerial view of Hurricane Harvey damage in Port Aransas, Texas, on Aug. 30, 2017.",
+                    "sent_indx": 145,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Courtney Sacco and Matt Woolbright, Caller-Times, via USA TODAY NETWORK Hurricane Harvey damage in Port Aransas, Texas, on Aug. 30, 2017.",
+                    "sent_indx": 146,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "But their old house, situated between Rockport and Port Aransas, was severely damaged.",
+                    "sent_indx": 23,
+                    "doc_indx": 12
+                },
+                {
+                    "sentence": "And then, at the Pioneer Beach Resort in Port Aransas it becomes clear that Hurricane Harvey came through with a vengeance.",
+                    "sent_indx": 3,
+                    "doc_indx": 16
+                },
+                {
+                    "sentence": "Buddy Seeds stands by one of the buildings left standing in Port Aransas.",
+                    "sent_indx": 13,
+                    "doc_indx": 16
+                },
+                {
+                    "sentence": "Next door, in front of Moby Dick's, one of Port Aransas' most beloved restaurants,  owner Ed Ziegler stands at a pile of muddy debris.",
+                    "sent_indx": 30,
+                    "doc_indx": 16
+                },
+                {
+                    "sentence": "Here's how you can help the victims of Hurricane Harvey Back in Port Aransas, Ed Ziegler watches volunteers wash mud off chairs and says, \"Now that I've seen the actions of people, my hope is restored.",
+                    "sent_indx": 160,
+                    "doc_indx": 16
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "the red cross",
+            "term_freq": 5,
+            "term_rate": 0.25,
+            "sumgram_history": [
+                {
+                    "prev_ngram": "red cross",
+                    "annotator": "mvg_window",
+                    "cur_ngram": "the red cross",
+                    "proper_noun_rate": 0.5
+                }
+            ],
+            "parent_sentences": [
+                {
+                    "sentence": "Katie Wilkes, a spokeswoman for the American Red Cross, said the organization's caseworkers are trying to find stable housing for Texans who might not ever be able to return to their homes — a process that could take months or even years.",
+                    "sent_indx": 36,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "The Red Cross is no longer sending volunteers from the mid-Atlantic region to Texas, instead keeping them in place in case they are needed for a response to Irma.",
+                    "sent_indx": 59,
+                    "doc_indx": 1
+                },
+                {
+                    "sentence": "About 40 people took refuge in a Red Cross shelter set up at a church.",
+                    "sent_indx": 3,
+                    "doc_indx": 7
+                },
+                {
+                    "sentence": "Scott Clause, Daily Advertiser via USA TODAY Network Vivian Bell watches her grand children, Kevin Bass, left, and Ka'Nya Bass, inside the Red Cross shelter at the George R. Brown Convention Center on Aug. 29, 2017.",
+                    "sent_indx": 194,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "The American Red Cross reported that 5,258 people spent Wednesday night in 28 shelters strewn across the Texas coast, mostly in Houston and Harris County — down from more than 30,000 at the height of the flooding.",
+                    "sent_indx": 4,
+                    "doc_indx": 13
+                },
+                {
+                    "sentence": "(Elyse Samuels/The Washington Post) [ Storm flooding destroyed hundreds of thousands of cars in a city that relies heavily on them ] The Red Cross has disbursed $46.4 million to 116,000 people, according to the Texas Department of Public Safety.",
+                    "sent_indx": 14,
+                    "doc_indx": 13
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "aftermath hurricane",
+            "term_freq": 4,
+            "term_rate": 0.2,
+            "parent_sentences": [],
+            "adopted_child": false
+        },
+        {
+            "ngram": "aug 25,",
+            "term_freq": 4,
+            "term_rate": 0.2,
+            "parent_sentences": [],
+            "adopted_child": false
+        },
+        {
+            "ngram": "the coastal bend",
+            "term_freq": 4,
+            "term_rate": 0.2,
+            "sumgram_history": [
+                {
+                    "prev_ngram": "coastal bend",
+                    "annotator": "mvg_window",
+                    "cur_ngram": "the coastal bend",
+                    "proper_noun_rate": 1.0
+                }
+            ],
+            "parent_sentences": [
+                {
+                    "sentence": "Hurricane Harvey: Drone view shows continuing cleanup on Texas coast Share CLOSE Hurricane Harvey decimated communities along the Coastal Bend and left large swaths of the Lone Star State underwater when it roared ashore about three weeks ago.",
+                    "sent_indx": 0,
+                    "doc_indx": 3
+                },
+                {
+                    "sentence": "Harvey struck the Coastal Bend as a Category 4 hurricane on Aug. 25, 2017.",
+                    "sent_indx": 147,
+                    "doc_indx": 8
+                },
+                {
+                    "sentence": "Coastal Texas town prepares to rebuild after Hurricane Harvey Madlin Mekelburg , USA Today Network Austin Bureau Published 4:33 p.m. CT Sept. 14, 2017 | Updated 4:33 p.m. CT Sept. 14, 2017 Share CLOSE Now that Hurricane Harvey has left the Coastal Bend, here are some post-storm safety tips.",
+                    "sent_indx": 1,
+                    "doc_indx": 12
+                }
+            ],
+            "adopted_child": false
+        },
+        {
+            "ngram": "courtney sacco/caller-times",
+            "term_freq": 4,
+            "term_rate": 0.2,
+            "sumgram_history": [
+                {
+                    "prev_ngram": "courtney sacco",
+                    "annotator": "pos",
+                    "cur_freq": 3,
+                    "cur_ngram": "courtney sacco/caller-times"
+                }
+            ],
+            "parent_sentences": [
+                {
+                    "sentence": "(Photo: Courtney Sacco/Caller-Times) CONNECT TWEET LINKEDIN COMMENTEMAILMORE CORPUS CHRISTI, Texas — Hurricane Harvey decimated communities along the Gulf Coast of Texas and left large swaths of the Lone Star State underwater when it roared ashore about three weeks ago.",
+                    "sent_indx": 3,
+                    "doc_indx": 3
+                },
+                {
+                    "sentence": "(Photo: Courtney Sacco/Caller-Times) Hotels and apartments in Rockport were damaged by the storm and Mayor C.J. Wax said there are currently no temporary housing options available within city limits.",
+                    "sent_indx": 16,
+                    "doc_indx": 12
+                },
+                {
+                    "sentence": "(Photo: Courtney Sacco/Caller-Times) The city is working to flood-proof houses as much as possible during the rebuilding period, requiring homes and buildings damaged significantly during the storm to be built to meet the most recent standards.",
+                    "sent_indx": 44,
+                    "doc_indx": 12
+                }
+            ],
+            "adopted_child": false
+        }
+    ],
+    "created_at_utc": "2019-09-06T21:01:21Z",
+    "params": {
+        "path": "/Users/AlexanderNwala/Documents/cols/harvey/",
+        "base_ngram": 2,
+        "output": "harvey_sumgrams.json",
+        "sentences_rank_count": 10,
+        "top_sumgram_count": 20,
+        "add_stopwords": [],
+        "corenlp_host": "localhost",
+        "corenlp_port": "9000",
+        "corenlp_max_sentence_words": 100,
+        "include_postings": false,
+        "log_file": "",
+        "log_format": "",
+        "log_level": "INFO",
+        "mvg_window_min_proper_noun_rate": 0.5,
+        "ngram_printing_mw": 50,
+        "no_mvg_window_glue_split_ngrams": false,
+        "no_parent_sentences": false,
+        "no_pos_glue_split_ngrams": false,
+        "no_rank_sentences": false,
+        "no_rank_docs": false,
+        "pos_glue_split_ngrams_coeff": 2,
+        "pretty_print": true,
+        "rm_subset_top_ngrams_coeff": 2,
+        "sentence_pattern": "[.?!][ \n]|\n+",
+        "sentence_tokenizer": "ssplit",
+        "shift": 0,
+        "token_pattern": "(?u)\\b[a-zA-Z\\'\\’-]+[a-zA-Z]+\\b|\\d+[.,]?\\d*",
+        "title": "",
+        "log_dets": {
+            "level": 20
+        },
+        "binary_tf_flag": true,
+        "stanford_corenlp_server": true,
+        "tf_label": "Collection Term Frequency (1 term count per document)",
+        "tf_normalizing_divisor": 20,
+        "collection_doc_count": 20
+    }
+}

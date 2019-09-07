@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 from sumgram import __version__
 
-desc = """sumgram is a tool that summarizes a collection of text documents by generating the most frequent sumgrams (multiple ngrams)"""
+desc = """sumgram is a tool that summarizes a collection of text documents by generating the most frequent sumgrams (conjoined ngrams)"""
 
 
 setup(
