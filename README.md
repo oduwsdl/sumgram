@@ -164,7 +164,7 @@ with open('sumgrams.json', 'w') as outfile:
 ```
 
 ### Sumgram output
-Highlights of selected fields in the output ([harvey_sumgrams.json](sumgrams/harvey_sumgrams.json)) generated from the following command.
+Highlights of selected fields in the output ([harvey_sumgrams.json](sumgram/harvey_sumgrams.json)) generated from the following command.
 ```
 sumgram -t 20 -o harvey_sumgrams.json --pretty-print cols/harvey/
 ```
@@ -242,13 +242,13 @@ Options:
 ## pos_glue_split_ngrams
 
 This algorithm is the first measure to merge split MWPN ngrams. For example, the ngram fragment 
-`emergency management` 
+`"emergency management"` 
 was split (base ngram = 2) from its parent MWPN:
-`federal emergency management agency`. `pos_glue_split_ngrams` attempts to replace the ngram fragment with its MWPN.
+`"federal emergency management agency"`. `pos_glue_split_ngrams` attempts to replace the ngram fragment with its MWPN.
 
 The `pos_glue_split_ngrams` process is outlined as follows:
 * All tokens in all the sentences are labeled with their respective Parts of Speech (POS) with Stanford CoreNLP's POS annotator.
-* WMPNs are identified by this rule: a WMPN is a `contiguous sequence of NNP` or `a contiguous sequence of NNP interleaved with CC or IN`. For example, given the follow [POS label descriptions](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html)
+* MWPNs are identified by this rule: a MWPN is a `contiguous sequence of NNP` or `a contiguous sequence of NNP interleaved with CC or IN`. For example, given the follow [POS label descriptions](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html)
   ```
   NNP: Proper Noun Singular
   NNPS: Proper Noun plural
