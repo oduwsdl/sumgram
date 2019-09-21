@@ -430,7 +430,7 @@ def nlpSentenceAnnotate(text, parsed={}, host='localhost', port='9000'):
 				})
 
 				lemmatizedSentence = lemmatizedSentence + tok['lemma'] + tok['after']
-				singleSentence = singleSentence + tok['originalText'] + tok['after']
+				#singleSentence = singleSentence + tok['originalText'] + tok['after']
 			
 			if( sentenceSize != 0 ):
 				
