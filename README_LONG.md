@@ -1,6 +1,6 @@
-# ngramsum
+# sumgram
 
-ngramsum is a tool that
+sumgram is a tool that
 	Backbone function call stack
 		get_top_ngrams()
 			extract_doc_sentences()
@@ -432,267 +432,75 @@ ngramsum is a tool that
 
 		3. Sentences are subsequently ranked according to their respective average overlap scores (highest - best, lowest - worst)
 
-Old GetTopNgrams Explanation
-	
-	get_top_ngrams
-		gen_top_ngrams
-		merge_split_ngrams
-			gen_inc_bridge_ngrams
-			get_bridge_ngrams
-			merge_inc_ngrams
-			update_top_k_ngrams_with_merged
-		get_ranked_docs
-		rank_sents_frm_top_ranked_docs
-		add_removed_words
+	Sample output
+		Harvey small
+			 rank  sumgram                                              TF   TF-Rate
+			  1    hurricane harvey                                     18    0.90 
+			  2    the federal emergency management agency              8     0.40 
+			  3    a category 4 hurricane                               7     0.35 
+			  4    corpus christi                                       7     0.35 
+			  5    the gulf coast                                       7     0.35 
+			  6    president trump                                      7     0.35 
+			  7    flooded homes                                        6     0.30 
+			  8    tropical storm harvey                                6     0.30 
+			  9    the agency said                                      5     0.25 
+			  10   the george r. brown convention center                5     0.25 
+			  11   the houston area                                     5     0.25 
+			  12   hurricane irma                                       5     0.25 
+			  13   last week                                            5     0.25 
+			  14   army national guard                                  5     0.25 
+			  15   in port aransas                                      5     0.25 
+			  16   the red cross                                        5     0.25 
+			  17   aftermath hurricane                                  4     0.20 
+			  18   aug 25,                                              4     0.20 
+			  19   the coastal bend                                     4     0.20 
+			  20   courtney sacco/caller-times                          4     0.20 
+
+		Harvey
+			 rank  sumgram                                              TF   TF-Rate
+			  1    hurricane harvey                                    225    0.50 
+			  2    tropical storm harvey                               121    0.27 
+			  3    corpus christi                                      116    0.26 
+			  4    the national hurricane center                        67    0.15 
+			  5    as a category 4 hurricane                            63    0.14 
+			  6    the federal emergency management agency              63    0.14 
+			  7    the national weather service                         58    0.13 
+			  8    port aransas                                         57    0.13 
+			  9    the gulf of mexico                                   56    0.13 
+			  10   the texas gulf coast                                 53    0.12 
+			  11   harvey landfall                                      52    0.12 
+			  12   the united states                                    52    0.12 
+			  13   inches rain                                          51    0.11 
+			  14   storm surge                                          49    0.11 
+			  15   a tropical depression                                46    0.10 
+			  16   the coastal bend                                     43    0.10 
+			  17   tropical cyclone                                     43    0.10 
+			  18   the houston area                                     40    0.09 
+			  19   harris county                                        38    0.09 
+			  20   southeast texas                                      38    0.09 
+
+		Ebola
+			 rank  sumgram                                              TF   TF-Rate
+			  1    ebola virus                                         224    0.39 
+			  2    in west africa                                      147    0.25 
+			  3    public health                                       117    0.20 
+			  4    sierra leone                                        116    0.20 
+			  5    ebola outbreak                                      111    0.19 
+			  6    the world health organization                        93    0.16 
+			  7    the united states                                    92    0.16 
+			  8    centers for disease control and prevention           85    0.15 
+			  9    infectious diseases                                  81    0.14 
+			  10   health care workers                                  63    0.11 
+			  11   democratic republic of the congo                     58    0.10 
+			  12   bodily fluids                                        57    0.10 
+			  13   ebola hemorrhagic fever                              55    0.09 
+			  14   direct contact with                                  54    0.09 
+			  15   21 days                                              51    0.09 
+			  16   outbreak west                                        48    0.08 
+			  17   outbreak ebola                                       47    0.08 
+			  18   disease evd                                          43    0.07 
+			  19   guinea liberia                                       42    0.07 
+			  20   body fluids                                          41    0.07 
 
 
-	gen_top_ngrams()
 
-		generates list of n (e.g., if n = 2, it generates bigrams) ngrams with their respective frequencies and postings:
-		[
-			{
-		        "ngram": "hurricane harvey",
-		        "term_freq": 19,
-		        "postings": [	
-		            {
-		                "doc_indx": 0,
-		                "id": 0,
-		                "details": {}
-		            },
-		            {
-		                "doc_indx": 1,
-		                "id": 1,
-		                "details": {}
-		            }
-		        ]
-	        },
-		    {
-		    	...
-		    }
-	    ]
-
-	gen_inc_bridge_ngrams()
-		
-		Multiple lower order ngrams (e.g., 'emergency management' and 'federal emergency') may belong to 
-		the same higher order ngram (e.g, 'federal emergency management'): responsible for generating a dictionary of (n + 1) ngrams as keys and values are top ngrams with their respective frequencies and postings that are perfect subsets of the (n + 1) ngram key. gen_inc_bridge_ngrams() returns:
-
-		{
-			"federal emergency management": 
-			[
-		        {
-		            "top_ngram_pos": 1,
-		            "top_ngram": {
-		                "ngram": "emergency management",
-		                "term_freq": 8,
-		                "postings": [
-		                    {
-		                        "doc_indx": 0,
-		                        "id": 0,
-		                        "details": {}
-		                    },
-		                    {
-		                        "doc_indx": 1,
-		                        "id": 1,
-		                        "details": {}
-		                    },
-		                    {
-		                        "doc_indx": 5,
-		                        "id": 6,
-		                        "details": {}
-		                    }
-		                ]
-		            }
-		        },
-		        {
-		            "top_ngram_pos": 5,
-		            "top_ngram": {
-		                "ngram": "federal emergency",
-		                "term_freq": 7,
-		                "postings": [
-		                    {
-		                        "doc_indx": 0,
-		                        "id": 0,
-		                        "details": {}
-		                    },
-		                    {
-		                        "doc_indx": 1,
-		                        "id": 1,
-		                        "details": {}
-		                    }
-		                ]
-		            }
-		        }
-	    	]
-	    }
-
-	get_bridge_ngrams()
-		
-		Adjacent higher order ngrams (e.g., 'federal emergency management' and 'emergency management agency') may include a common lower order ngram (e.g., 'emergency management'), such adjacent higher order ngrams ought to be merged into a single higher order ngram (e.g., 'federal emergency management agency'). Because the goal of merging split ngrams is to replace a lower order ngram with a single higher order ngram, but if the lower order ngram has multiple parents, we cannot decide which higher order ngram would replace the lower order ngram.
-
-		Therefore get_bridge_ngrams() is responsible for finding adjacent higher order ngrams that include a common lower order ngram
-
-		Given inc_ngram_dct content from gen_inc_bridge_ngrams():
-			inc_ngram: federal emergency management
-				top_ngram: {'top_ngram_pos': 1, 'top_ngram': ('emergency management', 3, array([0, 1, 2]))}
-				top_ngram: {'top_ngram_pos': 6, 'top_ngram': ('federal emergency', 2, array([0, 2]))}
-
-			inc_ngram: emergency management agency
-				top_ngram: {'top_ngram_pos': 1, 'top_ngram': ('emergency management', 3, array([0, 1, 2]))}
-				top_ngram: {'top_ngram_pos': 2, 'top_ngram': ('management agency', 3, array([0, 1, 2]))}
-
-		get_bridge_ngrams() returns:
-			{
-				1: ['federal emergency management', 'emergency management agency'], 
-				6: ['federal emergency management'], 
-				2: ['emergency management agency']
-			}
-
-			Gotten by including top_ngram_pos as key and value as the list of the parent inc_ngram,
-			e.g., top_ngram: {'top_ngramPos': 1, 'top_ngram': ('emergency management', 3, array([0, 1, 2]))} from inc_ngram: federal emergency management
-			yields ['federal emergency management']
-
-			then top_ngram: {'top_ngramPos': 1, 'top_ngram': ('emergency management', 3, array([0, 1, 2]))} emergency management agency
-			yields ['federal emergency management', 'emergency management agency']
-
-	merge_inc_ngrams()
-		
-		Find top_ngrams (called bridge_ngrams) that bridge a pair of inc_ngrams, for such top_ngrams, merge their bridge_ngrams. top_ngrams already in order of most frequent to least frequent.
-
-		Input (bridge_ngrams):
-			    "1": [
-			        "federal emergency management",
-			        "emergency management agency"
-			    ],
-			    "5": [
-			        "federal emergency management"
-			    ],
-			    "2": [
-			        "emergency management agency",
-			        "management agency said"
-			    ],
-			    "14": [
-			        "management agency said"
-			    ],
-			    "0": [
-			        "hurricane harvey victims"
-			    ],
-			    "7": [
-			        "hurricane harvey victims"
-			    ]
-	    
-	    Process
-	    	top ngram term: "emergency management"
-				common inc_ngrams parents: ['federal emergency management', 'emergency management agency']
-				
-				inc_ngrams parent: 0 'federal emergency management'
-				inc_ngrams parent: 1 'emergency management agency'
-
-				merge result: 'federal emergency management agency'
-				The top_ngrams (children) of the inc_ngrams will be joined
-
-			top ngram term: 'management agency'
-				common inc_ngrams parents: ['emergency management agency', 'management agency said']
-				
-				inc_ngrams parent: 0 'emergency management agency' (old inc_ngram)
-				inc_ngram post update: 'federal emergency management agency' (new inc_ngram)
-
-				inc_ngrams parent: 1 'management agency said'
-				merge result: 'federal emergency management agency said' (new inc_ngram + 'management agency said')
-
-		Result
-			{
-			    "hurricane harvey victims": [
-			        {
-			            "top_ngram_pos": 0,
-			            "top_ngram": {
-			                "ngram": "hurricane harvey",
-			                "term_freq": 19,
-			                "postings": []
-			            }
-			        },
-			        {
-			            "top_ngram_pos": 7,
-			            "top_ngram": {
-			                "ngram": "harvey victims",
-			                "term_freq": 7,
-			                "postings": []
-			            }
-			        }
-			    ],
-			    "federal emergency management agency said": [
-			        {
-			            "top_ngram_pos": 5,
-			            "top_ngram": {
-			                "ngram": "federal emergency",
-			                "term_freq": 7,
-			                "postings": []
-			            }
-			        },
-			        {
-			            "top_ngram_pos": 1,
-			            "top_ngram": {
-			                "ngram": "emergency management",
-			                "term_freq": 8,
-			                "postings": []
-			            }
-			        },
-			        {
-			            "top_ngram_pos": 14,
-			            "top_ngram": {
-			                "ngram": "agency said",
-			                "term_freq": 5,
-			                "postings": []
-			            }
-			        },
-			        {
-			            "top_ngram_pos": 2,
-			            "top_ngram": {
-			                "ngram": "management agency",
-			                "term_freq": 8,
-			                "postings": []
-			            }
-			        }
-			    ]
-			}
-
-	update_top_k_ngrams_with_merged()
-		
-		The top_ngrams (have term frequency) need to be replaced with merged inc_ngrams.
-		The merged inc_ngrams (e.g., 'hurricane harvey victims' and 'federal emergency management agency said') are new and derived, and thus do not have term frequency values, and as such need to inherit this value from a single top_ngrams. There are multiple top_ngrams (subset of merged inc_ngrams) possible candidates. So select the top_ngram with the largest frequency.
-
-	get_ranked_docs()
-		
-		Given i ∈ N = |list of top ngrams|
-
-		Give credit to documents that have highly ranked (bigger diff: N - i) terms in the ngram_lst 
-		a document's score is awarded by accumulating the points awarded by the position of terms in the ngram_lst.
-		Documenents without terms in ngram_lst are not given points.
-		
-	rank_sents_frm_top_ranked_docs()
-		
-		1. combine_ngrams(): generate a set of top ngrams, e.g, given 2 top ngrams 'hurricane harvey victims' and 'federal emergency management agency said', we get 
-		   [
-		   	{'hurricane', 'harvey', 'victims'},
-		   	{'federal', 'emergency', 'management', 'agency', 'said'}
-		   ]
-		
-		rank_sents_frm_top_ranked_docs()
-		2. For all top ranked documents (from get_ranked_docs()), 
-
-			  get_docs_sentence_score()
-		      For all sentences in a top ranked doc, assign a sentence score (average overlap) by measuring overlap between all the top ngrams in 1. and a given sentence (calc_avg_overlap()). This account for how many different tokens in the top ngrams does a sentence have.
-
-		3. Sentences are subsequently ranked according to their respective average overlap scores (highest - best, lowest - worst)
-
-	add_removed_words()
-		
-		case 1: Stopwords case removal case:
-			The removal of stopword means the top_ngrams have gaps, e.g., 
-				"democratic republic congo"
-				instead of
-				"democratic republic of congo"
-		
-		case 2: Low occurring terms case:
-			Also sometimes grams with lower match are dropped when top ngrams are calculated. For example, "texas" was dropped because it did not occur frequently enough with "gulf coast"
-		
-		Therefore generated ngram_range ngrams WITH stopwords (called unrestricted ngrams) for a limited set of documents that include lower and higher order ngrams. Next, find top ngrams that are subsets (ensure order is preserved) of the unrestricted ngrams, and select the unrestricted ngram which does not have terms removed (case 1 and case 2)

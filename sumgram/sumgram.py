@@ -290,7 +290,7 @@ def interpolate_toks(span, group, pos_tok_map):
 def extract_collocation_cands(sent_toks, container, params):
 	
 	if( len(sent_toks) < 2 ):
-		return []
+		return
 
 	'''
 		Rules inspired by: https://medium.com/@nicharuch/collocations-identifying-phrases-that-act-like-individual-words-in-nlp-f58a93a2f84a
@@ -311,7 +311,14 @@ def extract_collocation_cands(sent_toks, container, params):
 	w = ' \w+ '
 	nn = 'NN[^ ]?S?'
 
+	params['collocations_pattern'] = params['collocations_pattern'].strip()
 	if( params['collocations_pattern'] == '' ):
+		'''
+			Switched off because benefit was not found proportional to cost. It splits multi-word proper nouns even though
+			it also includes unsplit version, thus it returns large sets.
+			Could be used instead of extract_proper_nouns() with rule: "NNP ((IN|CC)? ?NNP)+" but I advise against it because pattern matching is expensive
+		'''
+		return
 		#rules inspired by 
 		bigram_collocations = 'NN[^ ]? NN[^ ]?S?|JJ[^ ]? NN[^ ]?S?'
 		trigram_collocations = adj + w + adj + '|' + adj + w + nn + '|' + nn + w + adj + '|' + nn + w + nn
@@ -346,6 +353,8 @@ def extract_collocation_cands(sent_toks, container, params):
 			
 			colloc_text = ' '.join( collocation['toks'] )
 			collocation_lower = colloc_text.lower()
+
+			#consider accounting for NNPS and possible NN in calculating proper_noun_rate
 			proper_noun_rate = round( collocation['pos'].count('NNP')/len(collocation['pos']), 4 )
 			
 			if( collocation_lower in container ):
@@ -1149,6 +1158,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 		del doc_dct_lst[i]['sentences']
 
 	multi_word_proper_nouns = rank_proper_nouns(multi_word_proper_nouns)
+
 	logger.info('\tsentence segmentation - end')
 	logger.info('\tshift: ' + str(params['shift']))
 		
@@ -1389,7 +1399,7 @@ def main():
 	set_log_defaults(params)
 	set_logger_dets( params['log_dets'] )
 
-	doc_lst = getText(args.path)
+	doc_lst = getText(args.path, threadCount=params['thread_count'])
 	proc_req(doc_lst, params)
 
 if __name__ == 'sumgram.sumgram':
