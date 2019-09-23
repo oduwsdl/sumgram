@@ -430,7 +430,7 @@ def nlpSentenceAnnotate(text, parsed={}, host='localhost', port='9000'):
 				})
 
 				lemmatizedSentence = lemmatizedSentence + tok['lemma'] + tok['after']
-				singleSentence = singleSentence + tok['originalText'] + tok['after']
+				#singleSentence = singleSentence + tok['originalText'] + tok['after']
 			
 			if( sentenceSize != 0 ):
 				
@@ -563,7 +563,7 @@ def rmStopwords(sent, stopwords):
 
 	return newSent
 
-def parallelGetTxt(folder):
+def parallelGetTxt(folder, threadCount=5):
 	
 	folder = folder.strip()
 	if( folder == '' ):
@@ -583,7 +583,7 @@ def parallelGetTxt(folder):
 		keywords = {'infilename': folder + f}
 		jobsLst.append( {'func': readTextFromFile, 'args': keywords, 'misc': False} )
 	
-	resLst = parallelTask(jobsLst)
+	resLst = parallelTask(jobsLst, threadCount=threadCount)
 	for res in resLst:
 		
 		res['text'] = res.pop('output')
@@ -594,12 +594,12 @@ def parallelGetTxt(folder):
 
 	return resLst
 
-def getText(path):
+def getText(path, threadCount=5):
 
 	docLst = []
 	
 	if( os.path.isdir(path) ):
-		docLst = parallelGetTxt(path)
+		docLst = parallelGetTxt(path, threadCount=threadCount)
 	else:
 		docLst = [{
 			'text': readTextFromFile(path)

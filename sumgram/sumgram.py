@@ -128,24 +128,48 @@ def get_docs_sentence_score(ngram_sentences, sentences, doc_indx, doc_id, params
 	
 	return sentences_lst
 
-def extract_doc_sentences(text, sent_tokenizer_pattern, dedup_set, multi_word_proper_nouns, params=None):
+def parallel_nlp_add_sents(doc_dct_lst, params):
 
-	if( text == '' ):
-		return []
-
-	if( params is None ):
-		params = {}
-
-	params.setdefault('corenlp_host', 'localhost')
+	size = len(doc_dct_lst)
+	if( size == 0 or params['stanford_corenlp_server'] is False or params['sentence_tokenizer'] != 'ssplit'):
+		return doc_dct_lst
+	
+	params.setdefault('thread_count', 5)
+	params.setdefault('update_rate', 50)
 	params.setdefault('corenlp_port', '9000')
+	params.setdefault('corenlp_host', 'localhost')
+	
+	jobs_lst = []
+	for i in range(size):
+
+		if( i % params['update_rate'] == 0 ):
+			print_msg = '\tsegmenting sentence i: ' + str(i) + ' of ' + str(size)
+		else:
+			print_msg = ''
+
+		keywords = {
+			'text': doc_dct_lst[i]['text'].replace('\n', ' '),
+			'host': params['corenlp_host'],
+			'port': params['corenlp_port']
+		}
+		
+		jobs_lst.append({
+			'func': nlpSentenceAnnotate, 
+			'args': keywords, 
+			'misc': False,
+			'print': print_msg
+		})
+	
+	res_lst = parallelTask(jobs_lst, threadCount=params['thread_count'])
+	for i in range(size):
+		if( 'sentences' in res_lst[i]['output'] ):
+			doc_dct_lst[i]['sentences'] = res_lst[i]['output']['sentences']
+
+	return doc_dct_lst
+
+def extract_doc_sentences(doc, sent_tokenizer_pattern, dedup_set, multi_word_proper_nouns, params):
 
 	filtered_sentences = []
-
-	if( params['stanford_corenlp_server'] and params['sentence_tokenizer'] == 'ssplit' ):
-		doc = nlpSentenceAnnotate(text.replace('\n', ' '), host=params['corenlp_host'], port=params['corenlp_port'])
-	else:
-		doc = {}
-	
 	if( 'sentences' in doc ):
 		if( len(doc['sentences']) != 0 ):
 			for sent in doc['sentences']:
@@ -160,7 +184,9 @@ def extract_doc_sentences(text, sent_tokenizer_pattern, dedup_set, multi_word_pr
 
 				tok_len = len(sent['tokens'])
 				dedup_set.add(lowercase_sent)
+				
 				extract_proper_nouns( sent['tokens'], multi_word_proper_nouns )
+				extract_collocation_cands( sent['tokens'], multi_word_proper_nouns, params )
 				
 				if( tok_len > params['corenlp_max_sentence_words'] ):
 					#this sentence is too long so force split 
@@ -170,7 +196,7 @@ def extract_doc_sentences(text, sent_tokenizer_pattern, dedup_set, multi_word_pr
 
 	#if corenlp sentence segmentation is not used, use regex sentence segmentation
 	if( len(filtered_sentences) == 0 ):
-		filtered_sentences = regex_get_sentences(text, sent_tokenizer_pattern, dedup_set, params['corenlp_max_sentence_words'])
+		filtered_sentences = regex_get_sentences(doc['text'], sent_tokenizer_pattern, dedup_set, params['corenlp_max_sentence_words'])
 
 	return filtered_sentences
 
@@ -243,6 +269,103 @@ def rank_sents_frm_top_ranked_docs(ngram_sentences, ranked_docs, all_doc_sentenc
 	return sorted(all_top_ranked_docs_sentences, key=lambda x: x['avg_overlap'], reverse=True)[:extra_params['sentences_rank_count']]
 
 
+def interpolate_toks(span, group, pos_tok_map):
+
+	if( len(span) != 2 or len(pos_tok_map) == 0 ):
+		return {}
+
+	pos_seq = []
+	tok_seq = []
+	for i in range(span[0], span[1]):
+		
+		if( i in pos_tok_map ):
+			pos_seq.append( pos_tok_map[i]['pos'] )
+			tok_seq.append( pos_tok_map[i]['tok'] )
+		
+	if( ' '.join(pos_seq) == group ):
+		return {'pos': pos_seq, 'toks': tok_seq}
+	else:
+		return {}
+
+def extract_collocation_cands(sent_toks, container, params):
+	
+	if( len(sent_toks) < 2 ):
+		return
+
+	'''
+		Rules inspired by: https://medium.com/@nicharuch/collocations-identifying-phrases-that-act-like-individual-words-in-nlp-f58a93a2f84a
+		Bigrams:
+			(Noun, Noun), (Adjective, Noun)
+			NN[^ ]? NN[^ ]?S?
+			JJ[^ ]? NN[^ ]?S?
+		Trigrams:
+			(Adjective/Noun, Anything, Adjective/Noun)
+			(JJ[^ ]?|NN[^ ]?S?) \w+ (JJ[^ ]?|NN[^ ]?S?)
+	'''
+
+	POS = []
+	pos_tok_map = {}#responsible for mapping position of POS to toks
+	sequence = ''
+	
+	adj = 'JJ[^ ]?'
+	w = ' \w+ '
+	nn = 'NN[^ ]?S?'
+
+	params['collocations_pattern'] = params['collocations_pattern'].strip()
+	if( params['collocations_pattern'] == '' ):
+		'''
+			Switched off because benefit was not found proportional to cost. It splits multi-word proper nouns even though
+			it also includes unsplit version, thus it returns large sets.
+			Could be used instead of extract_proper_nouns() with rule: "NNP ((IN|CC)? ?NNP)+" but I advise against it because pattern matching is expensive
+		'''
+		return
+		#rules inspired by 
+		bigram_collocations = 'NN[^ ]? NN[^ ]?S?|JJ[^ ]? NN[^ ]?S?'
+		trigram_collocations = adj + w + adj + '|' + adj + w + nn + '|' + nn + w + adj + '|' + nn + w + nn
+		collocs = [bigram_collocations, trigram_collocations]
+	else:
+		collocs = [ params['collocations_pattern'] ]
+	
+	cursor = sent_toks[0]['pos']
+	POS.append( sent_toks[0]['pos'] )
+	pos_tok_map[0] = {'pos': sent_toks[0]['pos'], 'tok': sent_toks[0]['tok']}
+
+
+	#sent_toks example: NNP VBZ JJ TO VB DT JJ JJ JJ NN IN NNP NN : NNP NNP NNP NNP VBZ JJ TO VB DT JJ JJ JJ NN IN NNP NN DT VBP DT CD RBS JJ JJ NNS IN NNP NN , VBG TO NN .
+	for i in range( 1, len(sent_toks) ):
+		
+		POS.append( sent_toks[i]['pos'] )
+		
+		cursor = cursor + ' '
+		pos_tok_map[ len(cursor) ] = {'pos': sent_toks[i]['pos'], 'tok': sent_toks[i]['tok']}
+		cursor = cursor + sent_toks[i]['pos']
+	
+
+	POS = ' '.join(POS)
+	for pattern in collocs:
+		
+		p = re.compile(pattern)
+		for m in p.finditer(POS):
+
+			collocation = interpolate_toks( m.span(), m.group(), pos_tok_map )
+			if( len(collocation) == 0 ):
+				continue
+			
+			colloc_text = ' '.join( collocation['toks'] )
+			collocation_lower = colloc_text.lower()
+
+			#consider accounting for NNPS and possible NN in calculating proper_noun_rate
+			proper_noun_rate = round( collocation['pos'].count('NNP')/len(collocation['pos']), 4 )
+			
+			if( collocation_lower in container ):
+				container[collocation_lower]['freq'] += 1
+			else:
+				container[collocation_lower] = {
+					'freq': 1, 
+					'raw': colloc_text, 
+					'nnp_rate': proper_noun_rate, 
+					'pos_seq': collocation['pos']
+				}
 
 def extract_proper_nouns(sent_toks, container):
 
@@ -337,7 +460,12 @@ def extract_proper_nouns(sent_toks, container):
 		if( proper_noun_lower in container ):
 			container[proper_noun_lower]['freq'] += 1
 		else:
-			container[proper_noun_lower] = {'freq': 1, 'raw': proper_noun, 'nnp_rate': proper_noun_rate }
+			container[proper_noun_lower] = {
+				'freq': 1, 
+				'raw': proper_noun, 
+				'nnp_rate': proper_noun_rate, 
+				'pos_seq': proper_nouns['pos'][i]
+			}
 
 	return proper_nouns
 
@@ -659,7 +787,8 @@ def pos_glue_split_ngrams(top_ngrams, k, pos_glue_split_ngrams_coeff, ranked_mul
 					new_ngram_dct = {
 						'prev_ngram': top_ngrams[i]['ngram'],
 						'annotator': 'pos',
-						'cur_freq': mult_wd_prpnoun[1]['freq']
+						'cur_freq': mult_wd_prpnoun[1]['freq'],
+						'cur_pos_sequence': mult_wd_prpnoun[1]['pos_seq']
 					}
 
 					if( multi_word_proper_noun in multi_word_proper_noun_dedup_set ):
@@ -1002,13 +1131,15 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 		nlpServerStartStop('start')
 		params['stanford_corenlp_server'] = nlpIsServerOn()
 	
+	#doc_dct_lst: {doc_id: , text: }
+	logger.info('\tsentence segmentation - start')
+	parallel_nlp_add_sents(doc_dct_lst, params)
 
 	doc_lst = []
-	#doc_dct_lst: {doc_id: , text: }
 	all_doc_sentences = {}
 	multi_word_proper_nouns = {}
 	dedup_set = set()
-	logger.info('\tsentence segmentation - start')
+	
 	for i in range(len(doc_dct_lst)):
 		
 		doc_dct_lst[i].setdefault('doc_id', i)
@@ -1016,16 +1147,18 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 
 		#placing sentences inside doc_dct_lst[i] accounted for more runtime overhead
 		all_doc_sentences[i] = extract_doc_sentences( 
-			doc_dct_lst[i]['text'], 
+			doc_dct_lst[i], 
 			params['sentence_pattern'], 
 			dedup_set, 
 			multi_word_proper_nouns, 
 			params=params
 		)
 
-		del doc_dct_lst[i]['text'] 
+		del doc_dct_lst[i]['text']
+		del doc_dct_lst[i]['sentences']
 
 	multi_word_proper_nouns = rank_proper_nouns(multi_word_proper_nouns)
+
 	logger.info('\tsentence segmentation - end')
 	logger.info('\tshift: ' + str(params['shift']))
 		
@@ -1127,6 +1260,7 @@ def get_args():
 	parser.add_argument('-t', '--top-sumgram-count', help='The count of top sumgrams to generate', type=int, default=10)
 	
 	parser.add_argument('--add-stopwords', help='Comma-separated list of additional stopwords', default='')
+	parser.add_argument('--collocations-pattern', help='User-defined regex rule to extract collocations for pos_glue_split_ngrams', default='')
 	parser.add_argument('--corenlp-host', help='Stanford CoreNLP Server host (needed for decent sentence tokenizer)', default='localhost')
 	parser.add_argument('--corenlp-port', help='Stanford CoreNLP Server port (needed for decent sentence tokenizer)', default='9000')
 	parser.add_argument('--corenlp-max-sentence-words', help='Stanford CoreNLP maximum words per sentence', default=100)
@@ -1154,6 +1288,8 @@ def get_args():
 	parser.add_argument('--shift', help='Factor to shift top ngram calculation', type=int, default=0)
 	parser.add_argument('--token-pattern', help='Regex string that specifies tokens for document tokenization', default=r'(?u)\b[a-zA-Z\'\’-]+[a-zA-Z]+\b|\d+[.,]?\d*')
 	parser.add_argument('--title', help='Text label to be used as a heading when printing top sumgrams', default='')
+	parser.add_argument('--thread-count', help='Maximum number of threads to use for parallel operations like segmenting sentences', type=int, default=5)
+	parser.add_argument('--update-rate', help='Print 1 message per update-rate for long-running tasks', type=int, default=50)
 
 	return parser
 
@@ -1263,7 +1399,7 @@ def main():
 	set_log_defaults(params)
 	set_logger_dets( params['log_dets'] )
 
-	doc_lst = getText(args.path)
+	doc_lst = getText(args.path, threadCount=params['thread_count'])
 	proc_req(doc_lst, params)
 
 if __name__ == 'sumgram.sumgram':
