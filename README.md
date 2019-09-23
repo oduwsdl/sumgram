@@ -214,6 +214,8 @@ sumgram -t 20 -o harvey_sumgrams.json --pretty-print cols/harvey/
         - **prev_ngram** (string): previous state of `ngram`
         - **annotator** (string): annotator ([pos](#pos_glue_split_ngrams) or [mvg_window](#mvg_window_glue_split_ngrams)) responsible for conjoining ngrams to form sumgram
         - **cur_ngram** (string): current state of `ngram`
+        - **cur_freq** (int): occurrence frequency of `cur_ngram`
+        - **cur_pos_sequence** (array[string]): [Part of Speech labels](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html) of `cur_ngram`
         - **proper_noun_rate** (float): fraction of `ngram` tokens that are labeled `NNP`
 - **params** (objects)
 
@@ -225,9 +227,10 @@ Options:
 -n=2                                      The base n (int) for generating top sumgrams, if n = 2, bigrams become the base ngram
 -o, --output                              Output file
 -s, --sentences-rank-count=10             The count of top ranked sentences to generate
--t, --top-sumgram-count=10                  The count of top sumgrams to generate
+-t, --top-sumgram-count=10                The count of top sumgrams to generate
 
 --add-stopwords                           Comma-separated list of addition stopwords
+--collocations-pattern                    User-defined regex rule to extract collocations for pos_glue_split_ngrams
 --corenlp-host=localhost                  Stanford CoreNLP Server host (needed for decent sentence tokenizer)
 --corenlp-port=9000                       Stanford CoreNLP Server port (needed for decent sentence tokenizer)
 --corenlp-max-sentence-words=100          Stanford CoreNLP maximum words per sentence
@@ -255,6 +258,8 @@ Options:
 --shift=0                                 Factor to shift top ngram calculation
 --token-pattern                           Regex string that specifies tokens for document tokenization. Default = '\b[a-zA-Z\'\’-]+[a-zA-Z]+\b|\d+[.,]?\d*'
 --title                                   Text label to be used as a heading when printing top sumgrams
+--thread-count=5                          Maximum number of threads to use for parallel operations like segmenting sentences
+--update-rate=50                          Print 1 message per update-rate for long-running tasks
 ```
 
 ### Algorithms for detecting and gluing split Multi-Word Proper Noun (MWPN) ngrams

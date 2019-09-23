@@ -1289,7 +1289,7 @@ def get_args():
 	parser.add_argument('--token-pattern', help='Regex string that specifies tokens for document tokenization', default=r'(?u)\b[a-zA-Z\'\’-]+[a-zA-Z]+\b|\d+[.,]?\d*')
 	parser.add_argument('--title', help='Text label to be used as a heading when printing top sumgrams', default='')
 	parser.add_argument('--thread-count', help='Maximum number of threads to use for parallel operations like segmenting sentences', type=int, default=5)
-	parser.add_argument('--update-rate', help='Print 1 message per update_rate', type=int, default=50)
+	parser.add_argument('--update-rate', help='Print 1 message per update-rate for long-running tasks', type=int, default=50)
 
 	return parser
 
