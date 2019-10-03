@@ -462,7 +462,7 @@ def nlpServerStartStop(msg='start', host='localhost', port='9000'):
 					'--rm', 
 					'-d', 
 					'-p', 
-					port + ':' + port, 
+					port + ':9000', 
 					'--name',
 					'stanfordcorenlp',
 					'anwala/stanfordcorenlp'
