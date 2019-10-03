@@ -447,7 +447,7 @@ def nlpSentenceAnnotate(text, parsed={}, host='localhost', port='9000'):
 
 	return payload
 
-def nlpServerStartStop(msg='start'):
+def nlpServerStartStop(msg='start', host='localhost', port='9000'):
 
 	if( msg == 'start' ):
 		try:
@@ -462,14 +462,14 @@ def nlpServerStartStop(msg='start'):
 					'--rm', 
 					'-d', 
 					'-p', 
-					'9000:9000', 
+					port + ':' + port, 
 					'--name',
 					'stanfordcorenlp',
 					'anwala/stanfordcorenlp'
 				])
-
+				
 				#warm up server (preload libraries, so subsequent responses are quicker)
-				nlpGetEntitiesFromText('A quick brown fox jumped over the lazy dog')
+				nlpSentenceAnnotate(text='A quick brown fox jumped over the lazy dog', host=host, port=port)
 		except:
 			genericErrorInfo()
 	elif( msg == 'stop' ):

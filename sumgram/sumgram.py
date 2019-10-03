@@ -1119,17 +1119,24 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 
 	params = get_default_args(params)
 
-	params['add_stopwords'] = get_user_stopwords( params['add_stopwords'] ) 
+	params['add_stopwords'] = get_user_stopwords( params['add_stopwords'] )
 	params.setdefault('binary_tf_flag', True)#Multiple occurrence of term T in a document counts as 1, TF = total number of times term appears in collection
-	params['stanford_corenlp_server'] = nlpIsServerOn()
+	nlp_addr = 'http://' + params['corenlp_host'] + ':' + params['corenlp_port']
+
+	
+	if( params['sentence_tokenizer'] == 'ssplit' ):
+		params['stanford_corenlp_server'] = nlpIsServerOn( addr=nlp_addr )
+	else:
+		params['stanford_corenlp_server'] = False
+
 
 	logger.info('\nget_top_sumgrams():')
-	if( params['stanford_corenlp_server'] == False ):
+	if( params['stanford_corenlp_server'] == False and params['sentence_tokenizer'] == 'ssplit' ):
 		
 		logger.info('\n\tAttempting to start Stanford CoreNLP Server (we need it to segment sentences)\n')
 		
-		nlpServerStartStop('start')
-		params['stanford_corenlp_server'] = nlpIsServerOn()
+		nlpServerStartStop('start', host=params['corenlp_host'], port=params['corenlp_port'])
+		params['stanford_corenlp_server'] = nlpIsServerOn( addr=nlp_addr )
 	
 	#doc_dct_lst: {doc_id: , text: }
 	logger.info('\tsentence segmentation - start')
@@ -1155,7 +1162,9 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 		)
 
 		del doc_dct_lst[i]['text']
-		del doc_dct_lst[i]['sentences']
+		
+		if( 'sentences' in doc_dct_lst[i] ):
+			del doc_dct_lst[i]['sentences']
 
 	multi_word_proper_nouns = rank_proper_nouns(multi_word_proper_nouns)
 
@@ -1244,7 +1253,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 	report['params'] = params
 	report['params']['collection_doc_count'] = doc_count
 	
-	if( params['stanford_corenlp_server'] == False ):
+	if( params['stanford_corenlp_server'] == False and params['sentence_tokenizer'] == 'ssplit' ):
 		logger.info('\n\tStanford CoreNLP Server was OFF after an attempt to start it, so regex_get_sentences() was used to segment sentences.\n\tWe highly recommend you install and run it \n\t(see: https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html)\n\tbecause Stanford CoreNLP does a better job segmenting sentences than regex.\n')
 
 	return report
