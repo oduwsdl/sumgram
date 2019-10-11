@@ -133,7 +133,7 @@ rank   sumgram                                              TF   TF-Rate
 ``` 
 This collection has lots of images, but the "image" term might obscure more salient ngrams, so let's 
 rerun the command, but this time consider "image" a stopword (`--add-stopwords="image"`). As seen below such modification exposed more salient bigrams such as "buffalo bayou" and "coast guard".
-The argument of `--add-stopwords` is a comma-separated string of stopwords (e.g., "image, photo, image of"). Use this parameter to add domain specific stopwords not included in the [sumgram's default stopwords list](https://github.com/oduwsdl/sumgram/blob/0224fc9d54034a25e296dd1c43c09c76244fc3c2/sumgram/util.py#L31).
+The argument of `--add-stopwords` is a comma-separated string of stopwords (e.g., "image, photo, image of"). Use this parameter to add domain specific stopwords not included in [sumgram's default stopwords list](https://github.com/oduwsdl/sumgram/blob/0224fc9d54034a25e296dd1c43c09c76244fc3c2/sumgram/util.py#L31).
 
 ```
 $ sumgram -t 10 --add-stopwords="image" cols/harvey/
