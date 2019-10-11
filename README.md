@@ -83,8 +83,13 @@ doc_lst = [
     {'id': 1, 'text': 'Eye of Category 4 Hurricane Harvey is almost onshore. A station at Aransas Pass run by the Texas Coastal Observing Network recently reported a sustained wind of 102 mph with a gust to 120 mph.'},
     {'id': 2, 'text': 'Hurricane Harvey has become a Category 4 storm with maximum sustained winds of 130 mph. Sustained hurricane-force winds are spreading onto the middle Texas coast.'}
   ]
+
+'''
+  Use 'add_stopwords' to include additional stopwords not included in stopwords list (https://github.com/oduwsdl/sumgram/blob/0224fc9d54034a25e296dd1c43c09c76244fc3c2/sumgram/util.py#L31)
+  'add_stopwords' expects a comma-separated string of stopwords, e.g., "image, photo, image of"
+'''
 params = {
-    'top_ngram_count': 10,
+    'top_sumgram_count': 10,
     'add_stopwords': 'image',
     'no_rank_sentences': True,
     'title': 'Top sumgrams for Hurricane Harvey text collection'
@@ -127,7 +132,8 @@ rank   sumgram                                              TF   TF-Rate
   10   image 32 of                                          9     0.21
 ``` 
 This collection has lots of images, but the "image" term might obscure more salient ngrams, so let's 
-rerun the command, but this time consider "image" a stopword (`--add-stopwords="image"`). As seen below such modification exposed more salient bigrams such as "buffalo bayou" and "coast guard"
+rerun the command, but this time consider "image" a stopword (`--add-stopwords="image"`). As seen below such modification exposed more salient bigrams such as "buffalo bayou" and "coast guard".
+The argument of `--add-stopwords` is a comma-separated string of stopwords (e.g., "image, photo, image of"). Use this parameter to add domain specific stopwords not included in the [sumgram's default stopwords list](https://github.com/oduwsdl/sumgram/blob/0224fc9d54034a25e296dd1c43c09c76244fc3c2/sumgram/util.py#L31).
 
 ```
 $ sumgram -t 10 --add-stopwords="image" cols/harvey/
