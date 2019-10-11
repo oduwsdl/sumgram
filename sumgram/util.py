@@ -577,9 +577,7 @@ def parallelGetTxt(folder, threadCount=5):
 	for i in range(len(files)):
 		
 		f = files[i].strip()
-		if( f.startswith('.') ):
-			continue
-
+		
 		keywords = {'infilename': folder + f}
 		jobsLst.append( {'func': readTextFromFile, 'args': keywords, 'misc': False} )
 	
