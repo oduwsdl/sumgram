@@ -964,9 +964,9 @@ def rm_subset_top_ngrams(top_ngrams, k, rm_subset_top_ngrams_coeff, params):
 							
 							top_ngrams[child_indx]['ngram'] = ''
 
-							logger.debug('\teven though parent (' + str(parent_indx) + ') is in lower index than child:', child_indx)
-							logger.debug('\twould have replaced child_ngram_cand:', '"' + child_ngram_cand + '" with parent_ngram_cand: "' + parent_ngram_cand + '"')
-							logger.debug('\twould have replaced parent/child tf:', top_ngrams[parent_indx]['term_freq'], top_ngrams[child_indx]['term_freq'])
+							logger.debug('\teven though parent (' + str(parent_indx) + ') is in lower index than child: ' + str(child_indx))
+							logger.debug('\twould have replaced child_ngram_cand: "' + child_ngram_cand + '" with parent_ngram_cand: "' + parent_ngram_cand + '"')
+							logger.debug('\twould have replaced parent/child tf:' + str(top_ngrams[parent_indx]['term_freq']) + '/' + str(top_ngrams[child_indx]['term_freq']))
 							logger.debug('\tbut this parent has already adopted a child so delete this child.')
 							logger.debug('')
 					
