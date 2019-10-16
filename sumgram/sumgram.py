@@ -624,7 +624,7 @@ def rank_mltwd_proper_nouns(ngram, ngram_toks, sentences, params=None):
 
 	if( sent_count == 1 or ngram == '' ):
 		#it's possible for ngram = '', search for 'sumgram_history'
-		return ''
+		return {}
 
 	window_size = 0
 	max_sent_toks = 0
@@ -650,7 +650,7 @@ def rank_mltwd_proper_nouns(ngram, ngram_toks, sentences, params=None):
 			sent_toks_count = len(sent['toks'])
 
 			logger.debug( '\n\twindow_size: ' + str(window_size) )
-			logger.debug( '\tngram: ' + str(ngram_toks) )
+			logger.debug( '\tbase ngram: ' + str(ngram_toks) )
 			logger.debug( '\tngram in sent (start/length): ' + str(ngram_start) + '/' + str(ngram_length) )
 			logger.debug( '\tsent keys: ' + str(sent.keys()) )
 			logger.debug( '\tori: ' + sent['ori_sent'] )
@@ -949,8 +949,10 @@ def rm_subset_top_ngrams(top_ngrams, k, rm_subset_top_ngrams_coeff, params):
 							new_ngram_dct = {
 								'prev_ngram': child_ngram_cand,
 								'cur_ngram': parent_ngram_cand,
+								'cur_freq': top_ngrams[parent_indx]['term_freq'],
 								'annotator': 'subset'
 							}
+
 							top_ngrams[child_indx].setdefault('sumgram_history', [])
 							top_ngrams[child_indx]['sumgram_history'].append(new_ngram_dct)
 
