@@ -696,19 +696,37 @@ def rank_mltwd_proper_nouns(ngram, ngram_toks, sentences, params=None):
 
 
 		#find multi-word proper noun with the highest frequency for left, right, and both sentence building policies
-		for lrb, multiprpnoun_lrb in phrase_counts.items():
+		multiprpnoun_lrb = sorted(phrase_counts['both'].items(), key=lambda x: x[1]['rate'], reverse=True)
+		
+		if( len(multiprpnoun_lrb) != 0 ):
 			
-			multiprpnoun_lrb = sorted(multiprpnoun_lrb.items(), key=lambda x: x[1]['rate'], reverse=True)
-			if( len(multiprpnoun_lrb) != 0 ):
-				
-				logger.debug('\t\tmax ' + lrb + ': ' + str(multiprpnoun_lrb[0]))
-				
-				rate = multiprpnoun_lrb[0][1]['rate']
-				if( rate > max_multiprpnoun_lrb[window_size]['rate'] ):
-					max_multiprpnoun_lrb[window_size]['ngram'] = multiprpnoun_lrb[0][0]
-					max_multiprpnoun_lrb[window_size]['rate'] = rate
-					max_multiprpnoun_lrb[window_size]['lrb'] = lrb
+			rate = multiprpnoun_lrb[0][1]['rate']
+			if( rate >= params['mvg_window_min_proper_noun_rate'] ):
+				#preference is given to good quality both ngram, if only poor quality both is available, then check left and right
+				logger.debug( '\t\tmax both: ' + str(multiprpnoun_lrb[0]) )
+				logger.debug( '\t\tboth (longer) is preference will disregard left & right')
 
+				max_multiprpnoun_lrb[window_size]['ngram'] = multiprpnoun_lrb[0][0]
+				max_multiprpnoun_lrb[window_size]['rate'] = rate
+				max_multiprpnoun_lrb[window_size]['lrb'] = 'both'
+			else:
+				logger.debug( '\t\tboth rate < mvg_window_min_proper_noun_rate: ' + str(multiprpnoun_lrb[0]) )
+
+
+		if( max_multiprpnoun_lrb[window_size]['rate'] == 0 ):
+			for lrb in ['left', 'right']:
+				
+				multiprpnoun_lrb = sorted(phrase_counts[lrb].items(), key=lambda x: x[1]['rate'], reverse=True)
+				
+				if( len(multiprpnoun_lrb) != 0 ):
+					
+					logger.debug('\t\tmax ' + lrb + ': ' + str(multiprpnoun_lrb[0]))
+					
+					rate = multiprpnoun_lrb[0][1]['rate']
+					if( rate > max_multiprpnoun_lrb[window_size]['rate'] ):
+						max_multiprpnoun_lrb[window_size]['ngram'] = multiprpnoun_lrb[0][0]
+						max_multiprpnoun_lrb[window_size]['rate'] = rate
+						max_multiprpnoun_lrb[window_size]['lrb'] = lrb
 
 		logger.debug('\tlast max for this window_size: ' + str(max_multiprpnoun_lrb[window_size]))
 		logger.debug('\tmax_sent_toks: ' + str(max_sent_toks))
@@ -720,7 +738,25 @@ def rank_mltwd_proper_nouns(ngram, ngram_toks, sentences, params=None):
 			logger.debug("\tmax_multiprpnoun_lrb[window_size]['rate']: " + str(max_multiprpnoun_lrb[window_size]['rate']))
 			break
 
-	while( window_size != 0 ):
+
+
+	logger.debug('\n\tfinal winning candidates: ')
+	ngram_length_window_size_map = {}
+	for window in max_multiprpnoun_lrb:
+	
+		logger.debug( '\t\tfinal winning candidate ' + str(window) + ': ' + str(max_multiprpnoun_lrb[window]) )
+		ngram_length_window_size_map[window] = len(max_multiprpnoun_lrb[window]['ngram'].split(' '))
+
+	#0: window size, 1: ngram length, give preference to longer ngrams
+	ngram_length_window_size_map = sorted( ngram_length_window_size_map.items(), key=lambda x: x[1], reverse=True )
+	logger.debug('')
+
+
+
+	for window_size in ngram_length_window_size_map:
+		
+		#0: window size, 1: ngram length, give preference to longer ngrams
+		window_size = window_size[0]
 		#get best match longest multi-word ngram 
 		if( max_multiprpnoun_lrb[window_size]['rate'] >= params['mvg_window_min_proper_noun_rate'] ):
 			
@@ -731,8 +767,7 @@ def rank_mltwd_proper_nouns(ngram, ngram_toks, sentences, params=None):
 			logger.debug('\tfinal winning max: ' + str(max_multiprpnoun_lrb[window_size]))
 			logger.debug('\twindow_size: ' + str(window_size))
 			break
-
-		window_size -= 1
+			
 
 	return final_multi_word_proper_noun
 
@@ -978,19 +1013,19 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 	if( params is None ):
 		params = {}
 
-	params.setdefault('ngram_printing_mw', 40)
+	params.setdefault('ngram_printing_mw', 50)
 	params.setdefault('title', '')
 
 	mw = params['ngram_printing_mw']
 	ngram_count = len(top_ngrams)
 
-	logger.info('Summary for ' + str(ngram_count) + ' top sumgrams (base n: ' + str(n) + '):')
+	logger.info('Summary for ' + str(ngram_count) + ' top sumgrams (base n: ' + str(n) + '): ')
 	logger.info('')
 
 	if( params['title'] != '' ):
 		logger.info( params['title'] )
 
-	logger.info( '{:^6} {:<{mw}} {:^6} {:<6}'.format('rank', 'sumgram', 'TF', 'TF-Rate', mw=mw) )
+	logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', getColorTxt('sumgram', '92m'), 'TF', 'TF-Rate', 'Base ngram', mw=mw) )
 	for i in range(top_sumgram_count):
 		
 		if( i == ngram_count ):
@@ -999,9 +1034,26 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 		ngram = top_ngrams[i]
 		ngram_txt = ngram['ngram']
 		if( len(ngram_txt) > mw ) :
-			ngram_txt = ngram_txt[:mw-3] + '...'
+			ngram_txt = ngram_txt[:mw-15] + '...'
 
-		logger.info( "{:^6} {:<{mw}} {:^6} {:^6}".format(i+1, ngram_txt, ngram['term_freq'], "{:.2f}".format(ngram['term_rate']), mw=mw) )
+		base_ngram = ngram_txt
+		if( 'sumgram_history' in ngram ):
+			
+			base_ngram = ngram['sumgram_history'][0]['prev_ngram']
+			base_ngram_color = getColorTxt(base_ngram)
+
+			prev_ngram_txt = ngram_txt
+			ngram_txt = re.sub(base_ngram, base_ngram_color, ngram_txt)
+			
+			if( prev_ngram_txt == ngram_txt ):
+				#substitution did not happen, so use default color
+				ngram_txt = getColorTxt( ngram_txt, '92m' )
+		else:
+			ngram_txt = getColorTxt(ngram_txt, '92m')
+
+		
+		logger.info( "{:^6} {:<{mw}} {:^6} {:^7} {:<30}".format(i+1, ngram_txt, ngram['term_freq'], "{:.2f}".format(ngram['term_rate']), base_ngram, mw=mw) )
+
 	logger.info('')
 
 def print_top_doc_sent(report):
@@ -1415,6 +1467,7 @@ def main():
 
 if __name__ == 'sumgram.sumgram':
 	from sumgram.util import dumpJsonToFile
+	from sumgram.util import getColorTxt
 	from sumgram.util import getStopwordsSet
 	from sumgram.util import genericErrorInfo
 	from sumgram.util import getText
@@ -1430,6 +1483,7 @@ if __name__ == 'sumgram.sumgram':
 	from sumgram.util import sortDctByKey
 else:
 	from util import dumpJsonToFile
+	from util import getColorTxt
 	from util import getStopwordsSet
 	from util import genericErrorInfo
 	from util import getText

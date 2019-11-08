@@ -592,6 +592,9 @@ def parallelGetTxt(folder, threadCount=5):
 
 	return resLst
 
+def getColorTxt(txt, ansiCode='91m'):
+	return '\033[' + ansiCode + '{}\033[00m'.format(txt)
+
 def getText(path, threadCount=5):
 
 	docLst = []
