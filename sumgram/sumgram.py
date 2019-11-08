@@ -1342,6 +1342,7 @@ def get_args():
 	parser.add_argument('--no-rank-sentences', help='Do not rank sentences flag (default is False)', action='store_true')
 	parser.add_argument('--no-rank-docs', help='Do not rank documents flag (default is False)', action='store_true')
 
+	parser.add_argument('--parallel-readtext', help='Read input files in parallel', action='store_true')
 	parser.add_argument('--pos-glue-split-ngrams-coeff', help='Coeff for permitting matched ngram replacement. Interpreted as 1/coeff', type=int, default=2)
 	parser.add_argument('--pretty-print', help='Pretty print JSON output', action='store_true')
 	parser.add_argument('--rm-subset-top-ngrams-coeff', help='Coeff. for permitting matched ngram replacement. Interpreted as 1/coeff', type=int, default=2)
@@ -1462,7 +1463,11 @@ def main():
 	set_log_defaults(params)
 	set_logger_dets( params['log_dets'] )
 
-	doc_lst = getText(args.path, threadCount=params['thread_count'])
+	if( params['parallel_readtext'] is True ):
+		doc_lst = getText(args.path, threadCount=params['thread_count'])
+	else:
+		doc_lst = getText(args.path, threadCount=0)
+	
 	proc_req(doc_lst, params)
 
 if __name__ == 'sumgram.sumgram':

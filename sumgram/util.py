@@ -592,6 +592,25 @@ def parallelGetTxt(folder, threadCount=5):
 
 	return resLst
 
+def sequentialGetTxt(folder):
+	
+	folder = folder.strip()
+	if( folder == '' ):
+		return []
+
+	if( folder[-1] != '/' ):
+		folder = folder + '/'
+	
+	resLst = []
+	files = os.listdir(folder)
+	
+	for i in range(len(files)):
+		resLst.append({
+			'text': readTextFromFile( folder + files[i].strip() )
+		})
+
+	return resLst
+
 def getColorTxt(txt, ansiCode='91m'):
 	return '\033[' + ansiCode + '{}\033[00m'.format(txt)
 
@@ -600,7 +619,12 @@ def getText(path, threadCount=5):
 	docLst = []
 	
 	if( os.path.isdir(path) ):
-		docLst = parallelGetTxt(path, threadCount=threadCount)
+		
+		if( threadCount > 0 ):
+			docLst = parallelGetTxt(path, threadCount=threadCount)
+		else:
+			docLst = sequentialGetTxt(path)
+	
 	else:
 		docLst = [{
 			'text': readTextFromFile(path)
