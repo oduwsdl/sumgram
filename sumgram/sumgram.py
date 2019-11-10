@@ -773,9 +773,6 @@ def rank_mltwd_proper_nouns(ngram, ngram_toks, sentences, params=None):
 
 def pos_glue_split_ngrams(top_ngrams, k, pos_glue_split_ngrams_coeff, ranked_multi_word_proper_nouns, params):
 
-	if( pos_glue_split_ngrams_coeff == 0 ):
-		pos_glue_split_ngrams_coeff = 1
-
 	stopwords = get_dual_stopwords( params['add_stopwords'] )
 	multi_word_proper_noun_dedup_set = set()#it's possible for different ngrams to resolve to the same multi-word proper noun so deduplicate favoring higher ranked top_ngrams
 	for i in range( len(top_ngrams) ):
@@ -791,7 +788,7 @@ def pos_glue_split_ngrams(top_ngrams, k, pos_glue_split_ngrams_coeff, ranked_mul
 			
 			if( match_flag ):
 
-				if( ngram == multi_word_proper_noun or	mult_wd_prpnoun[1]['freq'] < top_ngrams[i]['term_freq']/pos_glue_split_ngrams_coeff ):
+				if( ngram == multi_word_proper_noun or mult_wd_prpnoun[1]['freq'] < top_ngrams[i]['term_freq'] * pos_glue_split_ngrams_coeff ):
 					#this ngram exactly matched a multi_word_proper_noun, and thus very unlikely to be a fragment ngram to be replaced
 
 					#to avoid replacing high-quality ngram with poor-quality ngram - start
@@ -924,10 +921,6 @@ def rm_empty_ngrams(top_ngrams, k):
 	return final_top_ngrams
 
 def rm_subset_top_ngrams(top_ngrams, k, rm_subset_top_ngrams_coeff, params):
-
-	if( rm_subset_top_ngrams_coeff == 0 ):
-		rm_subset_top_ngrams_coeff = 1
-
 	
 	ngram_tok_sizes = {}
 	stopwords = get_dual_stopwords( params['add_stopwords'] )
@@ -974,7 +967,7 @@ def rm_subset_top_ngrams(top_ngrams, k, rm_subset_top_ngrams_coeff, params):
 					#multiple children may fulfil this criteria, so parent should adopt (replace) the first child and remove subsequent children that fulfill this criteria
 
 					top_ngrams[parent_indx]['ngram'] = ''
-					if( top_ngrams[parent_indx]['term_freq'] >= top_ngrams[child_indx]['term_freq']/rm_subset_top_ngrams_coeff ):
+					if( top_ngrams[parent_indx]['term_freq'] >= top_ngrams[child_indx]['term_freq'] * rm_subset_top_ngrams_coeff ):
 
 						if( top_ngrams[parent_indx]['adopted_child'] == False ):
 							
@@ -1025,30 +1018,41 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 	if( params['title'] != '' ):
 		logger.info( params['title'] )
 
-	logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', getColorTxt('sumgram', '92m'), 'TF', 'TF-Rate', 'Base ngram', mw=mw) )
+
+	if( params['no_color_base_ngram'] is True ):
+		logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', 'sumgram', 'TF', 'TF-Rate', 'Base ngram', mw=mw) )
+	else:
+		logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', getColorTxt('sumgram', '92m'), 'TF', 'TF-Rate', 'Base ngram', mw=mw) )
+		
+
 	for i in range(top_sumgram_count):
 		
 		if( i == ngram_count ):
 			break
+
 		
 		ngram = top_ngrams[i]
 		ngram_txt = ngram['ngram']
 		if( len(ngram_txt) > mw ) :
 			ngram_txt = ngram_txt[:mw-15] + '...'
 
+
 		base_ngram = ngram_txt
 		if( 'sumgram_history' in ngram ):
 			
 			base_ngram = ngram['sumgram_history'][0]['prev_ngram']
-			base_ngram_color = getColorTxt(base_ngram)
-
-			prev_ngram_txt = ngram_txt
-			ngram_txt = re.sub(base_ngram, base_ngram_color, ngram_txt)
 			
-			if( prev_ngram_txt == ngram_txt ):
-				#substitution did not happen, so use default color
-				ngram_txt = getColorTxt( ngram_txt, '92m' )
-		else:
+			if( params['no_color_base_ngram'] is False ):
+				
+				base_ngram_color = getColorTxt(base_ngram)
+				prev_ngram_txt = ngram_txt
+				ngram_txt = re.sub(base_ngram, base_ngram_color, ngram_txt)
+				
+				if( prev_ngram_txt == ngram_txt ):
+					#substitution did not happen, so use default color
+					ngram_txt = getColorTxt( ngram_txt, '92m' )
+		
+		elif( params['no_color_base_ngram'] is False ):
 			ngram_txt = getColorTxt(ngram_txt, '92m')
 
 		
@@ -1336,6 +1340,7 @@ def get_args():
 	parser.add_argument('--mvg-window-min-proper-noun-rate', help='Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram', type=float, default=0.5)
 	parser.add_argument('--ngram-printing-mw', help='Mininum width for printing ngrams', type=int, default=50)
 	
+	parser.add_argument('--no-color-base-ngram', help='Do not highlight base ngram when printing (default is False)', action='store_true')
 	parser.add_argument('--no-mvg-window-glue-split-ngrams', help='Do not glue split top ngrams with Moving Window method (default is False)', action='store_true')
 	parser.add_argument('--no-parent-sentences', help='Do not include sentences that mention top ngrams in top ngrams payload (default is False)', action='store_true')
 	parser.add_argument('--no-pos-glue-split-ngrams', help='Do not glue split top ngrams with POS method (default is False)', action='store_true')
@@ -1343,9 +1348,9 @@ def get_args():
 	parser.add_argument('--no-rank-docs', help='Do not rank documents flag (default is False)', action='store_true')
 
 	parser.add_argument('--parallel-readtext', help='Read input files in parallel', action='store_true')
-	parser.add_argument('--pos-glue-split-ngrams-coeff', help='Coeff for permitting matched ngram replacement. Interpreted as 1/coeff', type=int, default=2)
+	parser.add_argument('--pos-glue-split-ngrams-coeff', help='Coeff. [0, 1] for permitting matched ngram replacement by pos_glue_split_ngrams(), smaller means stricter', type=float, default=0.5)
 	parser.add_argument('--pretty-print', help='Pretty print JSON output', action='store_true')
-	parser.add_argument('--rm-subset-top-ngrams-coeff', help='Coeff. for permitting matched ngram replacement. Interpreted as 1/coeff', type=int, default=2)
+	parser.add_argument('--rm-subset-top-ngrams-coeff', help='Coeff. [0, 1] for permitting matched ngram replacement by rm_subset_top_ngrams(), bigger means stricter', type=float, default=0.5)
 	
 	parser.add_argument('--sentence-pattern', help='For sentence ranking: Regex string that specifies tokens for sentence tokenization', default='[.?!][ \n]|\n+')
 	parser.add_argument('--sentence-tokenizer', help='For sentence ranking: Method for segmenting sentences', choices=['ssplit', 'regex'], default='ssplit')
