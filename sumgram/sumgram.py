@@ -624,7 +624,7 @@ def rank_mltwd_proper_nouns(ngram, ngram_toks, sentences, params=None):
 
 	if( sent_count == 1 or ngram == '' ):
 		#it's possible for ngram = '', search for 'sumgram_history'
-		return ''
+		return {}
 
 	window_size = 0
 	max_sent_toks = 0
@@ -650,7 +650,7 @@ def rank_mltwd_proper_nouns(ngram, ngram_toks, sentences, params=None):
 			sent_toks_count = len(sent['toks'])
 
 			logger.debug( '\n\twindow_size: ' + str(window_size) )
-			logger.debug( '\tngram: ' + str(ngram_toks) )
+			logger.debug( '\tbase ngram: ' + str(ngram_toks) )
 			logger.debug( '\tngram in sent (start/length): ' + str(ngram_start) + '/' + str(ngram_length) )
 			logger.debug( '\tsent keys: ' + str(sent.keys()) )
 			logger.debug( '\tori: ' + sent['ori_sent'] )
@@ -696,19 +696,37 @@ def rank_mltwd_proper_nouns(ngram, ngram_toks, sentences, params=None):
 
 
 		#find multi-word proper noun with the highest frequency for left, right, and both sentence building policies
-		for lrb, multiprpnoun_lrb in phrase_counts.items():
+		multiprpnoun_lrb = sorted(phrase_counts['both'].items(), key=lambda x: x[1]['rate'], reverse=True)
+		
+		if( len(multiprpnoun_lrb) != 0 ):
 			
-			multiprpnoun_lrb = sorted(multiprpnoun_lrb.items(), key=lambda x: x[1]['rate'], reverse=True)
-			if( len(multiprpnoun_lrb) != 0 ):
-				
-				logger.debug('\t\tmax ' + lrb + ': ' + str(multiprpnoun_lrb[0]))
-				
-				rate = multiprpnoun_lrb[0][1]['rate']
-				if( rate > max_multiprpnoun_lrb[window_size]['rate'] ):
-					max_multiprpnoun_lrb[window_size]['ngram'] = multiprpnoun_lrb[0][0]
-					max_multiprpnoun_lrb[window_size]['rate'] = rate
-					max_multiprpnoun_lrb[window_size]['lrb'] = lrb
+			rate = multiprpnoun_lrb[0][1]['rate']
+			if( rate >= params['mvg_window_min_proper_noun_rate'] ):
+				#preference is given to good quality both ngram, if only poor quality both is available, then check left and right
+				logger.debug( '\t\tmax both: ' + str(multiprpnoun_lrb[0]) )
+				logger.debug( '\t\tboth (longer) is preference will disregard left & right')
 
+				max_multiprpnoun_lrb[window_size]['ngram'] = multiprpnoun_lrb[0][0]
+				max_multiprpnoun_lrb[window_size]['rate'] = rate
+				max_multiprpnoun_lrb[window_size]['lrb'] = 'both'
+			else:
+				logger.debug( '\t\tboth rate < mvg_window_min_proper_noun_rate: ' + str(multiprpnoun_lrb[0]) )
+
+
+		if( max_multiprpnoun_lrb[window_size]['rate'] == 0 ):
+			for lrb in ['left', 'right']:
+				
+				multiprpnoun_lrb = sorted(phrase_counts[lrb].items(), key=lambda x: x[1]['rate'], reverse=True)
+				
+				if( len(multiprpnoun_lrb) != 0 ):
+					
+					logger.debug('\t\tmax ' + lrb + ': ' + str(multiprpnoun_lrb[0]))
+					
+					rate = multiprpnoun_lrb[0][1]['rate']
+					if( rate > max_multiprpnoun_lrb[window_size]['rate'] ):
+						max_multiprpnoun_lrb[window_size]['ngram'] = multiprpnoun_lrb[0][0]
+						max_multiprpnoun_lrb[window_size]['rate'] = rate
+						max_multiprpnoun_lrb[window_size]['lrb'] = lrb
 
 		logger.debug('\tlast max for this window_size: ' + str(max_multiprpnoun_lrb[window_size]))
 		logger.debug('\tmax_sent_toks: ' + str(max_sent_toks))
@@ -720,7 +738,25 @@ def rank_mltwd_proper_nouns(ngram, ngram_toks, sentences, params=None):
 			logger.debug("\tmax_multiprpnoun_lrb[window_size]['rate']: " + str(max_multiprpnoun_lrb[window_size]['rate']))
 			break
 
-	while( window_size != 0 ):
+
+
+	logger.debug('\n\tfinal winning candidates: ')
+	ngram_length_window_size_map = {}
+	for window in max_multiprpnoun_lrb:
+	
+		logger.debug( '\t\tfinal winning candidate ' + str(window) + ': ' + str(max_multiprpnoun_lrb[window]) )
+		ngram_length_window_size_map[window] = len(max_multiprpnoun_lrb[window]['ngram'].split(' '))
+
+	#0: window size, 1: ngram length, give preference to longer ngrams
+	ngram_length_window_size_map = sorted( ngram_length_window_size_map.items(), key=lambda x: x[1], reverse=True )
+	logger.debug('')
+
+
+
+	for window_size in ngram_length_window_size_map:
+		
+		#0: window size, 1: ngram length, give preference to longer ngrams
+		window_size = window_size[0]
 		#get best match longest multi-word ngram 
 		if( max_multiprpnoun_lrb[window_size]['rate'] >= params['mvg_window_min_proper_noun_rate'] ):
 			
@@ -731,15 +767,11 @@ def rank_mltwd_proper_nouns(ngram, ngram_toks, sentences, params=None):
 			logger.debug('\tfinal winning max: ' + str(max_multiprpnoun_lrb[window_size]))
 			logger.debug('\twindow_size: ' + str(window_size))
 			break
-
-		window_size -= 1
+			
 
 	return final_multi_word_proper_noun
 
 def pos_glue_split_ngrams(top_ngrams, k, pos_glue_split_ngrams_coeff, ranked_multi_word_proper_nouns, params):
-
-	if( pos_glue_split_ngrams_coeff == 0 ):
-		pos_glue_split_ngrams_coeff = 1
 
 	stopwords = get_dual_stopwords( params['add_stopwords'] )
 	multi_word_proper_noun_dedup_set = set()#it's possible for different ngrams to resolve to the same multi-word proper noun so deduplicate favoring higher ranked top_ngrams
@@ -756,7 +788,7 @@ def pos_glue_split_ngrams(top_ngrams, k, pos_glue_split_ngrams_coeff, ranked_mul
 			
 			if( match_flag ):
 
-				if( ngram == multi_word_proper_noun or	mult_wd_prpnoun[1]['freq'] < top_ngrams[i]['term_freq']/pos_glue_split_ngrams_coeff ):
+				if( ngram == multi_word_proper_noun or mult_wd_prpnoun[1]['freq'] < top_ngrams[i]['term_freq'] * pos_glue_split_ngrams_coeff ):
 					#this ngram exactly matched a multi_word_proper_noun, and thus very unlikely to be a fragment ngram to be replaced
 
 					#to avoid replacing high-quality ngram with poor-quality ngram - start
@@ -889,10 +921,6 @@ def rm_empty_ngrams(top_ngrams, k):
 	return final_top_ngrams
 
 def rm_subset_top_ngrams(top_ngrams, k, rm_subset_top_ngrams_coeff, params):
-
-	if( rm_subset_top_ngrams_coeff == 0 ):
-		rm_subset_top_ngrams_coeff = 1
-
 	
 	ngram_tok_sizes = {}
 	stopwords = get_dual_stopwords( params['add_stopwords'] )
@@ -939,7 +967,7 @@ def rm_subset_top_ngrams(top_ngrams, k, rm_subset_top_ngrams_coeff, params):
 					#multiple children may fulfil this criteria, so parent should adopt (replace) the first child and remove subsequent children that fulfill this criteria
 
 					top_ngrams[parent_indx]['ngram'] = ''
-					if( top_ngrams[parent_indx]['term_freq'] >= top_ngrams[child_indx]['term_freq']/rm_subset_top_ngrams_coeff ):
+					if( top_ngrams[parent_indx]['term_freq'] >= top_ngrams[child_indx]['term_freq'] * rm_subset_top_ngrams_coeff ):
 
 						if( top_ngrams[parent_indx]['adopted_child'] == False ):
 							
@@ -949,8 +977,10 @@ def rm_subset_top_ngrams(top_ngrams, k, rm_subset_top_ngrams_coeff, params):
 							new_ngram_dct = {
 								'prev_ngram': child_ngram_cand,
 								'cur_ngram': parent_ngram_cand,
+								'cur_freq': top_ngrams[parent_indx]['term_freq'],
 								'annotator': 'subset'
 							}
+
 							top_ngrams[child_indx].setdefault('sumgram_history', [])
 							top_ngrams[child_indx]['sumgram_history'].append(new_ngram_dct)
 
@@ -962,9 +992,9 @@ def rm_subset_top_ngrams(top_ngrams, k, rm_subset_top_ngrams_coeff, params):
 							
 							top_ngrams[child_indx]['ngram'] = ''
 
-							logger.debug('\teven though parent (' + str(parent_indx) + ') is in lower index than child:', child_indx)
-							logger.debug('\twould have replaced child_ngram_cand:', '"' + child_ngram_cand + '" with parent_ngram_cand: "' + parent_ngram_cand + '"')
-							logger.debug('\twould have replaced parent/child tf:', top_ngrams[parent_indx]['term_freq'], top_ngrams[child_indx]['term_freq'])
+							logger.debug('\teven though parent (' + str(parent_indx) + ') is in lower index than child: ' + str(child_indx))
+							logger.debug('\twould have replaced child_ngram_cand: "' + child_ngram_cand + '" with parent_ngram_cand: "' + parent_ngram_cand + '"')
+							logger.debug('\twould have replaced parent/child tf:' + str(top_ngrams[parent_indx]['term_freq']) + '/' + str(top_ngrams[child_indx]['term_freq']))
 							logger.debug('\tbut this parent has already adopted a child so delete this child.')
 							logger.debug('')
 					
@@ -976,30 +1006,58 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 	if( params is None ):
 		params = {}
 
-	params.setdefault('ngram_printing_mw', 40)
+	params.setdefault('ngram_printing_mw', 50)
 	params.setdefault('title', '')
 
 	mw = params['ngram_printing_mw']
 	ngram_count = len(top_ngrams)
 
-	logger.info('Summary for ' + str(ngram_count) + ' top sumgrams (base n: ' + str(n) + '):')
+	logger.info('Summary for ' + str(ngram_count) + ' top sumgrams (base n: ' + str(n) + '): ')
 	logger.info('')
 
 	if( params['title'] != '' ):
 		logger.info( params['title'] )
 
-	logger.info( '{:^6} {:<{mw}} {:^6} {:<6}'.format('rank', 'sumgram', 'TF', 'TF-Rate', mw=mw) )
+
+	if( params['no_color_base_ngram'] is True ):
+		logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', 'sumgram', 'TF', 'TF-Rate', 'Base ngram', mw=mw) )
+	else:
+		logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', getColorTxt('sumgram', '92m'), 'TF', 'TF-Rate', 'Base ngram', mw=mw) )
+		
+
 	for i in range(top_sumgram_count):
 		
 		if( i == ngram_count ):
 			break
+
 		
 		ngram = top_ngrams[i]
 		ngram_txt = ngram['ngram']
 		if( len(ngram_txt) > mw ) :
-			ngram_txt = ngram_txt[:mw-3] + '...'
+			ngram_txt = ngram_txt[:mw-15] + '...'
 
-		logger.info( "{:^6} {:<{mw}} {:^6} {:^6}".format(i+1, ngram_txt, ngram['term_freq'], "{:.2f}".format(ngram['term_rate']), mw=mw) )
+
+		base_ngram = ngram_txt
+		if( 'sumgram_history' in ngram ):
+			
+			base_ngram = ngram['sumgram_history'][0]['prev_ngram']
+			
+			if( params['no_color_base_ngram'] is False ):
+				
+				base_ngram_color = getColorTxt(base_ngram)
+				prev_ngram_txt = ngram_txt
+				ngram_txt = re.sub(base_ngram, base_ngram_color, ngram_txt)
+				
+				if( prev_ngram_txt == ngram_txt ):
+					#substitution did not happen, so use default color
+					ngram_txt = getColorTxt( ngram_txt, '92m' )
+		
+		elif( params['no_color_base_ngram'] is False ):
+			ngram_txt = getColorTxt(ngram_txt, '92m')
+
+		
+		logger.info( "{:^6} {:<{mw}} {:^6} {:^7} {:<30}".format(i+1, ngram_txt, ngram['term_freq'], "{:.2f}".format(ngram['term_rate']), base_ngram, mw=mw) )
+
 	logger.info('')
 
 def print_top_doc_sent(report):
@@ -1254,7 +1312,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 	report['params']['collection_doc_count'] = doc_count
 	
 	if( params['stanford_corenlp_server'] == False and params['sentence_tokenizer'] == 'ssplit' ):
-		logger.info('\n\tStanford CoreNLP Server was OFF after an attempt to start it, so regex_get_sentences() was used to segment sentences.\n\tWe highly recommend you install and run it \n\t(see: https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html)\n\tbecause Stanford CoreNLP does a better job segmenting sentences than regex.\n')
+		logger.info('\n\tStanford CoreNLP Server was OFF after an attempt to start it, so regex_get_sentences() was used to segment sentences.\n\tWe highly recommend you install and run it \n\t(see: https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html)\n\tbecause Stanford CoreNLP does a better job segmenting sentences than regex.\n\tHowever, if you have no need to utilize sentence ranking, disregard this advise.\n')
 
 	return report
 
@@ -1282,15 +1340,17 @@ def get_args():
 	parser.add_argument('--mvg-window-min-proper-noun-rate', help='Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram', type=float, default=0.5)
 	parser.add_argument('--ngram-printing-mw', help='Mininum width for printing ngrams', type=int, default=50)
 	
+	parser.add_argument('--no-color-base-ngram', help='Do not highlight base ngram when printing top ngrams (default is False)', action='store_true')
 	parser.add_argument('--no-mvg-window-glue-split-ngrams', help='Do not glue split top ngrams with Moving Window method (default is False)', action='store_true')
 	parser.add_argument('--no-parent-sentences', help='Do not include sentences that mention top ngrams in top ngrams payload (default is False)', action='store_true')
 	parser.add_argument('--no-pos-glue-split-ngrams', help='Do not glue split top ngrams with POS method (default is False)', action='store_true')
 	parser.add_argument('--no-rank-sentences', help='Do not rank sentences flag (default is False)', action='store_true')
 	parser.add_argument('--no-rank-docs', help='Do not rank documents flag (default is False)', action='store_true')
 
-	parser.add_argument('--pos-glue-split-ngrams-coeff', help='Coeff for permitting matched ngram replacement. Interpreted as 1/coeff', type=int, default=2)
+	parser.add_argument('--parallel-readtext', help='Read input files in parallel', action='store_true')
+	parser.add_argument('--pos-glue-split-ngrams-coeff', help='Coeff. ([0, 1]) for permitting matched ngram replacement by pos_glue_split_ngrams(), bigger means stricter', type=float, default=0.5)
 	parser.add_argument('--pretty-print', help='Pretty print JSON output', action='store_true')
-	parser.add_argument('--rm-subset-top-ngrams-coeff', help='Coeff. for permitting matched ngram replacement. Interpreted as 1/coeff', type=int, default=2)
+	parser.add_argument('--rm-subset-top-ngrams-coeff', help='Coeff. ([0, 1]) for permitting matched ngram replacement by rm_subset_top_ngrams(), bigger means stricter', type=float, default=0.5)
 	
 	parser.add_argument('--sentence-pattern', help='For sentence ranking: Regex string that specifies tokens for sentence tokenization', default='[.?!][ \n]|\n+')
 	parser.add_argument('--sentence-tokenizer', help='For sentence ranking: Method for segmenting sentences', choices=['ssplit', 'regex'], default='ssplit')
@@ -1408,11 +1468,16 @@ def main():
 	set_log_defaults(params)
 	set_logger_dets( params['log_dets'] )
 
-	doc_lst = getText(args.path, threadCount=params['thread_count'])
+	if( params['parallel_readtext'] is True ):
+		doc_lst = getText(args.path, threadCount=params['thread_count'])
+	else:
+		doc_lst = getText(args.path, threadCount=0)
+	
 	proc_req(doc_lst, params)
 
 if __name__ == 'sumgram.sumgram':
 	from sumgram.util import dumpJsonToFile
+	from sumgram.util import getColorTxt
 	from sumgram.util import getStopwordsSet
 	from sumgram.util import genericErrorInfo
 	from sumgram.util import getText
@@ -1428,6 +1493,7 @@ if __name__ == 'sumgram.sumgram':
 	from sumgram.util import sortDctByKey
 else:
 	from util import dumpJsonToFile
+	from util import getColorTxt
 	from util import getStopwordsSet
 	from util import genericErrorInfo
 	from util import getText

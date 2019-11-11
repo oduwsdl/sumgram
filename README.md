@@ -249,15 +249,17 @@ Options:
 --mvg-window-min-proper-noun-rate=0.5     Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram
 --ngram-printing-mw=50                    Mininum width for printing ngrams
 
+--no-color-base-ngram=False               Do not highlight base ngram when printing top ngrams (default is False)
 --no-mvg-window-glue-split-ngrams=False   Do not glue split top ngrams with Moving Window method (default is False)
 --no-parent-sentences                     Do not include sentences that mention top ngrams in top ngrams payload (default is False)
 --no-pos-glue-split-ngrams=False          Do not glue split top ngrams with POS method (default is True)
 --no-rank-docs=False                      Do not rank documents flag
 --no-rank-sentences=False                 Do not rank sentences flag
 
---pos-glue-split-ngrams-coeff=2           Coeff. for permitting matched ngram replacement. Interpreted as 1/coeff, e.g., 1/2
+--parallel-readtext                       Read input files in parallel
+--pos-glue-split-ngrams-coeff=0.5         Coeff. ([0, 1]) for permitting matched ngram replacement by pos_glue_split_ngrams(), bigger means stricter
 --pretty-print=False                      Pretty print JSON output
---rm-subset-top-ngrams-coeff=2            Coeff. for permitting matched ngram replacement. Interpreted as 1/coeff, e.g., 1/2
+--rm-subset-top-ngrams-coeff=0.5          Coeff. ([0, 1]) for permitting matched ngram replacement by rm_subset_top_ngrams(), bigger means stricter
 
 --sentence-pattern='[.?!][ \n]|\n+'       For sentence ranking: Regex string that specifies tokens for sentence tokenization
 --sentence-tokenizer=ssplit               For sentence ranking: Method for segmenting sentences, options: {ssplit, regex}
@@ -294,7 +296,7 @@ The `pos_glue_split_ngrams` process is outlined as follows:
   "Federal Emergency Management Agency" - (NNP NNP NNP NNP)
   ```
 
-* Let TF_C = Term Frequency of fragment child ngram (e.g., `emergency management`). Let TF_P = Term Frequency of MWPN (e.g., `federal emergency management agency`). `pos_glue_split_ngrams` replaces a fragment child ngram with a parent MWPN, if `TF_P > TF_C / pos_glue_split_ngrams_coeff`. The restriction is done in order to avoid replacing a high-quality fragment child ngram (e.g., `tropical storm` with TF_C: 121) with a poor-quality MWPN (e.g., `ddhhmm tropical storm harvey discussion number` with TF_P: 5)
+* Let TF_C = Term Frequency of fragment child ngram (e.g., `emergency management`). Let TF_P = Term Frequency of MWPN (e.g., `federal emergency management agency`). `pos_glue_split_ngrams` replaces a fragment child ngram with a parent MWPN, if `TF_P > TF_C * pos_glue_split_ngrams_coeff`. The restriction is done in order to avoid replacing a high-quality fragment child ngram (e.g., `tropical storm` with TF_C: 121) with a poor-quality MWPN (e.g., `ddhhmm tropical storm harvey discussion number` with TF_P: 5)
 
 ## mvg_window_glue_split_ngrams
 
