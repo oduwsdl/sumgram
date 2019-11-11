@@ -1312,7 +1312,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 	report['params']['collection_doc_count'] = doc_count
 	
 	if( params['stanford_corenlp_server'] == False and params['sentence_tokenizer'] == 'ssplit' ):
-		logger.info('\n\tStanford CoreNLP Server was OFF after an attempt to start it, so regex_get_sentences() was used to segment sentences.\n\tWe highly recommend you install and run it \n\t(see: https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html)\n\tbecause Stanford CoreNLP does a better job segmenting sentences than regex.\n')
+		logger.info('\n\tStanford CoreNLP Server was OFF after an attempt to start it, so regex_get_sentences() was used to segment sentences.\n\tWe highly recommend you install and run it \n\t(see: https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html)\n\tbecause Stanford CoreNLP does a better job segmenting sentences than regex.\n\tHowever, if you have no need to utilize sentence ranking, disregard this advise.\n')
 
 	return report
 
@@ -1340,7 +1340,7 @@ def get_args():
 	parser.add_argument('--mvg-window-min-proper-noun-rate', help='Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram', type=float, default=0.5)
 	parser.add_argument('--ngram-printing-mw', help='Mininum width for printing ngrams', type=int, default=50)
 	
-	parser.add_argument('--no-color-base-ngram', help='Do not highlight base ngram when printing (default is False)', action='store_true')
+	parser.add_argument('--no-color-base-ngram', help='Do not highlight base ngram when printing top ngrams (default is False)', action='store_true')
 	parser.add_argument('--no-mvg-window-glue-split-ngrams', help='Do not glue split top ngrams with Moving Window method (default is False)', action='store_true')
 	parser.add_argument('--no-parent-sentences', help='Do not include sentences that mention top ngrams in top ngrams payload (default is False)', action='store_true')
 	parser.add_argument('--no-pos-glue-split-ngrams', help='Do not glue split top ngrams with POS method (default is False)', action='store_true')
@@ -1348,9 +1348,9 @@ def get_args():
 	parser.add_argument('--no-rank-docs', help='Do not rank documents flag (default is False)', action='store_true')
 
 	parser.add_argument('--parallel-readtext', help='Read input files in parallel', action='store_true')
-	parser.add_argument('--pos-glue-split-ngrams-coeff', help='Coeff. [0, 1] for permitting matched ngram replacement by pos_glue_split_ngrams(), smaller means stricter', type=float, default=0.5)
+	parser.add_argument('--pos-glue-split-ngrams-coeff', help='Coeff. ([0, 1]) for permitting matched ngram replacement by pos_glue_split_ngrams(), bigger means stricter', type=float, default=0.5)
 	parser.add_argument('--pretty-print', help='Pretty print JSON output', action='store_true')
-	parser.add_argument('--rm-subset-top-ngrams-coeff', help='Coeff. [0, 1] for permitting matched ngram replacement by rm_subset_top_ngrams(), bigger means stricter', type=float, default=0.5)
+	parser.add_argument('--rm-subset-top-ngrams-coeff', help='Coeff. ([0, 1]) for permitting matched ngram replacement by rm_subset_top_ngrams(), bigger means stricter', type=float, default=0.5)
 	
 	parser.add_argument('--sentence-pattern', help='For sentence ranking: Regex string that specifies tokens for sentence tokenization', default='[.?!][ \n]|\n+')
 	parser.add_argument('--sentence-tokenizer', help='For sentence ranking: Method for segmenting sentences', choices=['ssplit', 'regex'], default='ssplit')
