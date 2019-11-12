@@ -1312,7 +1312,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 	report['params']['collection_doc_count'] = doc_count
 	
 	if( params['stanford_corenlp_server'] == False and params['sentence_tokenizer'] == 'ssplit' ):
-		logger.info('\n\tStanford CoreNLP Server was OFF after an attempt to start it, so regex_get_sentences() was used to segment sentences.\n\tWe highly recommend you install and run it \n\t(see: https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html)\n\tbecause Stanford CoreNLP does a better job segmenting sentences than regex.\n\tHowever, if you have no need to utilize sentence ranking, disregard this advise.\n')
+		logger.info('\n\tCould not find/start Stanford CoreNLP Server, so regex_get_sentences() was used as a fallback to segment sentences.\n\tWe highly recommend you install and run it \n\t(see: https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html)\n\tbecause Stanford CoreNLP does a better job of segmenting sentences than regex.\n\tHowever, if you have no need to utilize sentence ranking, disregard this advise.\n')
 
 	return report
 
