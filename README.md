@@ -249,7 +249,7 @@ Options:
 --mvg-window-min-proper-noun-rate=0.5     Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram
 --ngram-printing-mw=50                    Mininum width for printing ngrams
 
---no-color-base-ngram=False               Do not highlight base ngram when printing top ngrams (default is False)
+--base-ngram-ansi-color='91m'             Highlight (color code format - XXm, e.g., 91m) base ngram when printing top ngrams, set to empty string to switch off color
 --no-mvg-window-glue-split-ngrams=False   Do not glue split top ngrams with Moving Window method (default is False)
 --no-parent-sentences                     Do not include sentences that mention top ngrams in top ngrams payload (default is False)
 --no-pos-glue-split-ngrams=False          Do not glue split top ngrams with POS method (default is True)

@@ -1008,6 +1008,7 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 
 	params.setdefault('ngram_printing_mw', 50)
 	params.setdefault('title', '')
+	default_color = '49m'
 
 	mw = params['ngram_printing_mw']
 	ngram_count = len(top_ngrams)
@@ -1019,10 +1020,10 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 		logger.info( params['title'] )
 
 
-	if( params['no_color_base_ngram'] is True ):
+	if( params['base_ngram_ansi_color'] == '' ):
 		logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', 'sumgram', 'TF', 'TF-Rate', 'Base ngram', mw=mw) )
 	else:
-		logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', getColorTxt('sumgram', '92m'), 'TF', 'TF-Rate', 'Base ngram', mw=mw) )
+		logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', getColorTxt('sumgram', default_color), 'TF', 'TF-Rate', 'Base ngram', mw=mw) )
 		
 
 	for i in range(top_sumgram_count):
@@ -1042,18 +1043,18 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 			
 			base_ngram = ngram['sumgram_history'][0]['prev_ngram']
 			
-			if( params['no_color_base_ngram'] is False ):
+			if( params['base_ngram_ansi_color'] != '' ):
 				
-				base_ngram_color = getColorTxt(base_ngram)
+				base_ngram_color = getColorTxt(base_ngram, params['base_ngram_ansi_color'])
 				prev_ngram_txt = ngram_txt
 				ngram_txt = re.sub(base_ngram, base_ngram_color, ngram_txt)
 				
 				if( prev_ngram_txt == ngram_txt ):
 					#substitution did not happen, so use default color
-					ngram_txt = getColorTxt( ngram_txt, '92m' )
+					ngram_txt = getColorTxt( ngram_txt, default_color )
 		
-		elif( params['no_color_base_ngram'] is False ):
-			ngram_txt = getColorTxt(ngram_txt, '92m')
+		elif( params['base_ngram_ansi_color'] != '' ):
+			ngram_txt = getColorTxt(ngram_txt, default_color)
 
 		
 		logger.info( "{:^6} {:<{mw}} {:^6} {:^7} {:<30}".format(i+1, ngram_txt, ngram['term_freq'], "{:.2f}".format(ngram['term_rate']), base_ngram, mw=mw) )
@@ -1340,7 +1341,7 @@ def get_args():
 	parser.add_argument('--mvg-window-min-proper-noun-rate', help='Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram', type=float, default=0.5)
 	parser.add_argument('--ngram-printing-mw', help='Mininum width for printing ngrams', type=int, default=50)
 	
-	parser.add_argument('--no-color-base-ngram', help='Do not highlight base ngram when printing top ngrams (default is False)', action='store_true')
+	parser.add_argument('--base-ngram-ansi-color', help='Highlight (color code format - XXm, e.g., 91m) base ngram when printing top ngrams, set to empty string to switch off color', default='91m')
 	parser.add_argument('--no-mvg-window-glue-split-ngrams', help='Do not glue split top ngrams with Moving Window method (default is False)', action='store_true')
 	parser.add_argument('--no-parent-sentences', help='Do not include sentences that mention top ngrams in top ngrams payload (default is False)', action='store_true')
 	parser.add_argument('--no-pos-glue-split-ngrams', help='Do not glue split top ngrams with POS method (default is False)', action='store_true')
