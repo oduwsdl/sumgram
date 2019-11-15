@@ -1328,6 +1328,7 @@ def get_args():
 	parser.add_argument('-t', '--top-sumgram-count', help='The count of top sumgrams to generate', type=int, default=10)
 	
 	parser.add_argument('--add-stopwords', help='Comma-separated list of additional stopwords', default='')
+	parser.add_argument('--base-ngram-ansi-color', help='Highlight (color code format - XXm, e.g., 91m) base ngram when printing top ngrams, set to empty string to switch off color', default='91m')
 	parser.add_argument('--collocations-pattern', help='User-defined regex rule to extract collocations for pos_glue_split_ngrams', default='')
 	parser.add_argument('--corenlp-host', help='Stanford CoreNLP Server host (needed for decent sentence tokenizer)', default='localhost')
 	parser.add_argument('--corenlp-port', help='Stanford CoreNLP Server port (needed for decent sentence tokenizer)', default='9000')
@@ -1341,7 +1342,6 @@ def get_args():
 	parser.add_argument('--mvg-window-min-proper-noun-rate', help='Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram', type=float, default=0.5)
 	parser.add_argument('--ngram-printing-mw', help='Mininum width for printing ngrams', type=int, default=50)
 	
-	parser.add_argument('--base-ngram-ansi-color', help='Highlight (color code format - XXm, e.g., 91m) base ngram when printing top ngrams, set to empty string to switch off color', default='91m')
 	parser.add_argument('--no-mvg-window-glue-split-ngrams', help='Do not glue split top ngrams with Moving Window method (default is False)', action='store_true')
 	parser.add_argument('--no-parent-sentences', help='Do not include sentences that mention top ngrams in top ngrams payload (default is False)', action='store_true')
 	parser.add_argument('--no-pos-glue-split-ngrams', help='Do not glue split top ngrams with POS method (default is False)', action='store_true')
