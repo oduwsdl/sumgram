@@ -256,10 +256,8 @@ def rank_sents_frm_top_ranked_docs(ngram_sentences, ranked_docs, all_doc_sentenc
 		extra_params = {}
 
 	extra_params.setdefault('sentences_rank_count', 20)
-
-	logger.info('\nrank_sents_frm_top_ranked_docs():')
-
 	all_top_ranked_docs_sentences = []
+	
 	for doc in ranked_docs:
 		
 		doc_indx = doc[0]
@@ -1001,7 +999,7 @@ def rm_subset_top_ngrams(top_ngrams, k, rm_subset_top_ngrams_coeff, params):
 
 	return top_ngrams
 	
-def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
+def print_top_ngrams(n, top_ngrams, top_sumgram_count, stream='log', params=None):
 
 	if( params is None ):
 		params = {}
@@ -1022,11 +1020,11 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 	mw = params['ngram_printing_mw']
 	ngram_count = len(top_ngrams)
 
-	logger.info('Summary for ' + str(ngram_count) + ' top sumgrams (base n: ' + str(n) + '): ')
-	logger.info('')
+	ngram_printer('Summary for ' + str(ngram_count) + ' top sumgrams (base n: ' + str(n) + '): ', stream)
+	ngram_printer('', stream)
 
 	if( params['title'] != '' ):
-		logger.info( params['title'] )
+		ngram_printer( params['title'], stream)
 
 
 	if( params['binary_tf_flag'] is True ):
@@ -1036,10 +1034,9 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 
 
 	if( params['base_ngram_ansi_color'] == '' ):
-		logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', 'sumgram', tf_or_df, tf_or_df + '-Rate', 'Base ngram', mw=mw) )
+		ngram_printer( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', 'sumgram', tf_or_df, tf_or_df + '-Rate', 'Base ngram', mw=mw), stream)
 	else:
-		logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', getColorTxt('sumgram', default_color), tf_or_df, tf_or_df + '-Rate', 'Base ngram', mw=mw) )
-		
+		ngram_printer( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', getColorTxt('sumgram', default_color), tf_or_df, tf_or_df + '-Rate', 'Base ngram', mw=mw), stream)
 
 	for i in range(top_sumgram_count):
 		
@@ -1072,13 +1069,18 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 			ngram_txt = getColorTxt(ngram_txt, default_color)
 
 		
-		logger.info( "{:^6} {:<{mw}} {:^6} {:^7} {:<30}".format(i+1, ngram_txt, ngram['term_freq'], "{:.2f}".format(ngram['term_rate']), base_ngram, mw=mw) )
+		ngram_printer( "{:^6} {:<{mw}} {:^6} {:^7} {:<30}".format(i+1, ngram_txt, ngram['term_freq'], "{:.2f}".format(ngram['term_rate']), base_ngram, mw=mw), stream)
 
 	if( len(last_ngram) != 0 ):
 		if( params['min_df'] != 1 ):
-			logger.info( '\nlast ngram with min_df (' + str(params['min_df']) + ') trim (index/' + tf_or_df + '/' + tf_or_df + '-Rate): ' + last_ngram['ngram'] + ' (' + str(last_ngram['rank'])  + '/' + str(last_ngram['term_freq']) + '/' + str(last_ngram['term_rate']) + ')' )
+			ngram_printer( '\nlast ngram with min_df (' + str(params['min_df']) + ') trim (index/' + tf_or_df + '/' + tf_or_df + '-Rate): ' + last_ngram['ngram'] + ' (' + str(last_ngram['rank'])  + '/' + str(last_ngram['term_freq']) + '/' + str(last_ngram['term_rate']) + ')', stream)
 
-	logger.info('')
+def ngram_printer(txt, src='log'):
+	
+	if( src == 'log' ):
+		logger.info(txt)
+	else:
+		print(txt)
 
 def print_top_doc_sent(report):
 
@@ -1344,9 +1346,6 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 		report['ranked_docs'] = [d[1] for d in report['ranked_docs']]
 	
 	report['top_sumgrams'] = top_ngrams[:params['top_sumgram_count']]
-	logger.info('\ntop ngrams after shifting empty slots:')
-	print_top_ngrams( n, top_ngrams, params['top_sumgram_count'], params=params )
-	
 
 	#fmt_report() need to be called last since it potentially could modify merged_ngrams
 	report['created_at_utc'] = datetime.utcnow().isoformat().split('.')[0] + 'Z'
@@ -1422,7 +1421,13 @@ def get_default_args(user_params):
 
 
 def proc_req(doc_lst, params):
+	
 	report = get_top_sumgrams(doc_lst, params['base_ngram'], params)
+	
+	if( 'top_sumgrams' in report ):
+		print('\ntop ngrams after shifting empty slots:')
+		print_top_ngrams( params['base_ngram'], report['top_sumgrams'], params['top_sumgram_count'], stream='', params=params )
+
 	if( params['output'] is not None ):
 		dumpJsonToFile( params['output'], report, indentFlag=params['pretty_print'] )
 
@@ -1431,7 +1436,7 @@ def set_logger_dets(logger_dets):
 	if( len(logger_dets) == 0 ):
 		return
 
-	console_handler = logging.StreamHandler(sys.stdout)
+	console_handler = logging.StreamHandler()
 
 	if( 'level' in logger_dets ):
 		logger.setLevel( logger_dets['level'] )
