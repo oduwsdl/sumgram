@@ -1431,7 +1431,7 @@ def set_logger_dets(logger_dets):
 	if( len(logger_dets) == 0 ):
 		return
 
-	console_handler = logging.StreamHandler()
+	console_handler = logging.StreamHandler(sys.stdout)
 
 	if( 'level' in logger_dets ):
 		logger.setLevel( logger_dets['level'] )
