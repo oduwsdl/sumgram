@@ -1006,9 +1006,18 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 	if( params is None ):
 		params = {}
 
+	if( len(top_ngrams) == 0 ):
+		return
+
 	params.setdefault('ngram_printing_mw', 50)
 	params.setdefault('title', '')
 	default_color = '49m'
+	tf_or_df = ''
+
+	if( 'last_ngram' in params['state'] ):
+		last_ngram = params['state']['last_ngram']
+	else:
+		last_ngram = {}
 
 	mw = params['ngram_printing_mw']
 	ngram_count = len(top_ngrams)
@@ -1020,10 +1029,16 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 		logger.info( params['title'] )
 
 
-	if( params['base_ngram_ansi_color'] == '' ):
-		logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', 'sumgram', 'TF', 'TF-Rate', 'Base ngram', mw=mw) )
+	if( params['binary_tf_flag'] is True ):
+		tf_or_df = 'DF'
 	else:
-		logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', getColorTxt('sumgram', default_color), 'TF', 'TF-Rate', 'Base ngram', mw=mw) )
+		tf_or_df = 'TF'
+
+
+	if( params['base_ngram_ansi_color'] == '' ):
+		logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', 'sumgram', tf_or_df, tf_or_df + '-Rate', 'Base ngram', mw=mw) )
+	else:
+		logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', getColorTxt('sumgram', default_color), tf_or_df, tf_or_df + '-Rate', 'Base ngram', mw=mw) )
 		
 
 	for i in range(top_sumgram_count):
@@ -1059,6 +1074,10 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 		
 		logger.info( "{:^6} {:<{mw}} {:^6} {:^7} {:<30}".format(i+1, ngram_txt, ngram['term_freq'], "{:.2f}".format(ngram['term_rate']), base_ngram, mw=mw) )
 
+	if( len(last_ngram) != 0 ):
+		if( params['min_df'] != 1 ):
+			logger.info( '\nlast ngram with min_df (' + str(params['min_df']) + ') trim (index/' + tf_or_df + '/' + tf_or_df + '-Rate): ' + last_ngram['ngram'] + ' (' + str(last_ngram['rank'])  + '/' + str(last_ngram['term_freq']) + '/' + str(last_ngram['term_rate']) + ')' )
+
 	logger.info('')
 
 def print_top_doc_sent(report):
@@ -1071,7 +1090,6 @@ def print_top_doc_sent(report):
 	if( 'ranked_sentences' in report ):
 		if( len(report['ranked_sentences']) != 0 ):
 			logger.info('\nTop ranked sentence: ' + str(report['ranked_sentences'][0]['sentence']) )
-
 
 def extract_top_ngrams(doc_lst, doc_dct_lst, n, params):
 
@@ -1100,60 +1118,84 @@ def extract_top_ngrams(doc_lst, doc_dct_lst, n, params):
 
 	bif_stopwords = bifurcate_stopwords( params['add_stopwords'] )
 	stopwords = getStopwordsSet() | bif_stopwords['unigrams']
+	min_df = params['min_df']
+	#print('min_df', min_df, type(min_df))
+	try:
+		if( isinstance(min_df, str) ):
+			if( min_df.find('.') == -1 ):
+				min_df = int(min_df)
+			else:
+				min_df = float(min_df)
+	except:
+		min_df = 1
 
-	count_vectorizer = CountVectorizer(stop_words=stopwords, token_pattern=params['token_pattern'], ngram_range=(n, n), binary=binary_tf_flag)
+	params['min_df'] = min_df
+
+	count_vectorizer = CountVectorizer(stop_words=stopwords, token_pattern=params['token_pattern'], ngram_range=(n, n), binary=binary_tf_flag, min_df=min_df)
+	
+	logger.info('\tfit transfrom - start')
 	try:
 		#tf_matrix is a binary TF matrix if doc_lst.len > 1, non-binary otherwise
 		tf_matrix = count_vectorizer.fit_transform(doc_lst).toarray()
+
+		all_col_sums_tf = np.sum(tf_matrix, axis=0)
+		all_non_zero = np.argwhere(tf_matrix != 0)
 	except:
 		genericErrorInfo()
 		return []
-
-	#every entry in list top_ngrams is of type: (a, b), a: term, b: term position in TF matrix
+	logger.info('\tfit transfrom - end')
 	
+	#every entry in list top_ngrams is of type: (a, b), a: term, b: term position in TF matrix
 	top_ngrams = count_vectorizer.get_feature_names()
-	filtered_top_ngrams = []
+	filtered_top_ngrams = {}
 	total_freq = 0
 	
-	for i in range(tf_matrix.shape[1]):
+	logger.info('\ttf_matrix shape: ' + str(tf_matrix.shape))
 
+	for doc_indx, i in all_non_zero:
+		#i is index of vocab (top_ngrams[i])
 		if( top_ngrams[i] in bif_stopwords['multigrams'] ):
 			continue
 		
-		matrix_row = tf_matrix[:,i]
-		if( binary_tf_flag ):
-			row_sum_tf = np.count_nonzero(matrix_row)#row_sum_tf count (TF) of documents with non-zero entries
-		else:
-			row_sum_tf = int(matrix_row[0])
-		
-		#select documents with non-zero entries for term, doc index begins at 1
-		non_zero_docs = np.flatnonzero(matrix_row)#non_zero_docs: list of index positions of documents with nonzero entry for vocabulary at i
-		
 		#find a simpler way to convert Int64 to native int
-		postings = []
-		for doc_indx in non_zero_docs:
-			
-			doc_indx = int(doc_indx)
-			postings.append({
-				'doc_indx': doc_indx, #Int64 to native int
-				'doc_id': doc_dct_lst[doc_indx]['doc_id'],
-				'doc_details': fmt_posting( doc_dct_lst[doc_indx] )
-			})
+		doc_indx = int(doc_indx)
 		
+		filtered_top_ngrams.setdefault(i, get_ngram_dct(top_ngrams[i], -1, []))
 
-		filtered_top_ngrams.append( get_ngram_dct(top_ngrams[i], row_sum_tf, postings) )
-		total_freq += filtered_top_ngrams[-1]['term_freq']
+		if( filtered_top_ngrams[i]['term_freq'] == -1 ):
+			
+			if( binary_tf_flag is True ):
+				col_sum_tf = int(all_col_sums_tf[i])
+			else:
+				matrix_col = tf_matrix[:,i]
+				col_sum_tf = int(matrix_col[0])
+
+			filtered_top_ngrams[i]['term_freq'] = col_sum_tf
+			total_freq += col_sum_tf
+
+		filtered_top_ngrams[i]['postings'].append({
+			'doc_indx': doc_indx, #Int64 to native int
+			'doc_id': doc_dct_lst[doc_indx]['doc_id'],
+			'doc_details': fmt_posting( doc_dct_lst[doc_indx] )
+		})
+
 
 	if( doc_count == 1 ):
 		N = total_freq
 	else:
 		N = doc_count
 
+	filtered_top_ngrams = sorted(filtered_top_ngrams.items(), key=lambda x: x[1]['term_freq'], reverse=True)
+	filtered_top_ngrams = [x[1] for x in filtered_top_ngrams]
+
 	for i in range(len(filtered_top_ngrams)):
 		filtered_top_ngrams[i]['term_rate'] = filtered_top_ngrams[i]['term_freq']/N
 
-	
-	return sorted(filtered_top_ngrams, key=lambda ngramEntry: ngramEntry['term_freq'], reverse=True)
+	if( len(filtered_top_ngrams) != 0 ):
+		params['state']['last_ngram'] = filtered_top_ngrams[-1]
+		params['state']['last_ngram']['rank'] = len(filtered_top_ngrams)
+
+	return filtered_top_ngrams
 
 def get_user_stopwords(comma_sep_stopwords):
 
@@ -1177,7 +1219,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 		n = 1
 
 	params = get_default_args(params)
-
+	params['state'] = {}
 	params['add_stopwords'] = get_user_stopwords( params['add_stopwords'] )
 	params.setdefault('binary_tf_flag', True)#Multiple occurrence of term T in a document counts as 1, TF = total number of times term appears in collection
 	nlp_addr = 'http://' + params['corenlp_host'] + ':' + params['corenlp_port']
@@ -1260,18 +1302,18 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 	if( doc_count == 1 ):
 
 		N = len(top_ngrams)
-		params['tf_label'] = 'Single Document Term Frequency'
+		params['tf_label'] = 'Term Frequency'
 		params['binary_tf_flag'] = False
 
 	else:
 
 		N = doc_count
-		params['tf_label'] = 'Collection Term Frequency (1 term count per document)'
+		params['tf_label'] = 'Document Frequency'
 
 	params['tf_normalizing_divisor'] = N
 	report = { 'base_ngram': n, 'top_sumgram_count': params['top_sumgram_count']}
 
-	logger.info('\tdoc_lst.len:' + str(doc_count))
+	logger.info('\tdoc_lst.len: ' + str(doc_count))
 	logger.info('\ntop ngrams before finding multi-word proper nouns:')
 	print_top_ngrams( n, top_ngrams, params['top_sumgram_count'], params=params )
 	
@@ -1339,6 +1381,7 @@ def get_args():
 	parser.add_argument('--log-level', help='Log level', choices=['critical', 'error', 'warning', 'info', 'debug', 'notset'], default='info')
 	
 	parser.add_argument('--mvg-window-min-proper-noun-rate', help='Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram', type=float, default=0.5)
+	parser.add_argument('--min-df', help='See min_df in https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html', default=0.01)
 	parser.add_argument('--ngram-printing-mw', help='Mininum width for printing ngrams', type=int, default=50)
 	
 	parser.add_argument('--base-ngram-ansi-color', help='Highlight (color code format - XXm, e.g., 91m) base ngram when printing top ngrams, set to empty string to switch off color', default='91m')
