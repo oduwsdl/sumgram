@@ -60,6 +60,29 @@ We considered leveraging Stanford CoreNLP's [Named Entity Annotator](https://sta
 ### Performance Considerations - size of output
 By default `--no-parent-sentences` is switched off, this means that the sentences that mention the top sumgrams are included in the final dictionary output of sumgram (output of `get_top_sumgrams()`), thus increasing the size of the output. To avoid this, include the `--no-parent-sentences` option.
 
+### Performance Considerations - size of vocabulary (manipulating [`min_df`](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html))
+See [sklearn.feature_extraction.text.CountVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html) for more details about `min_df`.
+
+Sumgram begins by counting the document frequencies (DF: number of documents that include a term) for each term (ngram) in the vocabulary. The size of the vocabulary significantly affects the runtime of sumgram. The larger the vocabulary, the longer the runtime, and vice versa. Fortunately, we can take advantage of the fact that sumgram favors ngrams with `DF > 1`, to remove terms that occur once or a "few" times. The challenge is that "few" is subjective. `min_df` defines what we consider as few: when building the vocabulary, terms with document frequencies less than `min_df` (`DF < min_df`) are removed.  `min_df` influences the size of the vocabulary by eliminating terms with `DF < min_df`. See the following example about how `min_df` affects the size of the vocabulary.
+```
+Document count: 20
+Previous vocabulary size: 9,252
+New vocabulary size: 9,252
+Last term DF rate: 0.0500
+Result: Vocabulary size does not shrink since last DF > min_df (0.05 > 0.01). Therefore, no term removed.
+
+Document count: 593
+Previous vocabulary size: 127,169
+New vocabulary size: 1,321
+Last term DF rate: 0.0101
+Result: Vocabulary size shrinks by ~98%, as a result 125,848 (with DF < 0.01) terms removed.
+```
+These results suggest that if your collection consists of thousands of documents, you might need to increase the `min_df` (default is: 0.01) threshold. When sumgram is run from the command-line, the last line indicates the rank of the ngram with the least DF (last ngram). For example, the following line
+```
+last ngram with min_df = 0.01 (index/DF/DF-Rate): release transcript (1321/6/0.0101)
+```
+indicates that the last term (1,321st term) occurred in 6 documents (DF = 6, DF-Rate = 0.0101). So terms with `DF < 0.01` were discard from the vocabulary. Therefore, the user could increase `min_df` if a DF of 6 is still considered small. In contrast, the user could decrease `min_df` if a DF of 5 is considered big.
+
 ## Usage
 ### Basic usage:
 ```
@@ -104,7 +127,7 @@ with open('sumgrams.json', 'w') as outfile:
 ### Generate top 10 (t = 10) sumgrams for the [Archive-It Ebola Virus Collection](https://archive-it.org/collections/4887):
 ```
 $ sumgram -t 10 cols/ebola/
- rank  sumgram                                              TF   TF-Rate
+ rank  sumgram                                              DF   DF-Rate
   1    in west africa                                       50    0.35 
   2    liberia and sierra leone                             46    0.33 
   3    ebola virus                                          44    0.31 
@@ -119,7 +142,7 @@ $ sumgram -t 10 cols/ebola/
 ### Generate top 10 (t = 10) sumgrams for the [Archive-It Hurricane Harvey Collection](https://archive-it.org/collections/9323):
 ```
 $ sumgram -t 10 cols/harvey/
-rank   sumgram                                              TF   TF-Rate
+rank   sumgram                                              DF   DF-Rate
   1    hurricane harvey                                     20    0.47 
   2    tropical storm harvey                                10    0.23 
   3    2017 houston transtar inc.                           9     0.21 
@@ -137,7 +160,7 @@ The argument of `--add-stopwords` is a comma-separated string of stopwords (e.g.
 
 ```
 $ sumgram -t 10 --add-stopwords="image" cols/harvey/
- rank  sumgram                                              TF   TF-Rate
+ rank  sumgram                                              DF   DF-Rate
   1    hurricane harvey                                     20    0.47 
   2    tropical storm harvey                                10    0.23 
   3    2017 houston transtar inc.                           9     0.21 
@@ -155,7 +178,7 @@ $ sumgram -t 10 --add-stopwords="image" cols/harvey/
 $ docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp --network=host python:3.7.3-stretch bash
 $ pip install sumgram
 $ sumgram -t 10 --add-stopwords="image" cols/harvey/
- rank  sumgram                                              TF   TF-Rate
+ rank  sumgram                                              DF   DF-Rate
   1    hurricane harvey                                     20    0.47 
   2    tropical storm harvey                                10    0.23 
   3    2017 houston transtar inc.                           9     0.21 
@@ -231,6 +254,8 @@ sumgram [options] path/to/collection/of/text/files/
 
 Options:
 -n=2                                      The base n (int) for generating top sumgrams, if n = 2, bigrams become the base ngram
+
+-d, --print-details                       Print details
 -o, --output                              Output file
 -s, --sentences-rank-count=10             The count of top ranked sentences to generate
 -t, --top-sumgram-count=10                The count of top sumgrams to generate
@@ -247,6 +272,7 @@ Options:
 --log-level=info                          Log level from OPTIONS: {critical, error, warning, info, debug, notset}
 
 --mvg-window-min-proper-noun-rate=0.5     Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram
+--min-df=0.01                             See min_df in https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html
 --ngram-printing-mw=50                    Mininum width for printing ngrams
 
 --base-ngram-ansi-color='91m'             Highlight (color code format - XXm, e.g., 91m) base ngram when printing top ngrams, set to empty string to switch off color
