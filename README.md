@@ -63,7 +63,7 @@ By default `--no-parent-sentences` is switched off, this means that the sentence
 ### Performance Considerations - size of vocabulary (manipulating [`min_df`](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html))
 See [sklearn.feature_extraction.text.CountVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html) for more details about `min_df`.
 
-Sumgram begins by counting the document frequencies (DF: number of documents that include a term) for each term (ngram) in the vocabulary. The size of the vocabulary significantly affects the runtime of sumgram. The larger the vocabulary, the longer the runtime, and vice versa. Fortunately, we can take advantage of the fact that sumgram favors ngrams with `DF > 1`, to remove terms that occur once or a "few" times. The challenge is that "few" is subjective. `min_df` defines what we consider as few: when building the vocabulary, terms with document frequencies less than `min_df` (`DF < min_df`) are removed.  `min_df` influences the size of the vocabulary by eliminating terms with `DF < min_df`. See the following example about how `min_df` affects the size of the vocabulary.
+Sumgram begins by counting the document frequencies (DF: number of documents that include a term) for each term (ngram) in the vocabulary. The size of the vocabulary significantly affects the runtime of sumgram. The larger the vocabulary, the longer the runtime, and vice versa. Fortunately, we can take advantage of the fact that sumgram favors ngrams with `DF > 1`, to remove terms that occur once or a "few" times. The challenge is that the definition of "few" is subjective. `min_df` defines what we consider as few: when building the vocabulary, terms with document frequencies less than `min_df` (`DF < min_df`) are removed.  `min_df` influences the size of the vocabulary by eliminating terms with `DF < min_df`. See the following example about how `min_df` affects the size of the vocabulary.
 ```
 Document count: 20
 Previous vocabulary size: 9,252
@@ -81,7 +81,7 @@ These results suggest that if your collection consists of thousands of documents
 ```
 last ngram with min_df = 0.01 (index/DF/DF-Rate): release transcript (1321/6/0.0101)
 ```
-indicates that the last term (1,321st term) occurred in 6 documents (DF = 6, DF-Rate = 0.0101). So terms with `DF < 0.01` were discard from the vocabulary. Therefore, the user could increase `min_df` if a DF of 6 is still considered small. In contrast, the user could decrease `min_df` if a DF of 5 is considered big.
+indicates that the last ngram ("release transcript" - 1,321st ngram) occurred in 6 documents (DF = 6, DF-Rate = 0.0101). So terms with `DF < 0.01` were discard from the vocabulary. Therefore, the user could increase `min_df` if a DF of 6 is still considered small. In contrast, the user could decrease `min_df` if a DF of 5 is considered big.
 
 ## Usage
 ### Basic usage:
@@ -175,7 +175,7 @@ $ sumgram -t 10 --add-stopwords="image" cols/harvey/
 
 ### Use application from Python Docker container to generate top 10 (t = 10) sumgrams for the [Archive-It Hurricane Harvey Collection](https://archive-it.org/collections/9323):
 ```
-$ docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp --network=host python:3.7.3-stretch bash
+$ docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp --network=host python:3.7-stretch bash
 $ pip install sumgram
 $ sumgram -t 10 --add-stopwords="image" cols/harvey/
  rank  sumgram                                              DF   DF-Rate

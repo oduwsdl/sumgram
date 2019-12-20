@@ -143,7 +143,7 @@ def parallel_nlp_add_sents(doc_dct_lst, params):
 	for i in range(size):
 
 		if( i % params['update_rate'] == 0 ):
-			print_msg = '\tsegmenting sentence i: ' + str(i) + ' of ' + str(size)
+			print_msg = 'segmenting sentence i: ' + str(i) + ' of ' + str(size)
 		else:
 			print_msg = ''
 
