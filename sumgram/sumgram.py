@@ -143,7 +143,7 @@ def parallel_nlp_add_sents(doc_dct_lst, params):
 	for i in range(size):
 
 		if( i % params['update_rate'] == 0 ):
-			print_msg = '\tsegmenting sentence i: ' + str(i) + ' of ' + str(size)
+			print_msg = 'segmenting sentence i: ' + str(i) + ' of ' + str(size)
 		else:
 			print_msg = ''
 
@@ -256,10 +256,8 @@ def rank_sents_frm_top_ranked_docs(ngram_sentences, ranked_docs, all_doc_sentenc
 		extra_params = {}
 
 	extra_params.setdefault('sentences_rank_count', 20)
-
-	logger.info('\nrank_sents_frm_top_ranked_docs():')
-
 	all_top_ranked_docs_sentences = []
+	
 	for doc in ranked_docs:
 		
 		doc_indx = doc[0]
@@ -1006,25 +1004,37 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 	if( params is None ):
 		params = {}
 
+	if( len(top_ngrams) == 0 ):
+		return
+
 	params.setdefault('ngram_printing_mw', 50)
 	params.setdefault('title', '')
 	default_color = '49m'
+	tf_or_df = ''
+
+	if( 'last_ngram' in params['state'] ):
+		last_ngram = params['state']['last_ngram']
+	else:
+		last_ngram = {}
 
 	mw = params['ngram_printing_mw']
 	ngram_count = len(top_ngrams)
 
-	logger.info('Summary for ' + str(ngram_count) + ' top sumgrams (base n: ' + str(n) + '): ')
-	logger.info('')
-
+	print('\nSummary for ' + str(ngram_count) + ' top sumgrams (base n: ' + str(n) + '): ')
 	if( params['title'] != '' ):
-		logger.info( params['title'] )
+		print( params['title'])
+
+
+	if( params['binary_tf_flag'] is True ):
+		tf_or_df = 'DF'
+	else:
+		tf_or_df = 'TF'
 
 
 	if( params['base_ngram_ansi_color'] == '' ):
-		logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', 'sumgram', 'TF', 'TF-Rate', 'Base ngram', mw=mw) )
+		print( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', 'sumgram', tf_or_df, tf_or_df + '-Rate', 'Base ngram', mw=mw))
 	else:
-		logger.info( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', getColorTxt('sumgram', default_color), 'TF', 'TF-Rate', 'Base ngram', mw=mw) )
-		
+		print( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', getColorTxt('sumgram', default_color), tf_or_df, tf_or_df + '-Rate', 'Base ngram', mw=mw))
 
 	for i in range(top_sumgram_count):
 		
@@ -1057,9 +1067,11 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 			ngram_txt = getColorTxt(ngram_txt, default_color)
 
 		
-		logger.info( "{:^6} {:<{mw}} {:^6} {:^7} {:<30}".format(i+1, ngram_txt, ngram['term_freq'], "{:.2f}".format(ngram['term_rate']), base_ngram, mw=mw) )
+		print( "{:^6} {:<{mw}} {:^6} {:^7} {:<30}".format(i+1, ngram_txt, ngram['term_freq'], "{:.2f}".format(ngram['term_rate']), base_ngram, mw=mw))
 
-	logger.info('')
+	if( len(last_ngram) != 0 ):
+		if( params['min_df'] != 1 ):
+			print( 'last ngram with min_df = ' + str(params['min_df']) + ' (index/' + tf_or_df + '/' + tf_or_df + '-Rate): ' + last_ngram['ngram'] + ' (' + str(last_ngram['rank'])  + '/' + str(last_ngram['term_freq']) + '/' + str(last_ngram['term_rate']) + ')')
 
 def print_top_doc_sent(report):
 
@@ -1072,10 +1084,9 @@ def print_top_doc_sent(report):
 		if( len(report['ranked_sentences']) != 0 ):
 			logger.info('\nTop ranked sentence: ' + str(report['ranked_sentences'][0]['sentence']) )
 
-
 def extract_top_ngrams(doc_lst, doc_dct_lst, n, params):
 
-	logger.info('\nextract_top_ngrams(): token_pattern: ' + params['token_pattern'])
+	logger.debug('\nextract_top_ngrams(): token_pattern: ' + params['token_pattern'])
 	
 	'''
 		Note on unified all_doc_sentences and top_ngrams text processing:
@@ -1100,60 +1111,88 @@ def extract_top_ngrams(doc_lst, doc_dct_lst, n, params):
 
 	bif_stopwords = bifurcate_stopwords( params['add_stopwords'] )
 	stopwords = getStopwordsSet() | bif_stopwords['unigrams']
+	min_df = params['min_df']
+	#print('min_df', min_df, type(min_df))
+	try:
+		if( isinstance(min_df, str) ):
+			if( min_df.find('.') == -1 ):
+				min_df = int(min_df)
+			else:
+				min_df = float(min_df)
+	except:
+		min_df = 1
 
-	count_vectorizer = CountVectorizer(stop_words=stopwords, token_pattern=params['token_pattern'], ngram_range=(n, n), binary=binary_tf_flag)
+	params['min_df'] = min_df
+
+	count_vectorizer = CountVectorizer(stop_words=stopwords, token_pattern=params['token_pattern'], ngram_range=(n, n), binary=binary_tf_flag, min_df=min_df)
+	
+	logger.debug('\tfit transfrom - start')
 	try:
 		#tf_matrix is a binary TF matrix if doc_lst.len > 1, non-binary otherwise
 		tf_matrix = count_vectorizer.fit_transform(doc_lst).toarray()
+
+		all_col_sums_tf = np.sum(tf_matrix, axis=0)
+		all_non_zero = np.argwhere(tf_matrix != 0)
 	except:
 		genericErrorInfo()
 		return []
-
-	#every entry in list top_ngrams is of type: (a, b), a: term, b: term position in TF matrix
+	logger.debug('\tfit transfrom - end')
 	
+	#every entry in list top_ngrams is of type: (a, b), a: term, b: term position in TF matrix
 	top_ngrams = count_vectorizer.get_feature_names()
-	filtered_top_ngrams = []
+	filtered_top_ngrams = {}
 	total_freq = 0
 	
-	for i in range(tf_matrix.shape[1]):
+	logger.debug('\ttf_matrix shape: ' + str(tf_matrix.shape))
 
+	for doc_indx, i in all_non_zero:
+		#i is index of vocab (top_ngrams[i])
 		if( top_ngrams[i] in bif_stopwords['multigrams'] ):
 			continue
 		
-		matrix_row = tf_matrix[:,i]
-		if( binary_tf_flag ):
-			row_sum_tf = np.count_nonzero(matrix_row)#row_sum_tf count (TF) of documents with non-zero entries
-		else:
-			row_sum_tf = int(matrix_row[0])
-		
-		#select documents with non-zero entries for term, doc index begins at 1
-		non_zero_docs = np.flatnonzero(matrix_row)#non_zero_docs: list of index positions of documents with nonzero entry for vocabulary at i
-		
 		#find a simpler way to convert Int64 to native int
-		postings = []
-		for doc_indx in non_zero_docs:
-			
-			doc_indx = int(doc_indx)
-			postings.append({
-				'doc_indx': doc_indx, #Int64 to native int
-				'doc_id': doc_dct_lst[doc_indx]['doc_id'],
-				'doc_details': fmt_posting( doc_dct_lst[doc_indx] )
-			})
+		doc_indx = int(doc_indx)
 		
+		filtered_top_ngrams.setdefault(i, get_ngram_dct(top_ngrams[i], -1, []))
 
-		filtered_top_ngrams.append( get_ngram_dct(top_ngrams[i], row_sum_tf, postings) )
-		total_freq += filtered_top_ngrams[-1]['term_freq']
+		if( filtered_top_ngrams[i]['term_freq'] == -1 ):
+			
+			if( binary_tf_flag is True ):
+				col_sum_tf = int(all_col_sums_tf[i])
+			else:
+				matrix_col = tf_matrix[:,i]
+				col_sum_tf = int(matrix_col[0])
+
+			filtered_top_ngrams[i]['term_freq'] = col_sum_tf
+			total_freq += col_sum_tf
+
+		filtered_top_ngrams[i]['postings'].append({
+			'doc_indx': doc_indx, #Int64 to native int
+			'doc_id': doc_dct_lst[doc_indx]['doc_id'],
+			'doc_details': fmt_posting( doc_dct_lst[doc_indx] )
+		})
+
 
 	if( doc_count == 1 ):
 		N = total_freq
+		params['tf_label'] = 'Term Frequency'
 	else:
 		N = doc_count
+		params['tf_label'] = 'Document Frequency'
+
+	params['tf_normalizing_divisor'] = N
+	params['collection_doc_count'] = doc_count
+	filtered_top_ngrams = sorted(filtered_top_ngrams.items(), key=lambda x: x[1]['term_freq'], reverse=True)
+	filtered_top_ngrams = [x[1] for x in filtered_top_ngrams]
 
 	for i in range(len(filtered_top_ngrams)):
 		filtered_top_ngrams[i]['term_rate'] = filtered_top_ngrams[i]['term_freq']/N
 
-	
-	return sorted(filtered_top_ngrams, key=lambda ngramEntry: ngramEntry['term_freq'], reverse=True)
+	if( len(filtered_top_ngrams) != 0 ):
+		params['state']['last_ngram'] = filtered_top_ngrams[-1]
+		params['state']['last_ngram']['rank'] = len(filtered_top_ngrams)
+
+	return filtered_top_ngrams
 
 def get_user_stopwords(comma_sep_stopwords):
 
@@ -1177,7 +1216,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 		n = 1
 
 	params = get_default_args(params)
-
+	params['state'] = {}
 	params['add_stopwords'] = get_user_stopwords( params['add_stopwords'] )
 	params.setdefault('binary_tf_flag', True)#Multiple occurrence of term T in a document counts as 1, TF = total number of times term appears in collection
 	nlp_addr = 'http://' + params['corenlp_host'] + ':' + params['corenlp_port']
@@ -1189,7 +1228,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 		params['stanford_corenlp_server'] = False
 
 
-	logger.info('\nget_top_sumgrams():')
+	logger.debug('\nget_top_sumgrams():')
 	if( params['stanford_corenlp_server'] == False and params['sentence_tokenizer'] == 'ssplit' ):
 		
 		logger.info('\n\tAttempting to start Stanford CoreNLP Server (we need it to segment sentences)\n')
@@ -1198,14 +1237,13 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 		params['stanford_corenlp_server'] = nlpIsServerOn( addr=nlp_addr )
 	
 	#doc_dct_lst: {doc_id: , text: }
-	logger.info('\tsentence segmentation - start')
+	logger.debug('\tsentence segmentation - start')
 	parallel_nlp_add_sents(doc_dct_lst, params)
 
 	doc_lst = []
 	all_doc_sentences = {}
 	multi_word_proper_nouns = {}
 	dedup_set = set()
-	
 	for i in range(len(doc_dct_lst)):
 		
 		doc_dct_lst[i].setdefault('doc_id', i)
@@ -1227,14 +1265,15 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 
 	multi_word_proper_nouns = rank_proper_nouns(multi_word_proper_nouns)
 
-	logger.info('\tsentence segmentation - end')
-	logger.info('\tshift: ' + str(params['shift']))
+
+	logger.debug('\tsentence segmentation - end')
+	logger.debug('\tshift: ' + str(params['shift']))
 		
 	top_ngrams = extract_top_ngrams(doc_lst, doc_dct_lst, n, params)
-
 	if( len(top_ngrams) == 0 ):
 		return report
 	
+
 	if( params['top_sumgram_count'] < 1 or params['top_sumgram_count'] > len(top_ngrams) ):
 		params['top_sumgram_count'] = len(top_ngrams)
 	
@@ -1248,33 +1287,22 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 	if( shift_factor >= len(top_ngrams) ):
 		shift_factor = 0
 
-	logger.info('\ttop_ngrams.len: ' + str(len(top_ngrams)))
+	logger.debug('\ttop_ngrams.len: ' + str(len(top_ngrams)))
 	if( shift_factor > 0 ):
 		
 		params['top_ngram_shift_factor'] = shift_factor
 		top_ngrams = top_ngrams[shift_factor:]
-		logger.info('\ttop_ngrams.post shift len: ' + str(len(top_ngrams)))
+		logger.debug('\ttop_ngrams.post shift len: ' + str(len(top_ngrams)))
 
 
-	doc_count = len(doc_dct_lst)
-	if( doc_count == 1 ):
-
-		N = len(top_ngrams)
-		params['tf_label'] = 'Single Document Term Frequency'
-		params['binary_tf_flag'] = False
-
-	else:
-
-		N = doc_count
-		params['tf_label'] = 'Collection Term Frequency (1 term count per document)'
-
-	params['tf_normalizing_divisor'] = N
 	report = { 'base_ngram': n, 'top_sumgram_count': params['top_sumgram_count']}
 
-	logger.info('\tdoc_lst.len:' + str(doc_count))
-	logger.info('\ntop ngrams before finding multi-word proper nouns:')
-	print_top_ngrams( n, top_ngrams, params['top_sumgram_count'], params=params )
+	if( params['print_details'] is True ):
+		print('doc_lst.len: ' + str(len(doc_dct_lst)))
+		print('top ngrams before finding multi-word proper nouns:')
+		print_top_ngrams( n, top_ngrams, params['top_sumgram_count'], params=params )
 	
+
 	if( params['no_pos_glue_split_ngrams'] == False ):
 		pos_glue_split_ngrams( top_ngrams, params['top_sumgram_count'] * 2, params['pos_glue_split_ngrams_coeff'], multi_word_proper_nouns, params )
 
@@ -1282,15 +1310,19 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 	if( params['no_mvg_window_glue_split_ngrams'] == False ):
 		mvg_window_glue_split_ngrams( top_ngrams, params['top_sumgram_count'] * 2, all_doc_sentences, params=params )
 	
-	logger.info('\ntop ngrams after finding multi-word proper nouns:')
-	print_top_ngrams( n, top_ngrams, params['top_sumgram_count'], params=params )
+	
+	if( params['print_details'] is True ):
+		print('\ntop ngrams after finding multi-word proper nouns:')
+		print_top_ngrams( n, top_ngrams, params['top_sumgram_count'], params=params )
+	
 	
 	top_ngrams = rm_subset_top_ngrams( top_ngrams, params['top_sumgram_count'] * 2, params['rm_subset_top_ngrams_coeff'], params )
-	logger.info('\ntop ngrams after removing subset phrases:')
-	print_top_ngrams( n, top_ngrams, params['top_sumgram_count'], params=params )
+	if( params['print_details'] is True ):
+		print('\ntop ngrams after removing subset phrases:')
+		print_top_ngrams( n, top_ngrams, params['top_sumgram_count'], params=params )
 
+	
 	top_ngrams = rm_empty_ngrams( top_ngrams, params['top_sumgram_count'] * 2 )
-
 	if( params['no_rank_docs'] == False ):
 		report['ranked_docs'] = get_ranked_docs( top_ngrams, doc_dct_lst )
 
@@ -1301,16 +1333,11 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 		#remove doc_indx
 		report['ranked_docs'] = [d[1] for d in report['ranked_docs']]
 	
-	report['top_sumgrams'] = top_ngrams[:params['top_sumgram_count']]
-	logger.info('\ntop ngrams after shifting empty slots:')
-	print_top_ngrams( n, top_ngrams, params['top_sumgram_count'], params=params )
-	
 
-	#fmt_report() need to be called last since it potentially could modify merged_ngrams
-	report['created_at_utc'] = datetime.utcnow().isoformat().split('.')[0] + 'Z'
-	fmt_report( report['top_sumgrams'], params )
 	report['params'] = params
-	report['params']['collection_doc_count'] = doc_count
+	report['created_at_utc'] = datetime.utcnow().isoformat().split('.')[0] + 'Z'
+	report['top_sumgrams'] = top_ngrams[:params['top_sumgram_count']]
+	fmt_report( report['top_sumgrams'], params ) #fmt_report() need to be called last since it potentially could modify merged_ngrams
 	
 	if( params['stanford_corenlp_server'] == False and params['sentence_tokenizer'] == 'ssplit' ):
 		logger.info('\n\tCould not find/start Stanford CoreNLP Server, so regex_get_sentences() was used as a fallback to segment sentences.\n\tWe highly recommend you install and run it \n\t(see: https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html)\n\tbecause Stanford CoreNLP does a better job of segmenting sentences than regex.\n\tHowever, if you have no need to utilize sentence ranking, disregard this advise.\n')
@@ -1322,6 +1349,7 @@ def get_args():
 	parser = argparse.ArgumentParser(formatter_class=lambda prog: argparse.HelpFormatter(prog, max_help_position=30))
 	parser.add_argument('path', help='Folder path containing input documents or path to single file')
 	
+	parser.add_argument('-d', '--print-details', help='Print detailed output', action='store_true')
 	parser.add_argument('-n', '--base-ngram', help='The base n (integer) for generating top sumgrams, if n = 2, bigrams would be the base ngram', type=int, default=2)
 	parser.add_argument('-o', '--output', help='Output file')
 	parser.add_argument('-s', '--sentences-rank-count', help='The count of top ranked sentences to generate', type=int, default=10)
@@ -1340,6 +1368,7 @@ def get_args():
 	parser.add_argument('--log-level', help='Log level', choices=['critical', 'error', 'warning', 'info', 'debug', 'notset'], default='info')
 	
 	parser.add_argument('--mvg-window-min-proper-noun-rate', help='Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram', type=float, default=0.5)
+	parser.add_argument('--min-df', help='See min_df in https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html', default=0.01)
 	parser.add_argument('--ngram-printing-mw', help='Mininum width for printing ngrams', type=int, default=50)
 	
 	parser.add_argument('--no-mvg-window-glue-split-ngrams', help='Do not glue split top ngrams with Moving Window method (default is False)', action='store_true')
@@ -1379,9 +1408,15 @@ def get_default_args(user_params):
 
 
 def proc_req(doc_lst, params):
+	
 	report = get_top_sumgrams(doc_lst, params['base_ngram'], params)
+	
+	if( 'top_sumgrams' in report ):
+		print_top_ngrams( params['base_ngram'], report['top_sumgrams'], params['top_sumgram_count'], params=params )
+
 	if( params['output'] is not None ):
-		dumpJsonToFile( params['output'], report, indentFlag=params['pretty_print'] )
+		dumpJsonToFile( params['output'], report, indentFlag=params['pretty_print'], extraParams={'verbose': False} )
+		print('wrote output:', params['output'])
 
 def set_logger_dets(logger_dets):
 
@@ -1401,8 +1436,8 @@ def set_logger_dets(logger_dets):
 		if( logger_dets['file'] != '' ):
 			file_handler = logging.FileHandler( logger_dets['file'] )
 			proc_log_handler(file_handler, logger_dets)
-
-	proc_log_handler(console_handler, logger_dets)
+	else:
+		proc_log_handler(console_handler, logger_dets)
 	
 def proc_log_handler(handler, logger_dets):
 	
@@ -1449,6 +1484,9 @@ def set_log_defaults(params):
 			params['log_dets']['level'] = log_levels[ params['log_level'] ]
 		else:
 			params['log_dets']['level'] = logging.INFO
+
+		if( params['log_dets']['level'] == 10 ):#10: debug
+			params['print_details'] = True
 	
 	params['log_format'] = params['log_format'].strip()
 	params['log_file'] = params['log_file'].strip()
