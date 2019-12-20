@@ -88,6 +88,7 @@ indicates that the last ngram ("release transcript" - 1,321st ngram) occurred in
 ```
 $ sumgram path/to/collection/of/text/files/
 ```
+e.g., sumgram [tests/sample_cols/harvey](tests/sample_cols/harvey)
 ### Python script usage:
 [Command line options](#full-usage) may be activated by setting the argument in the `params` dictionary passed as an argument to `get_top_sumgrams()`. To set a command line argument, consider the following transformation example:
 
@@ -123,7 +124,7 @@ sumgrams = get_top_sumgrams(doc_lst, ngram, params=params)
 with open('sumgrams.json', 'w') as outfile:
   json.dump(sumgrams, outfile)
 ```
-### Examples:
+### Examples (see sample collection [tests/sample_cols/harvey](tests/sample_cols/harvey)):
 ### Generate top 10 (t = 10) sumgrams for the [Archive-It Ebola Virus Collection](https://archive-it.org/collections/4887):
 ```
 $ sumgram -t 10 cols/ebola/
