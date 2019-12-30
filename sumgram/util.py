@@ -1,9 +1,11 @@
+import gzip
 import json
 import logging
 import os
 import re
 import requests
 import sys
+import tarfile
 
 from subprocess import check_output, CalledProcessError
 from multiprocessing import Pool
@@ -353,21 +355,120 @@ def dumpJsonToFile(outfilename, dictToWrite, indentFlag=True, extraParams=None):
 		if( extraParams['verbose'] ):
 			logger.info('\twriteTextToFile(), wrote: ' + outfilename)
 	except:
-		genericErrorInfo('\terror: outfilename: ' + outfilename)
+		genericErrorInfo('\n\terror: outfilename: ' + outfilename)
+
+
+def getTextFromGZ(path):
+	
+	try:
+		with gzip.open(path, 'rb') as f:
+			return f.read().decode('utf-8')
+	except:
+		genericErrorInfo()
+
+	return ''
+
+def readTextFromTar(filename, addDetails=True):
+
+	payload = []
+	try:
+		tar = tarfile.open(filename, 'r:*')
+
+		for tarinfo in tar.getmembers():
+			if tarinfo.isreg():
+
+				try:
+					f = tar.extractfile(tarinfo)
+					text = f.read()
+					
+					if( tarinfo.name.endswith('.gz') ):
+						text = gzip.decompress(text)
+					
+					text = text.decode('utf-8')
+					if( text != '' ):
+						if( addDetails is True ):
+							extra = {'src': filename}
+							text = getTextDetails( filename=os.path.basename(tarinfo.name), text=text, extra=extra )
+						
+						payload.append(text)
+
+				except UnicodeDecodeError as e:
+					logger.error('\nreadTextFromTar(), UnicodeDecodeError file: ' + tarinfo.name)
+				except:
+					genericErrorInfo('\n\treadTextFromTar(), Error reading file: ' + tarinfo.name)
+
+		tar.close()
+	except:
+		genericErrorInfo()
+
+	return payload
 
 def readTextFromFile(infilename):
 
-	text = ''
-
 	try:
 		with open(infilename, 'r') as infile:
-			text = infile.read()
+			return infile.read()
 	except:
-		genericErrorInfo('\treadTextFromFile() error filename: ' + infilename)
+		genericErrorInfo( '\n\treadTextFromFile(), error filename: ' + infilename )
+
+	return ''
+
+def getTextDetails(filename, text, extra=None):
 	
+	if( extra is None ):
+		extra = {}
 
-	return text
+	payload = {'filename': filename, 'text': text}
 
+	for key, val in extra.items():
+		payload[key] = val
+
+	return payload
+
+def readTextFromFilesRecursive(files, addDetails=True):
+
+	if( isinstance(files, str) ):
+		files = [files]
+
+	if( isinstance(files, list) is False ):
+		return []
+
+	result = []
+	for f in files:
+
+		f = f.strip()
+		
+		if( f.endswith('.tar') or f.endswith('.tar.gz') ):
+			result += readTextFromTar(f, addDetails=addDetails)
+
+		elif( f.endswith('.gz') ):
+			
+			text = getTextFromGZ(f)
+			if( text != '' ):
+				if( addDetails is True ):
+					text = getTextDetails(filename=f, text=text)
+				
+				result.append(text)
+
+		elif( os.path.isfile(f) ):
+
+			text = readTextFromFile(f)
+			if( text != '' ):
+				if( addDetails is True ):
+					text = getTextDetails(filename=f, text=text)
+				
+				result.append(text)
+		
+		elif( os.path.isdir(f) ):
+	
+			if( f.endswith('/') is False ):
+				f = f + '/'
+			
+			secondLevelFiles = os.listdir(f)
+			secondLevelFiles = [f + f2 for f2 in secondLevelFiles]
+			result += readTextFromFilesRecursive(secondLevelFiles)
+
+	return result
 #nlp server - start
 
 def nlpIsServerOn(addr='http://localhost:9000'):
@@ -613,21 +714,3 @@ def sequentialGetTxt(folder):
 
 def getColorTxt(txt, ansiCode='91m'):
 	return '\033[' + ansiCode + '{}\033[00m'.format(txt)
-
-def getText(path, threadCount=5):
-
-	docLst = []
-	
-	if( os.path.isdir(path) ):
-		
-		if( threadCount > 0 ):
-			docLst = parallelGetTxt(path, threadCount=threadCount)
-		else:
-			docLst = sequentialGetTxt(path)
-	
-	else:
-		docLst = [{
-			'text': readTextFromFile(path)
-		}]
-
-	return docLst

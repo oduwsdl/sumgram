@@ -1347,7 +1347,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 def get_args():
 
 	parser = argparse.ArgumentParser(formatter_class=lambda prog: argparse.HelpFormatter(prog, max_help_position=30))
-	parser.add_argument('path', help='Folder path containing input documents or path to single file')
+	parser.add_argument('path', nargs='+', help='Folder path containing input documents or path to single file or multiple files')
 	
 	parser.add_argument('-d', '--print-details', help='Print detailed output', action='store_true')
 	parser.add_argument('-n', '--base-ngram', help='The base n (integer) for generating top sumgrams, if n = 2, bigrams would be the base ngram', type=int, default=2)
@@ -1507,11 +1507,7 @@ def main():
 	set_log_defaults(params)
 	set_logger_dets( params['log_dets'] )
 
-	if( params['parallel_readtext'] is True ):
-		doc_lst = getText(args.path, threadCount=params['thread_count'])
-	else:
-		doc_lst = getText(args.path, threadCount=0)
-	
+	doc_lst = readTextFromFilesRecursive(args.path, addDetails=True)
 	proc_req(doc_lst, params)
 
 if __name__ == 'sumgram.sumgram':
@@ -1519,7 +1515,6 @@ if __name__ == 'sumgram.sumgram':
 	from sumgram.util import getColorTxt
 	from sumgram.util import getStopwordsSet
 	from sumgram.util import genericErrorInfo
-	from sumgram.util import getText
 	from sumgram.util import isMatchInOrder
 	from sumgram.util import nlpIsServerOn
 	from sumgram.util import nlpSentenceAnnotate
@@ -1527,7 +1522,7 @@ if __name__ == 'sumgram.sumgram':
 	from sumgram.util import overlapFor2Sets
 	from sumgram.util import parallelTask
 	from sumgram.util import phraseTokenizer
-	from sumgram.util import readTextFromFile
+	from sumgram.util import readTextFromFilesRecursive
 	from sumgram.util import rmStopwords
 	from sumgram.util import sortDctByKey
 else:
@@ -1535,7 +1530,6 @@ else:
 	from util import getColorTxt
 	from util import getStopwordsSet
 	from util import genericErrorInfo
-	from util import getText
 	from util import isMatchInOrder
 	from util import nlpIsServerOn
 	from util import nlpSentenceAnnotate
@@ -1543,7 +1537,7 @@ else:
 	from util import overlapFor2Sets
 	from util import parallelTask
 	from util import phraseTokenizer
-	from util import readTextFromFile
+	from util import readTextFromFilesRecursive
 	from util import rmStopwords
 	from util import sortDctByKey
 
