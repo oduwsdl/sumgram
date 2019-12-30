@@ -85,10 +85,12 @@ indicates that the last ngram ("release transcript" - 1,321st ngram) occurred in
 
 ## Usage
 ### Basic usage:
-```
-$ sumgram path/to/collection/of/text/files/
-```
+* `$ sumgram path/to/collection/of/text/files/`
 e.g., sumgram [tests/sample_cols/harvey](tests/sample_cols/harvey)
+* `$ sumgram single_file.txt`
+eg. sumgram [tests/sample_cols/harvey/single_file.txt](tests/sample_cols/harvey/08803837d3fc3c13dd29d3181d7e9cb2.txt)
+* `$ sumgram path/to/collection/ file2.txt file3.txt`
+
 ### Python script usage:
 [Command line options](#full-usage) may be activated by setting the argument in the `params` dictionary passed as an argument to `get_top_sumgrams()`. To set a command line argument, consider the following transformation example:
 
