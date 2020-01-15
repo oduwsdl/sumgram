@@ -232,6 +232,7 @@ def regex_get_sentences(text, sent_tokenizer_pattern, dedup_set, corenlp_max_sen
 def get_ranked_docs(ngram_lst, doc_dct_lst):
 
 	ranked_docs = {}
+	doc_id_new_doc_indx_map = {}
 	N = len(ngram_lst)
 
 	for i in range( len(ngram_lst) ):
@@ -248,7 +249,13 @@ def get_ranked_docs(ngram_lst, doc_dct_lst):
 			ranked_docs.setdefault( doc_indx, {'score': 0, 'doc_id': doc_dct_lst[doc_indx]['doc_id'], 'doc_details': fmt_posting( doc_dct_lst[doc_indx] )} )
 			ranked_docs[doc_indx]['score'] += (N - i)
 
-	return sortDctByKey(ranked_docs, 'score')
+	ranked_docs = sortDctByKey(ranked_docs, 'score')
+	
+	for i in range( len(ranked_docs) ):
+		doc_id = ranked_docs[i][1]['doc_id']
+		doc_id_new_doc_indx_map[doc_id] = i
+	
+	return ranked_docs, doc_id_new_doc_indx_map
 
 def rank_sents_frm_top_ranked_docs(ngram_sentences, ranked_docs, all_doc_sentences, extra_params=None):
 
@@ -571,7 +578,7 @@ def is_ngram_subset(parent, child, stopwords):
 
 	return isMatchInOrder(child, parent)
 
-def get_sentence_match_ngram(ngram, ngram_toks, sentences, doc_indx):
+def get_sentence_match_ngram(ngram, ngram_toks, sentences, doc_indx, doc_id):
 
 	phrase_cands = []
 
@@ -601,6 +608,7 @@ def get_sentence_match_ngram(ngram, ngram_toks, sentences, doc_indx):
 				'ori_sent': ori_sent,
 				'sent_indx': i,
 				'doc_indx': doc_indx,
+				'doc_id': doc_id,
 				'toks': sent_toks,
 				'ngram_start_indx': ngram_start_indx,
 				'ngram_length': ngram_length
@@ -863,13 +871,15 @@ def mvg_window_glue_split_ngrams(top_ngrams, k, all_doc_sentences, params=None):
 		for doc_dct in top_ngrams[i]['postings']:
 			
 			doc_indx = doc_dct['doc_indx']
-			phrase_cands += get_sentence_match_ngram( ngram, ngram_toks, all_doc_sentences[doc_indx], doc_indx )
+			doc_id = doc_dct['doc_id']
+			phrase_cands += get_sentence_match_ngram( ngram, ngram_toks, all_doc_sentences[doc_indx], doc_indx, doc_id )
 
 		for phrase in phrase_cands:
 			phrase_cands_minus_toks.append({
 				'sentence': phrase['ori_sent'],
 				'sent_indx': phrase['sent_indx'],
-				'doc_indx': phrase['doc_indx']
+				'doc_indx': phrase['doc_indx'],
+				'doc_id': phrase['doc_id']
 			})
 			
 		multi_word_proper_noun = rank_mltwd_proper_nouns( ngram, ngram_toks, phrase_cands, params=params )
@@ -1196,12 +1206,46 @@ def extract_top_ngrams(doc_lst, doc_dct_lst, n, params):
 
 def get_user_stopwords(comma_sep_stopwords):
 
-	comma_sep_stopwords = comma_sep_stopwords.strip()
-	if( comma_sep_stopwords == '' ):
+	if( isinstance(comma_sep_stopwords, str) ):
+		
+		comma_sep_stopwords = comma_sep_stopwords.strip()
+		if( comma_sep_stopwords == '' ):
+			return set()
+			
+	elif( isinstance(comma_sep_stopwords, list) ):
+		comma_sep_stopwords = ','.join(comma_sep_stopwords)
+	else:
 		return set()
 
 	add_stopwords = comma_sep_stopwords.split(',')
 	return set( [s.strip().lower() for s in add_stopwords] )
+
+def update_doc_indx(report, doc_id_new_doc_indx_map):
+	
+	if( len(doc_id_new_doc_indx_map) == 0 ):
+		return
+
+	'''
+		After ranking documents, the doc_indx in 'ranked_sentences' and top_sumgrams.postings and top_sumgrams.parent_sentences
+		is no longer valid because they reference the initial doc_lst permutation, so fix this with doc_id_new_doc_indx_map
+	'''
+
+	#update report['ranked_sentences']
+	for i in range( len(report['ranked_sentences']) ):
+		
+		doc_id = report['ranked_sentences'][i]['doc_id']
+		if( doc_id in doc_id_new_doc_indx_map ):
+			report['ranked_sentences'][i]['doc_indx'] = doc_id_new_doc_indx_map[doc_id]
+
+	#update report['top_sumgrams'][*]['postings'] and report['top_sumgrams'][*]['parent_sentences']
+	for i in range( len(report['top_sumgrams']) ):
+		for opt in ['postings', 'parent_sentences']:
+			for j in range( len(report['top_sumgrams'][i][opt]) ):
+
+				doc_id = report['top_sumgrams'][i][opt][j]['doc_id']
+				if( doc_id in doc_id_new_doc_indx_map ):
+					report['top_sumgrams'][i][opt][j]['doc_indx'] = doc_id_new_doc_indx_map[doc_id]
+
 
 def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 
@@ -1323,20 +1367,30 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 
 	
 	top_ngrams = rm_empty_ngrams( top_ngrams, params['top_sumgram_count'] * 2 )
+	doc_id_new_doc_indx_map = {}
 	if( params['no_rank_docs'] == False ):
-		report['ranked_docs'] = get_ranked_docs( top_ngrams, doc_dct_lst )
+		report['ranked_docs'], doc_id_new_doc_indx_map = get_ranked_docs( top_ngrams, doc_dct_lst )
 
 		if( params['sentences_rank_count'] > 0 and params['no_rank_sentences'] == False ):
 			ngram_sentences = combine_ngrams( top_ngrams[:params['top_sumgram_count']] )
 			report['ranked_sentences'] = rank_sents_frm_top_ranked_docs( ngram_sentences, report['ranked_docs'], all_doc_sentences, params )
-
+		
 		#remove doc_indx
 		report['ranked_docs'] = [d[1] for d in report['ranked_docs']]
 	
+	if( params['print_details'] is True ):
+		print('\nfinal sumgrams:')
+		print_top_ngrams( n, top_ngrams, params['top_sumgram_count'], params=params )
 
 	report['params'] = params
 	report['created_at_utc'] = datetime.utcnow().isoformat().split('.')[0] + 'Z'
 	report['top_sumgrams'] = top_ngrams[:params['top_sumgram_count']]
+
+	'''
+		After ranking documents, the doc_indx in 'ranked_sentences' and top_sumgrams.postings and top_sumgrams.parent_sentences
+		is no longer valid because they reference the initial doc_lst permutation, so fix this with doc_id_new_doc_indx_map
+	'''
+	update_doc_indx(report, doc_id_new_doc_indx_map)
 	fmt_report( report['top_sumgrams'], params ) #fmt_report() need to be called last since it potentially could modify merged_ngrams
 	
 	if( params['stanford_corenlp_server'] == False and params['sentence_tokenizer'] == 'ssplit' ):
@@ -1409,9 +1463,11 @@ def get_default_args(user_params):
 
 def proc_req(doc_lst, params):
 	
+	params.setdefault('print_details', False)
 	report = get_top_sumgrams(doc_lst, params['base_ngram'], params)
 	
-	if( 'top_sumgrams' in report ):
+	if( 'top_sumgrams' in report and params['print_details'] is False ):
+		#since final top sumgrams not printed, print now
 		print_top_ngrams( params['base_ngram'], report['top_sumgrams'], params['top_sumgram_count'], params=params )
 
 	if( params['output'] is not None ):

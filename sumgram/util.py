@@ -466,7 +466,7 @@ def readTextFromFilesRecursive(files, addDetails=True):
 			
 			secondLevelFiles = os.listdir(f)
 			secondLevelFiles = [f + f2 for f2 in secondLevelFiles]
-			result += readTextFromFilesRecursive(secondLevelFiles)
+			result += readTextFromFilesRecursive(secondLevelFiles, addDetails=addDetails)
 
 	return result
 #nlp server - start
