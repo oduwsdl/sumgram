@@ -71,13 +71,13 @@ def fmt_report(ngram_lst, params):
 
 	params['add_stopwords'] = list( params['add_stopwords'] )
 
-	if( params['include_postings'] ):
-		return
-
 	for i in range(len(ngram_lst)):
-		del ngram_lst[i]['postings']
+		
+		if( params['include_postings'] is False ):
+			ngram_lst[i].pop('postings', None)
 
-
+		if( params['no_parent_sentences'] is True ):
+			ngram_lst[i].pop('parent_sentences', None)
 
 def calc_avg_sentence_overlap(ngram_sentences, doc_sentence):
 
@@ -903,8 +903,7 @@ def mvg_window_glue_split_ngrams(top_ngrams, k, all_doc_sentences, params=None):
 			top_ngrams[i].setdefault('sumgram_history', [])
 			top_ngrams[i]['sumgram_history'].append(new_ngram_dct)
 
-		if( params['no_parent_sentences'] == False ):
-			top_ngrams[i]['parent_sentences'] = phrase_cands_minus_toks
+		top_ngrams[i]['parent_sentences'] = phrase_cands_minus_toks
 			
 		logger.debug('*' * 200)
 		logger.debug('*' * 200)
