@@ -22,7 +22,7 @@ setup(
         "Operating System :: OS Independent"
     ],
     install_requires=[
-        'numpy',
+    	'numpy',
         'requests',
         'sklearn'
     ],
