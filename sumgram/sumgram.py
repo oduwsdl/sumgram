@@ -895,6 +895,7 @@ def mvg_window_glue_split_ngrams(top_ngrams, k, all_doc_sentences, params=None):
 				new_ngram_dct['cur_ngram'] = ''
 			else:
 				top_ngrams[i]['ngram'] = multi_word_proper_noun['proper_noun']
+				
 				new_ngram_dct['cur_ngram'] = multi_word_proper_noun['proper_noun']
 				new_ngram_dct['proper_noun_rate'] = multi_word_proper_noun['rate']
 
@@ -987,6 +988,10 @@ def rm_subset_top_ngrams(top_ngrams, k, rm_subset_top_ngrams_coeff, params):
 								'cur_freq': top_ngrams[parent_indx]['term_freq'],
 								'annotator': 'subset'
 							}
+
+							if( 'sumgram_history' in top_ngrams[parent_indx] ):
+								#this parent has a history
+								new_ngram_dct['cur_ngram_sumgram_history'] = top_ngrams[parent_indx]['sumgram_history']
 
 							top_ngrams[child_indx].setdefault('sumgram_history', [])
 							top_ngrams[child_indx]['sumgram_history'].append(new_ngram_dct)
