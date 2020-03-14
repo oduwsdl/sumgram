@@ -1434,6 +1434,7 @@ def get_args():
     parser.add_argument('--corenlp-host', help='Stanford CoreNLP Server host (needed for decent sentence tokenizer)', default='localhost')
     parser.add_argument('--corenlp-port', help='Stanford CoreNLP Server port (needed for decent sentence tokenizer)', default='9000')
     parser.add_argument('--corenlp-max-sentence-words', help='Stanford CoreNLP maximum words per sentence', default=100)
+    parser.add_argument('--max-file-depth', help='When reading files recursively from directory stop at the specified path depth. 0 means no restriction', type=int, default=1)
     parser.add_argument('--include-postings', help='Include inverted index of term document mappings', action='store_true')#default is false except not included, in which case it's true
     
     parser.add_argument('--log-file', help='Log output filename', default='')
@@ -1583,7 +1584,7 @@ def main():
     set_log_defaults(params)
     set_logger_dets( params['log_dets'] )
 
-    doc_lst = readTextFromFilesRecursive(args.path, addDetails=True)
+    doc_lst = readTextFromFilesRecursive(args.path, addDetails=True, maxDepth=params['max_file_depth'])
     proc_req(doc_lst, params)
 
 if __name__ == 'sumgram.sumgram':
