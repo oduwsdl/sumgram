@@ -73,6 +73,9 @@ def fmt_report(ngram_lst, params):
 
     for i in range(len(ngram_lst)):
         
+        if( 'sumgram_history' in ngram_lst[i] ):
+            ngram_lst[i]['base_ngram'] = ngram_lst[i]['sumgram_history'][0]['prev_ngram']
+
         if( params['include_postings'] is False ):
             ngram_lst[i].pop('postings', None)
 
