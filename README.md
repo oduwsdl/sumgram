@@ -48,7 +48,7 @@ $ cd sumgram; pip install .; cd ..; rm -rf sumgram;
 OR install/run in locally built docker image
 ```
 $ git clone https://github.com/oduwsdl/sumgram.git
-$ cd sumgram;
+$ cd sumgram
 $ docker build -t wsdl/sumgram .
 $ cd ..; rm -rf sumgram;
 $ docker run --rm -it -v "$PWD":/data/ wsdl/sumgram
@@ -247,6 +247,7 @@ sumgram -t 20 -o harvey_sumgrams.json --pretty-print cols/harvey/
 - **top_sumgrams**: array[objects])
     - (object)
     - **ngram** (string): ngram or sumgram (conjoined ngram)
+    - **base_ngram** (string): root ngram that was expanded to produce the coinjoined ngram. Only present when `sumgram_history` is present.
     - **term_freq** (int): The total number of times ngram occurs in the collection. Every ngram is counted once within a document if the collection contains multiple documents (`term_freq = Document Frequency`), but not if the collection has a single document (`term_freq = Term Frequency`). 
     - **term_rate** (int): `term_freq` as fraction of total collection
     - **parent_sentences** array[objects]: sentences that mention `ngram` 
@@ -257,7 +258,6 @@ sumgram -t 20 -o harvey_sumgrams.json --pretty-print cols/harvey/
         - **cur_ngram** (string): current state of `ngram`
         - **cur_freq** (int): occurrence frequency of `cur_ngram`
         - **cur_pos_sequence** (array[string]): [Part of Speech labels](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html) of `cur_ngram`
-        - **proper_noun_rate** (float): fraction of `ngram` tokens that are labeled `NNP`
 - **params** (objects)
 
 ### Full usage
@@ -268,6 +268,7 @@ Options:
 -n=2                                      The base n (int) for generating top sumgrams, if n = 2, bigrams become the base ngram
 
 -d, --print-details                       Print details
+-m, --max-ngram=10                        The maximum length of sumgram generated
 -o, --output                              Output file
 -s, --sentences-rank-count=10             The count of top ranked sentences to generate
 -t, --top-sumgram-count=10                The count of top sumgrams to generate
@@ -283,6 +284,7 @@ Options:
 --log-format                              Log print format, see: https://docs.python.org/3/howto/logging-cookbook.html
 --log-level=info                          Log level from OPTIONS: {critical, error, warning, info, debug, notset}
 
+--max-file-depth                          When reading files recursively from directory stop at the specified path depth. 0 means no restriction
 --mvg-window-min-proper-noun-rate=0.5     Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram
 --min-df=0.01                             See min_df in https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html
 --ngram-printing-mw=50                    Mininum width for printing ngrams
