@@ -45,6 +45,15 @@ OR
 $ git clone https://github.com/oduwsdl/sumgram.git
 $ cd sumgram; pip install .; cd ..; rm -rf sumgram;
 ```
+OR install/run in locally built docker image
+```
+$ git clone https://github.com/oduwsdl/sumgram.git
+$ cd sumgram;
+$ docker build -t wsdl/sumgram .
+$ cd ..; rm -rf sumgram;
+$ docker run --rm -it -v "$PWD":/data/ wsdl/sumgram
+```
+OR install/run from Dockerhub: coming soon
 ## Recommended Requirement and Performance Considerations
 ### Recommended Requirement
 For the best results, we recommend [installing and running Stanford CoreNLP Server](https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html) for two reasons.
@@ -85,10 +94,12 @@ indicates that the last ngram ("release transcript" - 1,321st ngram) occurred in
 
 ## Usage
 ### Basic usage:
-```
-$ sumgram path/to/collection/of/text/files/
-```
+* `$ sumgram path/to/collection/of/text/files/`
 e.g., sumgram [tests/sample_cols/harvey](tests/sample_cols/harvey)
+* `$ sumgram single_file.txt`
+eg. sumgram [tests/sample_cols/harvey/single_file.txt](tests/sample_cols/harvey/08803837d3fc3c13dd29d3181d7e9cb2.txt)
+* `$ sumgram path/to/collection/ file2.txt file3.txt`
+
 ### Python script usage:
 [Command line options](#full-usage) may be activated by setting the argument in the `params` dictionary passed as an argument to `get_top_sumgrams()`. To set a command line argument, consider the following transformation example:
 

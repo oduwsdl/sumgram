@@ -1,0 +1,10 @@
+.DS_Store
+._.DS_Store
+__pycache__
+.git
+.gitignore
+
+Dockerfile
+LICENSE
+README.md
+setup.py
