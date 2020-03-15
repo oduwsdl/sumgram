@@ -45,6 +45,15 @@ OR
 $ git clone https://github.com/oduwsdl/sumgram.git
 $ cd sumgram; pip install .; cd ..; rm -rf sumgram;
 ```
+OR install/run in locally built docker image
+```
+$ git clone https://github.com/oduwsdl/sumgram.git
+$ cd sumgram;
+$ docker build -t wsdl/sumgram .
+$ cd ..; rm -rf sumgram;
+$ docker run --rm -it -v "$PWD":/data/ wsdl/sumgram
+```
+OR install/run from Dockerhub: coming soon
 ## Recommended Requirement and Performance Considerations
 ### Recommended Requirement
 For the best results, we recommend [installing and running Stanford CoreNLP Server](https://ws-dl.blogspot.com/2018/03/2018-03-04-installing-stanford-corenlp.html) for two reasons.
