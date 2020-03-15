@@ -273,6 +273,7 @@ Options:
 -t, --top-sumgram-count=10                The count of top sumgrams to generate
 
 --add-stopwords                           Comma-separated list of addition stopwords
+--base-ngram-ansi-color='91m'             Highlight (color code format - XXm, e.g., 91m) base ngram when printing top ngrams, set to empty string to switch off color
 --collocations-pattern                    User-defined regex rule to extract collocations for pos_glue_split_ngrams
 --corenlp-host=localhost                  Stanford CoreNLP Server host (needed for decent sentence tokenizer)
 --corenlp-port=9000                       Stanford CoreNLP Server port (needed for decent sentence tokenizer)
@@ -287,7 +288,6 @@ Options:
 --min-df=0.01                             See min_df in https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html
 --ngram-printing-mw=50                    Mininum width for printing ngrams
 
---base-ngram-ansi-color='91m'             Highlight (color code format - XXm, e.g., 91m) base ngram when printing top ngrams, set to empty string to switch off color
 --no-mvg-window-glue-split-ngrams=False   Do not glue split top ngrams with Moving Window method (default is False)
 --no-parent-sentences                     Do not include sentences that mention top ngrams in top ngrams payload (default is False)
 --no-pos-glue-split-ngrams=False          Do not glue split top ngrams with POS method (default is True)
