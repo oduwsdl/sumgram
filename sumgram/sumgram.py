@@ -930,7 +930,7 @@ def mvg_window_glue_split_ngrams(top_ngrams, k, all_doc_sentences, params=None):
 
 
 
-def rm_empty_ngrams(top_ngrams, k):
+def rm_empty_and_stopword_ngrams(top_ngrams, k, stopwords):
 
     final_top_ngrams = []
 
@@ -941,6 +941,18 @@ def rm_empty_ngrams(top_ngrams, k):
 
         if( top_ngrams[i]['ngram'] == '' ):
             continue
+
+        #check if top_ngrams[i]['ngram'] has stopword, if so skip - start
+        match_flag = False
+        for stpwrd in stopwords:
+            
+            match_flag = is_ngram_subset(parent=top_ngrams[i]['ngram'], child=stpwrd, stopwords={})
+            if( match_flag ):
+                break
+
+        if( match_flag is True ):
+            continue
+        #check if top_ngrams[i]['ngram'] has stopword, if so skip - end
 
         final_top_ngrams.append( top_ngrams[i] )
 
@@ -1397,7 +1409,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
         print_top_ngrams( n, top_ngrams, params['top_sumgram_count'], params=params )
 
     
-    top_ngrams = rm_empty_ngrams( top_ngrams, params['top_sumgram_count'] * 2 )
+    top_ngrams = rm_empty_and_stopword_ngrams( top_ngrams, params['top_sumgram_count'] * 2, params['add_stopwords'] )
     doc_id_new_doc_indx_map = {}
     if( params['no_rank_docs'] == False ):
         report['ranked_docs'], doc_id_new_doc_indx_map = get_ranked_docs( top_ngrams, doc_dct_lst )
