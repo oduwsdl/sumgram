@@ -1226,21 +1226,23 @@ def extract_top_ngrams(doc_lst, doc_dct_lst, n, params):
 
     return filtered_top_ngrams
 
-def get_user_stopwords(comma_sep_stopwords):
+def get_user_stopwords(sep_stopwords, sep=','):
 
-    if( isinstance(comma_sep_stopwords, str) ):
+    if( isinstance(sep_stopwords, str) ):
         
-        comma_sep_stopwords = comma_sep_stopwords.strip()
-        if( comma_sep_stopwords == '' ):
+        sep_stopwords = sep_stopwords.strip()
+        if( sep_stopwords == '' ):
             return set()
-            
-    elif( isinstance(comma_sep_stopwords, list) ):
-        comma_sep_stopwords = ','.join(comma_sep_stopwords)
+        
+        add_stopwords = sep_stopwords.split(sep)
+        add_stopwords = set( [s.strip().lower() for s in add_stopwords] )
+        return add_stopwords
+        
+    elif( isinstance(sep_stopwords, list) ):
+        #assumes user has already separated the stopwords
+        return set(sep_stopwords)
     else:
         return set()
-
-    add_stopwords = comma_sep_stopwords.split(',')
-    return set( [s.strip().lower() for s in add_stopwords] )
 
 def update_doc_indx(report, doc_id_new_doc_indx_map):
     
@@ -1273,7 +1275,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 
     if( params is None or isinstance(params, dict) == False ):
         params = {}
-    
+
     report = {}
     if( len(doc_dct_lst) == 0 ):
         return report
