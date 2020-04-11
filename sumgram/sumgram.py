@@ -930,7 +930,7 @@ def mvg_window_glue_split_ngrams(top_ngrams, k, all_doc_sentences, params=None):
 
 
 
-def rm_empty_ngrams(top_ngrams, k):
+def rm_empty_and_stopword_ngrams(top_ngrams, k, stopwords):
 
     final_top_ngrams = []
 
@@ -941,6 +941,18 @@ def rm_empty_ngrams(top_ngrams, k):
 
         if( top_ngrams[i]['ngram'] == '' ):
             continue
+
+        #check if top_ngrams[i]['ngram'] has stopword, if so skip - start
+        match_flag = False
+        for stpwrd in stopwords:
+            
+            match_flag = is_ngram_subset(parent=top_ngrams[i]['ngram'], child=stpwrd, stopwords={})
+            if( match_flag ):
+                break
+
+        if( match_flag is True ):
+            continue
+        #check if top_ngrams[i]['ngram'] has stopword, if so skip - end
 
         final_top_ngrams.append( top_ngrams[i] )
 
@@ -1226,21 +1238,23 @@ def extract_top_ngrams(doc_lst, doc_dct_lst, n, params):
 
     return filtered_top_ngrams
 
-def get_user_stopwords(comma_sep_stopwords):
+def get_user_stopwords(sep_stopwords, sep=','):
 
-    if( isinstance(comma_sep_stopwords, str) ):
+    if( isinstance(sep_stopwords, str) ):
         
-        comma_sep_stopwords = comma_sep_stopwords.strip()
-        if( comma_sep_stopwords == '' ):
+        sep_stopwords = sep_stopwords.strip()
+        if( sep_stopwords == '' ):
             return set()
-            
-    elif( isinstance(comma_sep_stopwords, list) ):
-        comma_sep_stopwords = ','.join(comma_sep_stopwords)
+        
+        add_stopwords = sep_stopwords.split(sep)
+        add_stopwords = set( [s.strip().lower() for s in add_stopwords] )
+        return add_stopwords
+        
+    elif( isinstance(sep_stopwords, list) ):
+        #assumes user has already separated the stopwords
+        return set(sep_stopwords)
     else:
         return set()
-
-    add_stopwords = comma_sep_stopwords.split(',')
-    return set( [s.strip().lower() for s in add_stopwords] )
 
 def update_doc_indx(report, doc_id_new_doc_indx_map):
     
@@ -1274,6 +1288,11 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
     if( params is None or isinstance(params, dict) == False ):
         params = {}
     
+    params.setdefault('referrer', '')
+    if( params['referrer'] != 'main' ):
+        #measure to avoid re-using previous state of params when get_top_sumgrams is called multiple times from a script
+        params = copy.deepcopy(params)
+    
     report = {}
     if( len(doc_dct_lst) == 0 ):
         return report
@@ -1282,8 +1301,10 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
         n = 1
 
     params = get_default_args(params)
+    params.setdefault('stopwords_sep', ',')
+
     params['state'] = {}
-    params['add_stopwords'] = get_user_stopwords( params['add_stopwords'] )
+    params['add_stopwords'] = get_user_stopwords( params['add_stopwords'], params['stopwords_sep'] )
     params.setdefault('binary_tf_flag', True)#Multiple occurrence of term T in a document counts as 1, TF = total number of times term appears in collection
     nlp_addr = 'http://' + params['corenlp_host'] + ':' + params['corenlp_port']
 
@@ -1388,7 +1409,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
         print_top_ngrams( n, top_ngrams, params['top_sumgram_count'], params=params )
 
     
-    top_ngrams = rm_empty_ngrams( top_ngrams, params['top_sumgram_count'] * 2 )
+    top_ngrams = rm_empty_and_stopword_ngrams( top_ngrams, params['top_sumgram_count'] * 2, params['add_stopwords'] )
     doc_id_new_doc_indx_map = {}
     if( params['no_rank_docs'] == False ):
         report['ranked_docs'], doc_id_new_doc_indx_map = get_ranked_docs( top_ngrams, doc_dct_lst )
@@ -1432,7 +1453,7 @@ def get_args():
     parser.add_argument('-s', '--sentences-rank-count', help='The count of top ranked sentences to generate', type=int, default=10)
     parser.add_argument('-t', '--top-sumgram-count', help='The count of top sumgrams to generate', type=int, default=10)
     
-    parser.add_argument('--add-stopwords', help='Comma-separated list of additional stopwords', default='')
+    parser.add_argument('--add-stopwords', help='Comma-separated list of additional stopwords. To change delimiter use --stopwords-sep', default='')
     parser.add_argument('--collocations-pattern', help='User-defined regex rule to extract collocations for pos_glue_split_ngrams', default='')
     parser.add_argument('--corenlp-host', help='Stanford CoreNLP Server host (needed for decent sentence tokenizer)', default='localhost')
     parser.add_argument('--corenlp-port', help='Stanford CoreNLP Server port (needed for decent sentence tokenizer)', default='9000')
@@ -1463,6 +1484,7 @@ def get_args():
     parser.add_argument('--sentence-pattern', help='For sentence ranking: Regex string that specifies tokens for sentence tokenization', default='[.?!][ \n]|\n+')
     parser.add_argument('--sentence-tokenizer', help='For sentence ranking: Method for segmenting sentences', choices=['ssplit', 'regex'], default='ssplit')
     parser.add_argument('--shift', help='Factor to shift top ngram calculation', type=int, default=0)
+    parser.add_argument('--stopwords-sep', help='Delimiter of stopwords list, comma is default', default=',')
     parser.add_argument('--token-pattern', help='Regex string that specifies tokens for document tokenization', default=r'(?u)\b[a-zA-Z\'\’-]+[a-zA-Z]+\b|\d+[.,]?\d*')
     parser.add_argument('--title', help='Text label to be used as a heading when printing top sumgrams', default='')
     parser.add_argument('--thread-count', help='Maximum number of threads to use for parallel operations like segmenting sentences', type=int, default=5)
@@ -1588,6 +1610,7 @@ def main():
     set_logger_dets( params['log_dets'] )
 
     doc_lst = readTextFromFilesRecursive(args.path, addDetails=True, maxDepth=params['max_file_depth'])
+    params['referrer'] = 'main'
     proc_req(doc_lst, params)
 
 if __name__ == 'sumgram.sumgram':
