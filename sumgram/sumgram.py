@@ -1482,7 +1482,7 @@ def get_args():
     parser.add_argument('--rm-subset-top-ngrams-coeff', help='Coeff. ([0, 1]) for permitting matched ngram replacement by rm_subset_top_ngrams(), bigger means stricter', type=float, default=0.5)
     
     parser.add_argument('--sentence-pattern', help='For sentence ranking: Regex string that specifies tokens for sentence tokenization', default='[.?!][ \n]|\n+')
-    parser.add_argument('--sentence-tokenizer', help='For sentence ranking: Method for segmenting sentences', choices=['ssplit', 'regex'], default='ssplit')
+    parser.add_argument('--sentence-tokenizer', help='For sentence ranking: Method for segmenting sentences', choices=['ssplit', 'regex'], default='regex')
     parser.add_argument('--shift', help='Factor to shift top ngram calculation', type=int, default=0)
     parser.add_argument('--stopwords-sep', help='Delimiter of stopwords list, comma is default', default=',')
     parser.add_argument('--token-pattern', help='Regex string that specifies tokens for document tokenization', default=r'(?u)\b[a-zA-Z\'\’-]+[a-zA-Z]+\b|\d+[.,]?\d*')
@@ -1601,6 +1601,14 @@ def set_log_defaults(params):
 
 
 def main():
+
+    if( len(sys.argv) > 1 ):
+        if( sys.argv[1] == '-v' or sys.argv[1] == '--version' ):
+            
+            from sumgram import __version__
+            print(__version__)
+            return
+
     parser = get_args()
 
     args = parser.parse_args()
