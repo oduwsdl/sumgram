@@ -1327,8 +1327,16 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
     logger.debug('\tsentence segmentation - start')
     parallel_nlp_add_sents(doc_dct_lst, params)
 
-    doc_lst = []
-    all_doc_sentences = {}
+    #main algorithm step 1 - start
+    
+    '''
+        1. Add plain_text into doc_lst
+        2. Create dict of <doc_indx, [doc_sentences]>, sentences can can be segmented by either cornlp ssplit (by parallel_nlp_add_sents()) or regex
+        3. Extract multi_word_proper_nouns by using rules (e.g., NNP IN NNP NNP) with extract_proper_nouns()
+    '''
+
+    doc_lst = []                                        
+    all_doc_sentences = {}                              
     multi_word_proper_nouns = {}
     dedup_set = set()
     for i in range(len(doc_dct_lst)):
@@ -1349,13 +1357,22 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
         
         if( 'sentences' in doc_dct_lst[i] ):
             del doc_dct_lst[i]['sentences']
-
+    #main algorithm step 1 - end
     multi_word_proper_nouns = rank_proper_nouns(multi_word_proper_nouns)
-
 
     logger.debug('\tsentence segmentation - end')
     logger.debug('\tshift: ' + str(params['shift']))
-        
+    
+    #step 2 - start
+    '''
+        step 1
+        1. extract_top_ngrams(): Extract top n-grams from text, top is defined by top DF (for multiple documents) or top TF (for single documents)
+        2. pos_glue_split_ngrams(): NER (POS tagger) is active: replace children subset ngrams (e.g., "national hurricane") with superset parent multi-word proper noun (e.g., "national hurricane center") extracted by multi_word_proper_nouns(). Subset means overlap is 1.0 and match order is preserved (e.g., "hurricane national" is NOT subset of "national hurricane center" since even though overlap is 1.0, match is out of order)
+        3. mvg_window_glue_split_ngrams(): 
+        4. rm_subset_top_ngrams(): 
+    '''
+    #step 2 - end
+
     top_ngrams = extract_top_ngrams(doc_lst, doc_dct_lst, n, params)
     if( len(top_ngrams) == 0 ):
         return report

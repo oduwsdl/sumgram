@@ -1,0 +1,83 @@
+Highly informal algorithm description of sumgram
+
+Step 1
+    1. Add plain_text into doc_lst
+    2. Create dict <doc_indx, [doc_sentences]> of sentences which can be segmented by either cornlp ssplit (by parallel_nlp_add_sents()) or regex
+    3. Extract multi_word_proper_nouns by using rules (e.g., NNP IN NNP NNP) with extract_proper_nouns()
+
+Step 2
+    1. extract_top_ngrams(): Extract top n-grams from text, top is defined by top DF (for multiple documents) or top TF (for single documents)
+    2. pos_glue_split_ngrams(): If Stanford CoreNLP server (POS tagger) is active: replace children subset ngrams (e.g., "national hurricane") with superset parent multi-word proper noun (e.g., "national hurricane center") extracted by multi_word_proper_nouns(). Subset means overlap is 1.0 and match order is preserved (e.g., "hurricane national" is NOT subset of "national hurricane center" since even though overlap is 1.0, but match is out of order)
+    3. mvg_window_glue_split_ngrams()
+    4. rm_subset_top_ngrams()
+
+mvg_window_glue_split_ngrams() - start
+
+for ngram in top_ngrams[:x]
+    
+    get all sentences that contain ngram
+    multi_word_proper_noun = rank_mltwd_proper_nouns(ngram)
+    
+    rank_mltwd_proper_nouns(ngram)
+        
+        final_multi_word_proper_noun_per_window = {}
+        while window_size <= max_window_size
+
+            k = window_size
+            for sentence in all_sentences_containing_ngram
+
+                left = k_ngram_prefix + ' ' + ngram
+                right = ngram + ' ' + k_ngram_suffix
+                both = k_ngram_prefix + ' ' + ngram + ' ' + k_ngram_suffix
+
+                '''
+                    Example,
+                    let k = 1, 
+                    let ngram = 'emergency management', 
+                    let sentence = 'have been working with the federal emergency management agency, texas'
+
+                    left = 'federal emergency management'
+                    right = 'emergency management agency'
+                    both = 'federal emergency management agency'
+
+                    if k = 2,
+                    left = 'the federal emergency management',#comma counts as word
+                    right = 'emergency management agency,'
+                    both = 'the federal emergency management agency,'
+                '''
+
+            max_freq_left = frequency of left string that is most frequent across all sentences containing ngram 
+            max_freq_right = frequency of right string that is most frequent across all sentences containing ngram 
+            max_freq_both = frequency of both string that is most frequent across all sentences containing ngram 
+
+            max_freq_left = max_freq_left/all_sentences_containing_ngram.length
+            max_freq_right = max_freq_right/all_sentences_containing_ngram.length
+            max_freq_both = max_freq_both/all_sentences_containing_ngram.length
+
+
+            if( max_freq_both > mvg_window_min_proper_noun_rate )
+                #preference is given to both (longer) except it's poor quality (max_freq_both < mvg_window_min_proper_noun_rate)
+                final_multi_word_proper_noun_per_window[window_size] = both
+            else
+                if( max_freq_left > max_freq_right )
+                    final_multi_word_proper_noun_per_window[window_size] = left
+                else
+                    final_multi_word_proper_noun_per_window[window_size] = right    
+
+
+            if( mvg_window_min_proper_noun_rate > alpha or window_size == longest sentence that contains ngram ):
+                break
+
+            window_size += 1
+
+        #here means there are multiple winners in final_multi_word_proper_noun_per_window, so give preference to longest ngram
+
+    replace possibly shorter ngram with possibly longer multi_word_proper_noun
+mvg_window_glue_split_ngrams() - end 
+
+
+rm_subset_top_ngrams() - start
+here means there is the possibility that different ngrams from previous step mapped to the same multi_word_proper_noun
+replace shorter child with longer parent if parent is of good quality
+rm_subset_top_ngrams() - end
+    
