@@ -5,6 +5,7 @@ __pycache__
 .gitignore
 
 Dockerfile
+informal_alg.txt
 LICENSE
 README.md
 setup.py

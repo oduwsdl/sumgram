@@ -1,4 +1,4 @@
-Highly informal algorithm description of sumgram
+Highly informal algorithm description of Sumgram (2020-07-15)
 
 Step 1
     1. Add plain_text into doc_lst
@@ -7,7 +7,7 @@ Step 1
 
 Step 2
     1. extract_top_ngrams(): Extract top n-grams from text, top is defined by top DF (for multiple documents) or top TF (for single documents)
-    2. pos_glue_split_ngrams(): If Stanford CoreNLP server (POS tagger) is active: replace children subset ngrams (e.g., "national hurricane") with superset parent multi-word proper noun (e.g., "national hurricane center") extracted by multi_word_proper_nouns(). Subset means overlap is 1.0 and match order is preserved (e.g., "hurricane national" is NOT subset of "national hurricane center" since even though overlap is 1.0, but match is out of order)
+    2. pos_glue_split_ngrams(): If Stanford CoreNLP server (POS tagger) is active: replace children subset ngrams (e.g., "national hurricane") with superset. parent multi-word proper noun (e.g., "national hurricane center") extracted by extract_proper_nouns(). Subset means overlap is 1.0 and match order is preserved (e.g., "hurricane national" is NOT subset of "national hurricane center" since even though overlap is 1.0, but match is out of order)
     3. mvg_window_glue_split_ngrams()
     4. rm_subset_top_ngrams()
 
@@ -41,7 +41,7 @@ for ngram in top_ngrams[:x]
                     both = 'federal emergency management agency'
 
                     if k = 2,
-                    left = 'the federal emergency management',#comma counts as word
+                    left = 'the federal emergency management',#commas counts as words
                     right = 'emergency management agency,'
                     both = 'the federal emergency management agency,'
                 '''
