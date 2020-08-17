@@ -1,0 +1,21 @@
+Government Documents and Maps Digital Documents and Maps Virtual Libraries Rare and Archival NOAA Photo Library International Polar Year TIROS and Satellite Meteorology
+U.S. Daily Weather Maps
+Use one of the drop-down lists above to view a weather map.  For maps prior to April 1968, choose the year, the month, and the specific day you wish to view, then click the See Daily Map button.  Maps from April 1968 through December 2002 can be viewed by choosing the year, month, and week before clicking the See Weekly Map button. Maps from September 2002 to the present are available from the Weather Prediction Center .
+NOTE: Viewing the weather maps requires the free DjVu Browser Plug-In. Caminova offers plug-ins for Windows, Mac OS X, and Unix. To print a copy of the map you are viewing, use the print icon within the DjVu  Browser Plug-in.  Do not use the browser print icon or menu.
+1871 - 1968
+Select the year, month, and day of the weather map you wish to view.
+See Daily Map
+April 15, 1968 - December 31, 2002
+Select the year, month, and week of the weather map you wish to view.
+See Weekly Map
+Go to WPC
+History of the Daily Weather Map
+The U.S. Signal Office began publishing weather maps as the War Department Maps on Jan. 1, 1871.  When the meteorological activities of the Signal Corps were transferred to the newly-created Weather Bureau in 1891, the title of the weather map changed to the Department of Agriculture Weather Map.  In 1913, the title became simply Daily Weather Map.  In 1969, the Weather Bureau began publishing a weekly compilation of daily maps with the title Daily Weather Maps (Weekly series).
+The earliest weather maps featured only a map of the continental U.S. with the day's air temperature, barometric pressure, wind velocity and direction, and a general indication of the weather for various cities around the country plotted directly on the map.
+Within a short time the Signal Office added a table showing the change in barometric pressure during the most recent 8 hours, the temperature change within the most recent 24 hours, relative humidity, and total precipitation within the most recent 24 hours. The Signal Office also added a general discussion of synoptic weather features and forecast, and then isobars and isotherms, on the maps. By the end of 1872 the map had acquired the format it would use for the rest of its run.
+The daily weather maps for the period January 1 - August 6, 1914, also include a Northern Hemisphere map with data table.
+Credit
+Funding for this project was provided by the NOAA Climate Database Modernization Program (CDMP) , National Climatic Data Center, Asheville, NC.
+Please credit the NOAA Central Library Data Imaging Project when using these weather maps.
+If you have questions or comments concerning the weather maps, or you need further assistance, please contact: Library.Reference@noaa.gov , 301-713-2600 ext. 157.
+Last modified: Tuesday, 12-Apr-2016 16:35 UTC

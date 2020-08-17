@@ -95,9 +95,9 @@ indicates that the last ngram ("release transcript" - 1,321st ngram) occurred in
 ## Usage
 ### Basic usage:
 * `$ sumgram path/to/collection/of/text/files/`
-e.g., sumgram [tests/sample_cols/harvey](tests/sample_cols/harvey)
+e.g., sumgram [tests/unit/sample_cols/harvey](tests/unit/sample_cols/harvey)
 * `$ sumgram single_file.txt`
-eg. sumgram [tests/sample_cols/harvey/single_file.txt](tests/sample_cols/harvey/08803837d3fc3c13dd29d3181d7e9cb2.txt)
+eg. sumgram [tests/unit/sample_cols/harvey/single_file.txt](tests/unit/sample_cols/harvey/08803837d3fc3c13dd29d3181d7e9cb2.txt)
 * `$ sumgram path/to/collection/ file2.txt file3.txt`
 
 ### Python script usage:
@@ -135,7 +135,7 @@ sumgrams = get_top_sumgrams(doc_lst, ngram, params=params)
 with open('sumgrams.json', 'w') as outfile:
   json.dump(sumgrams, outfile)
 ```
-### Examples (see sample collection [tests/sample_cols/harvey](tests/sample_cols/harvey)):
+### Examples (see sample collection [tests/unit/sample_cols/harvey](tests/unit/sample_cols/harvey)):
 ### Generate top 10 (t = 10) sumgrams for the [Archive-It Ebola Virus Collection](https://archive-it.org/collections/4887):
 ```
 $ sumgram -t 10 cols/ebola/

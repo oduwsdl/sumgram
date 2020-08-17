@@ -1,0 +1,69 @@
+Flu Activity During the 2013-2014 Season
+When did flu activity peak?
+The timing of flu is unpredictable and can vary from season to season. Seasonal flu activity can begin as early as October and continue to occur as late as May. Flu activity most commonly peaks in the United States in January or February.
+For the 2013-2014 season, influenza-like-illness (ILI) in the United States began increasing in mid-November, and toward the end of December, ILI was high across most of the country. Flu activity peaked during the week ending December 28, 2013 for the 2013-2014 season and began a downward trend in early January.
+Severity indicators usually lag behind ILI. More information about flu activity during the 2013-14 season can be found in FluView and the MMWR report Update: Influenza Activity â United States, 2013-14 Season and Composition of the 2014-15 Influenza Vaccines .
+What flu viruses circulated this season?
+During the 2013-2014 season, influenza A (H3N2), 2009 influenza A (H1N1), and influenza B viruses circulated in the United States. 2009 H1N1 viruses predominated overall during the 2013-14 flu season, though influenza B viruses became the predominant virus nationally later in the season and caused an increase in influenza-like-illness in parts of the northeast especially. After several recent influenza A (H3N2)âpredominant seasons, 2013-14 was the first pH1N1âpredominant season since the 2009 pH1N1 pandemic.
+Who was most severely impacted by flu this season?
+During the 2013-2014 season, CDC received reports of severe flu illness among young and middle-aged adults , many of whom were infected with the 2009 H1N1 virus. Nearly 60% of the flu-associated hospitalizations reported to CDCâs influenza surveillance system were in people 18 to 64 years old. A similar increase in hospitalizations among non-elderly adults was also seen during the 2009 H1N1 pandemic. These severe flu outcomes are a reminder that flu can be a very serious disease for anyone, including young, previously healthy adults.
+Hospitalization rates were also affected. While rates were still highest among people 65 and older, people 50 to 64 years had the second-highest hospitalization rate. Hospitalization rates among those aged 50 to 64 years were higher than those seen during the 2009 pandemic and in any year since. These indicators underscore the impact that seasonal flu had in the United States, particularly on people less than 65 years of age.
+How many children died from the flu this season?
+As of August 16, 2014, more than 105 flu-related deaths in children were reported to CDC from 30 states. More information about reported pediatric deaths is available at FluView: Influenza-Associated Pediatric Mortality .
+Since influenza-associated pediatric mortality became a nationally-notifiable condition during the 2004-2005 season, the total number of influenza-associated pediatric deaths had previously ranged from 35 to 171 per season. (This excludes the 2009 pandemic, when 348 pediatric deaths were reported to CDC during April 15, 2009, through October 2, 2010.)
+Flu Vaccine Information and Recommendations for the 2013-2014 Season
+How effective was the 2013-2014 seasonal flu vaccine?
+CDCâs mid-season VE estimates were published on February 20, 2014, in a Morbidity and Mortality Weekly Report entitled: â Interim Estimates of 2013-14 Seasonal Influenza Vaccine EffectivenessâUnited States .â At the end of the season, CDC will provide a comprehensive estimate of VE that takes into account all of the data collected during the season. CDCâs mid-season VE estimate was 61% for all age groups (95% confidence interval: 52% to 68%) against having to go to the doctor because of flu illness. This VE estimate means that getting a flu vaccine this season reduced the vaccinated populationâs risk of having to go to the doctor because of the flu by 60% for both children and adults.
+Effectiveness against the flu A â2009 H1N1â virus, which was the predominating flu virus during the 2013-14 flu season, was 62% (95% CI: 53% to 69%) for children and adults. During the study period (Dec 2, 2013 â January 23, 2014), the 2009 H1N1 virus accounted for 98% of flu viruses detected. (Note: There were not enough influenza B or influenza A (H3N2) viruses detected during the study period to make a mid-season estimate of vaccine effectiveness against either of those viruses.)
+(For background information on understanding VE estimates and confidence intervals, see Vaccine Effectiveness â How Well Does the Flu Vaccine Work? and go to the questions: âHow does CDC present data on vaccine effectivenessâ and âWhy are confidence intervals important for understanding vaccine effectiveness?â)
+What did CDC do to monitor effectiveness of flu vaccines for the 2013-2014 season?
+Every year CDC carries out evaluations and collaborates with outside partners to assess the effectiveness of seasonal flu vaccines. CDC is currently conducting annual vaccine effectiveness studies among persons of all age groups recommended for annual vaccination (i.e., all aged 6 months and older). In addition, CDC conducts special studies targeted at answering more specific questions, such as the effectiveness of inactivated vaccine in preventing laboratory-confirmed influenza hospitalizations among older U.S. residents.
+Is vaccine still available?
+All 2013-2014 seasonal flu vaccine has expired. Vaccine for the 2014-2015 season will be available in late summer and in the fall.
+How much vaccine was produced during the 2013-2014 season?
+Flu vaccine is produced by private manufacturers. Information about the number of seasonal flu vaccine doses distributed this season is available at Seasonal Flu Vaccine & Total Doses Distributed .
+In May 2013, flu vaccine manufacturers projected about 138-145 million doses would be available for the U.S. market during the 2013-214 season. As of late February, more than 134 million doses of flu vaccine had been delivered in the United States.
+Information about vaccine supply is available on the CDC influenza web site .
+What kind of flu vaccines were available in the United States during the 2013-2014 season?
+There were several flu vaccine options for the 2013-2014 flu season.
+Traditional flu vaccines made to protect against three different flu viruses (called âtrivalentâ vaccines) were available. In addition, flu vaccines made to protect against four different flu viruses (called âquadrivalentâ vaccines) were also available.
+The trivalent flu vaccine protects against two influenza A viruses and an influenza B virus. The following trivalent flu vaccines were available:
+Standard dose trivalent shots that are manufactured using virus grown in eggs. These are approved for people ages 6 months and older. There are different brands of this type of vaccine, and each is approved for different ages. However, there is a brand that is approved for children as young as 6 months old and up.
+A standard dose trivalent shot containing virus grown in cell culture , which is approved for people 18 years and older.
+A standard dose trivalent shot that is egg-free , which is approved for people 18 through 49 years of age.
+A high-dose trivalent shot , which is approved for people 65 and older.
+A standard dose intradermal trivalent shot , which is injected into the skin instead of the muscle and uses a much smaller needle than the regular flu shot, approved for people 18 through 64 years of age.
+The quadrivalent flu vaccine protects against two influenza A viruses and two influenza B viruses. The following quadrivalent flu vaccines are available:
+A standard-dose quadrivalent shot that can be given to children as young as 6 months of age. Other standard-dose quadrivalent shots are approved for people 3 years and older.
+A standard dose quadrivalent flu vaccine, given as a nasal spray , which is approved for healthy* people 2 through 49 years of age
+(*âHealthyâ indicates persons who do not have an underlying medical condition that predisposes them to influenza complications.)
+What flu viruses did the vaccine protect against?
+Flu vaccines are designed to protect against the influenza viruses that experts predict will be the most common during the upcoming season. Three kinds of influenza viruses commonly circulate among people today: influenza A (H1N1) viruses, influenza A (H3N2) viruses, and influenza B viruses. Each year, these viruses are used to produce seasonal influenza vaccine.
+The 2013-2014 trivalent influenza vaccine was made from the following three viruses:
+an A/California/7/2009 (H1N1)pdm09-like virus;
+an A(H3N2) virus antigenically like the cell-propagated prototype virus A/Victoria/361/2011;
+a B/Massachusetts/2/2012-like virus.
+It is recommended that the quadrivalent vaccine containing two influenza B viruses include the above three viruses and a B/Brisbane/60/2008-like virus.
+CDC did not recommend any one flu vaccine over another. The important thing is to get a flu vaccine every year. More information about influenza vaccines is available at Preventing Seasonal Flu With Vaccination .
+Did CDC receive reports of people who had received a flu vaccine and then tested positive for flu?
+Yes. CDC received reports of some people who became ill and tested positive for the flu even though they had been vaccinated. This occurs every season. There are a number of reasons why people who got a flu vaccine may still get the flu this season .
+Was this seasonâs vaccine a good match for circulating viruses?
+Over the course of a flu season, CDC studies samples of flu viruses circulating during that season to evaluate how much similarity there is between viruses used to make the vaccine and circulating viruses. Data are published each week in FluView .
+One of the ways that CDC evaluates the match between vaccine viruses and circulating viruses is through antigenic characterization. The match between the vaccine virus and circulating viruses is one factor that impacts how well the vaccine works.
+As of the week ending May 17, 2014, most of the flu viruses that have been analyzed at CDC are like the viruses included in the 2013-2014 flu vaccine:
+2,005 (99.8%) of the 2,008 2009 H1N1 viruses tested were characterized as A/California/7/2009-like. This is the influenza A (H1N1) component of the Northern Hemisphere quadrivalent and trivalent vaccines for the 2013-2014 season.
+406 (95.3%) of the 426 influenza A (H3N2) viruses tested were characterized as Texas/50/2012-like. This is the influenza A (H3N2) component of the Northern Hemisphere quadrivalent and trivalent vaccines for the 2013-2014 season.
+269 (70.6%) of the 381 influenza B viruses tested belonged to the B/Yamagata lineage of viruses. 268 (99.6%) of these 269 viruses were characterized as B/Massachusetts/02/2012-like. This is an influenza B component for the 2013-2014 Northern Hemisphere quadrivalent and trivalent influenza vaccines.
+The 112 (29.4%) other influenza B viruses belonged to the B/Victoria lineage of viruses, and were characterized as B/Brisbane/60/2008-like. This is the recommended influenza B component of the 2013-2014 Northern Hemisphere quadrivalent influenza vaccine.
+Flu Antiviral Drugs
+What did CDC do to monitor antiviral resistance in the United States during the 2013-2014 season?
+CDC routinely collects viruses through a domestic and global surveillance system to monitor for changes in influenza viruses. CDC will continue ongoing surveillance and testing of influenza viruses during the upcoming flu season. Additionally, CDC is working with the state public health departments and the World Health Organization to collect additional information on antiviral resistance in the United States and worldwide. The information collected will assist in making informed public health policy recommendations.
+Did CDC receive reports of antiviral resistant flu viruses during the 2013-2014 season?
+CDC and its partner laboratories detected a small number (1.2%) of 2009 H1N1 influenza viruses in the United States during the 2013-14 season that are resistant to the antiviral drug oseltamivir (trade name Tamiflu). These findings are similar to those of other countries. Also, rare cases of oseltamivir-resistant influenza A (H3N2) viruses have been detected globally. However, the majority of currently circulating flu viruses in the United States and internationally are susceptible to the neuraminidase inhibitor class of antiviral drugs (oseltamivir and zanamivir). No flu viruses tested were resistant to zanamivir (trade name Relenza).
+High levels of resistance to the adamantanes (amantadine and rimantadine) persist among 2009 influenza A (H1N1) and A (H3N2) viruses (the adamantanes are not effective against influenza B viruses). Therefore, amantadine and rimantadine are not recommended for use this season.
+CDC and its public health partners around the world are committed to informing the public of any significant increases in antiviral resistance among circulating influenza viruses. The latest national statistics on antiviral resistance are available in the weekly FluView report.
+What did CDC do in response to antiviral resistant flu viruses detected this season?
+CDC has worked with states where antiviral resistant flu viruses have been found to enhance surveillance for these viruses and to inform public health professionals of the latest information and recommendations. CDC continues to work closely with its partners at the state level to monitor for antiviral resistant flu viruses this season.
+Get Email Updates
+To receive weekly email updates about Seasonal Flu, enter your email address:
+Enter Email Address

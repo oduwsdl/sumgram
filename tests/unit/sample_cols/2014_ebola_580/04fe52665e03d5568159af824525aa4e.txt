@@ -1,0 +1,15 @@
+Chemical Science
+Field-deployable, quantitative, rapid identification of active Ebola virus infection in unprocessed blood
+Author affiliations
+* Corresponding authors
+a Westminster Genomic Services, Department of Biomedical Sciences, Faculty of Science and Technology, University of Westminster, 115 New Cavendish Str, UK
+b BGResearch Ltd., 6 The Business Centre, Harvard Way, Harvard Industrial Estate, Kimbolton, UK
+c Department of Biomedical Sciences, Faculty of Science and Technology, University of Westminster, 115 New Cavendish Str, UK
+d BioGene Ltd., 8 The Business Centre, Harvard Way, Harvard Industrial Estate, Kimbolton, UK
+e Public Health England, National Infection Service, High Containment Microbiology Department, Porton Down, Salisbury, UK
+f Fluorogenics LIMITED, Building 227, Tetricus Science Park, Dstl Porton Down, Salisbury, UK
+g Diagnostic Systems Division and Virology Division, United States Army Medical Research Institute of Infectious Diseases, Fort Detrick, USA
+h Department of Applied Sciences, Faculty of Health and Life Sciences, Northumbria University, C4.03 Ellison Building, Ellison Place, Newcastle Upon Tyne, UK
+Tel: +44(0) 191 215 6623
+Abstract
+The West African Ebola virus outbreak underlined the importance of delivering mass diagnostic capability outside the clinical or primary care setting in effectively containing public health emergencies caused by infectious disease. Yet, to date, there is no solution for reliably deploying at the point of need the gold standard diagnostic method, real time quantitative reverse transcription polymerase chain reaction (RT-qPCR), in a laboratory infrastructure-free manner. In this proof of principle work, we demonstrate direct performance of RT-qPCR on fresh blood using far-red fluorophores to resolve fluorogenic signal inhibition and controlled, rapid freeze/thawing to achieve viral genome extraction in a single reaction chamber assay. The resulting process is entirely free of manual or automated sample pre-processing, requires no microfluidics or magnetic/mechanical sample handling and thus utilizes low cost consumables. This enables a fast, laboratory infrastructure-free, minimal risk and simple standard operating procedure suited to frontline, field use. Developing this novel approach on recombinant bacteriophage and recombinant human immunodeficiency virus (HIV; Lentivirus), we demonstrate clinical utility in symptomatic EBOV patient screening using live, infectious Filoviruses and surrogate patient samples. Moreover, we evidence assay co-linearity independent of viral particle structure that may enable viral load quantification through pre-calibration, with no loss of specificity across an 8 log-linear maximum dynamic range. The resulting quantitative rapid identification (QuRapID) molecular diagnostic platform, openly accessible for assay development, meets the requirements of resource-limited countries and provides a fast response solution for mass public health screening against emerging biosecurity threats.

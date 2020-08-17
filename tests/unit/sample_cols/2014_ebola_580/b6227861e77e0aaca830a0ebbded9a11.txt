@@ -1,0 +1,29 @@
+Ebola virus disease case definition for reporting in EU
+case definition
+Twitter Facebook Linked In Mail
+The classification of cases under this definition relies on clinical, epidemiological, laboratory and high-risk exposure criteria, allowing the identification of persons required to be investigated for EVD and the differentiation of probable and confirmed cases for reporting. The definition aims to classify cases for epidemiological reporting.
+Criteria
+Any person currently presenting or having presented before death:
+Fever ≥ 38.6°C
+     AND any of the following:
+Severe headache  
+Unexplained haemorrhagic manifestations in various forms     
+Multi-organ failure
+OR a person who died suddenly and inexplicably
+Laboratory criteria
+Any of the following:
+Detection of Ebola virus nucleic acid in a clinical specimen and confirmation by sequencing or a second assay on different genomic targets.
+Isolation of Ebola virus from a clinical specimen.
+ 
+having been in an  area with community transmission ;
+ OR  
+having had contact with a probable or confirmed EVD case.
+ 
+High-risk exposure criteria
+Any of the following:
+close face-to-face contact (e.g. within one metre) without appropriate personal protective equipment (including eye protection) with a probable or confirmed case who was coughing, vomiting, bleeding, or who had diarrhoea; or had unprotected sexual contact with a case up to three months after recovery;
+direct contact with any material soiled by bodily fluids from a probable or confirmed case;
+percutaneous injury (e.g. with needle) or mucosal exposure to bodily fluids, tissues or laboratory specimens of a probable or confirmed case;
+participation in funeral rites with direct exposure to human remains in or from an affected area without appropriate personal protective equipment;
+direct contact with bats, rodents, primates, living or dead, in or from affected areas, or bushmeat.
+ 

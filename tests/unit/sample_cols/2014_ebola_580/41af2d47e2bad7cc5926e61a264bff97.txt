@@ -1,0 +1,15 @@
+SEP 26, 2017 11:05 AM PDT
+Unearthing All of Ebola's Secrets
+WRITTEN BY: Kara Marker
+4 5 244
+With no FDA-approved vaccines or antiviral drugs to treat Ebola, those affected rely on the immune system to save them from the infection. But from the moment Ebola virus makes contact with the human body, it is manipulating immune cells to further the “viral agenda.” Scientists from the University of Texas Medical Branch at Galveston reveal the intricate details of this mechanism in their new study.
+Credit: University of Texas Medical Branch at Galveston
+ 
+Ebola virus was first discovered in 1976, but its destruction has likely occurred for centuries. It causes a hemorrhagic fever, which can include muscle pain, weakness, fatigue, diarrhea, and vomiting. Although it is the subject of research endeavors all over the world, there is not yet an FDA-approved vaccine or antiviral drug to treat Ebola. For those infected, the immune system and clinical care contribute to the ultimate decision of life or death.
+In collaboration with the University of Washington and The National Institute of Allergy and Infectious Diseases, University of Texas scientists shine the spotlight on a T cell protein called TIM-1, which comes from a family of proteins first discovered in 1998.
+Past studies of Tim-1 were to explore the possibility of targeting the protein in order to take control of the immune response. This type of power would be useful in treating certain autoimmune diseases where the immune response is excessive and harmful. But in the case of Ebola, the virus uses Tim-1 to avoid the immune response and spread disease faster. Because of the relationship between Tim-1 and Ebola virus, T cells are particularly prone to malfunction during an Ebola invasion.
+“Mice that were genetically engineered without Tim-1 became less ill when infected with Ebola virus and only one died, whereas all of the unmodified mice succumbed,” explained senior author Alexander Bukreyev.
+This means that Ebola virus must require Tim-1 proteins to further its cause. Looking at blood samples from people with Ebola, Tim-1 and immune activity in particular, Bukreyev and his team saw that Ebola virus uses Tim-1 proteins to bind directly to T cells, thus promoting harmful inflammation that is a hallmark of the disease. This inflammatory response is often what raises the risk of death following an Ebola infection.
+“Controlling and successfully balancing the immune response following Ebola virus infection is greatly important for reducing symptoms and fatal outcomes,” explained co-lead author Mathieu Iampietro.
+Now that scientists know that Tim-1 works as an “inside man” for Ebola, they can focus efforts on drugs that inhibit Tim-1 activity. Without a way to manipulate the immune system, T cells and other fighter cells could tackle Ebola without a problem.
+The present study was published in the journal mBIO .

@@ -1,0 +1,11 @@
+Home
+Nucleic Acid Primers and Probes for Detecting Ebola Virus (species Zaire ebolavirus)
+The 2014-2016 Ebola Virus Disease (EVD) outbreak in West Africa was the largest in history, causing more than 28,000 suspected, probable, and confirmed infections and more than 11,000 deaths across nine countries. CDC scientists designed nucleic acid primers and probes which can be used in a sensitive test for detecting all known strains of Ebola virus (species Zaire ebolavirus) including the 2014/2015 strain that emerged in West Africa and the more recent strain that caused an EVD outbreak in the Democratic Republic of Congo in 2017. The primer and probe set can be used on blood samples for both a one-step and two-step RT-PCR. The U.S. Food and Drug Administration (FDA) issued two emergency use authorizations (EUAs) for this technology on October 10, 2014 and reissued them on March 2, 2015.  The technology has been utilized in field testing and would just need 510(k) completion to be sold.
+Potential Commercial Applications:
+Competitive Advantages:
+Diagnostic panel for detecting Ebola virus disease caused by Ebola virus (speciesZaire ebolavirus)
+The primer and probe sets can be included in a test kit with other reagents and controls for performing nucleic acid amplification testing for all known strains of Ebola virus
+ 
+A sensitive, highly specific method for the detection of all known strains of Ebola virus (speciesZaire ebolavirus), including all strains that circulated during the 2014-2016 outbreak in West Africa
+Primers and probes for two different Ebola virus gene targets can be used sequentially or in parallel as primary and confirmatory tests
+Related Invention(s):

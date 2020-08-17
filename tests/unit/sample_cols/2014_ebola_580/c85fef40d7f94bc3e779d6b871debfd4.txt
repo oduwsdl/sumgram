@@ -1,0 +1,50 @@
+Connection (linkage to care, treatment and other services).
+Prevention
+Individuals can reduce the risk of HIV infection by limiting exposure to risk factors. Key approaches for HIV prevention, which are often used in combination, are listed below.
+Male and female condom use
+Correct and consistent use of male and female condoms during vaginal or anal penetration can protect against the spread of sexually transmitted infections, including HIV. Evidence shows that male latex condoms have an 85% or greater protective effect against HIV and other sexually transmitted infections (STIs).
+Testing and counselling for HIV and STIs
+Testing for HIV and other STIs is strongly advised for all people exposed to any of the risk factors. This way people learn of their own infection status and access necessary prevention and treatment services without delay. WHO also recommends offering testing for partners or couples. Additionally, WHO is recommending assisted partner notification approaches so that people with HIV receive support to inform their partners either on their own, or with the help of health care providers.
+Testing and counselling, linkages to tuberculosis care
+Tuberculosis (TB) is the most common presenting illness and cause of death among people with HIV. It is fatal if undetected or untreated and is the leading cause of death among people with HIV, responsible for 1 of 3 HIV-associated deaths.
+Early detection of TB and prompt linkage to TB treatment and ART can prevent these deaths. TB screening should be offered routinely at HIV care services and routine HIV testing should be offered to all patients with presumptive and diagnosed TB. Individuals who are diagnosed with HIV and active TB should urgently start effective TB treatment (including for multidrug resistant TB) and ART. TB preventive therapy should be offered to all people with HIV who do not have active TB.
+Voluntary medical male circumcision (VMMC)
+Medical male circumcision, reduces the risk of heterosexually acquired HIV infection in men by approximately 60%. This is a key prevention intervention supported in 15 countries in Eastern and Southern Africa (ESA) with high HIV prevalence and low male circumcision rates. VMMC is also regarded as a good approach to reach men and adolescent boys who do not often seek health care services. Since the 2007 WHO recommendation for VMMC as an additional prevention strategy, nearly 15 million adolescent boys and men in ESA were provided a package of services including HIV testing and education on safer sex and condom use.
+Antiretroviral drug use for prevention
+Prevention benefits of ART
+A 2011 trial has confirmed that if an HIV-positive person adheres to an effective ART regimen, the risk of transmitting the virus to their uninfected sexual partner can be reduced by 96%. The WHO recommendation to initiate ART in all people living with HIV will contribute significantly to reducing HIV transmission.
+Pre-exposure prophylaxis (PrEP) for HIV-negative partner
+Oral PrEP of HIV is the daily use of ARV drugs by HIV-negative people to block the acquisition of HIV. More than 10 randomized controlled studies have demonstrated the effectiveness of PrEP in reducing HIV transmission among a range of populations including serodiscordant heterosexual couples (where one partner is infected and the other is not), men who have sex with men, transgender women, high-risk heterosexual couples, and people who inject drugs.
+WHO recommends PrEP as a prevention choice for people at substantial risk of HIV infection as part of a combination of prevention approaches. WHO has also expanded these recommendations to HIV-negative women who are pregnant or breastfeeding.
+Post-exposure prophylaxis for HIV (PEP)
+Post-exposure prophylaxis (PEP) is the use of ARV drugs within 72 hours of exposure to HIV in order to prevent infection. PEP includes counselling, first aid care, HIV testing, and administration of a 28-day course of ARV drugs with follow-up care. WHO recommends PEP use for both occupational and non-occupational exposures and for adults and children.
+Harm reduction for people who inject and use drugs
+People who inject drugs can take precautions against becoming infected with HIV by using sterile injecting equipment, including needles and syringes, for each injection and not sharing drug using equipment and drug solutions. Treatment of dependence, and in particular opioid substitution therapy for people dependent on opioids, also helps reduce the risk of HIV transmission and supports adherence to HIV treatment. A comprehensive package of interventions for HIV prevention and treatment includes:
+needle and syringe programmes;
+opioid substitution therapy for people dependent on opioids and other evidence-based drug dependence treatment;
+HIV testing and counselling;
+risk-reduction information and education and provision of naloxone;
+access to condoms; and
+management of STIs, tuberculosis and viral hepatitis.
+Elimination of mother-to-child transmission of HIV (EMTCT)
+The transmission of HIV from an HIV-positive mother to her child during pregnancy, labour, delivery or breastfeeding is called vertical or mother-to-child transmission (MTCT). In the absence of any interventions during these stages, rates of HIV transmission from mother-to-child can be between 15â=45%.  MTCT can be nearly fully prevented if both the mother and the baby are provided with ARV drugs as early as possible in pregnancy and during the period of breastfeeding.
+WHO recommends lifelong ART for all people living with HIV, regardless of their CD4 count clinical stage of disease, and this includes women who pregnant or breastfeeding. In 2016, 76% of the estimated 1.4 million pregnant women living with HIV globally received ARV treatments to prevent transmission to their children. A growing number of countries are achieving very low rates of MTCT and some (Armenia, Belarus, Cuba and Thailand) have been formally validated for elimination of MTCT of HIV as a public health problem. Several countries with a high burden of HIV infection are also progressing along the path to elimination.
+Treatment
+HIV can be suppressed by combination ART consisting of 3 or more ARV drugs. ART does not cure HIV infection but suppresses viral replication within a person's body and allows an individual's immune system to strengthen and regain the capacity to fight off infections.
+In 2016, WHO released the second edition of the Consolidated guidelines on the use of antiretroviral drugs for treating and preventing HIV infection. These guidelines recommend to provide lifelong ART to all people living with HIV, including children, adolescents and adults, pregnant and breastfeeding women, regardless of clinical status or CD4 cell count.  By July 2017, 122 countries already have adopted this recommendation  by mid-2017, which covers more than 90% of all PLHIV globally.
+Consolidated guidelines on the use of antiretroviral drugs for treating and preventing HIV infection
+The 2016 guidelines include new alternative ARV options with  better tolerability, higher efficacy, and lower rates of treatment discontinuation when compared with medicines being used currently: dolutegravir and low-dose efavirenz for first-line  therapy, and  raltegravir and darunavir/ritonavir for second-line therapy.
+Transition to these new ARV options has already started in more than 20 countries and is expected to improve the durability of the treatment and the quality of care of people living with HIV. Despite improvements, limited options remain for infants and young children. For this reason, WHO and partners are coordinating efforts to enable a faster and more effective development and introduction of age-appropriate pediatric formulations of antiretrovirals.
+In addition, 1 in 3 people living with HIV present to care with advanced disease, at low CD4 counts and at high risk of serious illness and death. To reduce this risk, WHO recommends that these patients receive a âpackage of careâ that includes testing for and prevention of the most common serious infections that can cause death, such as tuberculosis and cryptococcal meningitis, in addition to ART.
+Based on WHOâs new recommendations to treat all people living with HIV, the number of people eligible for ART has increased from 28 million to all 36.7 million people living with HIV.
+In mid-2017, 20.9 million people living with HIV were receiving ART globally.  In 2016, a global ART coverage of 53% of adults and children living with HIV was reached. However, more efforts are needed to scale up treatment, particularly for children and adolescents. Only 43% of them were receiving ARVs at the end of 2016 and WHO is supporting countries to accelerate their efforts to timely diagnose and treat these vulnerable populations.
+Expanding access to treatment is at the heart of a new set of targets for 2020 which aim to end the AIDS epidemic by 2030.
+WHO response
+The Sixty-ninth World Health Assembly endorsed a new Global Health Sector Strategy on HIV for 2016-2021. The strategy includes 5 strategic directions that guide priority actions by countries and by WHO over the next six years.
+The strategic directions are:
+Information for focused action (know your epidemic and response).
+Interventions for impact (covering the range of services needed).
+Delivering for equity (covering the populations in need of services).
+Financing for sustainability (covering the costs of services).
+Innovation for acceleration (looking towards the future).
+WHO is a cosponsor of the Joint United Nations Programme on AIDS (UNAIDS). Within UNAIDS, WHO leads activities on HIV treatment and care, HIV and tuberculosis co-infection, and jointly coordinates with UNICEF the work on the elimination of mother-to-child transmission of HIV.

@@ -1,0 +1,54 @@
+Generate a file for use with external citation management software.
+Create File
+BMC Genomics. 2016 Sep 5;17:707. doi: 10.1186/s12864-016-3060-0.
+In vivo Ebola virus infection leads to a strong innate response in circulating immune cells.
+Bioinformatics Graduate Program, Boston University, Boston, MA, USA.
+2
+Virology Division, United States Army Medical Research Institute of Infectious Diseases, Fort Detrick, MD, USA.
+3
+Integrated Research Facility, National Institute of Allergy and Infectious Diseases, National Institutes of Health, Fort Detrick, MD, USA.
+4
+Center for Systems Biology, Department of Organismic and Evolutionary Biology, Harvard University, Cambridge, MA, USA.
+5
+Broad Institute of MIT and Harvard, Cambridge, MA, USA.
+6
+Department of Stem Cell and Regenerative Biology, Harvard University, Cambridge, MA, USA.
+7
+Department of Microbiology, Boston University School of Medicine, Boston, MA, USA. jhconnor@bu.edu.
+Abstract
+BACKGROUND:
+Ebola virus is the causative agent of a severe syndrome in humans with a fatality rate that can approach 90 %. During infection, the host immune response is thought to become dysregulated, but the mechanisms through which this happens are not entirely understood. In this study, we analyze RNA sequencing data to determine the host response to Ebola virus infection in circulating immune cells.
+RESULTS:
+Approximately half of the 100 genes with the strongest early increases in expression were interferon-stimulated genes, such as ISG15, OAS1, IFIT2, HERC5, MX1 and DHX58. Other highly upregulated genes included cytokines CXCL11, CCL7, IL2RA, IL2R1, IL15RA, and CSF2RB, which have not been previously reported to change during Ebola virus infection. Comparing this response in two different models of exposure (intramuscular and aerosol) revealed a similar signature of infection. The strong innate response in the aerosol model was seen not only in circulating cells, but also in primary and secondary target tissues. Conversely, the innate immune response of vaccinated macaques was almost non-existent. This suggests that the innate response is a major aspect of the cellular response to Ebola virus infection in multiple tissues.
+CONCLUSIONS:
+Ebola virus causes a severe infection in humans that is associated with high mortality. The host immune response to virus infection is thought to be an important aspect leading to severe pathology, but the components of this overactive response are not well characterized. Here, we analyzed how circulating immune cells respond to the virus and found that there is a strong innate response dependent on active virus replication. This finding is in stark contrast to in vitro evidence showing a suppression of innate immune signaling, and it suggests that the strong innate response we observe in infected animals may be an important contributor to pathogenesis.
+KEYWORDS:
+Ebola virus; Interferon-stimulated genes; Transcriptional response; Transcriptomics
+PMID:
+Images from this publication. See all images  (9) Free text
+Fig. 1
+Changes in expression of cytokines during Ebola virus infection. Lines represents the average fold-change in expression (log2, y-axis) of each cytokine gene at different times (x-axis) after Ebola virus infection. Panel a shows twelve cytokines that undergo strong transcriptional changes and that were previously reported to experience changes in serum concentration during Ebola virus infection. IL1B (dashed stroke) shows a transient level of expression, peaking at 4 dpi. Panel b shows six cytokines that follow similar patterns of expressions to those in Panel (a) but that have not been previously reported to play a role during Ebola virus infection
+BMC Genomics. 2016;17(1):707.
+Fig. 2
+Effects of vaccination in the expression of cytokines after Ebola virus infection. Each line represents the log2 fold-change (y-axis) of three cytokines that become upregulated in vaccinated animals: CCL7, CXCL10, and CXCL11 at different times (x-axis) after Ebola virus infection. IL6 is shown to illustrate the behavior of a cytokine that only becomes expressed in Ebola-naïve animals
+BMC Genomics. 2016;17(1):707.
+Fig. 3
+Host genes showing strong and sustained changes in expression early after Ebola virus infection. Each line represents the average fold-change in expression (log2, y-axis) of each gene at different times (x-axis) after Ebola virus infection. Panel a shows canonical interferon-stimulated genes while panel b shows other strong and sustained genes. A representative sample of genes is shown in black to illustrate the individual patterns of expression
+BMC Genomics. 2016;17(1):707.
+Fig. 4
+Expression of interferon stimulated genes in spleens of Ebola virus infected mice. Each line represents the average fold-change in expression (log2, y-axis) of each gene at different times (x-axis) after Ebola virus infection, for each of the conditions: uninfected control, non-pathogenic wild-type Ebola virus infection, and pathogenic mouse-adapted Ebola virus infection
+BMC Genomics. 2016;17(1):707.
+Fig. 5
+Ebola-naïve and vaccinated responses to Ebola virus infection. Each line represents the average fold-change in expression (log2, y-axis) of MX1, RSAD2, SIGLEC1, and IFIT3 at different times (x-axis) after Ebola virus infection. Panel a shows genes from Ebola-naïve macaques, and Panel b shows genes from vaccinated animals. Panels c and d show the fold-change of SIGLEC1 and RSAD2 in vaccinated and Ebola-naïve macaques
+BMC Genomics. 2016;17(1):707.
+Fig. 6
+Changes in expression of interferon-stimulated genes during different hemorrhagic fever infections. Each line represents the average fold-change in expression (log2, y-axis) of MX1, ISG15, DHX58 or OAS1 at different times (x-axis) after Ebola, Lassa or Marburg virus infection
+BMC Genomics. 2016;17(1):707.
+Fig. 7
+Aerosol infection shows a delayed transcriptional response. Each line represents the average fold-change in expression (log2, y-axis) of one of 20 top genes at different times (x-axis) after Ebola virus infection. Panel a corresponds to intramuscular injection (quantified using RNA sequencing), and Panel b to aerosol exposure (quantified using microarrays). Panels c and d illustrate the delay observed in two individual genes (ISG15 and IFIT2) in the aerosol and intramuscular groups
+BMC Genomics. 2016;17(1):707.
+Fig. 8
+Innate transcriptional response in tissues in an aerosol macaque model of infection. Black lines represent the average expression across all tissues for the 111 genes most highly expressed in PBMCs (grey line). The y-axis represents log10 read counts per million, and the x-axis different times after infection. Statistically significant differences at matching time points are highlighted with (*)
+BMC Genomics. 2016;17(1):707.
+Fig. 9
+Model for the expression of interferon-stimulated genes during Ebola virus infection. a Ebola-infected cell (top) is not able to produce interferon due to the VP35-inhibition of IRF3 translocation. We suggest that the infected cell, through an unknown mechanism, might be able to induce neighboring cells (middle) to translocate IRF3 to the nucleus and start producing interferon. Once interferon is released by the neighboring cells, it activates the receptors of additional cells (bottom) and leads to the transcription of ISGs. b An alternative model is that some cells (top) can become infected with Ebola VLPs, which are not able to block IRF3 translocation, and therefore they can produce interferon, release it to neighboring cells (middle and bottom) and they in turn start transcribing ISGs

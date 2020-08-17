@@ -1,0 +1,63 @@
+Writer, esperantist, cryptocurrency fanboy and person
+Oct 21
+I Put The Ebola Virus on Ethereum
+Or How I Learned Solidity & Developed a Smart Contract
+Ever since I learned you could write data to Bitcoin’s blockchain I’ve had a dream… to put the ebola virus genome on the blockchain. The trouble was Bitcoin as cool as it was at the time, it was not meant for storing large amounts of data, even if the file (aka the text file of the ebola genome) was only about 23.7kb.
+Then Ethereum came along and I was a little reluctant to try anything with it due to my lack of coding experience and because of how hard development could be on Bitcoin. However after some research I realized I was wrong and not too much longer my dream became a reality!
+Why Ebola?
+It was trending in the news at the time when I first had this idea and the public went a little crazy with “ebola fever”; no one was safe. Putting something like the digital version of a virus that caused a some maina on a blockchain that also happened to be causing a disruption seemed like a fun idea.
+Why Ethereum?
+Wait, you know what Ethereum is right? If not, don’t worry, here’s an article that will get you up to speed.
+Ethereum and its additional layers (Swarm and Whisper)
+Now to be honest, and this will probably draw some fire… but Ethereum is just better than the majority of cryptos/blockchains out there including the mighty Bitcoin. Fast transactions, smart contracts, utility and the ability to code stuff as simple as this puts Ethereum miles ahead of the competition in my book. The documentation was also WAY easier to pace through compared to Bitcoin’s scattered-at-best wiki and less than helpful tutorials when in came to building something custom.
+I think this is mostly because Bitcoin developers are usually fairly advanced programmers who know several languages, and as a result they don’t bother with writing basic “how to’s” or showing people how to integrate with existing platforms. Ethereum’s documentation on the other hand makes it really simple to understand and it can be used with javascript without much effort. Plus that 15–20 second transaction time is a huge bonus because even if Bitcoin did have smart contracts you’d be crazy to wait 10 minutes to an hour to see if it worked.
+But I digress; that's not to say this was an easy ride. I had to scan through a lot of links to find info on solidity functions (the language Ethereum’s smart contracts use). I did get my questions answered and after about a day or two of testing I had a pretty basic smart contract ready to “infect” the Ethereum blockchain.
+Ethereum also has something called “Swarm” which is like its own “C Drive” or Dropbox. So you have decentralized storage and the ability for smart contracts to serve those files via some basic logic to users all in one system… How flipping cool is that!?
+I decided my plan of action was to upload my genome file in Swarm and have the smart contract serve the user a URL to the file. Sounds easy… right?
+Basically, this.
+The Smart Contract
+Note: I removed all the returned strings and the URL in the code below so you can try interacting with the contract first hand later on. There’s no sense in spoiling the surprise early.
+Looks a bit daunting for the average Joe (of which I am one, but named Zach), but it's really quite simple. Basically I’ve created a contract with three functions that anyone can use as well as one function only I can use.
+“getInfo()” Returns some basic info of the contract.
+“getEbola()” Returns a bit.ly link to the genome file; I’ll get to that later on.
+“tipCreator()” Returns my Ether tip address if you’re feeling generous and or amused.
+“kill()” The only function I have sole access to. This will destroy the contract and send any Ether in the contracts balance back to me.
+The kill function was included just in case I ever need to terminate the contract. Let me be clear, there is no need to ever send Ether or ERC20 tokens to this contract, getting the link and other info is free. The Kill function has some criteria under it. Basically if you’re not the creator you won’t be able to kill the contract, but you will get a message if you try.
+Remember even though I created this contract I have no control over it, other than the kill function which if used renders the contract useless. So if you want to send me a tip in Ether, please use the tip address specified in the contracts “tipCreator” function (0xf3b1c7ca8fc7427d57328664902d4bd257b2eb0f).
+And this should go without saying, but there will not be an “Ebola Token” ICO… Just in case you were wondering.
+The Ebola Genome File
+Part of the genome file
+Ok serving the file this was REALLY tricky, but it works. As I said before a user can call the “getEbola()” function that will serve up a bit.ly link. That link will redirect to the Swarm file URL.
+I won’t get into how Swarm works only that the text file I uploaded will be there until the Ethereum blockchain no longer exists. If that ever happens the smart contract is also removed from existence too. An easy clean up!
+Using a short bit.ly link was done for a few reasons:
+You can’t dump the entire genome into the contract. Putting large chunks of data into a contract is expensive. In addition, the version of solidity used for this doesn’t allow you to combine strings so it would a very complex and likely a very expensive contract to deploy.
+Putting the Swarm URL or even the hash into the contract was still too large of a string. I might have been able to work some magic with the bytes data type, but it would not be worth the time to develop with my limited solidity knowledge.
+Uploading the file to a third party site like Dropbox or Pastebin and putting that URL into the contract would have been fine. But what fun is that when Ethereum has Swarm? This also wouldn’t be a truly decentralized project if I used a third party website to host the text file.
+Solution
+Upload the file to Swarm and use a link shortener (bit.ly) that redirects to the Swarm file URL, and then put the short bit.ly link into the contract. It's a little tedious, but it works! Plus the file and smart contract are truly decentralized all on the Ethereum blockchain.
+Wooo!
+Contract-ing Ebola in Your Browser
+Sorry for the pun. I couldn’t resist.
+Basically this
+Go to MyEtherWallet.com and click the “Contracts” tab. Then paste the contract address below into the “Contract Address” field. Then paste the ABI/JSON Interface also below into the text box marked “JSON/ABI Interface”. Click “Access” and the contract should load.
+CONTRACT ADDRESS: 0xe16f391e860420e65c659111c9e1601c0f8e2818
+ABI/JSON INTERFACE:
+[{"constant":true,"inputs":[],"name":"getEbola","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getInfo","outputs":[{"name":"","type":"string"},{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"tipCreator","outputs":[{"name":"","type":"string"},{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"}]
+Use the dropdown button to select functions from the contract and see the resulting values! Selecting the “getEbola” option returns the bit.ly link that will in turn redirect you to the Swarm file. And there you have it… The ebola virus genome on the Ethereum blockchain served up via a smart contract!
+Some of the other functions will return strings in Esperanto. Why? Well I figured since I’m already putting ebola on the blockchain, I might as well toss in some of my beloved Esperanto while I’m at it! Ĉu vi estas esperantisto?
+Also there is no need to open your Ethereum wallet for any function other than “kill()” and doing so is pointless as your transaction would do nothing but waste your Ether (aka wasted money).
+Wait… Isn’t There an Easier Way?
+In short, probably, but the long answer is that this was more fun. I could have easily spun up a website, or just put the bit.ly URL in a regular Ethereum transaction and called it a day. However I’m already familiar with blockchain transactions and basic web development; solidity and smart contracts on the other hand were a whole new ball game.
+In sum, it was great opportunity to learn something new. Using a smart contract meant I had to think about gas cost, what my end users would experience, and overall how I can make it work while still keeping true to the dream of putting the ebola virus genome on a blockchain.
+Yeah, this wasn’t the simplest way, but it was where simple and cool intersected and that was good enough for me.
+Five Lessons Learned
+It was really cool when it all came together, but it wasn’t an easy project. Here are a few of the lessons I learned along the way…
+Smart contracts cost Ether to deploy, so your solidity code should be as economical as possible. This contract could be improved by using bytes29 instead of strings, but then the data would be hex encoded and not user friendly. So for the purpose of making this easy for anyone to use I settled on strings. The contract costed me about 0.00732021 Ether or $2.20 USD to deploy at the time of this writing… Thats right, I spent $2.20 to put the ebola virus on the Ethereum blockchain. Worth it!
+Solidity is kinda weird but easy enough to wrap your head around. I’m used to javascript which made it a little easier. I’ve been told solidity is similar to java, but anyone can learn it if they give it a try.
+I’m not a developer and I’m positive my code isn’t perfect. That being said all we’re doing here is just sending the user back some text when they ask for it. If there was some complex logic or transaction functions you would ideally have the code audited before deploying it.
+Test, test, test, and then test a few more times. I used the Remix compiler to write the contract and then deployed it on the Ropsten test net many, many times. Test net Ether is free so it's a perfect way to see if your code works as intended. Remember contracts cannot be modified (only killed via a “kill()” function) once they are deployed, so it's really important you double check and test the heck out of it.
+The developer community is a god send. Seriously, a lot of the solidity code I learned was from the Ethereum Stack Exchange . In addition the solidity developer documentation was also a great resource (duh!). That being said, I still have a long way to go before I can say this was a cake walk.
+Conclusion
+Overall this was a really fun project! I wouldn’t qualify myself as a smart contract developer, but it was a real joy digging into Ethereum and actually seeing for myself how it works and then develop a smart contract that serves up the genome of a deadly virus!
+This was also a good excuse to see how we can use Ethereum more in our daily lives. Sure it's just serving data, but this data will be forever stored in the blockchain and so long as the Ethereum network is around, and it's all publically accessible for free.
+And now that you’ve made it to the bottom, you can find the full smart contract on EtherScan at this address . You also find all the code for this project on the GitHub repo . As for where I found the ebola virus genome, you can find the the source here (scroll to the bottom).

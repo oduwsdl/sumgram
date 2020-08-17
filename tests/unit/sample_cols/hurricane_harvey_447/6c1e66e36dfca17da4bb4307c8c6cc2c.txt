@@ -1,0 +1,6 @@
+HELPFUL RESOURCES
+Disclaimer
+The Flood Warning System interactive map and website are for general information and educational purposes only. Their purpose is to provide information collected at gage stations, which monitor rainfall and water levels of streams and bayous as well as other weather information in the Harris County region. Use and interpretation of this data and information is the responsibility of the user. Neither the Harris County Flood Control District nor Harris County represents the data as 100 percent accurate. You should follow directions provided by emergency management officials when making decisions during flooding or other weather-related events.
+Most Recent Data Unavailable
+The Flood Warning System is currently unable to display the most recent rainfall, stream level and weather data received from our sensors.  The Flood Control District is working to resolve the issue. The data displayed on the map is accurate as of 1/1/0001 12:00:00 AM.
+OK

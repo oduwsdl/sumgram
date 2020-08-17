@@ -1,0 +1,7 @@
+[–] Shiroi_Kage 0 points1 point2 points
+3 years ago
+  (2 children)
+You're right in not assuming the non-integration means non-inhibition, but in this case it's a good indicative. In a lot of cases, you can attribute to proofreading the reduced integration. However, it's never the lack of it. Proofreading is not perfect and you end up with a few analogues incorporated into the DNA/RNA if proofreading was the limiting factor.
+In this case it seems like they see nothing. This tells me that the catalysis of the polymerization reaction isn't happening. It could still be binding to the RNA-pol, but then you should see clear signs of toxicity then because it would be inhibiting the normal enzyme function.
+I think they need to do a ligand-affinity chromatography experiment, maybe a gel mobility shift assay or something to assess the affinity of human RNA-pol to the analogue compared to the viral RNA-pol.
+PS: The generally-accepted abbreviation is RNA pol, but I tend to write it as RNA-poly. I don't know why.

@@ -1,0 +1,29 @@
+Broad-spectrum antiviral GS-5734 inhibits both epidemic and zoonotic coronaviruses
+Timothy P. Sheahan 1 , * ,
+Mark R. Denison 5 , † and
+Ralph S. Baric 1 , †
+1Department of Epidemiology, University of North Carolina at Chapel Hill, Chapel Hill, NC 27599, USA.
+2Department of Pathology, Microbiology, and Immunology, Vanderbilt University Medical Center, Nashville, TN 37232, USA.
+3Department of Microbiology, Faculty of Biochemistry, Biophysics, and Biotechnology, Jagiellonian University, Krakow, Poland.
+4Gilead Sciences Inc., Foster City, CA 94404, USA.
+5Division of Infectious Diseases, Department of Pediatrics and Department of Pathology, Microbiology, and Immunology, Vanderbilt University Medical Center, Nashville, TN 37232, USA.
+↵ †Corresponding author. Email: mark.denison{at}vanderbilt.edu (M.R.D.); rbaric{at}email.unc.edu (R.S.B.)
+↵ * These authors contributed equally to this work.
+See allHide authors and affiliations
+Science Translational Medicine 
+Vol. 9, Issue 396, eaal3653
+DOI: 10.1126/scitranslmed.aal3653
+Search for this author on this site
+Mark R. Denison
+Division of Infectious Diseases, Department of Pediatrics and Department of Pathology, Microbiology, and Immunology, Vanderbilt University Medical Center, Nashville, TN 37232, USA.
+Log in through your institution
+Log in via OpenAthens.
+Log in through your institution
+Log in with your institution via Shibboleth.
+More options
+Buy a single issue of Science for just $15 USD.
+Antiviral gets the jump on coronaviruses
+Like other emerging infections, coronaviruses can jump from animal reservoirs into the human population with devastating effects, such as the SARS or MERS outbreaks. Sheahan et al. tested a small-molecule inhibitor that has shown activity against Ebola virus as a potential agent to be used to fight coronaviruses. This drug was effective against multiple types of coronaviruses in cell culture and in a mouse model of SARS and did not seem to be toxic. Given its broad activity, this antiviral could be deployed to prevent spreading of a future coronavirus outbreak, regardless of the specific virus that jumps over.
+Abstract
+Emerging viral infections are difficult to control because heterogeneous members periodically cycle in and out of humans and zoonotic hosts, complicating the development of specific antiviral therapies and vaccines. Coronaviruses (CoVs) have a proclivity to spread rapidly into new host species causing severe disease. Severe acute respiratory syndrome CoV (SARS-CoV) and Middle East respiratory syndrome CoV (MERS-CoV) successively emerged, causing severe epidemic respiratory disease in immunologically naïve human populations throughout the globe. Broad-spectrum therapies capable of inhibiting CoV infections would address an immediate unmet medical need and could be invaluable in the treatment of emerging and endemic CoV infections. We show that a nucleotide prodrug, GS-5734, currently in clinical development for treatment of Ebola virus disease, can inhibit SARS-CoV and MERS-CoV replication in multiple in vitro systems, including primary human airway epithelial cell cultures with submicromolar IC50 values. GS-5734 was also effective against bat CoVs, prepandemic bat CoVs, and circulating contemporary human CoV in primary human lung cells, thus demonstrating broad-spectrum anti-CoV activity. In a mouse model of SARS-CoV pathogenesis, prophylactic and early therapeutic administration of GS-5734 significantly reduced lung viral load and improved clinical signs of disease as well as respiratory function. These data provide substantive evidence that GS-5734 may prove effective against endemic MERS-CoV in the Middle East, circulating human CoV, and, possibly most importantly, emerging CoV of the future.
+Copyright © 2017 The Authors, some rights reserved; exclusive licensee American Association for the Advancement of Science. No claim to original U.S. Government Works.

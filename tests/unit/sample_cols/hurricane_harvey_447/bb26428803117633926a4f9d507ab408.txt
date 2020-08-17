@@ -1,0 +1,4 @@
+Local weather forecast by "City, St" or zip code
+No Active Hazardous Weather Conditions
+issued by NWS Corpus Christi TX
+U.S. Dept. of Commerce

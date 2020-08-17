@@ -1,0 +1,50 @@
+Plants 'hijacked' to make polio vaccine
+By James Gallagher Health and science reporter, BBC News website
+15 August 2017
+These are external links and will open in a new window
+Close share panel
+Image copyright John Innes Centre
+Image caption A close relative of tobacco has been turned into a polio vaccine "factory"
+Plants have been "hijacked" to make polio vaccine in a breakthrough with the potential to transform vaccine manufacture, say scientists.
+The team at the John Innes Centre, in Norfolk, says the process is cheap, easy and quick.
+As well as helping eliminate polio, the scientists believe their approach could help the world react to unexpected threats such as Zika virus or Ebola.
+Experts said the achievement was both impressive and important.
+The vaccine is an "authentic mimic" of poliovirus called a virus-like particle.
+Outwardly it looks almost identical to poliovirus but - like the difference between a mannequin and person - it is empty on the inside.
+It has all the features needed to train the immune system, but none of the weapons to cause an infection.
+Leafy factory
+The scientists hijacked a relative of the tobacco plant's metabolism to turn its leaves into polio-vaccine "factories".
+First, they needed to create new instructions for the plant to follow.
+The starting material was the genetic code for making the outer surface of poliovirus.
+It was enhanced by combining it with material from viruses that naturally infect plants.
+The new instructions were then put into soil bacteria, which were used to infect tobacco.
+The infection took hold, the plants read the genetic instructions and started making the virus-like particles.
+Infected leaves were mixed with water, blended, and the polio vaccine was extracted.
+The virus-like particles prevented polio in animal experiments, and an analysis of their 3D structure showed they looked almost identical to poliovirus.
+Image copyright Diamond Life Source
+Image caption An image of the virus-like particle, made by Diamond Light Source's electron bio-imaging centre
+Prof George Lomonossoff, from the John Innes Centre, told the BBC News website: "They are incredibly good mimics.
+"It's a very promising technology,
+"I would hope we get vaccines produced in plants in the not too distant future."
+The research is funded by the World Health Organization, as part of efforts to find replacements for the polio vaccine.
+Polio - which can cause permanent paralysis - is a thing of the past for most of the world, but the infection has not been eradicated.
+And using weakened poliovirus in current vaccines poses a risk of the virus regaining some of its dangerous traits - called vaccine-derived poliovirus.
+Dr Andrew Macadam, principal scientist at the UK's National Institute for Biological Standards and Control, said: "Current vaccines for polio are produced from large amounts of live virus, which carries a threat of accidental escape and re-introduction.
+"This study takes us a step closer to replacing current polio vaccines, providing us with a cheap and viable option for making virus-like particle-based vaccines."
+Great potential
+But this technology is not limited to polio or even just to vaccines.
+As long as researchers have the right sequence of genetic code, they can make a vaccine against most viruses.
+And they have also used plants to make antibodies like those being used in cancer therapy.
+Plants are also being investigated as a new source for the winter flu jab.
+Currently, it is grown in chicken eggs and takes months to develop.
+Prof Lomonossoff told the BBC: "In an experiment with a Canadian company, they showed you could actually identify a new strain of virus and produce a candidate vaccine in three to four weeks.
+"It has potential for making vaccines against emerging epidemics, of course recently we had Zika and prior to that we had Ebola.
+"It's highly responsive, and that's one of the great attractions of the technology."
+The plants have the advantage of growing quickly and needing only sunlight, soil, water and carbon dioxide to grow.
+It means it could be a cheap and low-tech solution to vaccine development.
+But there are still issues to resolve, including making vaccine on a large scale.
+Another issue is whether there is any risk from using plants to make the vaccine - does the tobacco-relative mean there is nicotine in the vaccine?
+Dr Tarit Mukhopadhyay, a lecturer in vaccine development at University College London, said: "The initial results look impressive.
+"However, there are very few plant-based vaccine manufacturers and almost no licensed human vaccines that are currently produced in plants."
+Denis Murphy, a professor of biotechnology at the University of South Wales, said: "This is an important achievement.
+"The challenge is now to optimise the plant expression system and to move towards clinical trials of the new vaccine."

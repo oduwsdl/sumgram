@@ -1,0 +1,42 @@
+Posted October 29, 2014 by Beth Skwarecki in Uncategorized
+Whether you’re personally afraid of Ebola or not, you have to admit it’s a scary disease: no vaccine, no cure, and high fatality rate are just a few of its distinguishing features. Recently I polled my friends on what diseases they were afraid of, and many of the ones that made the list were things like cancer and alzheimer’s, conditions that can’t be easily prevented or cured, and that have a high likelihood of developing agonizing symptoms.
+While public health priorities should focus on the largest or fastest-growing threats, fear is a personal thing that doesn’t always match up with objective numbers. Influenza kills more people each year than Ebola ever has, but that doesn’t automatically make it scarier. Here, I’ll take a look at a few ways to rank how “scary” a disease might be:
+1. How likely am I to die of it?
+2. If I catch the disease, is death inevitable?
+3. How contagious/infectious is the disease?
+ 
+How likely am I to die of it?
+Total fatalities are a good place to start, if only to show off how backwards our intuition can be. If something is responsible for a lot of deaths in absolute numbers, it means it’s a high percentage of total deaths, and thus, more likely that you will die of it. So what are the major killers worldwide?
+From the World Health Organization
+Only three of the top ten are infectious diseases: lower respiratory infections (think pneumonia), HIV/AIDS, and diarrheal diseases, which include the likes of rotavirus, E. coli, and cholera. If you want to rank specific germs, the top three are:
+1. HIV (AIDS) – 1.6 million deaths in 2012
+2. Mycobacterium sp. (tuberculosis) – 1.46 million deaths in 2013
+3. Plasmodium sp. (malaria) – 627,000 deaths in 2012
+Selected honorable mentions, for comparison:
+* Influenza: estimated range of 250,000-500,000 each year  (there is a vaccine for this, about 60% effective)
+* Pertussis: 195,000 deaths each year  (there is a vaccine for this, 80-90% effective depending on age but decreasing over time)
+* Measles: 122,000 deaths each year  (there is a vaccine for this, 95% effective)
+* Ebola can’t keep up in this category. Through 2013 it caused only 41 deaths per year. The current outbreak stands at 4,877 deaths as of October 22, although if it’s not contained it has the potential to climb high on our list. See this essay on the potential for Ebola to become endemic in Africa . You want scary? That’s scary.
+That said, your chance of dying of anything is only about 1% per year. Let’s keep our focus on infectious diseases and look at a scarier statistic…
+ 
+If I catch the disease, is death inevitable?
+There’s a metric for that: the case fatality rate, or CFR. (As in, how many cases of this disease result in fatality?)
+Several diseases have horror-movie-ready CFR’s of 100 percent or close to it:
+Creutzfeld-Jakob (the human version of mad cow)
+Kuru, another prion disease
+Naegleria, the brain eating amoeba
+Rabies (untreated—the typical treatment is to administer rabies vaccine after exposure but before the patient starts showing symptoms. There are no official numbers on the effectiveness of this vaccine, but anecdotally it’s close to 100% ).
+Some other high CFR diseases:
+Inhalational anthrax – 93%
+HIV, if untreated, in developing countries – 80-90% mortality within 5 years
+Ebola – 71% in the current outbreaks, according to the best estimates.
+MERS-CoV , an emerging disease that is related to SARS and associated with camels: 45%
+Does Ebola’s CFR surprise you? The current outbreak has twice as many cases as deaths, which would seem to put the CFR around 50%. But it’s tricky to calculate CFR for outbreaks that are ongoing and even growing, since the total cases include people who will die, but haven’t yet. Example: say you open an Ebola clinic and admit ten patients, seven of whom will die. If nobody is dead by the end of the day, you might say the CFR is 0%. Next week, if five of them have died, you would calculate the CFR at 50%, and in the meantime maybe you’re admitting five new patients, which instantly drops the rate to 33% (5 out of 15). But if you track those original ten patients over time, you’ll get the right answer – 70%. Here is a discussion of current estimates of Ebola’s CFR .
+ 
+How infectious/contagious is it?
+Let’s be clear: these are two different questions. Something is very infectious if it takes very few germs (virus particles, bacterial spores, etc) to trigger disease. Ebola is extremely infectious; so is inhaled anthrax.
+A disease’s contagiousness, on the other hand, doesn’t count individual microorganisms, but rather describes how quickly it spreads. Say you share a funny cat picture on facebook and it’s so good that ten friends post it on their walls. Ten of each of their friends post it, and ten of theirs, and so on; that picture will eventually be all over the internet. But if you share a funny picture of your lunch instead, and most people who see it (are “exposed” in epidemiology speak) don’t bother to pass it on, that meme will soon fizzle out.
+In epidemiological terms, our funny cat picture has a basic reproduction number, or R0 (pronounced “R naught”) of 10. Our lunch picture, somewhere near zero. An infectious disease needs at least an R0 of 1 to spread; that would mean each person spreads it to one other person. Ebola’s R0 is somewhere around 2 ; think of the Dallas patient that spread the disease to two health care workers. That’s a typical case.
+Measles clearly gets the gold in this contest, with an R0 of up to 18. That means that, in many outbreaks, each sick kid was infecting an average of 18 friends. Here’s a ranking from Wikipedia , taken from published data on each entry:
+ Values of R0 of well-known infectious diseases
+Disease

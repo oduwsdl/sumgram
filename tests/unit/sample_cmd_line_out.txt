@@ -1,0 +1,175 @@
+regex sentence tokenizer
+  (venv3) bash-3.2$ time sumgram --ngram-printing-mw=55 -t 20 sample_cols/2014_ebola_580/
+  Summary for 20 top sumgrams (base n: 2): 
+  rank  sumgram                                         DF   DF-Rate Base ngram                    
+  1    ebola virus                                    224    0.44   ebola virus                   
+  2    in west africa                                 147    0.29   west africa                   
+  3    public health                                  117    0.23   public health                 
+  4    sierra leone                                   116    0.23   sierra leone                  
+  5    ebola outbreak                                 111    0.22   ebola outbreak                
+  6    the world health organization                   93    0.18   world health                  
+  7    the united states                               92    0.18   united states                 
+  8    centers for disease control and prevention      85    0.17   disease control               
+  9    infectious diseases                             81    0.16   infectious diseases           
+  10   health care workers                             63    0.12   health care                   
+  11   democratic republic of the congo                58    0.11   democratic republic           
+  12   bodily fluids                                   57    0.11   bodily fluids                 
+  13   ebola hemorrhagic fever                         55    0.11   hemorrhagic fever             
+  14   liberia sierra                                  55    0.11   liberia sierra                
+  15   direct contact with                             54    0.11   direct contact                
+  16   21 days                                         51    0.10   21 days                       
+  17   outbreak west                                   48    0.09   outbreak west                 
+  18   outbreak ebola                                  47    0.09   outbreak ebola                
+  19   disease evd                                     43    0.08   disease evd                   
+  20   guinea liberia                                  42    0.08   guinea liberia                
+  last ngram with min_df = 0.01 (index/DF/DF-Rate): pan american (1487/6/0.011741682974559686)
+  real  0m5.141s
+  user  0m4.741s
+  sys 0m0.310s
+
+
+  (venv3) bash-3.2$ time sumgram --ngram-printing-mw=50 -t 20 sample_cols/hurricane_harvey_20/
+  Summary for 20 top sumgrams (base n: 2): 
+  rank  sumgram                                    DF   DF-Rate Base ngram                    
+  1    hurricane harvey                           18    0.90   hurricane harvey              
+  2    the federal emergency management agency    8     0.40   emergency management          
+  3    corpus christi                             7     0.35   corpus christi                
+  4    president trump                            7     0.35   president trump               
+  5    a category 4 hurricane                     7     0.35   category 4                    
+  6    the gulf coast                             7     0.35   gulf coast                    
+  7    tropical storm harvey                      6     0.30   tropical storm                
+  8    flooded homes                              6     0.30   flooded homes                 
+  9    the houston area                           5     0.25   houston area                  
+  10   the agency said                            5     0.25   agency said                   
+  11   brown convention center                    5     0.25   convention center             
+  12   hurricane irma                             5     0.25   hurricane irma                
+  13   the red cross                              5     0.25   red cross                     
+  14   in port aransas                            5     0.25   port aransas                  
+  15   army national guard                        5     0.25   national guard                
+  16   last week                                  5     0.25   last week                     
+  17   hurricane katrina in                       4     0.20   hurricane katrina             
+  18   in the parking lot                         4     0.20   parking lot                   
+  19   sign up                                    4     0.20   sign up                       
+  20   southeast texas                            4     0.20   southeast texas               
+  last ngram with min_df = 0.01 (index/DF/DF-Rate): youth programs (9252/1/0.05)
+  real  0m1.334s
+  user  0m1.172s
+  sys 0m0.197s
+
+
+  (venv3) bash-3.2$ time sumgram --ngram-printing-mw=50 -t 20 sample_cols/hurricane_harvey_447/
+  Summary for 20 top sumgrams (base n: 2): 
+  rank  sumgram                                    DF   DF-Rate Base ngram                    
+  1    hurricane harvey                          225    0.54   hurricane harvey              
+  2    tropical storm                            121    0.29   tropical storm                
+  3    corpus christi                            116    0.28   corpus christi                
+  4    the national hurricane center              67    0.16   national hurricane            
+  5    as a category 4 hurricane                  63    0.15   category 4                    
+  6    the federal emergency management           63    0.15   emergency management          
+  7    the national weather service               58    0.14   national weather              
+  8    port aransas                               57    0.14   port aransas                  
+  9    gulf mexico                                56    0.13   gulf mexico                   
+  10   gulf coast                                 53    0.13   gulf coast                    
+  11   the texas coast                            53    0.13   texas coast                   
+  12   harvey landfall                            52    0.13   harvey landfall               
+  13   the united states                          52    0.13   united states                 
+  14   inches rain                                51    0.12   inches rain                   
+  15   storm surge                                49    0.12   storm surge                   
+  16   a tropical depression                      46    0.11   tropical depression           
+  17   tropical cyclone                           43    0.10   tropical cyclone              
+  18   the coastal bend                           43    0.10   coastal bend                  
+  19   the houston area                           40    0.10   houston area                  
+  20   southeast texas                            38    0.09   southeast texas               
+  last ngram with min_df = 0.01 (index/DF/DF-Rate): photo mark (3253/5/0.012048192771084338)
+  real  0m4.624s
+  user  0m4.103s
+  sys 0m0.334s
+
+ssplit sentence tokenizer
+  (venv3) bash-3.2$ time sumgram --sentence-tokenizer=ssplit --ngram-printing-mw=55 -t 20 sample_cols/2014_ebola_580/
+  Summary for 20 top sumgrams (base n: 2): 
+  rank  sumgram                                         DF   DF-Rate Base ngram                    
+  1    ebola virus                                    224    0.44   ebola virus                   
+  2    in west africa                                 147    0.29   west africa                   
+  3    public health                                  117    0.23   public health                 
+  4    sierra leone                                   116    0.23   sierra leone                  
+  5    ebola outbreak                                 111    0.22   ebola outbreak                
+  6    the world health organization                   93    0.18   world health                  
+  7    the united states                               92    0.18   united states                 
+  8    centers for disease control and prevention      85    0.17   disease control               
+  9    infectious diseases                             81    0.16   infectious diseases           
+  10   health care workers                             63    0.12   health care                   
+  11   democratic republic of the congo                58    0.11   democratic republic           
+  12   bodily fluids                                   57    0.11   bodily fluids                 
+  13   ebola hemorrhagic fever                         55    0.11   hemorrhagic fever             
+  14   direct contact with                             54    0.11   direct contact                
+  15   21 days                                         51    0.10   21 days                       
+  16   outbreak west                                   48    0.09   outbreak west                 
+  17   outbreak ebola                                  47    0.09   outbreak ebola                
+  18   disease evd                                     43    0.08   disease evd                   
+  19   guinea liberia                                  42    0.08   guinea liberia                
+  20   infected ebola                                  41    0.08   infected ebola                
+  last ngram with min_df = 0.01 (index/DF/DF-Rate): pan american (1487/6/0.011741682974559686)
+  real  1m2.088s
+  user  0m15.264s
+  sys 0m6.426s
+
+
+  (venv3) bash-3.2$ time sumgram --sentence-tokenizer=ssplit --ngram-printing-mw=50 -t 20 sample_cols/hurricane_harvey_20/
+  Summary for 20 top sumgrams (base n: 2): 
+  rank  sumgram                                    DF   DF-Rate Base ngram                    
+  1    hurricane harvey                           18    0.90   hurricane harvey              
+  2    the federal emergency management agency    8     0.40   emergency management          
+  3    corpus christi                             7     0.35   corpus christi                
+  4    president trump                            7     0.35   president trump               
+  5    a category 4 hurricane                     7     0.35   category 4                    
+  6    the gulf coast                             7     0.35   gulf coast                    
+  7    tropical storm harvey                      6     0.30   tropical storm                
+  8    flooded homes                              6     0.30   flooded homes                 
+  9    the houston area                           5     0.25   houston area                  
+  10   the agency said                            5     0.25   agency said                   
+  11   the george r. brown convention center      5     0.25   convention center             
+  12   hurricane irma                             5     0.25   hurricane irma                
+  13   the red cross                              5     0.25   red cross                     
+  14   in port aransas                            5     0.25   port aransas                  
+  15   army national guard                        5     0.25   national guard                
+  16   last week                                  5     0.25   last week                     
+  17   hurricane katrina in                       4     0.20   hurricane katrina             
+  18   in the parking lot                         4     0.20   parking lot                   
+  19   sign up                                    4     0.20   sign up                       
+  20   southeast texas                            4     0.20   southeast texas               
+  last ngram with min_df = 0.01 (index/DF/DF-Rate): youth programs (9252/1/0.05)
+  real  0m4.071s
+  user  0m1.741s
+  sys 0m0.488s
+
+
+  (venv3) bash-3.2$ time sumgram --sentence-tokenizer=ssplit --ngram-printing-mw=50 -t 20 sample_cols/hurricane_harvey_447/
+  Summary for 20 top sumgrams (base n: 2): 
+  rank  sumgram                                    DF   DF-Rate Base ngram                    
+  1    hurricane harvey                          225    0.54   hurricane harvey              
+  2    tropical storm harvey                     121    0.29   tropical storm                
+  3    corpus christi                            116    0.28   corpus christi                
+  4    the national hurricane center              67    0.16   national hurricane            
+  5    as a category 4 hurricane                  63    0.15   category 4                    
+  6    the federal emergency management agency    63    0.15   emergency management          
+  7    the national weather service               58    0.14   national weather              
+  8    port aransas                               57    0.14   port aransas                  
+  9    the gulf of mexico                         56    0.13   gulf mexico                   
+  10   the texas gulf coast                       53    0.13   gulf coast                    
+  11   harvey landfall                            52    0.13   harvey landfall               
+  12   the united states                          52    0.13   united states                 
+  13   inches rain                                51    0.12   inches rain                   
+  14   storm surge                                49    0.12   storm surge                   
+  15   a tropical depression                      46    0.11   tropical depression           
+  16   tropical cyclone                           43    0.10   tropical cyclone              
+  17   the coastal bend                           43    0.10   coastal bend                  
+  18   the houston area                           40    0.10   houston area                  
+  19   southeast texas                            38    0.09   southeast texas               
+  20   harris county                              38    0.09   harris county                 
+  last ngram with min_df = 0.01 (index/DF/DF-Rate): photo mark (3253/5/0.012048192771084338)
+  real  1m1.753s
+  user  0m12.416s
+  sys 0m5.448s
+
+

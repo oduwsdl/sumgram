@@ -1,0 +1,105 @@
+active tracing and monitoring of 179 healthcare and community contacts                                  ( Ann Intern Med 2015 Aug 4;163(3):164 )
+description of active and direct active monitoring of 10,344 persons with                         potential Ebola exposure in United States between November 3, 2014 and March                         8, 2015 can be found in MMWR Morb Mortal Wkly Rep 2015 Jul 3;64(25):685   full-text
+Postexposure prophylaxis
+favipiravir with or without monoclonal antibodies targeting an Ebola virus                      glycoprotein reported to prevent Ebola virus infection in healthcare workers at                      intermediate or high risk ( level 3 [lacking direct] evidence )
+based on case series
+4 healthcare workers who had needlestick injuries while working in Ebola                         treatment unit (classified as intermediate- or high-risk exposure) received                         oral favipiravir for 10 days and followed for 42 days
+treatment initiated 6-10 hours after potential exposure
+loading doses 2,400 mg, 2,400 mg, and 1,200 mg every 8 hours on day 1,                               followed by maintenance dose 1,200 mg twice daily
+2 patients also treated with 2 IV doses of monoclonal antibodies to Ebola                         virus glycoprotein
+1 patient received ZMAb on day 2 after exposure (total dose 50 mg/kg)                               and then MIL77 on day 5 (total dose 50 mg/kg)
+1 patient received MIL77 on days 2 and 5 after exposure (total 50                               mg/kg per dose)
+no patient developed Ebola virus disease
+no serious adverse effects reported
+self-limited symptoms without Ebola virus disease reported in 6 persons who                   received rVSV-ZEBOV or TKM-100802 for postexposure prophylaxis after occupational                   exposure to Zaire ebolavirus in West Africa between September 2014 and April 2015                      ( Clin                      Infect Dis 2016 Aug 1;63(3):376 )
+Immunization
+no licensed vaccine is available
+vesicular stomatitis virus-vectored Ebola vaccine
+vesicular stomatitis virus-vectored Zaire Ebola vaccine appears to                            prevent transmission of Ebola virus disease ( level 2                               [mid-level] evidence )
+based on cluster-randomized trial with low adherence
+98 clusters containing 9,096 persons in Guinea were randomized to                               immediate vaccination with VSV-ZEBOV vs. delayed vaccination (21 days                               after randomization)
+clusters were generated using a ring vaccination strategy, and                                     consisted of contacts and contacts-of-contacts of patients with                                     newly confirmed Ebola virus disease
+vaccination was 1 dose of 2 × 107 plaque-forming                                     units intramuscularly
+6,328 persons met eligibility criteria for vaccination (age ≥ 18                               years, not pregnant, breastfeeding, or severely ill), of whom 66% had                               scheduled vaccination
+comparing immediate vaccination vs. delayed vaccination, Ebola virus                               disease with symptom onset ≥ 10 days after randomization occurred in
+0 persons (0%) vs. 16 persons (0.5%) in per-protocol analysis (p                                     = 0.0045)
+7 persons (0.2%) vs. 16 persons (0.5%) in intention-to-treat                                     analysis (not significant)
+19 additional clusters with 2,745 contacts and contacts of contacts                               identified
+1,677 were immediately vaccinated (including 194 children)
+no cases of Ebola virus disease with symptom onset ≥ 10 days                                     after study entry occurred among vaccinated persons
+in analysis of all 117 clusters
+0 persons with immediate vaccination developed Ebola virus                                     disease vs. 23 persons in delayed vaccination clusters or in                                     immediate clusters who were never vaccinated (p = 0.0033)
+estimated vaccine efficacy 100% (95% CI 79.3%-100%)
+3,149 of 5,837 persons who received vaccine reported ≥ 1 adverse event                               within 14 days of vaccination
+87.5% classified as mild, with headache, fatigue, and muscle                                     pain most common
+80 serious adverse events occurred
+2 determined to be related to vaccination (1 febrile                                           reaction, 1 anaphylaxis) and 1 possibly related                                           (influenza-like illness)
+all patients recovered without sequelae
+Reference - Lancet 2017 Feb 4;389(10068):505   full-text ; previous publication of interim trial                               results can be found Lancet 2015 Aug 29;386(9996):857   full-text (free registration required for full-text),                               commentary can be found at Lancet 2015 Aug 29;386(9996):831
+DynaMed commentary
+-- ring vaccination refers to a                               strategy in which direct contacts and/or contacts of contacts of                               patients with diagnosed disease are identified and vaccinated
+vesicular stomatitis virus-vectored Zaire Ebola vaccine may induce sustained immune response for up to 6 months but has high rate of transient, mild-to-moderate adverse events ( level 2 [mid-level] evidence )
+based on analysis of phase 1 study data collected in 3 cohort studies and 1 quasi-randomized randomized trial
+158 healthy adults were either given escalating doses of vesicular stomatitis virus-vectored Zaire Ebola vaccine or randomized to vaccine vs. placebo and followed for 6 months
+20 adults in Hamburg, Germany received 3 million or 20 million plaque-forming (PF) units
+39 adults in Lambaréné, Gabon received 300,000 or 3 million PF units
+40 adults in Kilifi, Kenya received 3 million or 20 million PF units
+59 adults in Geneva, Switzerland either received 10 million PF units or were randomized to 10 million or 50 million PF units vs. placebo
+at 6-month follow-up, 100% of vaccinated persons had geometric mean titer of neutralizing antibodies > 8
+92% reported ≥ 1 adverse event within 2 weeks, mostly mild-to-moderate and transient with median onset and median duration of 1 day, including
+fever in 30%
+arthritis observed in the second week of vaccination
+affecting up to 4 joints in 22% of 51 persons in Geneva, with pain persisting for median duration of 8 days
+self-limiting cases in 2 (3%) of 60 persons in all other locations
+no serious vaccine-associated adverse events reported
+low dose of vesicular stomatitis virus-vectored Zaire Ebola vaccine                            associated with reduced immune response compared to high dose of vaccine                               ( level 3                               [lacking direct] evidence ) and may not reduce risk adverse                            events ( level 2                               [mid-level] evidence )
+based on interim analysis of quasi-randomized trial
+115 healthy participants were either given vesicular stomatitis                               virus-vectored Zaire Ebola vaccine or randomized to vaccine vs.                               placebo and followed for 28 days
+during phase 1
+19 participants had high-dose vaccine of 1 x                                              107 plaque-forming units (pfus) during                                           run-in
+16 participants randomized to high-dose vaccine 1 x                                              107 pfus
+16 participants randomized to high-dose vaccine of 5 x                                              107 pfus
+8 participants randomized to placebo
+during phase 2 (dose lowered due to reported viral                                     arthritides)
+13 participants had low-dose vaccine of 3 x 105 pfus
+38 participants randomized to low-dose vaccine of 3 x                                              105 pfus
+5 participants randomized to placebo
+comparing low-dose vaccine vs. high-dose vaccines
+immune response
+geometric mean glycoprotein-binding antibody titer 344.5                                           vs. 1,064 (p < 0.0001)
+geometric mean neutralizing antibody titer 35.1 vs. 127 (p < 0.0001)
+adverse events
+detectable viremia in 20% vs. 90% (p < 0.0001)
+viral oligoarthritis in 22% vs. 25% (no p value reported)
+in patients with arthritis, maculopapular and/or vesicular                                           dermatitis developed in 7 of 13 patients vs. 3 of 11                                           patients (no p value reported)
+grade 3 adverse events, defined as those preventing daily                                           activity, reported by 14% vs. 22% (not significant)
+no serious adverse events reported
+vesicular stomatitis virus-vectored Ebola vaccine reported to induce                            immune response in patient with high-risk exposure to Ebola virus                               ( level 3                               [lacking direct] evidence )
+based on case report
+44-year-old physician working in Ebola treatment unit in Sierra Leone                               had vesicular stomatitis virus-vectored Ebola vaccine 43 hours after                               needlestick
+patient developed fever and moderate-to-severe symptoms 12 hours after                               vaccination which diminished over 3-4 days
+antibodies and T cells active against vaccine components detected 1                               day after vaccination, but no evidence of viral infection detected
+Ebola virus and Marburg virus                   glycoprotein DNA vaccines induce immune response when given alone or together                      ( level 3 [lacking direct]                      evidence )
+based on randomized trial without clinical outcomes
+108 healthy volunteers received intramuscular injections at weeks 0, 4, and 8
+during part 1, 72 patients were randomized to Ebola virus vaccine only (encoding Zaire and Sudan glycoproteins) vs. Marburg virus vaccine only (encoding Marburg virus glycoprotein) vs. placebo
+during part 2, 36 patients were randomized to Ebola virus vaccine plus Marburg virus vaccine vs. placebo
+antibody and T-cell response measured 4 weeks after third vaccination
+in patients given Ebola virus vaccine alone
+57% had antibody response to Zaire glycoprotein and 63% had T-cell response
+50% had antibody response to Sudan glycoprotein and 43% had T-cell response
+in patients given Marburg virus vaccine alone, 31% had antibody response and 52% had T-cell response
+no significant difference in antibody or T-cell response if vaccines given alone or together
+no significant differences in local or systemic adverse effects among groups
+similar results reported in earlier phase 1 trial with 20 patients ( J Infect Dis 2015 Feb 15;211(4):549 )
+adenovirus-vectored Ebola vaccine
+adenovirus-vectored Ebola vaccine appears safe and immunogenic, although immunogenicity appears to decline over time ( level 3 [lacking direct] evidence )
+based on randomized trial without clinical outcomes
+500 healthy adults aged 18-50 years without history of Ebola virus infection or previous Ebola vaccination with any vaccine formulation randomized to
+high-dose adenovirus type-5 vector-based Ebola vaccine (1.6 × 1011 viral particles)
+low-dose adenovirus type-5 vector-based Ebola vaccine (8 × 1010 viral particles)
+placebo
+no significant differences in rates of overall solicited adverse reactions within 7 days (43%-53%), although placebo associated with lower rate of solicited injection-site adverse reactions within 7 days vs. either vaccine formulation (14% vs. 25%-26%, p = 0.0169)
+3 serious adverse events occurred in high-dose vaccine group (malaria, gastroenteritis, and fatal asthma episodes), but none determined to be related to vaccine
+immunogenicity of vaccine formulations at days 14, 28, and 168
+ 

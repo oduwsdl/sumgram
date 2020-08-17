@@ -1,0 +1,71 @@
+Updated June 2017
+Key facts
+Ebola virus disease (EVD), formerly known as Ebola haemorrhagic fever, is a severe, often fatal illness in humans.
+The virus is transmitted to people from wild animals and spreads in the human population through human-to-human transmission.
+The average EVD case fatality rate is around 50%. Case fatality rates have varied from 25% to 90% in past outbreaks.
+The first EVD outbreaks occurred in remote villages in Central Africa, near tropical rainforests. The 2014â2016 outbreak in West Africa involved major urban areas as well as rural ones.
+Community engagement is key to successfully controlling outbreaks. Good outbreak control relies on applying a package of interventions, namely case management, infection prevention and control practices, surveillance and contact tracing, a good laboratory service, safe burials and social mobilisation.
+Early supportive care with rehydration, symptomatic treatment improves survival. There is as yet no licensed treatment proven to neutralize the virus but a range of blood, immunological and drug therapies are under development.
+Background
+The Ebola virus causes an acute, serious illness which is often fatal if untreated. Ebola virus disease (EVD) first appeared in 1976 in 2 simultaneous outbreaks, one in what is now, Nzara, South Sudan, and the other in Yambuku, Democratic Republic of Congo. The latter occurred in a village near the Ebola River, from which the disease takes its name.
+The 2014â2016 outbreak in West Africa was the largest and most complex Ebola outbreak since the virus was first discovered in 1976. There were more cases and deaths in this outbreak than all others combined. It also spread between countries, starting in Guinea then moving across land borders to Sierra Leone and Liberia.
+The virus family Filoviridae includes three genera: Cuevavirus, Marburgvirus, and Ebolavirus. Within the genus Ebolavirus, five species have been identified: Zaire, Bundibugyo, Sudan, Reston and TaÃ¯ Forest. The first three, Bundibugyo ebolavirus, Zaire ebolavirus, and Sudan ebolavirus have been associated with large outbreaks in Africa. The virus causing the 2014â2016 West African outbreak belongs to the Zaire ebolavirus species.
+Transmission
+It is thought that fruit bats of the Pteropodidae family are natural Ebola virus hosts.  Ebola is introduced into the human population through close contact with the blood, secretions, organs or other bodily fluids of infected animals such as  chimpanzees, gorillas, fruit bats, monkeys, forest antelope and porcupines found ill or dead or in the rainforest.
+Ebola then spreads through human-to-human transmission via direct contact (through broken skin or mucous membranes) with the blood, secretions, organs or other bodily fluids of infected people, and with surfaces and materials (e.g. bedding, clothing) contaminated with these fluids.
+Health-care workers have frequently been infected while treating patients with suspected or confirmed EVD. This has occurred through close contact with patients when infection control precautions are not strictly practiced.
+Burial ceremonies that involve direct contact with the body of the deceased can also contribute in the transmission of Ebola.
+People remain infectious as long as their blood contains the virus.
+Sexual transmission
+More surveillance data and research are needed on the risks of sexual transmission, and particularly on the prevalence of viable and transmissible virus in semen over time. In the interim, and based on present evidence, WHO recommends that:
+All Ebola survivors and their sexual partners should receive counselling to ensure safe sexual practices until their semen has twice tested negative. Survivors should be provided with condoms.
+Male Ebola survivors should be offered semen testing at 3 months after onset of disease, and then, for those who test positive, every month thereafter until their semen tests negative for virus twice by RT-PCR, with an interval of one week between tests.
+Ebola survivors and their sexual partners should either:
+abstain from all types of sex, or
+observe safe sex through correct and consistent condom use until their semen has twice tested negative.
+Having tested negative, survivors can safely resume normal sexual practices without fear of Ebola virus transmission.
+Based on further analysis of ongoing research and consideration by the WHO Advisory Group on the Ebola Virus Disease Response, WHO recommends that male survivors of Ebola virus disease practice safe sex and hygiene for 12 months from onset of symptoms or until their semen tests negative twice for Ebola virus.
+Until such time as their semen has twice tested negative for Ebola, survivors should practice good hand and personal hygiene by immediately and thoroughly washing with soap and water after any physical contact with semen, including after masturbation. During this period used condoms should be handled safely, and safely disposed of, so as to prevent contact with seminal fluids.
+All survivors, their partners and families should be shown respect, dignity and compassion.
+For more, read the Guidance on clinical care for survivors of Ebola virus disease
+Symptoms of Ebola virus disease
+The incubation period, that is, the time interval from infection with the virus to onset of symptoms is 2 to 21 days. Humans are not infectious until they develop symptoms. First symptoms are the sudden onset of fever fatigue, muscle pain, headache and sore throat. This is followed by vomiting, diarrhoea, rash, symptoms of impaired kidney and liver function, and in some cases, both internal and external bleeding (e.g. oozing from the gums, blood in the stools). Laboratory findings include low white blood cell and platelet counts and elevated liver enzymes.
+Persistent virus in people recovering from Ebola virus disease
+Ebola virus is known to persist in immune-privileged sites in some people who have recovered from Ebola virus disease. These sites include the testicles, the inside of the eye, and the central nervous system. In women who have been infected while pregnant, the virus persists in the placenta, amniotic fluid and fetus. In women who have been infected while breastfeeding, the virus may persist in breast milk.
+Studies of viral persistence indicate that in a small percentage of survivors, some body fluids may test positive on reverse transcriptase polymerase chain reaction  (RT-PCR) for Ebola virus for longer than 9 months.
+Relapse-symptomatic illness in someone who has recovered from EVD due to increased replication of the virus in a specific site is a rare event, but has been documented. Reasons for this phenomenon are not yet fully understood.
+Diagnosis
+It can be difficult to clinically distinguish EVD from other infectious diseases such as malaria, typhoid fever and meningitis. Confirmation that symptoms are caused by Ebola virus infection are made using the following diagnostic methods:
+antibody-capture enzyme-linked immunosorbent assay (ELISA)
+antigen-capture detection tests
+reverse transcriptase polymerase chain reaction (RT-PCR) assay
+electron microscopy
+virus isolation by cell culture.
+Careful consideration should be given to the selection of diagnostic tests, which take into account technical specifications, disease incidence and prevalence, and social and medical implications of test results. It is strongly recommended that diagnostic tests, which have undergone an independent and international evaluation, be considered for use.
+Current WHO recommended tests include:
+Automated or semi-automated nucleic acid tests (NAT) for routine diagnostic management.
+Rapid antigen detection tests for use in remote settings where NATs are not readily available. These tests are recommended for screening purposes as part of surveillance activities, however reactive tests should be confirmed with NATs.
+The preferred specimens for diagnosis include:
+Whole blood collected in ethylenediaminetetraacetic acid (EDTA) from live patients exhibiting symptoms.
+Oral fluid specimen stored in universal transport medium collected from deceased patients or when blood collection is not possible.
+Samples collected from patients are an extreme biohazard risk; laboratory testing on non-inactivated samples should be conducted under maximum biological containment conditions. All biological specimens should be packaged using the triple packaging system when transported nationally and internationally.
+Treatment and vaccines
+Supportive care-rehydration with oral or intravenous fluids- and treatment of specific symptoms, improves survival. There is as yet no proven treatment available for EVD. However, a range of potential treatments including blood products, immune therapies and drug therapies are currently being evaluated.
+An experimental Ebola vaccine proved highly protective against the deadly virus in a major trial in Guinea. The vaccine, called rVSV-ZEBOV, was studied in a trial involving 11 841 people during 2015. Among the 5837 people who received the vaccine, no Ebola cases were recorded 10 days or more after vaccination. In comparison, there were 23 cases 10 days or more after vaccination among those who did not receive the vaccine.
+The trial was led by WHO, together with Guineaâs Ministry of Health, MÃ©decins sans Frontieres and the Norwegian Institute of Public Health, in collaboration with other international partners. A ring vaccination protocol was chosen for the trial, where some of the rings are vaccinated shortly after a case is detected, and other rings are vaccinated after a delay of 3 weeks.
+Prevention and control
+Good outbreak control relies on applying a package of interventions, namely case management, surveillance and contact tracing, a good laboratory service, safe burials and social mobilisation. Community engagement is key to successfully controlling outbreaks. Raising awareness of risk factors for Ebola infection and protective measures (including vaccination) that individuals can take is an effective way to reduce human transmission. Risk reduction messaging should focus on several factors:
+Reducing the risk of wildlife-to-human transmission from contact with infected fruit bats or monkeys/apes and the consumption of their raw meat. Animals should be handled with gloves and other appropriate protective clothing. Animal products (blood and meat) should be thoroughly cooked before consumption.
+Reducing the risk of human-to-human transmission from direct or close contact with people with Ebola symptoms, particularly with their bodily fluids. Gloves and appropriate personal protective equipment should be worn when taking care of ill patients at home. Regular hand washing is required after visiting patients in hospital, as well as after taking care of patients at home.
+Reducing the risk of possible sexual transmission, based on further analysis of ongoing research and consideration by the WHO Advisory Group on the Ebola Virus Disease Response, WHO recommends that male survivors of Ebola virus disease practice safe sex and hygiene for 12 months from onset of symptoms or until their semen tests negative twice for Ebola virus. Contact with body fluids should be avoided and washing with soap and water is recommended. WHO does not recommend isolation of male or female convalescent patients whose blood has been tested negative for Ebola virus.
+Outbreak containment measures, including prompt and safe burial of the dead, identifying people who may have been in contact with someone infected with Ebola and monitoring their health for 21 days, the importance of separating the healthy from the sick to prevent further spread, and the importance of good hygiene and maintaining a clean environment.
+Controlling infection in health-care settings:
+Health-care workers should always take standard precautions when caring for patients, regardless of their presumed diagnosis. These include basic hand hygiene, respiratory hygiene, use of personal protective equipment (to block splashes or other contact with infected materials), safe injection practices and safe burial practices.
+Health-care workers caring for patients with suspected or confirmed Ebola virus should apply extra infection control measures to prevent contact with the patientâs blood and body fluids and contaminated surfaces or materials such as clothing and bedding. When in close contact (within 1 metre) of patients with EBV, health-care workers should wear face protection (a face shield or a medical mask and goggles), a clean, non-sterile long-sleeved gown, and gloves (sterile gloves for some procedures).
+Laboratory workers are also at risk. Samples taken from humans and animals for investigation of Ebola infection should be handled by trained staff and processed in suitably equipped laboratories.
+WHO response
+WHO aims to prevent Ebola outbreaks by maintaining surveillance for Ebola virus disease and supporting at-risk countries to developed preparedness plans. The document provides overall guidance for control of Ebola and Marburg virus outbreaks:
+When an outbreak is detected WHO responds by supporting surveillance, community engagement, case management, laboratory services, contact tracing, infection control, logistical support and training and assistance with safe burial practices.
+WHO has developed detailed advice on Ebola infection prevention and control:
+Table: Chronology of previous Ebola virus disease outbreaks
+Year

@@ -1,0 +1,47 @@
+Posted August 14, 2014 by Ricki Lewis, PhD in Uncategorized
+Eman Gokpolu (with little Larry, named for my husband) is our African “son.” He sends frequent updates from Liberia.
+UPDATE OCT. 7:  Emmanuel (my “son”) and his family, in Liberia, are still all healthy! The post below is from mid-August, when much of the US still didn’t care about Ebola because it wasn’t here. It includes the immune system basics that rarely make it into media coverage.
+Sunday, August 17:
+Eman’s emails arrive hours ahead of the news here.
+“An Ebola quarantine site was  attacked and looted. News is that most of the patients have escaped. This is going to put more fear into the population. All this because people are denying the virus.  More people might get exposed.  I’m so weak I can’t wake up this morning. Its 6:00 pm and I am still in bed listening to the news.  All this happened in a very populated area called West Point. Got pain all over my body. Keep me in your meditations.”
+As a medical student Eman can’t treat people. Instead, he is a “sensitizer,” educating people on how to avoid infection.
+Emmanuel is a medical student in  Liberia  whom my husband and I have been supporting since he contacted me after reading my human genetics textbook in 2007. Until the fever hit him last weekend, he dedicated himself to “sensitization,” educating the public about how to stay safe. But now he’s too sick and weak to venture out.
+His email from Monday, August 18, said only “Need help!”
+Eman is our son in the African sense, not based on his DNA. And our families have grown close. Some of the funds we sent to see him through medical school helped put his mother through nursing school. It costs a fraction of medical education here.
+The emails and texts from Liberia are eerie in the face of the crumbling infrastructure, the abandoned hospitals and schools. Eman taps on a phone these days, too terrified to use an Internet cafe as he has in the past. We know he’s in trouble when his brother Joseph takes over — it means Eman is in the hospital. It’s happened for cholera, amoebiasis, and cerebral malaria more than once. Fighting infection is a way of life in Liberia.
+I’m mortified when the news here focuses on the deaths of individuals — tragic as they may be — while the populations of African nations like Liberia, of the entire continent, are under threat. Eman wants to know why the US didn’t pay attention until the arrival here of two patients, who were treated. So do I.
+JUST 7 GENES
+The stark seeming-simplicity of the Ebola virus flashes across my mind whenever I receive an email from Eman.
+Ebola virus has a mere 7 protein-encoding genes, but the RNA that is its genetic material holds hidden information. One key gene (GP, for glycoprotein) has an overlapping reading frame so that an alternate form harbors a stretch of added adenines. And the encoded protein is cut after translation, generating a mature secreted form that sits on the surfaces of viral particles, as well as a sugar-coated smaller part, like a moon carved from a planet.
+(Wikimedia Commons)
+The irony of it all is stunning. Genetics and genomics journals overflow with data. Always more exomes, more genomes, meta-analyses of meta-analyses that search for meaning among the nearly limitless combinations of variants of our 20,000 or so genes. And yet a 7-gene “infectious particle,” so streamlined it isn’t even a cell, isn’t even alive, can reduce a human body to a puddle, inner barriers dissolving into nothingness, within days.
+How does Ebola virus, so much simpler than influenza, than HIV, do it?
+AN EBOLA TIMELINE
+Ebola virus homes to certain immune system cells as well as the boxy epithelial cells that aggregate into layers and the single bathroom-tile-like endothelial cells. Inside the body, the virus first tackles innate immunity – the immediate and generalized response to infection. Ebola commandeers monocytes and macrophages, the wandering cells that travel around the body, dividing, distributing its deadly cargo.
+Meanwhile, the virus replicates like crazy.
+(Wikimedia Commons)
+In those who will not survive, the innate immune response goes on a tad too long. The virus also invades  dendritic cells . These are the sentries that “present” the pathogen’s provoking antigens to the parts of the immune system that carry out the second phase, the slower and targeted adaptive response. And indirectly, mysteriously, lymphocytes die en masse, instead of producing antibodies.
+Yet at the same time, a “cytokine storm”  erupts, sending other arms of the immune response into overdrive. Levels of gamma interferon, interleukins 2 and 10, and tumor necrosis factor soar, triggering fever and flu-like symptoms. Yet it’s as if there’s no interferon at all. Viruses do not see it.
+The bizarre immune response during Ebola infection is rightfully termed “paradoxical,” at once too slow, too little, too intense.
+Then the body’s barriers begin to break down.
+The endothelial cells that curl into the tiny tubes that are the capillaries, and also line the interiors of larger blood vessels, contort into blobs. Holes appear. Barriers melt away, and the fluids that they contained redistribute. The still-crazily-replicating virus now has direct access to organs, favoring the adrenal cortex (plunging blood pressure), the kidneys, gonads, spleen, and most dangerous, the liver.
+(Wikimedia)
+The final stage is the bleeding, as the liver’s output of clotting factors becomes unhinged. One protein in particular goes by various names: in the older literature it’s simply “tissue factor,” but is also known as thromboplastin, CD142, and factor III.
+Whatever it’s called, this cell surface glycoprotein converts prothrombin into thrombin, the essential final step in blood clotting. The fact that no deficiency of thromboplastin is known – the others cause hemophilias and other clotting disorders – belies its importance.
+In Ebola infection, thromboplastin is too active, ushering in disseminated intravascular coagulation . Tiny clots form in blood vessels everywhere. Organ necrosis sets in as the blood supply ebbs, and clotting factors needed to stanch greater breaches as the blood vessels come apart become depleted. Hemorrhaging begins as the biochemical balance so critical to appropriate clotting vanishes.
+Nicotiana benthamiana, the tobacco plant in which ZMapp is made. Thanks, GMOs!
+BACK TO THE GENES
+A human body overwhelmed with Ebola virus is like a castle whose defenses fail, from the inside out, all orchestrated by that puzzling handful of genes.
+GP targets the virus to certain cell types, deforms the endothelium, and destroys antigen presentation. ZMapp , the drug being given to a handful of infected people ahead of human testing because it worked in macaques, counters GP. It consists of three monoclonal antibodies produced in tobacco cells.
+Gamma interferon
+VP24 cuts off the host transcription factor STAT1, which is required to use gamma interferon, according to a recent report in Cell Host & Microbe . And VP40 protein, because it forms the outside of the virus, should elicit an antibody response, only it usually doesn’t.
+The power of a virus such as Ebola tends to evoke anthropomorphism. But the virus isn’t intentionally trying to kill people, as one prominent researcher told the New York Times, calling the virus “a survivor. It does what it can to avoid the human immune system.” It doesn’t think.
+Another type of survivor  might provide the clues necessary to stop the current epidemic: people whose immune systems can fight off the virus.
+LEARNING FROM SURVIVORS
+Just as HIV antivirals were developed using clues from people who never became infected despite repeated exposure, a solution to Ebola hemorrhagic fever might lie among individuals who recover.
+Survivors have 10 million viruses per milliliter of blood serum; people who succumb have 10 billion. So far we know that the immune response in people who survive is subtly distinctive, the innate response turning off at a specific point and the adaptive response beginning in time to help, neither becoming overactive. Identifying biomarkers  may reveal the specifics that drive resistance, such as an adhesion factor that re-attaches torn endothelium.
+Ebola hemorrhagic fever is the consequence of runaway viral replication against a backdrop of a strangely deranged immune response. We know the viral genome sequence, and I’m sure the genome sequences of survivors are being or will soon be sequenced. I hope it is only a matter of time until researchers deduce how variations of the 20,000-gene human genome or its expression resist the 7-gene genome of Ebola virus, and figure out how to replicate the response.
+Until they do, I’m petrified. I just got an email sent from Eman’s phone — from Joseph, August 20.
+“Eman walked to the hospital today because according to him, he is not doing well. He called me up in pain. Luckily, its not Ebola. We were so scared. He’s admitted. No word yet. I will keep you informed. Joseph”
+Update Sunday August 24: Eman is still in the hospital, but he “only” has hookworms and malaria (which he always seems to have). When he gets out tomorrow, he plans to volunteer with  MSF  to fight Ebola.
+ 

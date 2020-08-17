@@ -1,0 +1,76 @@
+Peer-reviewed
+Research Article
+Implementation of a study to examine the persistence of Ebola virus in the body fluids of Ebola virus disease survivors in Sierra Leone: Methodology and lessons learned
+Contributed equally to this work with:     Gibrilla Fadlu Deen,     Suzanna L. R. McDonald
+Roles Methodology,      Project administration,      Supervision,      Visualization,      Writing – review & editing
+Affiliation Clinical Studies, Internal Medicine, Connaught Hospital, Ministry of Health and Sanitation, Freetown, Sierra Leone
+⨯
+Contributed equally to this work with:     Gibrilla Fadlu Deen,     Suzanna L. R. McDonald
+Roles Investigation,      Methodology,      Project administration,      Resources,      Supervision,      Validation,      Visualization,      Writing – original draft,      Writing – review & editing
+Roles Investigation,      Methodology,      Project administration,      Resources,      Software,      Validation,      Visualization,      Writing – original draft,      Writing – review & editing
+Affiliation Comprehensive Care & Support for EVD Survivors, EVD Research, World Health Organization, Freetown, Sierra Leone
+⨯
+Affiliation 34 Military Hospital, Sierra Leone Ministry of Defence, Freetown, Sierra Leone
+⨯
+Elizabeth Ervin,
+Roles Investigation,      Methodology,      Project administration,      Resources,      Validation
+Affiliation Viral Special Pathogens Branch, Division of High Consequence Pathogens and Pathology, National Center for Emerging and Zoonotic Infectious Diseases, Centers for Disease Control and Prevention, Atlanta, Georgia, United States of America
+⨯
+Roles Conceptualization,      Funding acquisition,      Methodology,      Project administration,      Resources,      Supervision,      Visualization,      Writing – original draft,      Writing – review & editing
+Affiliation Department of Reproductive Health and Research, Family, Women's and Children's Health, World Health Organization, Geneva, Switzerland
+⨯
+Wenbo Xu,
+Roles Funding acquisition,      Investigation,      Project administration,      Resources,      Supervision,      Validation
+Affiliations National Institute for Viral Disease Control and Prevention, Chinese Center for Disease Control and Prevention, Beijing, People's Republic of China,      Sierra Leone-China Friendship Biological Safety Laboratory, Chinese Center for Disease Control and Prevention, Freetown, Sierra Leone
+⨯
+Ute Ströher,
+Roles Conceptualization,      Investigation,      Methodology,      Resources,      Software,      Supervision,      Validation,      Writing – review & editing
+Affiliation Viral Special Pathogens Branch, Division of High Consequence Pathogens and Pathology, National Center for Emerging and Zoonotic Infectious Diseases, Centers for Disease Control and Prevention, Atlanta, Georgia, United States of America
+⨯
+Roles Methodology,      Supervision,      Writing – review & editing
+Affiliation Strategic information, Joint United Nations Programme on HIV/AIDS, Freetown, Sierra Leone
+⨯
+Neetu Abad,
+Roles Investigation,      Methodology,      Project administration,      Resources,      Writing – review & editing
+Affiliation Social & Behavioral Research and Evaluation Branch, Division of Sexually Transmitted Disease Prevention, National Center for HIV/AIDS, Viral Hepatitis, STD, & TB Prevention, Centers for Disease Control and Prevention, Atlanta, Georgia, United States of America
+⨯
+Roles Investigation,      Project administration,      Resources,      Validation
+Affiliation Comprehensive Care & Support for EVD Survivors, EVD Research, World Health Organization, Freetown, Sierra Leone
+⨯
+Tasneem Malik,
+Roles Investigation,      Methodology,      Project administration,      Resources,      Writing – review & editing
+Affiliation Office of Global Activities, Division of Sexually Transmitted Disease Prevention, National Center for HIV/AIDS, Viral Hepatitis, STD, & TB Prevention, Centers for Disease Control and Prevention, Atlanta, Georgia, United States of America
+⨯
+Hongtu Liu,
+Roles Funding acquisition,      Investigation,      Project administration,      Resources,      Software,      Supervision,      Validation
+Affiliations National Institute for Viral Disease Control and Prevention, Chinese Center for Disease Control and Prevention, Beijing, People's Republic of China,      Sierra Leone-China Friendship Biological Safety Laboratory, Chinese Center for Disease Control and Prevention, Freetown, Sierra Leone
+⨯
+Christine Ross,
+Roles Conceptualization,      Investigation,      Methodology,      Project administration,      Resources,      Writing – review & editing
+Affiliation HIV Care and Treatment Branch, Division of Global HIV/AIDS and Tuberculosis, Center for Global Health, Centers for Disease Control and Prevention, Atlanta, Georgia, United States of America
+⨯
+Roles Investigation,      Methodology,      Project administration,      Resources,      Software,      Supervision,      Visualization,      Writing – original draft,      Writing – review & editing
+Affiliation Pandemic and Epidemic Disease Department, Outbreaks and Health Emergencies, World Health Organization, Geneva, Switzerland
+⨯
+Roles Investigation,      Methodology,      Project administration,      Resources,      Software,      Supervision,      Validation,      Visualization,      Writing – review & editing
+Affiliation Comprehensive Care & Support for EVD Survivors, EVD Research, World Health Organization, Freetown, Sierra Leone
+⨯
+Oliver Morgan,
+Roles Conceptualization,      Funding acquisition,      Methodology,      Project administration,      Supervision,      Visualization,      Writing – review & editing
+Affiliation Division of Global Health Protection, Center for Global Health, Centers for Disease Control and Prevention, Atlanta, Georgia, United States of America
+⨯
+Roles Conceptualization,      Funding acquisition,      Methodology,      Project administration,      Software,      Supervision,      Validation
+Affiliation Pandemic and Epidemic Disease Department, Outbreaks and Health Emergencies, World Health Organization, Geneva, Switzerland
+⨯
+Roles Conceptualization,      Funding acquisition,      Investigation,      Methodology,      Project administration,      Resources,      Software,      Supervision,      Validation,      Visualization,      Writing – review & editing
+¶‡ These authors also contributed equally to this work.
+Affiliation Viral Special Pathogens Branch, Division of High Consequence Pathogens and Pathology, National Center for Emerging and Zoonotic Infectious Diseases, Centers for Disease Control and Prevention, Atlanta, Georgia, United States of America
+⨯
+Roles Conceptualization,      Funding acquisition,      Methodology,      Project administration,      Resources,      Software,      Supervision,      Visualization,      Writing – review & editing
+¶‡ These authors also contributed equally to this work.
+Affiliation Department of Reproductive Health and Research, Family, Women's and Children's Health, World Health Organization, Geneva, Switzerland
+⨯
+Roles Methodology,      Project administration,      Supervision
+¶‡ These authors also contributed equally to this work.
+Affiliation 34 Military Hospital, Sierra Leone Ministry of Defence, Freetown, Sierra Leone
+⨯

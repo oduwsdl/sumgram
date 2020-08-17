@@ -1,0 +1,13 @@
+X
+Level 1 - Maximum Readiness
+Hazardous and dangerous conditions exist and are a direct threat to life/property. Maximum readiness requires multiple operational periods and many agencies to support a response from the Emergency Operations Center.
+X
+Level 2 - High Readiness
+Hazardous or dangerous conditions exist or are imminent and pose a significant threat to life/property. High readiness requires multiple operational periods and numerous agencies to support a response from the Emergency Operations Center.
+X
+Level 3 - Increased Readiness
+Hazardous conditions exist but pose no direct or imminent threat to life/property. Increased readiness may require additional agencies to support a response from the Emergency Operations Center, based on the nature of the incident.
+X
+Level 4 - Normal Readiness
+No hazardous conditions are imminent and the normal capabilities of the Emergency Operations Center do not require the support of other agencies.
+Harris County Alerts

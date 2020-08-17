@@ -1,0 +1,16 @@
+About viruses and viral disease
+How lethal is ebolavirus?
+18 January 2012
+After we discussed newly discovered entry factors for ebolavirus and hepatitis C virus on  TWiV 166 , the New York Times covered part of the story in  Key protein may give Ebola virus its opening . Given my recent interest in the case fatality ratio of avian influenza H5N1 , I was intrigued by the following introductory statement:
+Of the pathogens that keep worried scientists awake at night, few rival Ebola for ruthless efficiency. The virus contains just seven genes, yet it manages to kill up to 90 percent of the people it infects.
+Is it true that the fatality rate of ebolavirus is ‘up to 90 percent’? According to the WHO page on Ebola haemorrhagic fever ,
+Zaïre, Sudan and Bundibugyo species have been associated with large Ebola haemorrhagic fever (EHF) outbreaks in Africa with high case fatality ratio (25–90%) while Côte d’Ivoire and Reston have not. Reston species can infect humans but no serious illness or death in humans have been reported to date.
+There have been roughly 1850 recorded cases with over 1200 deaths since ebolavirus was discovered, an average fatality rate of 65%. But have there been only 1850 human infections?
+The answer is clearly no. The results of several serological surveys have shown that many individuals have antibodies against Zaire ebolavirus – purportedly the most lethal. The results of one study revealed antibodies in 10% of individuals in non epidemic regions of Africa. A similar seroprevalence rate (9.5%) was reported in villages near Kikwit, DRC where an outbreak occurred in 1995. In addition, a 13.2% seroprevalence was detected in the Aka Pygmy population of Central African Republic. No Ebola hemorrhagic fever cases were reported in these areas.
+A more recent study examined sera from 4,349 individuals in 220 villages in Gabon. Antibodies against Zaire ebolavirus were detected in 15.3% of those tested, with the highest levels in forested regions (see map). The authors believe that the seropositive individuals had mild or asymptomatic ebolavirus infection:
+The high frequency of ‘immune’ individuals with no disease or outbreak history raises questions as to the real pathogenicity of ZEBOV for humans in ‘natural’ conditions.
+These findings indicate that the fatality rates of Zaire ebolavirus that are quoted widely are likely to be vast overestimates. Why the infection is more lethal during outbreak conditions is not known. One possibility is related to the size of the viral inoculum received. During outbreaks the virus is spread by contact with the blood, secretions, organs or other body fluids of infected individuals, which contain very large quantities of virus. In contrast, infections in nature – by contact with contaminated fruit, for example – may involve far less virus.
+Whether we are discussing avian H5N1 influenza, ebolavirus, or even the fictitious MEV-1 , do not assume that widely quoted fatality rates are correct – check the scientific literature !
+Related:
+Should we fear avian H5N1 influenza?
+Becquart P, Wauquier N, Mahlakõiv T, Nkoghe D, Padilla C, Souris M, Ollomo B, Gonzalez JP, De Lamballerie X, Kazanji M, & Leroy EM (2010). High prevalence of both humoral and cellular immunity to Zaire ebolavirus among rural populations in Gabon. PloS one, 5 (2) PMID: 20161740

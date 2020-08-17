@@ -1,0 +1,17 @@
+N
+Y
+If your company holds the primary registration, provide the most recent EPA stamped “accepted” label. A label notification is not sufficient. This may mean that the most current stamped “accepted” label has a subsequent notification. That is fine. EPA needs the stamped “accepted” label. If your company holds only a distributor/supplemental label, provide a copy of the current distributor/supplemental label.
+The following language needs to be highlighted in the text of the label
+“Disinfectant”, “disinfects”, or any other form of the word “disinfect”,
+At least one non-envelope virus (e.g. norovirus, rotavirus, adenovirus, poliovirus),
+Hospital/health care facilities use site or the equivalent microbial pathogen claims, and
+Any other use sites identified on the label per the template above.
+In addition to meeting the criteria in the CDC Guidance, a registered product must also be recently registered or satisfy the Antimicrobial Testing Program (ATP) in order for the product to be included in List L.
+If a registered product is on the ATP list and appears in either the “Agency Taking Action” column or the “No Post-Market Testing By EPA” column and was not registered recently, it will not appear on List L. See the ATP list to confirm a product's status .
+If a product appears in the “No Post-Market Testing By EPA” column and a registrant wants to pursue having the product moved to the “Agency Confirmed Efficacy” column, please refer to the  Antimicrobial Testing Program .
+Email the spreadsheet and label(s) to  disinfectantslist@epa.gov .
+Additional Information
+More information about EPA-registered disinfectants and other lists . 
+If you hold the primary registration for a product that you believe should be added to this list please email  disinfectantslist@epa.gov .  In the subject line of your email include: “Include Product(s) on List [Insert list Identifier]; [Registration #(s)].”  In the body, identify the Company Name, Registration Number(s), and primary brand name(s) of the product(s). Your Request will be reviewed and the list will be corrected.
+Contact Us to ask a question, provide feedback, or report a problem.
+Pesticide Registration

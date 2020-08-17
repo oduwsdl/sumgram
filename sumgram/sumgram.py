@@ -1267,11 +1267,12 @@ def update_doc_indx(report, doc_id_new_doc_indx_map):
     '''
 
     #update report['ranked_sentences']
-    for i in range( len(report['ranked_sentences']) ):
-        
-        doc_id = report['ranked_sentences'][i]['doc_id']
-        if( doc_id in doc_id_new_doc_indx_map ):
-            report['ranked_sentences'][i]['doc_indx'] = doc_id_new_doc_indx_map[doc_id]
+    if( 'ranked_sentences' in report ):
+        for i in range( len(report['ranked_sentences']) ):
+            
+            doc_id = report['ranked_sentences'][i]['doc_id']
+            if( doc_id in doc_id_new_doc_indx_map ):
+                report['ranked_sentences'][i]['doc_indx'] = doc_id_new_doc_indx_map[doc_id]
 
     #update report['top_sumgrams'][*]['postings'] and report['top_sumgrams'][*]['parent_sentences']
     for i in range( len(report['top_sumgrams']) ):

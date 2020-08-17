@@ -1,0 +1,4 @@
+English | Español
+In an effort to provide users with additional information to enhance planning and preparedness decisions, NHC provides Audio Briefings (also called podcasts), when the media pool is activated by the NHC Public Affairs Officer. In general, the media pool is activated by NHC when a hurricane watch is initiated for a portion of the United States coastline.  The audio briefings will provide the latest information regarding the hurricane threat and its expected impacts.
+When a current podcast is available, a link to the RSS/Podcast feed and a link to the corresponding directory with the latest audio (mp3) file will be displayed. You can right-click and choose "save" to download the file.
+Once the podcasts are older than 4 hours, they will not be shown on this page. If you have comments about this service, please send us email or complete a short survey .

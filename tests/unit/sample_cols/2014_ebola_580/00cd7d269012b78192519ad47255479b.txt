@@ -1,0 +1,7 @@
+[–] Shiroi_Kage 6 points7 points8 points
+3 years ago
+  (6 children)
+Huh, that's interesting. Now I want to know the binding energy of BCX4430-MP to viral RNA-poly VS human RNA-poly, as well as if the mechanism of catalysis is different in the viral RNA-poly. What's more, I want to see an electron cloud density around this thing.
+The first thing I though of when I looked at the structures of BCX4430-MP and adenosine side-by-side is that the allosteric structure is too different because we lost the oxygen on the fructose, so it's a very different electron distribution, the C-N bond at the 1' carbon is different thanks to it being replaced by a C-C bond, and the location of the pi bond is also changed, which changes the dimensions of the little ring on the adenine. If the combination of those differences increases the energy of BCX4430-MP binding to the active site enough, then entropy alone would prevent human RNA-poly from even binding to it in the first place.
+It would be interesting to see if there is any concentration at all where the thing would be incorporated into human RNA.
+EDIT: Phrasing.

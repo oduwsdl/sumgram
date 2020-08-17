@@ -1,0 +1,38 @@
+Zika virus and complications: Questions and answers
+Online Q&A
+Updated 10 March 2017
+Summary of the situation
+The rise in the spread of Zika virus in Brazil has been accompanied by an unprecedented rise in the number of children being born with unusually small headsâidentified as microcephaly. In addition, several countries, including Brazil, reported a steep increase in Guillain-BarrÃ© syndromeâa neurological disorder that could lead to paralysis and death. Based on a systematic review of the literature up to 30 May 2016, WHO has concluded that Zika virus infection during pregnancy is a cause of congenital brain abnormalities, including microcephaly; and that Zika virus is a trigger of Guillain-BarrÃ© syndrome. Zika virus continues to spread geographically to areas where mosquitoes are present that can transmit the virus.
+Zika virus
+How do people catch Zika virus?
+Zika virus is primarily transmitted to people through the bite of an infected Aedes mosquito, which can also transmit chikungunya, dengue and yellow fever.
+Zika virus can also be transmitted through sex and has been detected in semen, blood, urine, amniotic fluids, saliva as well as body fluids found in the brain and spinal cord.
+Zika virus may present a risk to blood safety. People who have donated blood are encouraged to report to the blood transfusion service if they subsequently get symptoms of Zika virus infection, or if they are diagnosed with recent Zika virus infection within 14 days after blood donation.
+Maintaining a safe and adequate blood supply during Zika virus outbreaks
+What are the symptoms of Zika virus disease?
+Zika virus usually causes mild illness. Symptoms most commonly include a slight fever or rash, appearing a few days after a person is bitten by an infected mosquito. Although many will not develop any symptoms at all, others may also suffer from conjunctivitis, muscle and joint pain, and feel tired. The symptoms usually last from 2 to 7 days.
+There is no known difference in the symptoms of infected pregnant and non-pregnant women.
+Interim case definition of Zika virus disease
+How is Zika virus disease diagnosed?
+Diagnosis is based  on symptoms and the personâs recent history (e.g. mosquito bites, or travel to an area where Zika virus occurs). Laboratory testing can confirm the presence of Zika virus in the blood. However, this diagnosis may not be reliable as the virus could cross-react with other viruses such as dengue, West Nile and yellow fever. The development of a reliable, rapid point-of-care diagnostic test is high priority for Zika-related research.
+Laboratory testing for Zika virus infection
+How is Zika virus disease treated?
+The symptoms of Zika virus disease can be treated with common pain and fever medicines, rest and plenty of water. If symptoms worsen, people should seek medical advice.
+Zika virus country classification scheme
+Why do we need a Zika virus country classification scheme?
+Public health agencies like WHO classify countries to characterize the level of Zika virus transmission in a given time and the potential for its spread. This information enables countries to prepare and respond to the threat and adapt public health recommendations for residents and travellers.
+Why does the scheme only take into consideration the presence in a country of the Aedes aegypti mosquito and not of other mosquitoes?
+The Aedes aegypti mosquito is considered the main vector of Zika virus transmission because it sustains most Zika virus outbreaks. Zika virus may be imported by infected travellers into an area that may not have Zika virus transmission at that point of time. If those travellers are bitten by local Aedes aegypti mosquitoes the mosquitoes can transmit the virus to others, potentially setting off a cycle of transmission. Studies on the role of other species of mosquitoes in human transmission are inconclusive so far.
+What are the categories in the Zika virus country classification scheme?
+Category 1: Area with new introduction of Zika virus since 2015 or area where the virus has been re-introduced, with ongoing transmission.
+Category 2: Area either with evidence of Zika virus circulation before 2015 or with transmission but the area does not satisfy the criteria for 1 or 3. Areas in category 2 may also experience an outbreak of Zika.
+Category 3: Area with interrupted transmission but with potential for future transmission.
+Category 4: Area with established Aedes aegypti mosquitoes but no known documented past or current transmission.
+What are the public health implications of this classification?
+WHO strongly encourages all countries with Aedes aegypti mosquitoes, whether they ever had Zika virus transmission or not, to enhance early warning systems for Zika and related severe neurological complications. Zika virus infection is usually benign. However, studies have shown that Zika virus is a cause of congenital Zika virus syndrome, a condition occurring in newborns and infants who were exposed to Zika virus before birth. To prevent congenital Zika virus syndrome, it is important to monitor trends in Zika virus infection. WHO has issued a range of guidelines to help countries prepare and respond to outbreaks of Zika virus and related complications.
+Publications and technical guidance on Zika virus
+How was the Zika virus country classification scheme developed?
+WHO, the US Centers for Disease Control and Prevention (CDC) and the European Centre for Disease Control and Prevention (ECDC) have collaboratively reviewed surveillance data from countries and defined levels of Zika virus transmission and risk based on current evidence. As a guidance development group, they have developed the interim guidance on Zika virus country classification scheme.
+Zika and neurological complications
+What is microcephaly?
+Microcephaly is a condition where a babyâs head is smaller than those of other babies of the same age and sex. Microcephaly happens when there is either a problem in utero, causing the babyâs brain to stop growing properly, or after birth when the head stops growing properly. Children born with microcephaly often have developmental challenges as they grow older. In some cases, children with microcephaly develop entirely normally. Microcephaly can be caused by a variety of environmental and genetic factors such as Down syndrome; exposure to drugs, alcohol or other toxins in the womb; and rubella infection during pregnancy.

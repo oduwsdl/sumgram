@@ -1,0 +1,23 @@
+Ebola virus mutating rapidly as it spreads
+Outbreak likely originated with a single animal-to-human transmission.
+Rights & Permissions
+Sequencing the Ebola virus
+In August, an international team of researchers published the sequences of 99 Ebola viruses taken from 78 patients.
+On 24 May, Augustine Goba received a blood sample from a pregnant woman in Sierra Leone who had fallen ill after attending the funeral of an Ebola victim in Guinea. Twenty-four hours later, the test results came back positive. Goba, who directs a diagnostic lab at Kenema Government Hospital in Sierra Leone, had confirmed the country's first case of Ebola.
+He and his colleagues have now decoded the genetic sequences of 99 Ebola viruses collected from 78 patients during the first 24 days of the epidemic in Sierra Leone. The work 1 , published online in Science, could help to inform the design of diagnostics, therapeutics and vaccines, says structural biologist Erica Ollmann Saphire of The Scripps Research Institute in La Jolla, California. “This paper is terrific,” she adds.
+The Ebola epidemic in West Africa has already killed more than 1,400 people — including five of Goba's co-authors from Kenema. The paper is dedicated to their memory.
+The sequence data, which were made publicly available by 31 July , constitute the largest collection of genetic information on Ebola ever to be released. To get them, the group collected leftover blood from samples taken for diagnostic tests in Kenema. They then used a chemical solution to deactivate the Ebola viruses, and sent the samples to be sequenced at the Broad Institute in Cambridge, Massachusetts.
+The researchers sequenced the viral genomes from each sample an average of more than 2,000 times, allowing them track how the virus mutated as it spread from patient to patient. In April, researchers reported 2 that they had sequenced data from Guinean patients' viruses. That team, however, produced one composite viral genome sequence for each patient, rather than individually sequencing different copies of the virus found in each patient, as in the work reported today.
+Stephen Gire
+Augustine Goba confirmed the first case of Ebola virus in Sierra Leone.
+Back to the beginning
+By comparing their data to the Guinean sequence data, Goba's team confirmed that Ebola was probably imported to Sierra Leone by 12 people who attended the funeral in Guinea, and that the West African outbreak originated in a single event in which the virus passed from an animal into a person. Further comparisons suggest that the virus that caused the outbreak separated from those that caused past Ebola outbreaks about 10 years ago. It had accumulated more than 395 mutations between that time and June, when the researchers collected the last samples included in today's analysis.
+The virus amassed 50 mutations during its first month, the researchers found. They say there is no sign that any of these mutations have contributed to the unprecedented size of the outbreak by changing the characteristics of the Ebola virus — for instance, its ability to spread from person to person or to kill infected patients. But others are eager to examine these questions.
+And such risks rise as the virus continues to spread. “The longer we allow the outbreak to continue, the greater the opportunity the virus has to mutate, and it’s possible that it will mutate into a form that would be an even greater threat than it is right now,” says Charles Chiu, an infectious-disease physician at the University of California, San Francisco.
+Nature special: Ebola outbreak in West Africa
+Constant monitoring
+The mutations do not seem to be affecting the efficacy of experimental drugs and vaccines , some of which have been given to patients in this outbreak. Some changes have occurred in regions of the genome that are targeted by diagnostic tests. This does not mean the tests are ineffective, but confirming this and continuing to monitor such mutations will be crucial, Chiu says.
+In the meantime, doctors and researchers say that the only way to end the outbreak is to send more health workers and supplies to affected regions, and to train Africans to diagnose, trace and treat Ebola.
+Several authors of the study, including Christian Happi of Redeemer’s University in Redemption City, Nigeria, have been involved in such training in West Africa, and are now preparing researchers there to perform genetic sequencing. Happi’s African Centre of Excellence for Genomics of Infectious Disease at the university is expecting to receive the first next-generation sequencer in West Africa.
+“Our hope is that next time this happens, we will be able to perform deep sequencing right on African soil,” Happi says.
+Journal name:
