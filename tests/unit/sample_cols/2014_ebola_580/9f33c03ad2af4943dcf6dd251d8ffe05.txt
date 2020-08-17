@@ -1,0 +1,8 @@
+Generate a file for use with external citation management software.
+Create File
+J Infect Dis. 1999 Feb;179 Suppl 1:S18-23.
+Treatment of Ebola hemorrhagic fever with blood transfusions from convalescent patients. International Scientific and Technical Committee.
+Kinshasa University, Ministry of Public Health, Democratic Republic of the Congo.
+Abstract
+Between 6 and 22 June 1995, 8 patients in Kikwit, Democratic Republic of the Congo, who met the case definition used in Kikwit for Ebola (EBO) hemorrhagic fever, were transfused with blood donated by 5 convalescent patients. The donated blood contained IgG EBO antibodies but no EBO antigen. EBO antigens were detected in all the transfusion recipients just before transfusion. The 8 transfused patients had clinical symptoms similar to those of other EBO patients seen during the epidemic. All were seriously ill with severe asthenia, 4 presented with hemorrhagic manifestations, and 2 became comatose as their disease progressed. Only 1 transfused patient (12.5%) died; this number is significantly lower than the overall case fatality rate (80%) for the EBO epidemic in Kikwit and than the rates for other EBO epidemics. The reason for this low fatality rate remains to be explained. The transfused patients did receive better care than those in the initial phase of the epidemic. Plans should be made to prepare for a more thorough evaluation of passive immune therapy during a new EBO outbreak.
+PMID:

@@ -1,0 +1,11 @@
+Volume 242 , April 2017, Pages 35-45
+Production, purification and immunogenicity of recombinant Ebola virus proteins − A comparison of Freund’s adjuvant and adjuvant system 03
+Author links open overlay panel KristerMelénab
+Three immunizations elicited maximal antibody levels against EBOV proteins.
+•
+Rabbit and guinea pig immunosera showed very high specificity to EBOV proteins.
+•
+The adjuvant effect of AS03 is comparable to that of FCA.
+Abstract
+There is an urgent need for Ebola virus (EBOV) proteins, EBOV-specific antibodies and recombinant antigens to be used in diagnostics and as potential vaccine candidates. Our objective was to produce and purify recombinant proteins for immunological assays and for the production of polyclonal EBOV specific antibodies. In addition, a limited comparison of the adjuvant effects of Freund's complete adjuvant (FCA) and adjuvant system 03 (AS03) was carried out. Recombinant EBOV GST-VP24, −VP30, −VP35, −VP40 and −NP were produced in E. coli and purified with affinity chromatography followed by preparative gel electrophoresis. Recombinant EBOV GP-His was produced in Sf9 insect cells and purified by preparative gel electrophoresis. To compare the adjuvant effect of FCA and AS03, 12 rabbits were immunized four times with one of the six recombinant EBOV proteins using FCA or AS03. In addition, three guinea pigs were immunized with EBOV VP24 using FCA. With the exception of sera from two rabbits immunized with GST-VP24, the antisera against all other EBOV proteins showed very high and specific antibody responses after three to four immunizations. The adjuvant effect of AS03 was comparable to that of FCA. The produced antibodies recognized the corresponding EBOV proteins in wild type EBOV-infected cells.
+Abbreviations

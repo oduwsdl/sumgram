@@ -1,0 +1,26 @@
+ShareCompartir
+James Vaughan, founder of Ndemic Creations, spoke to CDC staff on March 20, 2013 about his new mobile app, Plague Inc.  Within the game, players select a pathogen and strategize how to evolve symptoms, transmit the disease, and counter actions taken by world governments and scientists. With a successful disease, players can watch as governments fall and humanity is wiped out.
+I became interested in Vaughan’s game as a tool to teach the public about outbreaks and disease transmission because of how it uses a non-traditional route to raise public awareness on epidemiology, disease transmission, and diseases/pandemic information. The game creates a compelling world that engages the public on serious public health topics.
+For PHPR, using non-conventional methods to communicate with the public has worked really well in the past through social media and blogs posts.  We were very excited to welcome James to CDC and learn more about using other digital platforms to reach a general audience.
+“CDC uses digital media to raise awareness on health issues that the nation faces today,” says Katherine Lyon-Daniel, PhD, Associate Director of Communication at CDC. “Meeting with industry leaders is a great way to learn more about reaching new audiences through mobile apps.”
+I sat down with Mr. Vaughan to learn more about the game, its creation, and what he plans to do next.
+How did you come up with the idea of Plague Inc.?
+I made Plague Inc. as a hobby.  I was a strategy consultant in my day job, but I wanted to give myself a creative challenge in my spare time.
+Plague Inc. is a bit like the film Contagion except that you are the disease! The 2008 flash game Pandemic 2 gave me the idea of spreading a disease around the world. I liked the game, but thought it could be even better if it had deeper strategy, a strong narrative, increased realism and a lot more. So – I decided to make it!
+ 
+How long did it take to develop Plague Inc.?  
+It took around a year to develop the game. I could only work on it in the evening and on weekends. Because I had never made a game before, it was very much a case of learning as I went.  Luckily, I found three great freelancers who were able to help.
+How did you ensure it was a realistic game?
+Without a medical background, I did a lot of online research in order to make sure it felt realistic to players.  Luckily, I have always been very interested in biology as well as economics and current affairs.  This helped a lot when I was building the algorithms and models inside the game.
+A critical stage in the game is the ‘Infection Cycle’ that dictates how people become infected with a disease and how they infect others. The game revolves around this stage, and I spent months making sure that it worked properly. The core design is based on the concept of ‘basic reproduction rate’ and I found lots of great papers online which taught me more about it.
+What kind of audience does Plague Inc. reach and what do they get from it?
+Plague Inc. has been downloaded over 10 million times worldwide and over 200 million games have been played to date. As an intelligent and sophisticated strategy game, I think Plague Inc. appeals to people looking for something more meaningful and substantial than the majority of mobile games. It makes people think about infectious disease in a new light – helping them realize the threats that we face every day.
+An interesting fact is that it has also become an educational tool – teachers and professors often get in touch to let me know how they used Plague Inc. to illustrate biological and economical concepts to their students.
+Were players of Plague Inc. interested to know you had been invited to the CDC?
+Yes, the reaction to the news has been extremely positive and people are keen to know more! In the first 24 hours after I announced my visit to the CDC almost 1 million people had seen tweets about it!
+I think people were excited to see that a prestigious organization like the CDC was interested in the game. A lot of people also hoped that visiting the CDC would give me ideas for future updates of the game (which it did!)
+What did you learn at CDC?
+It was fascinating to meet the people who are working hard every day to keep us safe from the type of threats that Plague Inc. features. I got a tour of the Emergency Operations Center and Broadcast Center, as well as a trip to the CDC museum. This gave me a lot of contextual information about how the CDC works, which will help me add a greater level of realism to the game in the future – especially in terms of how humanity reacts to outbreaks.
+What are you working on now and what do you have coming out next?
+Plague Inc. is still proving to be an incredibly popular game, so my main focus must be to keep improving the game and adding new content for players. Recently, I released an update which added a zombie-themed plague, as well as translating the game into four other languages.  In the next update, I will be adding a new game mode for players, translating it into Japanese/Korean and hopefully adding some CDC content!
+Posted on

@@ -1,0 +1,6 @@
+Loading…
+Please enter an amount less than [{{ form.donationFlow['donation.amount.maximumAmount'] | currency }}]. If you'd like to give more, please call 1-800-RED CROSS.
+I Want to Support
+One Time
+Your donation of {{ model.donation.amount | currency }} will be made today and on the 29th of each following month using the payment method selected. You may cancel or change this amount at any time.
+I Want to Give:

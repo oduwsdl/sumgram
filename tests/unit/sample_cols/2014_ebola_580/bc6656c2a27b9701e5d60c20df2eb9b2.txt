@@ -1,0 +1,16 @@
+Journal Metrics
+CiteScore: 4.50 ℹ CiteScore measures the average citations received per document published in this title. CiteScore values are based on citation counts in a given year (e.g. 2015) to documents published in three previous calendar years (e.g. 2012 – 14), divided by the number of documents in these three previous years (e.g. 2012 – 14).
+Impact Factor: 4.271 ℹ Impact Factor:
+2016: 4.271
+The Impact Factor measures the average number of citations received in a particular year by papers published in the journal during the two preceding years.
+2016 Journal Citation Reports (Clarivate Analytics, 2017)
+5-Year Impact Factor: 3.845 ℹ Five-Year Impact Factor:
+2016: 3.845
+To calculate the five year Impact Factor, citations are counted in 2016 to the previous five years and divided by the source items published in the previous five years.
+2016 Journal Citation Reports (Clarivate Analytics, 2017)
+Source Normalized Impact per Paper (SNIP): 1.245 ℹ Source Normalized Impact per Paper (SNIP):
+2016: 1.245
+SNIP measures contextual citation impact by weighting citations based on the total number of citations in a subject field.
+SCImago Journal Rank (SJR): 2.026 ℹ SCImago Journal Rank (SJR):
+2016: 2.026
+SJR is a prestige metric based on the idea that not all citations are the same. SJR uses a similar algorithm as the Google page rank; it provides a quantitative and a qualitative measure of the journal’s impact.

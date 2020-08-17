@@ -1,0 +1,49 @@
+Frequently asked questions on Ebola virus disease
+Updated May 2017
+1. What is Ebola virus disease?
+Ebola virus disease (formerly known as Ebola haemorrhagic fever) is a severe, often fatal illness, with a death rate of up to 90% caused by Ebola virus, a member of the filovirus family.
+The Ebola virus was first identified in 1976 when 2 simultaneous outbreaks occurred, 1 in Yambuku, a village not far from the Ebola River in the Democratic Republic of Congo and the other in a remote area of Sudan.
+The origin of the virus is unknown, but current evidence suggests that fruit bats (Pteropodidae) may be a  host.
+2. How do people become infected with the Ebola virus?
+People become infected with Ebola either through contact with infected animals (usually following butchering, cooking or eating) or through contact with the bodily fluids of infected humans. Most cases are caused by human to human transmission which occurs when blood or other bodily fluids or secretions (stool, urine, saliva, semen) of infected people enters a healthy personâs body through broken skin or mucous membranes.
+Infection can also occur if the broken skin or the mucous membranes of a healthy person comes into contact with items or environments contaminated with bodily fluids from an infected person. These may include soiled clothing, bed linen, gloves, protective equipment and medical waste such as used hypodermic syringes.
+3. Who is most at risk?
+During an outbreak, those at higher risk of infection are:
+health workers;
+family members or others in close contact with infected people;
+mourners who have direct contact with bodies during burial rituals.
+4. Why are mourners at burial ceremonies considered at risk of contracting Ebola?
+Levels of Ebola virus remain high after death, thus bodies of those who have died from Ebola virus disease must be handled only by people wearing appropriate personal protective equipment and must be buried immediately. WHO advises that bodies of people who may have died from Ebola virus disease should be handled only by trained burial teams, who are equipped to properly bury the dead, safely and with dignity.
+How to conduct safe and dignified burial of a patient who has died from suspected or confirmed Ebola virus disease
+5. Why are health-care workers at greater risk of catching Ebola?
+Health-care workers are at greater risk of infection if they are not wearing correct personal protective equipment (PPE) or are not applying infection prevention and control (IPC) measures when caring for patients. All health-care providers working at all levels of the health system â hospitals, clinics and health posts â should be fully informed about the disease and its mode of transmission and should follow recommended precautions strictly.
+How to put on and how to remove personal protective equipment - posters
+6. Can Ebola be transmitted sexually?
+Sexual transmission of the Ebola virus, from males to females, is a strong possibility, but has not yet been proven. Less probable, but theoretically possible, is female to male transmission. More surveillance data and research are needed on the risks of sexual transmission, and particularly on the prevalence of viable and transmissible virus in semen over time. In the interim, and based on present evidence, WHO recommends that:
+All Ebola survivors and their sexual partners should receive counselling to ensure safe sexual practices until their semen has twice tested negative. Survivors should be provided with condoms.
+Male Ebola survivors should be offered semen testing at 3 months after onset of disease, and then, for those who test positive, every month thereafter until their semen tests negative for virus twice by RT-PCR, with an interval of one week between tests.
+Ebola survivors and their sexual partners should either:
+abstain from all types of sex, or
+observe safe sex through correct and consistent condom use until their semen has twice tested negative.
+Having tested negative, survivors can safely resume normal sexual practices without fear of Ebola virus transmission.
+Based on further analysis of ongoing research and consideration by the WHO Advisory Group on the Ebola Virus Disease Response, WHO recommends that male survivors of Ebola virus disease practice safe sex and hygiene for 12 months from onset of symptoms or until their semen tests negative twice for Ebola virus.
+Until such time as their semen has twice tested negative for Ebola, survivors should practise good hand and personal hygiene by immediately and thoroughly washing with soap and water after any physical contact with semen, including after masturbation. During this period used condoms should be handled safely, and safely disposed of, so as to prevent contact with seminal fluids.
+All survivors, their partners and families should be shown respect, dignity and compassion.
+Clinical care for survivors of Ebola virus disease
+7. What are the typical signs and symptoms of Ebola virus infection?
+Ebola symptoms vary but sudden onset of fever, intense weakness, muscle pain, headache and sore throat are commonly experienced at the beginning of the disease (âthe dry phaseâ). As the disease progresses, people commonly develop vomiting and diarrhoea (âthe wet phaseâ), rash, impaired kidney and liver function, and in some cases, both internal and external bleeding.
+8. How long does it take for people to develop symptoms after being infected?
+The incubation period, or the time interval from infection to onset of symptoms, is from 2 to 21 days. People are not contagious until they develop symptoms. Ebola virus disease infections can only be confirmed through laboratory testing.
+9. When should someone seek medical care?
+A person with Ebola-like symptoms (fever, headache, muscle aches, headache, vomiting, diarrhoea) who has been in contact with living or dead people suspected to have had Ebola or has travelled to an area known to have cases of Ebola virus disease should seek medical care immediately.
+10. Is there any treatment for Ebola?
+Supportive care, especially fluid replacement therapy, carefully managed and monitored by trained health workers improves chances of survival. Other treatments being used to help people survive Ebola virus disease include, where available, kidney dialysis, blood transfusions, plasma replacement therapy.
+An experimental Ebola vaccine proved highly protective against Ebola virus in a major trial in Guinea.  The vaccine, called rVSV-ZEBOV, was studied in a trial involving 11 841 people during 2015.
+11. Can people with Ebola be cared for at home?
+WHO does not advise families or communities to care for individuals with symptoms of Ebola virus disease at home. People with such symptoms should seek treatment in a hospital or treatment centre staffed by doctors and nurses equipped to treat Ebola virus disease.
+If a person dies at home and is suspected of having died from Ebola virus disease, family and community members should refrain from handling or preparing the body for burial. The local health authorities should be contacted immediately and asked to send  a dead body management team.
+12. Can Ebola be prevented?
+People can protect themselves from infection with Ebola virus following specific infection prevention and control measures. These include hand washing, avoiding contact with the bodily fluids of individuals who are suspected of or confirmed to have Ebola, and refraining from handling or preparing bodies of persons who are suspected of or confirmed to have died from Ebola.
+13. Is there an Ebola vaccine?
+An experimental Ebola vaccine proved highly protective against the deadly virus in a major trial in Guinea.  The vaccine, called rVSV-ZEBOV, was studied in a trial involving 11 841 people during 2015. Among the 5837 people who received the vaccine, no Ebola cases were recorded 10 days or more after vaccination. In comparison, there were 23 cases 10 days or more after vaccination among those who did not receive the vaccine.
+The trial was led by WHO, together with Guineaâs Ministry of Health, MÃ©decins sans Frontieres and the Norwegian Institute of Public Health, in collaboration with other international partners. A ring vaccination protocol was chosen for the trial, where some of the rings are vaccinated shortly after a case is detected, and other rings are vaccinated after a delay of 3 weeks.

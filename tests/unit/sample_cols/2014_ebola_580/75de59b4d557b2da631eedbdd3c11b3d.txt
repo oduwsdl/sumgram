@@ -1,0 +1,15 @@
+Visit your profile page to set up email alerts.
+Outbreaks Near Me
+Zika outbreak United States Flu Trends
+Disease Categories
+Twelve disease categories are used to help you quickly find what you're looking for within your local area. Most of the categories refer to where the disease affects your body, such as Gastrointestinal for cholera or Respiratory for pneumonia. We also keep track of environmental risks (i.e. beach closures due to sewage) and animal diseases (i.e. foxes found with rabies) to provide you a broader picture of diseases in your area.
+The number of alerts in each category determines the order in which they appear in the Outbreaks Near Me section. The category with the greatest number of alerts appears first. Categories that have no alerts in your area are not displayed.
+Animal
+Diseases affecting domestic animals, livestock, and wildlife.
+Environmental
+Changes in the environment that may impact human health (natural/man-made disaster, heat wave, volcanic eruption).
+Fever/Febrile
+Diseases characterized by a high body temperature (fever).
+Gastrointestinal
+Diseases causing vomiting, diarrhea, or abdominal cramping.
+Hemorrhagic

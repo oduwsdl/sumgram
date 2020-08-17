@@ -1,0 +1,6 @@
+Blog
+About Bit&middotof&middotNews
+Bit·of·News is powered by PyTeaser , a news summary algorithm that ranks sentences in a news article according to how relevant they are. The top 5 sentences are used to form a "summary". Sentences are ranked using four criteria:
+Relevance to the title
+Relevance to keywords in the article
+Position of the sentence

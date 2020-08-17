@@ -1,0 +1,25 @@
+Big Data
+Online Resources Track and Map Ebola Outbreak
+A World Health Organization, WHO, worker, right rear, trains nurses to use Ebola protective gear in Freetown, Sierra Leone.              //                                    Michael Duff/AP
+Increase size
+Clinicians, governments and humanitarian organizations fighting the Ebola virus can tap into online resources that range from clinical guidelines for health care workers to websites that crunch, map and display data on the spread of the disease in West Africa.
+The outbreak has claimed about 3,865 lives, primarily in Liberia, Sierra Leone and Guinea, according to the World Health Organization. West Africa could face up to 10,000 new Ebola cases a week within two months, a WHO official said at a press conference in Geneva today.
+ReliefWeb , which went into operation in 1996, stands out as the largest humanitarian information portal in the world, covering disasters worldwide. It offers a wealth of information on the Ebola crisis and the international response.
+Operated by the United Nations Office for the Coordination of Humanitarian Affairs, ReliefWeb gathers information from 4,000 sources filtered by an editorial team working in three time zones. The West Africa section focuses on Ebola in Guinea, Sierra Leone, Liberia, Nigeria and Senegal, with daily country-by-country updates on the spread of the disease and regional response plans.
+WHO, meanwhile, has set up a top-level Ebola portal , which offers a broad view of the disease, its spread and steps needed to counteract it.
+Mapping Ebola
+Web mapping and data analysis sites are also helping fine-tune information about the spread of Ebola.
+Health Map an Internet-based global infectious disease intelligence site, graphically displays West Africa Ebola cases in a timeline going back to the start of the outbreak. The site also projects its future spread.
+Founded by John Brownstein, a Harvard professor and director of the Computational Epidemiology Group at the Children’s Hospital Informatics Program in Boston, Health Map is used by over 1 million people a year, including experts from WHO and the Centers for Disease Control and Prevention.
+Humanitarian Open Street Map , a U.S. based nonprofit, said it was asked by Doctors Without Borders – whose clinicians work all over West Africa – to apply geographical information system techniques to epidemiology management.
+Over the past six months, Humanitarian Open Street Map said it has mapped 8 million objects; more than 90,000 kilometers of roads; 650,000 buildings; and 20,000 place names in Guinea, Liberia and Sierra Leone.
+ReliefWeb first launched the Humanitarian Data Exchange portal in February to collect data from disaster response organizations and pool it in a database that can be compared across countries and crises. Ebola datasets posted online by the Humanitarian Data Exchange display information on the number of cases reported in West Africa, deaths by gender, locations of treatment centers and the organizations that have responded to the crisis.
+Logistics for UN and nongovernmental organizations is handled by a UN Logistics Cluster , which manages distribution of supplies, transport, including chartered aircraft, warehousing of supplies and information technology.
+Online Clinical Guides
+Medical Mission Institute Würzburg, in partnership with a number of other German relief organizations, has stood up Medbox , a new website that provides clinical information to help fight diseases.
+Its Ebola toolbox offers a pocket guide for front-line health care treating patients as well as laboratory procedures and a guide on how health care workers can avoid exposure to the disease.
+CDC has set up an Ebola portal currently focused on the two reported cases in Texas, which included the death of the first patient, Liberia native Thomas Eric Duncan. The main CDC page links to a separate comprehensive site for health care workers, which offers guidelines on infection control, evaluation of visitors entering the country from Liberia and directions on how to safely put on and take off protective suits.
+Andrew Weber, assistant secretary of defense for nuclear, chemical and biological defense programs, said last week the Pentagon planned to set up its own Ebola portal . 
+Jennifer Elzea, a Pentagon spokeswoman, told Nextgov the portal will not go live for several weeks and would not be open to the public.
+The Pentagon’s Ebola portal, Elzea said, will run on a secure server and will be open to federal agencies and nongovernmental organizations working on the Ebola crisis. 
+recommended for you

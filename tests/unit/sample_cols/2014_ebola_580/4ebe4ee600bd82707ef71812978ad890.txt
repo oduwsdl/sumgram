@@ -1,0 +1,11 @@
+Already have an account? Sign In.
+{* #registrationForm *} {* firstName *}    {* lastName *}    {* emailAddress *}    {* displayName *}    {* newPassword *}    {* newPasswordConfirm *}
+Postmedia wants to improve your reading experience as well as share the best deals and promotions from our advertisers with you. The information below will be used to optimize the content and make ads across the network more relevant to you. You can always change the information you share with us by editing your profile.
+Birthdate{* birthdate *}
+Gender{* gender *}
+Attention Print Newspaper Subscribers
+For verification of Print Subscriber offers (e.g. epaper, Digital Access, Subscriber Rewards), please input your Print Newspaper subscription phone number and postal code.
+{* phone *}     {* addressPostalCode *}
+By clicking "Create Account", I hearby grant permission to Postmedia to use my account information to create my account.
+I also accept and agree to be bound by Postmedia's Terms and Conditions with respect to my use of the Site and I have read and understand Postmedia's Privacy Statement. I consent to the collection, use, maintenance, and disclosure of my information in accordance with the Postmedia's Privacy Policy .
+{* backButton *}

@@ -1,0 +1,17 @@
+About viruses and viral disease
+Is it Ebolavirus or Ebola virus?
+7 August 2012
+When I drafted my article for TakePart ( Don’t Panic – Ebola Isn’t Heading For You ), I used the term ‘ebolavirus’ throughout, but the editors changed every instance to ‘Ebola virus’. Understanding which term is correct is far more complicated than you might imagine.
+A new virus was first isolated in 1976 from patients during an outbreak of hemorrhagic fever in southern Sudan and northern Zaire. The name Ebola virus was proposed to describe the agent of this outbreak:
+…the name Ebola virus is proposed for this new agent. Ebola is a small river in Zaire which flows westward, north of Yambuku, the village of origin of the patient from whom the first isolate was obtained.
+The name was further modified with the subsequent finding of distinct isolates of the virus (e.g. Zaire Ebola virus, Sudan Ebola virus, Reston Ebola virus). In 2002 the virus names were contracted (Zaire ebolavirus, Sudan ebolavirus).
+The way that viruses are named is regulated by the International Committee on Taxonomy of Viruses (ICTV). The current virus nomenclature for the Ebolaviruses is as follows:
+Family: Filoviridae
+Species (5): Bundibugyo ebolavirus, Reston ebolavirus, Sudan ebolavirus, Tai Forest ebolavirus, Zaire ebolavirus
+This is why I used ebolavirus in the original draft of my article.
+However, this new nomenclature did not work well, as summarized in a 2010 article, Proposal for a revised taxonomy of the family Filoviridae :
+Five to eight years have passed since the introduction of the names Cote d’Ivoire ebolavirus [sic], Reston ebolavirus, Sudan ebolavirus, and Zaire ebolavirus for the members of the four recognized ebolavirus species. Instead of using these names, the overwhelming majority of publications refer to “Ebola virus” instead of Zaire ebolavirus, a preference that is also followed by the public press.
+The authors conclude that introducing the name ‘Zaire ebolavirus’ was an error, and recommend reverting to the traditional virus name, Ebola virus:
+Retrospectively, the virus nomenclature in most published articles will then be correct. Likewise, press articles, which almost invariably refer to “Ebola virus,” and usually with that term aim at referring to the virus that is currently officially named “Zaire ebolavirus,” will be correct retrospectively and prospectively. As the traditional names are different from the species names, confusing species and virus names will be much more difficult, even in the absence of taxonomic education.
+When this proposal is officially ratified by the ICTV the nomenclature will be as follows:
+Family: Filoviridae

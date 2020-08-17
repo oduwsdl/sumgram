@@ -1,0 +1,45 @@
+Filamentous 970 nm long for Ebolavirus. Diameter is about 80nm.
+GENOME
+Negative-stranded RNA linear genome, about 18-19 kb in size. Encodes for seven proteins.
+GENE EXPRESSION
+The viral RNA dependent RNA polymerase binds the encapsidated genome at the leader region, then sequentially transcribes each genes by recognizing start and stop signals flanking viral genes. mRNAs are capped and polyadenylated by the L protein during synthesis.
+The primary product of the unedited transcript of GP gene yields a smaller non-structural glycoprotein sGP which is efficiently secreted from infected cells. RNA editing allows expression of full-length GP.
+REPLICATION
+CYTOPLASMIC
+Attachment to host receptors through GP glycoprotein like DC-SIGN and DC-SIGNR
+Cellular receptor like HAVCR1 phosphatidyl serine on virion membrane and a signal is transduced into the cell that trigger the macropinocytosis program  by apoptotic mimicry .
+The virion enters the cell by Macropinocytosis
+. In some culture cells, GP glycoprotein can be processed by host Cathepsin L and Cathepsin B into 19kDa GP1
+. But this processing is not happening in all cells or for all ebolavirus
+.
+GP1 interacts with host NPC1 , in late macropinosome and promotes Fusion of virus membrane with the vesicle membrane
+. The ribonucleocapsid is then released into the cytoplasm.
+Sequential transcription , viral mRNAs are capped and polyadenylated by polymerase stuttering in the cytoplasm.
+Replication presumably starts when enough nucleoprotein is present to encapsidate neo-synthetized antigenomes and genomes.
+The ribonucleocapsid interacts with the matrix protein, and buds via the host ESCRT complexes from the plasma membrane
+, releasing the virion .
+A new player in the puzzle of filovirus entry
+Judith M. White, Kathryn L. Schornberg
+Nat. Rev. Microbiol. May 2012; 10: 317?322
+C-type lectins DC-SIGN and L-SIGN mediate cellular entry by Ebola virus in cis and in trans
+Carmen P. Alvarez, F?tima Lasala, Jaime Carrillo, Oscar Mu?iz, Angel L. Corb?, Rafael Delgado
+J. Virol. July 2002; 76: 6841?6844
+Ebola virus entry requires the host?programmed recognition of an intracellular receptor
+Emily Happy Miller, Gregor Obernosterer, Matthijs Raaben, Andrew S. Herbert, Maika S. Deffieu, Anuja Krishnan, Esther Ndungo, Rohini G. Sandesara, Jan E. Carette, Ana I. Kuehne, Gordon Ruthel, Suzanne R. Pfeffer, John M. Dye, Sean P. Whelan, Thijn R. Brummelkamp, Kartik Chandran
+The EMBO Journal April 18, 2012; 31: 1947?1960
+Ebolavirus is internalized into host cells via macropinocytosis in a viral glycoprotein-dependent manner
+Asuka Nanbo, Masaki Imai, Shinji Watanabe, Takeshi Noda, Kei Takahashi, Gabriele Neumann, Peter Halfmann, Yoshihiro Kawaoka
+PLoS Pathog. 2010; 6: e1001121
+The Tyro3 receptor kinase Axl enhances macropinocytosis of Zaire ebolavirus
+Catherine L. Hunt, Andrey A. Kolokoltsov, Robert A. Davey, Wendy Maury
+J. Virol. January 2011; 85: 334?347
+Cathepsin B & L are not required for ebola virus replication
+Andrea Marzi, Thomas Reinheckel, Heinz Feldmann
+PLoS Negl Trop Dis 2012; 6: e1923
+A PPxY motif within the VP40 protein of Ebola virus interacts physically and functionally with a ubiquitin ligase: implications for filovirus budding
+R. N. Harty, M. E. Brown, G. Wang, J. Huibregtse, F. P. Hayes
+Proc. Natl. Acad. Sci. U.S.A. December 5, 2000; 97: 13871?13876
+Overlapping motifs (PTAP and PPEY) within the Ebola virus VP40 protein function independently as late budding domains: involvement of host proteins TSG101 and VPS-4
+Jillian M. Licata, Martha Simpson-Holley, Nathan T. Wright, Ziying Han, Jason Paragas, Ronald N. Harty
+J. Virol. February 2003; 77: 1812?1819
+DB LINKS

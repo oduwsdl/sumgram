@@ -1,0 +1,6 @@
+Directly link to published peer-reviewed research articles or a brief media summary
+No summaries of summaries, re-hosted press releases, reviews or popular reposts (over 100 upvotes)
+Research must be less than 6 months old
+No sensationalized titles, all titles must include the model where applicable
+No blogspam, images, videos, infographics
+All submissions must be flaired and contain a link to the published article, either in the submission link or as a standalone comment.

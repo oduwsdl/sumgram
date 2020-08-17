@@ -1,0 +1,36 @@
+Aug 28 2014, 2:21 pm ET
+Where Did Ebola Come From? Likely One Person, Gene Study Finds
+Medecins Sans Frontieres (MSF) medical staff wearing protective clothing treat the body of an Ebola victim at their facility in Kailahun, on August 14, 2014. CARL DE SOUZA / AFP - Getty Images
+Share
+Email
+Print
+The Ebola virus outbreak that’s ravaging West Africa probably started with a single infected person, a new genetic analysis shows.
+This West African variant can be traced genetically to a single introduction, perhaps a person infected by a bat, researchers report in the journal Science.
+Their study paints a remarkably detailed picture of how the virus spread from Guinea to Sierra Leone and Liberia in an outbreak that’s taken the lives of more than 1,500 people — including five of the researchers who worked on the report.
+Untested Ebola drugs ruled ethical 0:25
+autoplay autoplay
+Copy this code to your website or blog
+<iframe src="https://www.nbcnews.com/widget/video-embed/317711939868" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+One thing is clear — it is definitely being spread by people, not by animals repeatedly infecting people, the researchers say.
+“We can see it entering different villages,” said Pardis Sabeti, a senior associate member at the Broad Institute and an associate professor at Harvard University, who led the study. “All the sequences are very similar, suggesting it came from a common source.”
+In Sierra Leone, it started with a traditional healer, says virologist Robert Garry of Tulane University, one of the researchers on the report. The healer treated patients from across the border in Guinea, where an outbreak of Ebola had started in February. Her patients flocked to her funeral, and 14 became infected as they prepared and buried the healer’s body, Garry said.
+“One of those ladies turned out to be a 20-something woman who was pregnant,” Garry said. She lost the baby, but sought medical care at Kenema hospital in Sierra Leone, which almost certainly saved her life. Genetic sequences taken from this lucky woman confirm the story.
+Ebola surveillance at Kenema Governement Hospital is done by polymerase chain reaction, or PCR. Stephen Gire
+The researchers managed to get blood samples from 12 people infected at the healer’s funeral. In total, they got samples from 78 people and checked the sequences against what was known about the spread of the virus.
+advertisement
+The World Health Organization predicted Thursday that the epidemic would spread to as many as 20,000 people before it’s stopped. It’s already infected 3,000 people and killed 1,500 of them — and that’s just the people that doctors know about. Many have vanished into the forests, mistrustful of the medical system or afraid to go to hospitals.
+More than 200 of the victims have been health care workers. “Five members of our team have lost their battle with Ebola,” Sabeti told NBC News. “It’s frightening.”
+U.S. officials announced they’ll start the first human trials of a new vaccine next week, the first in a series of small safety tests. Any results will come too late to help anyone in the current outbreak, which must be fought using the old-fashioned methods of quick diagnosis, quarantine and isolation, supportive medical care and proper disposal of bodies, health experts say.
+The genetic testing can bolster efforts to understand just how the virus is spreading so that health workers can get ahead of it.
+"Our data is explainable by a single introduction into Sierra Leone from Guinea. It is also consistent with a single introduction from the reservoir into humans (in Guinea)," said Danny Park of the Broad Institute, who worked on the study.
+advertisement
+All viruses mutate, and scientists can use the mutations as a kind of clock to trace the evolution and movement of a virus. Right now, says Garry, the Ebola virus strain in West Africa appears to be mutating twice as fast as it did in the past when it lived in an animal “reservoir,” probably a bat.
+“It’s going to change,” Garry said. “A human being is not a bat. The longer this virus is allowed to propagate human to human, the more it is going to adapt.”
+The genetics show that this particular strain of Ebola separated from the strains known to pop up in Central Africa in around 2004.
+Augustine Goba, laboratory director at Kenema Government Hospital Lassa fever laboratory, diagnosed the first case of Ebola in Sierra Leone. Stephen Gire
+One cluster can be traced to an infected healthcare worker, who infected a truck driver. The sequences also show that infection control can work. The pregnant woman whose case was the first seen in Sierra Leone went to a hospital prepared to deal with a different virus, the one that causes Lassa fever, so staffers there wore protective gear and did not become infected. The pregnant woman also did not infect anyone else, Garry said.
+advertisement
+“They’re most likely to get it from another human.”
+But people are the source of the outbreak, Sabeti stressed. “At least from the data that we see right now, it is not repeated transmission from animals,” Sabeti said. That makes her question warnings from the government in Sierra Leone that caution people to avoid eating “bush meat” — animals hunted in the forest — and fruits such as mangoes. “I don’t think it is the best messaging,” she said. “They’re most likely to get it from another human.”
+Sabeti’s team has immediately posted all its data publicly on the internet for other researchers to use and analyze. “We’ve got to crowdsource the epidemic,” she said. "This is a frightening situation and we need to work together.”
+It was collaboration and quick groundwork that made the study possible, added Augustine Goba, director of the Lassa Laboratory at the Kenema Government Hospital in Sierra Leone. “This was possible because of our long-standing work to diagnose and study another deadly disease, Lassa fever. We could thus identify cases and trace the Ebola virus spread as soon as it entered our country,” Goba said in a statement.

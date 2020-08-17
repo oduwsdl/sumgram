@@ -1,0 +1,21 @@
+Sources: Measles , Influenza , HIV/AIDS , Ebola , Cancer .
+I didn’t make a mistake in the chart above. Ebola’s 1,323 cases barely register when lined up next to killers like AIDS and cancer.
+Drugs and vaccines have been in the works for a while, but drug companies aren’t interested in something that infects a handful of people each year in poor countries. (They, like the fictional Samuel Gall , are perhaps happiest specializing in “diseases of the rich”).
+Treatments and vaccines in the pipeline
+A better source of funding would be governments concerned about Ebola being used as a bioterror weapon. That’s how BioCryst is positioning its antiviral drug, currently known as BCX4430, which seems to be effective in monkeys but hasn’t been tested in humans yet. A Canadian company, Tekmira, is taking a similar approach with their RNA-based treatment ; their studies were funded by the US Department of Defense.
+Antibody treatments are another possible option, and Kent Brantly, a doctor who contracted Ebola, is reportedly being given antibodies from a boy he treated, who survived the disease.
+Inspired by the recent outbreaks, the US’s NIH and FDA are working together to fast-track a Phase 1 clinical trial of an Ebola vaccine that works in animals and could be given to humans as soon as next month .
+What we’re doing in the meantime
+Ebola patients receive basic supportive care , for example to maintain hydration, but there’s no treatment that can make the disease go away. Antibiotics don’t work because it’s a virus; the antiviral treatment Ribavirin that works on some other hemorrhagic fevers isn’t effective against Ebola.
+The only public health tools we have to prevent spread of the disease are good old fashioned isolation (for sick people) and quarantine (for those who have been exposed and may be sick) . To find people who have been exposed, health workers track down people who have been in contact with someone who has the disease.
+“None of us would be thrilled about the prospect of being admitted to an isolation ward,” says Daniel Bausch, the Ebola expert I spoke with for yesterday’s post. NPR reports that some families are choosing to hide a loved one’s infection rather than risking the “panic and ostracism” that may come from seeking treatment.
+Health workers are seeing serious resistance to medical care in some areas. Another NPR report explains:
+A plague hits, and then a bunch of foreigners in spacesuits come and whisk away the corpses in shiny white body bags. There have been stories that this is all a scheme to harvest organs from the locals. … Dr. Tim Jagatic of Doctors Without Borders says the misperceptions are understandable: “We created a hospital, and a lot of people started to get sick and die.”
+Bausch says that a good treatment or vaccine could reverse that trend: instead of tracking down patients and contacts who believe they have a good reason to hide from health workers, people “would be knocking on the door: ‘I think I have Ebola, could you please give me that treatment?'”
+ 
+Epilogue: The three big questions
+I asked Daniel Bausch what big questions still remain in Ebola research. He named three broad areas:
+As reported above, we don’t know any good treatments to offer patients and their contacts–just supportive care, quarantine and isolation.
+We don’t know enough about how the virus works in the human body. There are animal models that provide some glimpses, but to study humans you have to be able to do research in the middle of a raging outbreak of a rare disease. That’s tough. We have recently learned, for example, that it doesn’t always cause extensive bleeding. That’s why its name was changed from “Ebola hemorrhagic fever” to the simpler “Ebola virus disease.”
+We don’t know enough about how the virus spreads. Probably it circulates in bats and is occasionally transmitted to other animals, including humans, as a dead-end host–but the disease is so rare we don’t have a good way of studying it in the wild. Bausch says that while he was in Guinea recently, a group of ecologists started collecting bats from the local population, but their results are not yet published.
+Post navigation

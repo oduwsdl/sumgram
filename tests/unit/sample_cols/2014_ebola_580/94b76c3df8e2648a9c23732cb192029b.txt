@@ -1,0 +1,13 @@
+(5 Species - 477 complete genomes)
+Virus News
+Data on host response to Influenza and SARS infections is now available!
+Host-virus interaction data produced by laboratories associated with the NIAID-funded Systems Biology for Infectious Diseases Research Program is now available in ViPR.
+This release increases the amount of host factor data for a total of 46 microarray, 16 proteomics and 4 lipidomics (in vivo and in vitro) experiments for various SARS- and MERS-CoV strains as well as H5N1, H3N2 and H1N1 influenza A viruses.
+In this release, the capability is now available to search for a single host factor across multiple experiments through the 'Host Factor Results' button on the 'Host Factor Biosets' page. In addition, displaying the Reactome pathway(s) containing one (or more) host factors are now available from both the 'Patterns' and 'Boolean Operator' pages.
+Additional experiments using various '-omics' technologies, as well as analytical and visualization tools will become available in future releases of ViPR.
+For more details about these studies, or to view the results, click on the “Host Factor Data” link from the “Search Data” menu.
+Quick Search
+ViPR will search in data fields associated with genome, gene and protein data. ( Details including wildcard usage)
+Keyword:
+Ex: Sudan virus/H. sapiens-tc/SDN/2000/Gulu-200011676, APW84618.1...
+ 

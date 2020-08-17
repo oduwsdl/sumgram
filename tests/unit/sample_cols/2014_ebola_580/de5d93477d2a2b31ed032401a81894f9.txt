@@ -1,0 +1,6 @@
+Usage[ edit ]
+The foot-pound is often used to specify the muzzle energy of a bullet in small arms ballistics , particularly in the United States.
+"Foot-pound" is sometimes also used as a unit of torque (see pound-foot (torque) ). In the United States this unit is often used to specify, for example, the tightness of a bolt or the output of an engine . Although they are dimensionally equivalent, energy (a scalar ) and torque (a vector ) are distinct physical quantities. Both energy and torque can be expressed as a product of a force vector with a displacement vector (hence pounds and feet); energy is the scalar product of the two, and torque is the vector product .
+Conversion to other units[ edit ]
+1 foot-pound is equivalent to:
+1.355 817 948 331 400 4 joules

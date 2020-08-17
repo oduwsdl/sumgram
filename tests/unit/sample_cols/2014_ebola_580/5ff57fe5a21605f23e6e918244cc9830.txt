@@ -1,0 +1,14 @@
+by autotldr
+What is autotldr?
+autotldr is a bot that uses SMMRY to automatically summarize long reddit submissions. It will remove extra examples, transition phrases, and unimportant details.
+How does it work?
+Refer to here for a basic understanding.
+Why is autotldr useful?
+Read here for a detailed explanation.
+tl;dr's are frequently asked for yet sparsely available for long articles on external submissions. To increase the attention that sophisticated and scientific posts get autotldr will give the gist of the reading to redditors who prefer using a summary and would have otherwise ignored the article. This way important yet long articles become more relevant and accessible to a larger portion of the reddit userbase. It also allows redditors who can't access the original submission to still understand the context (good for sites that go down after a submission or if the content is removed).
+When will autotldr make a post?
+autotldr will only post if the content can be reduced by atleast 70%. So if the summary is only 50% shorter than the original, autotldr will not post it. The tl;dr must also be between 450-700 characters. autotldr does not summarize self posts, as the responsibility of providing that tl;dr should be of the OP.
+Who do I contact about autotldr?
+Message the bot account.
+I'm a mod and I don't want autotldr to post on my subreddit
+Send a message from your mod account to blacklist your subreddit. If you have valid reasons for blacklisting/banning autotldr please contribute to the theory of autotldr discussion.

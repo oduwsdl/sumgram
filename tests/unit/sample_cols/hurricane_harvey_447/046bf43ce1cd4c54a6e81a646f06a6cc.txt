@@ -1,0 +1,7 @@
+Maximum Rainfall from Tropical Cyclone Systems which Cross the Appalachians
+Authors:
+PDF
+Abstract
+The results of a statistical study of maximum measured rainfall amounts of tropical cyclone systems whose paths cross the Appalachian Mountains an presented. The study includes storms from 1900 through 1969 and considers primarily the maximum recorded rainfall in mountainous terrain. The criteria are that the tropical cyclone had to pass the 1000-ft contour and that the precipitation was measured inside the outer-most 1000-ft contour. In some cases the maxima were recorded at altitudes below the 1000-ft contour; these locations were in valleys surrounded by higher elevations. Supplemental information is presented for maximum rainfall anywhere after storm landfall, although passage of the system over the Appalachian region remained a criterion.
+The data are modelled by the gamma distribution. Probabilities of exceeding a specified rainfall amount and rainfall amounts for specified probability levels are presented in tabular and graphical form.
+February 1973

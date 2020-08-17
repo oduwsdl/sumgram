@@ -1,0 +1,157 @@
+Rash
+*The temperature threshold for “fever” level varies between different guidelines. 39
+Children present with similar symptoms to adults; however, younger children are reported to have more respiratory (such as cough and dyspnoea) and gastrointestinal symptoms, but less bleeding and neurological signs, than adults. 40 41 Anecdotally, children under 4 years present initially with more subtle symptoms before developing a fever and are often diagnosed late.
+Physical examination
+A full physical examination should be undertaken with precautionary isolation procedures and use of PPE. The aim of examination is to exclude a focus for sepsis while looking for signs of viral haemorrhagic fever (such as conjunctival injection, purpuric rash, or other signs of bleeding).
+Vital signs should be taken:
+Fever (≥37.5°C)—Fever is the presenting symptom in about 90% of patients, 3 39 42 and its presence is enough to raise concern in the appropriate epidemiological context. Wide variations in body temperature are seen during the course of illness, with normothermia or hypothermia occurring in the later stages of fatal infection. 40 43 44 Some patients initially have a low grade fever with no other symptoms
+Blood pressure—Hypotension is a feature of preterminal disease and shock. It is underdocumented in field studies, owing to a lack of measuring equipment in endemic areas 43
+Pulse rate—Bradycardia may be present in the initial stages of illness, whereas tachycardia may be seen in the later stages of fatal infections 43
+Respiratory rate—Tachypnoea, along with tachycardia, correlates with a more severe or advanced infection. It is more likely to be caused by respiratory compensation of a metabolic acidosis than respiratory involvement. 43
+Other possible findings include a maculopapular rash, bleeding, hiccups, hepatomegaly, lymphadenopathy, and neurological signs (box 4). 43
+Box 4: Physical examination findings
+Maculopapular rash
+Develops early in the course of illness in 25-52% of patients, 43 although its occurrence has been much lower (5%) in the 2014 outbreak 3
+Often described as non-pruritic, erythematous, and maculopapular
+May begin focally then become diffuse, generalised, and confluent. Some have described it as morbilliform
+May become purpuric or petechial later on in the infection in patients with coagulopathy
+May be difficult to discern in dark skinned patients
+Bleeding
+Bleeding manifestations (such as epistaxis, bleeding gums, haemoptysis, easy bruising, conjunctival bleeding, haematuria, and oozing from injection or venipuncture sites) were present in 30-36% of infected patients in previous outbreaks, 8 43 44 45 46 but they have been reported in only 18% of patients in the 2014 outbreak 3 5 38 47
+Hiccups
+A sign of advanced infection, typically seen in the last 2-3 days of fatal infections
+Hepatomegaly or epigastric tenderness
+Tender hepatomegaly, with the edge of the liver palpable below the rib cage, has been reported but is rare
+Lymphadenopathy
+Enlarged lymph nodes have been reported but are rare
+Neurological signs
+Confusion, depressed consciousness, encephalopathy, and seizures are rare but their presence indicates advanced infection
+Multi-organ dysfunction is common in advanced infection and includes acute kidney injury, pancreatitis, adrenal failure, and liver damage. Hepatitis is common, with aspartate aminotransferase (AST) higher than alanine aminotransferase (ALT), although jaundice is rare. 23 Renal dysfunction is common in advanced disease but can be reversed with adequate fluid resuscitation in the initial stages. 23 In early disease it may be caused by dehydration, but in later stages it may be a consequence of disseminated intravascular coagulation or direct damage to the kidneys by the Ebola virus. 23 43 Massive bleeding, typically in the gastrointestinal tract (for example, bloody diarrhoea or melaena), is usually seen only in fatal cases. 43 Internal bleeding may be missed if there are no external signs.
+Signs that indicate severe or advanced infection include hiccups, hypotension, tachycardia, hepatomegaly, splenomegaly, confusion, and seizures.
+How is it investigated?
+All specimens should be collected according to strict protocols.
+Initial investigations
+The main confirmatory test for Ebola virus infection is a positive Ebola RT-PCR. 48 This test should be ordered in all patients with suspected Ebola infection while the patient is isolated. The results of RT-PCR are available 24-48 hours before those of enzyme linked immunosorbent assay (ELISA) testing. In Western settings, Ebola RT-PCR may be available only in regional or national reference laboratories that have a high level of biosafety precautions (category 4 facilities). 8 In epidemic settings and some European countries, category 4 laboratories are set up locally, and RT-PCR is available four hours after the sample has arrived. Viral RNA can be detected in the patient’s blood by RT-PCR from day 3 to days 6-17 of symptoms. A positive result implies that the patient is potentially infectious, particularly if there is active diarrhoea, vomiting, or bleeding. If negative, the test should be repeated within 48 hours because viral load can be low and undetectable early in the illness. Negative tests should also be repeated to rule out the diagnosis (or confirm resolution of infection) if there is a strong suspicion of Ebola. 31 Higher viral load correlates with adverse outcome. 5 24 38 47 49
+The choice of whether to test for Ebola depends on the patient’s history and the risk of infection (fig 5).
+Malaria is still the most common cause of fever in people who live or work in, or travellers who have returned from, an endemic area and should be ruled out. 36 If a malaria rapid diagnostic test is positive, malaria should be treated while keeping in mind the possibility of a dual infection. Ebola virus infection should be considered in a patient who does not respond to antimalarial therapy.
+It is recommended that confirmatory tests for Ebola virus infection are performed before, or in tandem with, differentiating tests for other suspected conditions if Ebola virus infection is suspected.
+Other investigations
+In the past, only a malaria screen and RT-PCR were recommended because of the risk to laboratory workers. However, it is now recognised that other investigations can be done safely according to recommended guidelines, as long as the laboratory is informed of the sample in advance, and the samples are correctly packaged and retained at the end in case the results are positive. 28 42 Local protocols should be clear about safe transport of samples to the local and referral laboratories and safe handling on receipt in the local laboratory.
+Box 5 outlines additional investigations that may add valuable information to help guide further management, and that should be ordered if possible.
+Box 5: Other useful investigations when diagnosing Ebola virus disease
+Antigen capture enzyme linked immunosorbent assay (ELISA) testing
+A useful diagnostic test with high specificity, although it is not universally available
+Most likely to give a positive result on days 3-6 of symptoms and can give widely variable results from days 7-16 17
+Can be used to confirm the diagnosis along with a positive reverse transcriptase-polymerase chain reaction result
+Full blood count
+Decreasing platelet count with marked lymphopenia can be seen in the initial stages of infection but is not diagnostic. This is often followed by neutrophil leucocytosis in the later stages in patients who eventually recover, along with normalisation of thrombocytopenia. Leucocytosis may persist and show immature forms
+Patients with severe disease may show a progressive decline in platelet count as a manifestation of disseminated intravascular coagulation (DIC)
+Haemoglobin may be low in patients with bleeding manifestations 43
+Coagulation studies
+Prolonged prothrombin time or activated partial thromboplastin time is associated with more severe infection and bleeding manifestations such as DIC
+D-dimer values are four times higher on days 6-8 of infection in patients who die than in those who survive 50
+Renal function and serum electrolytes
+Raised serum creatinine or urea and abnormal electrolytes may indicate acute kidney injury; this may be seen at the end of the first week of infection 51
+Some studies found hypokalaemia (associated with vomiting and diarrhoea) in about half of cases
+Hypocalcaemia has been associated with fatal infection
+Haematuria and proteinuria may also be seen in severe disease
+Oliguria that does not respond to fluid resuscitation is a poor prognostic sign 43
+Arterial blood gases
+Arterial or venous blood lactate, pH, and bicarbonate can help identify the degree of systemic hypoperfusion and guide fluid resuscitation in acutely ill patients with signs of sepsis 52
+Raised lactate is a marker of tissue hypoperfusion and is an indicator of shock.
+Liver function tests
+Both ALT and AST are usually raised; most studies show that AST rises more than ALT—this is more suggestive of systemic tissue damage rather than hepatocellular injury
+The AST:ALT ratio peaked at 15:1 on days 6-8 of infection in fatal cases compared with days 5:1 in non-fatal cases 43 45 50
+Bilirubin, γ-glutamyl transferase, and alkaline phosphatase are often slightly raised. Greatly raised ALT and severe jaundice suggests an alternative diagnosis (such as viral hepatitis)
+Serum amylase
+High concentrations have been reported in several studies and indicate the presence of pancreatitis, an indicator of severe infection 43
+Blood cultures
+Negative blood cultures are helpful because they rule out other non-viral infectious causes (such as sepsis or enteric fever)
+Ebola specific IgM and IgG antibodies
+Useful in later stages of infection
+IgM antibodies can appear in serum as early as day 2 after infection but results are variable up to day 9. They become negative between 30 and 168 days after symptom onset
+An IgG response develops between days 6 and 18 and can persist for several years
+A positive IgM or a rising IgG titre is strong evidence of recent Ebola virus infection 17
+Chest radiography
+Useful in patients with respiratory symptoms
+Pulmonary infiltrates are not typical of infection and suggest an alternative (or comorbid) diagnosis
+May be difficult to arrange in an isolation unit and should be ordered judiciously to avoid contamination 53
+How is it managed?
+The mainstay of treatment is early recognition of infection, coupled with effective isolation and best available supportive care in a hospital setting.
+High case fatality rates may be related to the supportive care available in resource poor rural settings where outbreaks have occurred They reflect the difficulties that patients in these settings have in accessing basic medical care in a healthcare structure that is overwhelmed. 3 5
+During the 2014 outbreak, comprehensive supportive care—including organ support in intensive care units—was available to cases imported to developed countries such as Spain, Italy, Switzerland, Germany, France, Norway, the UK, and the US. 18 54 55 Despite this, deaths still occurred because of the lack of specific effective treatments.
+There is active debate about the suitability of moving patients with advanced disease and a poor prognosis to intensive care, where the risk for nosocomial infection may be high. 52 56 57 However, failure to provide full supportive care to those with suspected (not confirmed) infection may result in substandard care for these patients, who may later be shown to have a treatable disease such as malaria. Local hospital protocols should consider how this situation should be handled for patients with suspected infection before possible transfer to the intensive care unit, and for those who have already been transferred there. 52 56 57
+Isolation and infection control
+Patients identified as being at risk of infection should immediately be isolated in a room with private bathroom facilities.
+All attending healthcare personnel must wear PPE that conforms with published protocols (fig 3). 29 58 All contaminated materials (such as clothes and bed linens) should be treated as potentially infectious.
+Specimens for laboratory investigations (such as Ebola RT-PCR, full blood count, serum creatinine and urea, liver function tests, arterial blood gases, coagulation studies, blood cultures, and investigations for other conditions such as malaria) should be collected and sent off according to local and national protocols. Judicious selection of investigations is needed to reduce the risk of transmission to laboratory workers and other healthcare personnel. Early placement of a central line (if possible) allows blood to be taken and fluids to be given while minimising the risk of needlestick injuries.
+Fluid and electrolyte replacement
+Vomiting and diarrhoea are common, so patients are often dehydrated and hypovolaemic, particularly if they present late. This is probably the cause of the high case fatality rates because essential clinical monitoring (temperature, respiratory rate, pulse rate, blood pressure, and fluid input and output) is often difficult in resource poor settings.
+Oral rehydration solutions can be used for patients who can tolerate oral administration and who are not severely dehydrated.
+The volume of intravenous fluids needed should be assessed on the basis of the clinical examination (level of dehydration, signs of shock) and fluid losses (volume of diarrhoea or vomitus, or both). Large volumes of fluid replacement (>10 L/day) may be needed in febrile patients with diarrhoea. 18
+Access to point of care tests in the isolation facility means that the patient’s biochemical status can be monitored more efficiently and reduces the risks associated with specimen transport. 5 52 Electrolyte monitoring should be performed daily. More frequent monitoring can be considered if large volumes of intravenous fluids are being given or if severe biochemical abnormalities are present. High blood lactate values are a reliable measure of hypoperfusion and can help guide fluid resuscitation. 52 In patients with anuria who do not respond to fluid resuscitation, renal replacement therapy has been used, 18 55 59 although there are no trial data to support its effectiveness.
+Major bleeding is uncommon, but is seen in advanced infection that is usually fatal. When available, platelet and plasma transfusions should be given according to local protocols. 60
+Symptomatic management
+The following management strategies are recommended:
+Fever and pain—Fever and pain should be treated with paracetamol first. Opioid analgesics (such as morphine) are preferable for more severe pain. Non-steroidal anti-inflammatory drugs (including aspirin) should be avoided because of the associated increased risk of bleeding and potential for nephrotoxicity 31
+Nausea and vomiting—Oral or intravenous antiemetics (such as ondansetron and metoclopramide) are recommended 31
+Heartburn, dysphagia, and upper abdominal pain—An antacid or proton pump inhibitor (such as omeprazole) may be beneficial 31
+Seizures—Although uncommon, seizures can be seen in advanced disease and pose a risk to healthcare workers because they increase the risk of contact with the patient’s body fluids. Contributing factors (such as high temperature, hypoperfusion, and electrolyte disturbances) must be recognised and corrected. A benzodiazepine can be used to abort the seizure and can be given intramuscularly or rectally if intravenous access is unavailable. An anticonvulsant (such as phenobarbital) can be given for repeated seizures 31
+Agitation—Although uncommon, agitation can occur in advanced disease. It may be associated with encephalopathy or may be a direct effect of the virus on the brain. Judicious use of a sedative (such as haloperidol or a benzodiazepine) will help to keep the patient calm and prevent needlestick injuries in healthcare workers 31
+Sepsis and septic shock—Management follows the same principles as for bacterial sepsis. 61 It should include broad spectrum antibiotics (such as ceftriaxone, piperacillin-tazobactam, or meropenem) in the first hour after sending blood cultures, rapid intravenous fluid resuscitation with assessment of response, appropriate airway management and oxygen administration, and monitoring of urine output preferably by urethral catheterisation. Broad spectrum antibiotics in these patients are used to target the presumed translocation of gut organisms. This is not backed by any evidence. Blood cultures are difficult to perform safely in infected patients.
+In the absence of a response to initial management, inotropic support should be considered, preferably through a central venous catheter in an intensive care unit where invasive monitoring enables more aggressive correction of fluids, electrolytes, and acid-base balance. 52 54
+Malaria should be tested for and treated with appropriate antimalarial therapy. In endemic settings all patients in Ebola treatment centres are treated for malaria routinely. 5 38 47
+Are there any emerging treatments?
+Although experimental treatments for Ebola virus infection are under development, they have not yet been fully tested for safety or effectiveness. 62 63
+Convalescent whole blood or plasma
+There is limited evidence from past outbreaks that transfusion of blood from convalescent patients might be beneficial in the acute phase of infection and may reduce mortality. 46 63 Trials are planned. 62 64
+ZMapp
+The best known emerging treatment so far, ZMapp, is a combination of three humanised monoclonal antibodies targeted at three Ebola virus glycoprotein epitopes and is engineered for expression in tobacco plants. 62 63 65 66 Before the current 2014 outbreak, ZMapp had proved protective when given to non-human primates 24-48 hours after infection. Another study showed that the drug could rescue non-human primates when treatment was started up to five days after infection. 67 It has not yet been tested in humans for safety or efficacy; however, very limited stock (seven doses) was made available to infected patients during the current outbreak, and only one patient died. Despite its potential, numbers are too small to make any conclusions about the drug’s safety and efficacy. More doses are not currently available to conduct larger trials, but development is being accelerated with support from the US government. 68
+TKM-Ebola
+TKM-Ebola consists of a combination of small interfering RNAs that target Ebola virus RNA polymerase L, formulated with lipid nanoparticle technology. It has been shown to be protective in non-human primates and is effective against Marburg virus in guinea pigs and monkeys. 62 63 66 69 70 71 The US Food and Drug Administration has granted expanded access to this drug under an Investigational New Drug application. Under emergency protocols, it has been given to a small number of patients.
+Brincidofovir
+Formerly known as CMX-001, brincidofovir is currently undergoing phase III trials for the treatment of cytomegalovirus and adenovirus. It also shows activity against Ebola virus in vitro. The drug has been used in patients with Ebola virus infection in the US under Emergency Investigational New Drug applications approved by the FDA. Trials are planned in the near future in west Africa. 62 63 64
+Favipiravir
+Formerly known as T-705, favipiravir selectively inhibits viral RNA dependent RNA polymerase. It is active against influenza viruses, West Nile virus, yellow fever virus, foot and mouth disease virus, as well as other flaviviruses, arenaviruses, bunyaviruses, and alphaviruses. The drug is approved in Japan for influenza pandemics and is effective against Ebola virus in mouse models. 62 63 72 Human trials are due to start in west Africa. 64
+BCX-4430
+BCX-4430 is an adenosine analogue that is active against Ebola virus in rodents. It is thought to act through the inhibition of viral RNA dependent RNA polymerase. It is active against flaviviruses, bunyaviruses, arenaviruses, and paramyxoviruses. The drug has been shown to be protective in non-human primates and rodents, even when given 48 hours after infection with filoviruses 63 73 ; however, no human studies have been performed.
+AVI-7537
+AVI-7537 consists of antisense phosphorodiamidate morpholino oligomers (PMOs) that target the Ebola virus VP24 gene. It confers a survival benefit to Ebola virus infected non-human primates. 63 74 AVI-6002 consists of two PMOs (AV-7537 and AV-7539, which targets the VP35 gene). AV-6002 has undergone phase I clinical studies.
+Other agents
+Interferons have been used in the past, with uncertain benefit. 16 63 Therapeutic agents used for other diseases, such as amiodarone, clomiphene, and chloroquine, inhibit Ebola virus interactions with human cells in models, and amiodarone will shortly be trialled in west Africa. 62 75
+Vaccines
+Two experimental vaccines are currently undergoing trials. 62 63 cAd3-ZEBOV is a chimpanzee derived adenovirus vector with an Ebola virus gene inserted. 76 Trials are under way in the United Kingdom, United States, Switzerland, and some African countries. rVSV-ZEBOV is an attenuated vesicular stomatitis virus with one of its genes replaced by an Ebola virus gene. Human trials have started in the US.
+What is the prognosis?
+The natural clinical course of Ebola virus infection varies markedly between the different viral species and according to the level of supportive medical care available. The most lethal species is Zaire ebolavirus, which has a reported case fatality rate of up to 90%. The rate in the current 2014 outbreak is less than this and is estimated at 60-70%, although accurate data are biased by poor record keeping and registration. 3 Most epidemics have occurred in resource poor settings with little supportive care, and the case fatality rate in high income settings could be less than 40%. 52 Mortality is higher in younger children (<5 years) and adults over 40 years than in adolescents and young adults. 3 5 38 40 41 47 51 An observational study during an outbreak in 1995 showed a marked decrease in the case fatality rate from 93% to 69% between the initial and final phases of the outbreak. 77 This suggests that later cases were recognised earlier and possibly received higher quality care. Pregnant women have a high incidence of miscarriage and the infection is almost always fatal in these women. 38 78 79 80
+Infection course
+Patients who die tend to develop clinical signs early on in the infection, with death, usually attributed to shock and multi-organ failure, typically occurring between days 6 and 16 (median 9 days) from symptom onset. 19 81 82 Patients who eventually recover exhibit isolated fever for several days with improvement typically around days 6-11. A high viral load at presentation is correlated with mortality. 5 24 38 47 49 Biomarkers as prognostic indicators require further study. 51 81
+Recovery and convalescence
+Patients who live through the second week of infection have more than a 75% chance of surviving. 43 Patients are usually discharged from the isolation facility when they are ambulant, able to self care, have no serious symptoms (such as diarrhoea, vomiting, or bleeding), and have two negative Ebola RT-PCR results taken 48 hours apart. 47
+Patients who survive usually have a protracted recovery characterised by asthenia, weight loss, and migratory arthralgia. Skin desquamation and transient hair loss are also common. Late manifestations during convalescence are uncommon but include uveitis, orchitis, myelitis, parotitis, pancreatitis, hepatitis, psychosis, hearing loss and tinnitus. 44 The cause of these manifestations is unclear but they might be related to immune complex phenomena.
+Survivors of infection probably have lifetime immunity to the same strain of Ebola virus. Such patients have therefore been invaluable in caring for those with active infections.
+What advice should patients be given during recovery?
+Patients should be educated about the likely course of convalescence and the possibility of long term complications. There are no specific requirements for monitoring after discharge; however, eligible patients may be asked to donate blood from 28 days after discharge to be used in the treatment of patients with active infection.
+Male patients should be reminded about the importance of using condoms to prevent sexual transmission in the three months after resolution of infection. 15 16 17 Women should be advised not to breast feed during infection. 15
+Survivors and orphans of those who died from the disease face stigma and ostracism in many communities. This—along with substantial associated psychological disturbance—was reported after previous outbreaks, 83 84 and it is an increasing problem in the 2014 outbreak.
+Additional educational resources
+Resources for healthcare professionals
+WHO. Infection control. Aide-memoire for infection prevention and control in a healthcare facility ( www.who.int/injection_safety/toolbox/docs/en/AideMemoireInfectionControl.pdf?ua=1 )
+Centers for Disease Control and Prevention (CDC). Infection control for viral haemorrhagic fevers in the African healthcare setting ( www.cdc.gov/vhf/abroad/vhf-manual.html )
+WHO. Infection prevention and control guidance summary ( www.who.int/csr/resources/publications/ebola/evd-guidance-summary/en/ )
+CDC. What is contact tracing? ( www.cdc.gov/vhf/ebola/pdf/contact-tracing.pdf )
+CDC. Epidemiologic risk factors to consider when evaluating a person for exposure to Ebola virus ( www.cdc.gov/vhf/ebola/exposure/risk-factors-when-evaluating-person-for-exposure.html )
+WHO. Steps to put on personal protective equipment (PPE) ( www.who.int/csr/disease/ebola/put_on_ppequipment.pdf?ua=1 )
+WHO. Steps to remove PPE ( www.who.int/csr/disease/ebola/remove_ppequipment.pdf?ua=1 )
+UK Government. Gateway to UK government and Public Health England guidelines ( https://www.gov.uk/government/topical-events/ebola-virus-government-response )
+Health Protection Scotland guidelines gateway ( www.hps.scot.nhs.uk/travel/viralhaemorrhagicfever.aspx )
+European Centre for Disease Control and Prevention (ECDC) gateway to European guidelines and epidemiological updates ( http://ecdc.europa.eu/en/healthtopics/ebola_marburg_fevers/Pages/index.aspx )
+Ebola Response Anthropology Platform ( www.ebola-anthropology.net/ )—This platform engages with crucial sociocultural and political dimensions of the Ebola outbreak and build locally appropriate interventions
+Resources for travellers and people in affected areas
+WHO. Ebola virus disease fact sheet ( www.who.int/mediacentre/factsheets/fs103/en/ )
+CDC. Questions and answers on Ebola ( www.cdc.gov/vhf/ebola/outbreaks/2014-west-africa/qa.html )
+CDC. Bushmeat from Africa should not be imported into other countries ( www.cdc.gov/vhf/ebola/pdf/bushmeat-and-ebola.pdf )
+WHO produce guidance for travellers. Travel and transport risk assessment ( www.who.int/csr/resources/publications/ebola/travel-guidance/en )
+CDC. Ebola—travel notices ( wwwnc.cdc.gov/travel/diseases/ebola )—As of 31 October 2014, the CDC recommend avoiding non-essential travel to Liberia, Guinea, and Sierra Leone, and practising enhanced precautions in Democratic Republic of the Congo
+ECDC. Travel advisories ( http://www.ecdc.europa.eu/en/healthtopics/ebola_marburg_fevers/information-travellers/Pages/information-travellers.aspx )
+Cite this as: BMJ 2014;349:g7348
+Related links
