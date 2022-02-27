@@ -23,8 +23,9 @@ setup(
     ],
     install_requires=[
         'numpy',
-        'requests==2.22.0',
-        'sklearn==0.0'
+        'requests',
+        'sklearn',
+        'NwalaTextUtils==0.0.5'
     ],
     entry_points={'console_scripts': ['sumgram = sumgram.sumgram:main']}
 )

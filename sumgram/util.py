@@ -9,6 +9,7 @@ import tarfile
 
 from subprocess import check_output, CalledProcessError
 from multiprocessing import Pool
+from NwalaTextUtils.textutils import parallelGetTxtFrmURIs
 
 logger = logging.getLogger('sumGram.sumgram')
 
@@ -117,7 +118,7 @@ def getStopwordsDict():
         "enough": True,
         "etc": True,
         "etc.": True,
-        "even though": True,
+        "even": True,
         "ever": True,
         "every": True,
         "everyone": True,
@@ -474,6 +475,37 @@ def readTextFromFilesRecursive(files, addDetails=True, curDepth=0, maxDepth=0):
             result += readTextFromFilesRecursive(secondLevelFiles, addDetails=addDetails, curDepth=curDepth+1, maxDepth=maxDepth)
 
     return result
+
+#max_file_depth means no restriction
+def generic_txt_extrator(sources, max_file_depth=0, boilerplate_rm_method='boilerpy3.ArticleExtractor'):
+
+    urls = []
+    doc_lst = []
+    for txt_src in sources:
+            
+        #txt_src can be a url, file, or raw text 
+        txt_src = txt_src.strip()
+        if( txt_src == '' ):
+            continue
+
+        if( txt_src.startswith('http://') or txt_src.startswith('https://') ):
+            urls.append(txt_src)
+            continue
+
+        txt_file = readTextFromFilesRecursive([txt_src], addDetails=True, maxDepth=max_file_depth)
+        doc_lst += [{'text': txt_src}] if len(txt_file) == 0 else txt_file
+
+    if( len(urls) != 0 ):
+        logger.info('\nDereferencing {} URL(s) - start'.format(len(urls)))
+        
+        plain_text = parallelGetTxtFrmURIs(urls, boilerplateRmMethod=boilerplate_rm_method)
+        for i in range(len(plain_text)):
+            plain_text[i]['text'] = plain_text[i]['title'] + ' ' + plain_text[i]['text']
+
+        doc_lst += plain_text
+        logger.info('Dereferencing {} URL(s) - end'.format(len(urls)))
+
+    return doc_lst
 #nlp server - start
 
 def nlpIsServerOn(addr='http://localhost:9000'):

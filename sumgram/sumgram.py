@@ -1076,9 +1076,9 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 
 
     if( params['base_ngram_ansi_color'] == '' ):
-        print( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', 'sumgram', tf_or_df, tf_or_df + '-Rate', 'Base ngram', mw=mw))
+        print( '{:^6} {:^6} {:<7} {:<30} {:<{mw}}'.format('Rank', tf_or_df, tf_or_df + '-Rate', 'Base ngram', 'Sumgram', mw=mw))
     else:
-        print( '{:^6} {:<{mw}} {:^6} {:<7} {:<30}'.format('rank', getColorTxt('sumgram', default_color), tf_or_df, tf_or_df + '-Rate', 'Base ngram', mw=mw))
+        print( '{:^6} {:^6} {:<7} {:<30} {:<{mw}}'.format('Rank', tf_or_df, tf_or_df + '-Rate', 'Base ngram', getColorTxt('Sumgram', default_color), mw=mw))
 
     for i in range(top_sumgram_count):
         
@@ -1110,8 +1110,7 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
         elif( params['base_ngram_ansi_color'] != '' ):
             ngram_txt = getColorTxt(ngram_txt, default_color)
 
-        
-        print( "{:^6} {:<{mw}} {:^6} {:^7} {:<30}".format(i+1, ngram_txt, ngram['term_freq'], "{:.2f}".format(ngram['term_rate']), base_ngram, mw=mw))
+        print( "{:^6} {:^6} {:^7} {:<30} {:<{mw}}".format(i+1, ngram['term_freq'], "{:.2f}".format(ngram['term_rate']), base_ngram, ngram_txt, mw=mw))
 
     if( len(last_ngram) != 0 ):
         if( params['min_df'] != 1 ):
@@ -1156,7 +1155,7 @@ def extract_top_ngrams(doc_lst, doc_dct_lst, n, params):
     bif_stopwords = bifurcate_stopwords( params['add_stopwords'] )
     stopwords = getStopwordsSet() | bif_stopwords['unigrams']
     min_df = params['min_df']
-    #print('min_df', min_df, type(min_df))
+    
     try:
         if( isinstance(min_df, str) ):
             if( min_df.find('.') == -1 ):
@@ -1166,8 +1165,8 @@ def extract_top_ngrams(doc_lst, doc_dct_lst, n, params):
     except:
         min_df = 1
 
+    
     params['min_df'] = min_df
-
     count_vectorizer = CountVectorizer(stop_words=stopwords, token_pattern=params['token_pattern'], ngram_range=(n, n), binary=binary_tf_flag, min_df=min_df)
     
     logger.debug('\tfit transfrom - start')
@@ -1183,7 +1182,14 @@ def extract_top_ngrams(doc_lst, doc_dct_lst, n, params):
     logger.debug('\tfit transfrom - end')
     
     #every entry in list top_ngrams is of type: (a, b), a: term, b: term position in TF matrix
-    top_ngrams = count_vectorizer.get_feature_names()
+    try:
+        top_ngrams = count_vectorizer.get_feature_names_out()
+    except AttributeError:
+        top_ngrams = count_vectorizer.get_feature_names()
+    except:
+        genericErrorInfo()
+        return []
+
     filtered_top_ngrams = {}
     total_freq = 0
     
@@ -1238,24 +1244,6 @@ def extract_top_ngrams(doc_lst, doc_dct_lst, n, params):
 
     return filtered_top_ngrams
 
-def get_user_stopwords(sep_stopwords, sep=','):
-
-    if( isinstance(sep_stopwords, str) ):
-        
-        sep_stopwords = sep_stopwords.strip()
-        if( sep_stopwords == '' ):
-            return set()
-        
-        add_stopwords = sep_stopwords.split(sep)
-        add_stopwords = set( [s.strip().lower() for s in add_stopwords] )
-        return add_stopwords
-        
-    elif( isinstance(sep_stopwords, list) ):
-        #assumes user has already separated the stopwords
-        return set(sep_stopwords)
-    else:
-        return set()
-
 def update_doc_indx(report, doc_id_new_doc_indx_map):
     
     if( len(doc_id_new_doc_indx_map) == 0 ):
@@ -1283,6 +1271,13 @@ def update_doc_indx(report, doc_id_new_doc_indx_map):
                 if( doc_id in doc_id_new_doc_indx_map ):
                     report['top_sumgrams'][i][opt][j]['doc_indx'] = doc_id_new_doc_indx_map[doc_id]
 
+def get_user_stopwords(add_stopwords):
+
+    all_stopwords = []
+    for s in add_stopwords:
+        all_stopwords += s['text'].split()
+
+    return all_stopwords
 
 def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 
@@ -1302,10 +1297,8 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
         n = 1
 
     params = get_default_args(params)
-    params.setdefault('stopwords_sep', ',')
-
     params['state'] = {}
-    params['add_stopwords'] = get_user_stopwords( params['add_stopwords'], params['stopwords_sep'] )
+    params['add_stopwords'] = set([ s.strip().lower() for s in params['add_stopwords'] if s.strip() != '' ])
     params.setdefault('binary_tf_flag', True)#Multiple occurrence of term T in a document counts as 1, TF = total number of times term appears in collection
     nlp_addr = 'http://' + params['corenlp_host'] + ':' + params['corenlp_port']
 
@@ -1465,26 +1458,27 @@ def get_args():
     parser.add_argument('path', nargs='+', help='Folder path containing input documents or path to single file or multiple files')
     
     parser.add_argument('-d', '--print-details', help='Print detailed output', action='store_true')
-    parser.add_argument('-n', '--base-ngram', help='The base n (integer) for generating top sumgrams, if n = 2, bigrams would be the base ngram', type=int, default=2)
     parser.add_argument('-m', '--max-ngram', help='The maximum length of sumgram generated', type=int, default=10)
+    parser.add_argument('-n', '--base-ngram', help='The base n (integer) for generating top sumgrams, if n = 2, bigrams would be the base ngram', type=int, default=2)
     parser.add_argument('-o', '--output', help='Output file')
     parser.add_argument('-s', '--sentences-rank-count', help='The count of top ranked sentences to generate', type=int, default=10)
     parser.add_argument('-t', '--top-sumgram-count', help='The count of top sumgrams to generate', type=int, default=10)
     
-    parser.add_argument('--add-stopwords', help='Comma-separated list of additional stopwords. To change delimiter use --stopwords-sep', default='')
+    parser.add_argument('--add-stopwords', nargs='+', help='Single or multiple additional stopwords', default=[])
+    parser.add_argument('--boilerplate-rm-method', help='Method to apply for removing HTML boilerplate', choices=['boilerpy3.DefaultExtractor', 'boilerpy3.ArticleExtractor', 'boilerpy3.ArticleSentencesExtractor', 'boilerpy3.LargestContentExtractor', 'boilerpy3.CanolaExtractor', 'boilerpy3.KeepEverythingExtractor', 'boilerpy3.NumWordsRulesExtractor', 'nltk'], default='boilerpy3.ArticleExtractor')
     parser.add_argument('--collocations-pattern', help='User-defined regex rule to extract collocations for pos_glue_split_ngrams', default='')
     parser.add_argument('--corenlp-host', help='Stanford CoreNLP Server host (needed for decent sentence tokenizer)', default='localhost')
     parser.add_argument('--corenlp-port', help='Stanford CoreNLP Server port (needed for decent sentence tokenizer)', default='9000')
     parser.add_argument('--corenlp-max-sentence-words', help='Stanford CoreNLP maximum words per sentence', default=100)
-    parser.add_argument('--max-file-depth', help='When reading files recursively from directory stop at the specified path depth. 0 means no restriction', type=int, default=1)
     parser.add_argument('--include-postings', help='Include inverted index of term document mappings', action='store_true')#default is false except not included, in which case it's true
+    parser.add_argument('--max-file-depth', help='When reading files recursively from directory stop at the specified path depth. 0 means no restriction', type=int, default=1)
     
     parser.add_argument('--log-file', help='Log output filename', default='')
     parser.add_argument('--log-format', help='Log print format, see: https://docs.python.org/3/howto/logging-cookbook.html', default='')
     parser.add_argument('--log-level', help='Log level', choices=['critical', 'error', 'warning', 'info', 'debug', 'notset'], default='info')
     
-    parser.add_argument('--mvg-window-min-proper-noun-rate', help='Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram', type=float, default=0.5)
     parser.add_argument('--min-df', help='See min_df in https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html', default=0.01)
+    parser.add_argument('--mvg-window-min-proper-noun-rate', help='Mininum rate threshold (larger, stricter) to consider a multi-word proper noun a candidate to replace an ngram', type=float, default=0.5)
     parser.add_argument('--ngram-printing-mw', help='Mininum width for printing ngrams', type=int, default=50)
     
     parser.add_argument('--base-ngram-ansi-color', help='Highlight (color code format - XXm, e.g., 91m) base ngram when printing top ngrams, set to empty string to switch off color', default='91m')
@@ -1502,7 +1496,6 @@ def get_args():
     parser.add_argument('--sentence-pattern', help='For sentence ranking: Regex string that specifies tokens for sentence tokenization', default='[.?!][ \n]|\n+')
     parser.add_argument('--sentence-tokenizer', help='For sentence ranking: Method for segmenting sentences', choices=['ssplit', 'regex'], default='regex')
     parser.add_argument('--shift', help='Factor to shift top ngram calculation', type=int, default=0)
-    parser.add_argument('--stopwords-sep', help='Delimiter of stopwords list, comma is default', default=',')
     parser.add_argument('--token-pattern', help='Regex string that specifies tokens for document tokenization', default=r'(?u)\b[a-zA-Z\'\’-]+[a-zA-Z]+\b|\d+[.,]?\d*')
     parser.add_argument('--title', help='Text label to be used as a heading when printing top sumgrams', default='')
     parser.add_argument('--thread-count', help='Maximum number of threads to use for parallel operations like segmenting sentences', type=int, default=5)
@@ -1628,22 +1621,37 @@ def main():
             return
 
     parser = get_args()
-
     args = parser.parse_args()
     params = vars(args)
     
     set_log_defaults(params)
     set_logger_dets( params['log_dets'] )
-
-    doc_lst = readTextFromFilesRecursive(args.path, addDetails=True, maxDepth=params['max_file_depth'])
+    
+    doc_lst = generic_txt_extrator(args.path, max_file_depth=params['max_file_depth'], boilerplate_rm_method=params['boilerplate_rm_method'])
+    params['add_stopwords'] = get_user_stopwords( generic_txt_extrator(params['add_stopwords']) )
+    
+    '''
+        To do:
+        readme re-arrange
+        issues
+        
+        Done:
+            URL, Raw text, file
+            Fixed: sklearn, even stopword, get_feature_names()
+            Removed --stopwords-sep, nargs for add_stopwords, stopwords file
+            test in docker env
+            boilerplate rm other extractors
+    '''
     params['referrer'] = 'main'
     proc_req(doc_lst, params)
+    
 
 if __name__ == 'sumgram.sumgram':
     from sumgram.util import dumpJsonToFile
     from sumgram.util import getColorTxt
     from sumgram.util import getStopwordsSet
     from sumgram.util import genericErrorInfo
+    from sumgram.util import generic_txt_extrator
     from sumgram.util import isMatchInOrder
     from sumgram.util import nlpIsServerOn
     from sumgram.util import nlpSentenceAnnotate
@@ -1651,7 +1659,6 @@ if __name__ == 'sumgram.sumgram':
     from sumgram.util import overlapFor2Sets
     from sumgram.util import parallelTask
     from sumgram.util import phraseTokenizer
-    from sumgram.util import readTextFromFilesRecursive
     from sumgram.util import rmStopwords
     from sumgram.util import sortDctByKey
 else:
@@ -1659,6 +1666,7 @@ else:
     from util import getColorTxt
     from util import getStopwordsSet
     from util import genericErrorInfo
+    from util import generic_txt_extrator
     from util import isMatchInOrder
     from util import nlpIsServerOn
     from util import nlpSentenceAnnotate
@@ -1666,7 +1674,6 @@ else:
     from util import overlapFor2Sets
     from util import parallelTask
     from util import phraseTokenizer
-    from util import readTextFromFilesRecursive
     from util import rmStopwords
     from util import sortDctByKey
 
