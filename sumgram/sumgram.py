@@ -1630,18 +1630,6 @@ def main():
     doc_lst = generic_txt_extrator(args.path, max_file_depth=params['max_file_depth'], boilerplate_rm_method=params['boilerplate_rm_method'])
     params['add_stopwords'] = get_user_stopwords( generic_txt_extrator(params['add_stopwords']) )
     
-    '''
-        To do:
-        readme re-arrange
-        issues
-        
-        Done:
-            URL, Raw text, file
-            Fixed: sklearn, even stopword, get_feature_names()
-            Removed --stopwords-sep, nargs for add_stopwords, stopwords file
-            test in docker env
-            boilerplate rm other extractors
-    '''
     params['referrer'] = 'main'
     proc_req(doc_lst, params)
     
