@@ -1621,16 +1621,20 @@ def main():
     parser = get_args()
     args = parser.parse_args()
     params = vars(args)
+
+    if( len(sys.argv) == 1 ):
+        parser.print_help()
+        return
     
     doc_lst = []
     set_log_defaults(params)
     set_logger_dets( params['log_dets'] )
     
-    if( len(sys.argv) > 1 and (sys.argv[1] == '-') ):
+    if( len(sys.argv) > 1 and (sys.argv[-1] == '-') ):
         try:
             fileobj = sys.stdin
             with fileobj:
-                doc_lst = [{'text': fileobj.read()}]
+                doc_lst = [{'text': fileobj.read()}]    
         except:
             genericErrorInfo()
     else:

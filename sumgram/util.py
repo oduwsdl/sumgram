@@ -492,8 +492,7 @@ def generic_txt_extrator(sources, max_file_depth=0, boilerplate_rm_method='boile
             urls.append(txt_src)
             continue
 
-        txt_file = readTextFromFilesRecursive([txt_src], addDetails=True, maxDepth=max_file_depth)
-        doc_lst += [{'text': txt_src}] if len(txt_file) == 0 else txt_file
+        doc_lst = readTextFromFilesRecursive([txt_src], addDetails=True, maxDepth=max_file_depth)
 
     if( len(urls) != 0 ):
         logger.info('\nDereferencing {} URL(s) - start'.format(len(urls)))
