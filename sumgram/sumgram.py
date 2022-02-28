@@ -1455,7 +1455,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 def get_args():
 
     parser = argparse.ArgumentParser(formatter_class=lambda prog: argparse.HelpFormatter(prog, max_help_position=30))
-    parser.add_argument('path', nargs='+', help='Folder path containing input documents or path to single file or multiple files')
+    parser.add_argument('path', nargs='*', help='File(s) or path to file(s) or URL(s)')
     
     parser.add_argument('-d', '--print-details', help='Print detailed output', action='store_true')
     parser.add_argument('-m', '--max-ngram', help='The maximum length of sumgram generated', type=int, default=10)
@@ -1624,12 +1624,21 @@ def main():
     args = parser.parse_args()
     params = vars(args)
     
+    doc_lst = []
     set_log_defaults(params)
     set_logger_dets( params['log_dets'] )
     
-    doc_lst = generic_txt_extrator(args.path, max_file_depth=params['max_file_depth'], boilerplate_rm_method=params['boilerplate_rm_method'])
-    params['add_stopwords'] = get_user_stopwords( generic_txt_extrator(params['add_stopwords']) )
+    if( len(args.path) == 0 ):
+        try:
+            fileobj = sys.stdin
+            with fileobj:
+                doc_lst = [{'text': fileobj.read()}]
+        except:
+            genericErrorInfo()
+    else:
+        doc_lst = generic_txt_extrator(args.path, max_file_depth=params['max_file_depth'], boilerplate_rm_method=params['boilerplate_rm_method'])
     
+    params['add_stopwords'] = get_user_stopwords( generic_txt_extrator(params['add_stopwords']) )
     params['referrer'] = 'main'
     proc_req(doc_lst, params)
     
