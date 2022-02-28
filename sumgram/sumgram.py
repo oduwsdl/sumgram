@@ -1613,12 +1613,10 @@ def set_log_defaults(params):
 
 def main():
 
-    if( len(sys.argv) > 1 ):
-        if( sys.argv[1] == '-v' or sys.argv[1] == '--version' ):
-            
-            from sumgram import __version__
-            print(__version__)
-            return
+    if( len(sys.argv) > 1 and (sys.argv[1] == '-v' or sys.argv[1] == '--version') ):
+        from sumgram import __version__
+        print(__version__)
+        return
 
     parser = get_args()
     args = parser.parse_args()
@@ -1628,7 +1626,7 @@ def main():
     set_log_defaults(params)
     set_logger_dets( params['log_dets'] )
     
-    if( len(args.path) == 0 ):
+    if( len(sys.argv) > 1 and (sys.argv[1] == '-') ):
         try:
             fileobj = sys.stdin
             with fileobj:
