@@ -1053,6 +1053,7 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
 
     params.setdefault('ngram_printing_mw', 50)
     params.setdefault('title', '')
+    doc_len = params.get('doc_len', None)
     default_color = '49m'
     tf_or_df = ''
 
@@ -1064,7 +1065,7 @@ def print_top_ngrams(n, top_ngrams, top_sumgram_count, params=None):
     mw = params['ngram_printing_mw']
     ngram_count = len(top_ngrams)
 
-    print('\nSummary for ' + str(ngram_count) + ' top sumgrams (base n: ' + str(n) + '): ')
+    print('\nSummary for {} top sumgrams (base n: {}, docs: {:,}):'.format(ngram_count, n, doc_len))
     if( params['title'] != '' ):
         print( params['title'])
 
@@ -1298,6 +1299,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 
     params = get_default_args(params)
     params['state'] = {}
+    params['doc_len'] = len(doc_dct_lst)
     params['add_stopwords'] = set([ s.strip().lower() for s in params['add_stopwords'] if s.strip() != '' ])
     params.setdefault('binary_tf_flag', True)#Multiple occurrence of term T in a document counts as 1, TF = total number of times term appears in collection
     nlp_addr = 'http://' + params['corenlp_host'] + ':' + params['corenlp_port']
@@ -1351,8 +1353,10 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
         
         if( 'sentences' in doc_dct_lst[i] ):
             del doc_dct_lst[i]['sentences']
-    #main algorithm step 1 - end
+    
     multi_word_proper_nouns = rank_proper_nouns(multi_word_proper_nouns)
+    #main algorithm step 1 - end
+    
 
     logger.debug('\tsentence segmentation - end')
     logger.debug('\tshift: ' + str(params['shift']))
@@ -1632,11 +1636,11 @@ def main():
     
     if( len(sys.argv) > 1 and (sys.argv[-1] == '-') ):
         try:
-            fileobj = sys.stdin
-            with fileobj:
-                doc_lst = [{'text': fileobj.read()}]    
+            doc_lst = [{'text': line} for line in sys.stdin]
         except:
             genericErrorInfo()
+
+        params['add_stopwords'] = params['add_stopwords'][:-1] if (len(params['add_stopwords']) != 0 and params['add_stopwords'][-1].strip() == '-') else params['add_stopwords']
     else:
         doc_lst = generic_txt_extrator(args.path, max_file_depth=params['max_file_depth'], boilerplate_rm_method=params['boilerplate_rm_method'])
     

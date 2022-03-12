@@ -441,7 +441,6 @@ def readTextFromFilesRecursive(files, addDetails=True, curDepth=0, maxDepth=0):
     for f in files:
 
         f = f.strip()
-        
         if( f.endswith('.tar') or f.endswith('.tar.gz') ):
             result += readTextFromTar(f, addDetails=addDetails)
 
@@ -492,7 +491,8 @@ def generic_txt_extrator(sources, max_file_depth=0, boilerplate_rm_method='boile
             urls.append(txt_src)
             continue
 
-        doc_lst = readTextFromFilesRecursive([txt_src], addDetails=True, maxDepth=max_file_depth)
+        txt_file = readTextFromFilesRecursive([txt_src], addDetails=True, maxDepth=max_file_depth)
+        doc_lst += [{'text': txt_src}] if len(txt_file) == 0 else txt_file
 
     if( len(urls) != 0 ):
         logger.info('\nDereferencing {} URL(s) - start'.format(len(urls)))
