@@ -952,6 +952,7 @@ def rm_empty_and_stopword_ngrams(top_ngrams, k, stopwords):
 
         if( match_flag is True ):
             continue
+
         #check if top_ngrams[i]['ngram'] has stopword, if so skip - end
 
         final_top_ngrams.append( top_ngrams[i] )
@@ -1154,9 +1155,9 @@ def extract_top_ngrams(doc_lst, doc_dct_lst, n, params):
         binary_tf_flag = True
 
     bif_stopwords = bifurcate_stopwords( params['add_stopwords'] )
-    stopwords = getStopwordsSet() | bif_stopwords['unigrams']
-    min_df = params['min_df']
-    
+    stopwords = bif_stopwords['unigrams'] | params['add_stopwords_file'] if params['no_default_stopwords'] is True else getStopwordsSet() | bif_stopwords['unigrams'] | params['add_stopwords_file']
+    min_df = params['min_df']    
+
     try:
         if( isinstance(min_df, str) ):
             if( min_df.find('.') == -1 ):
@@ -1301,6 +1302,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
     params['state'] = {}
     params['doc_len'] = len(doc_dct_lst)
     params['add_stopwords'] = set([ s.strip().lower() for s in params['add_stopwords'] if s.strip() != '' ])
+    params['add_stopwords_file'] = set([ s.strip().lower() for s in params['add_stopwords_file'] if s.strip() != '' ])
     params.setdefault('binary_tf_flag', True)#Multiple occurrence of term T in a document counts as 1, TF = total number of times term appears in collection
     nlp_addr = 'http://' + params['corenlp_host'] + ':' + params['corenlp_port']
 
@@ -1425,6 +1427,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
 
     
     top_ngrams = rm_empty_and_stopword_ngrams( top_ngrams, params['top_sumgram_count'] * 2, params['add_stopwords'] )
+
     doc_id_new_doc_indx_map = {}
     if( params['no_rank_docs'] == False ):
         report['ranked_docs'], doc_id_new_doc_indx_map = get_ranked_docs( top_ngrams, doc_dct_lst )
@@ -1486,6 +1489,7 @@ def get_args():
     parser.add_argument('--ngram-printing-mw', help='Mininum width for printing ngrams', type=int, default=50)
     
     parser.add_argument('--base-ngram-ansi-color', help='Highlight (color code format - XXm, e.g., 91m) base ngram when printing top ngrams, set to empty string to switch off color', default='91m')
+    parser.add_argument('--no-default-stopwords', help='Do not use default English stopwords list (default is False)', action='store_true')
     parser.add_argument('--no-mvg-window-glue-split-ngrams', help='Do not glue split top ngrams with Moving Window method (default is False)', action='store_true')
     parser.add_argument('--no-parent-sentences', help='Do not include sentences that mention top ngrams in top ngrams payload (default is False)', action='store_true')
     parser.add_argument('--no-pos-glue-split-ngrams', help='Do not glue split top ngrams with POS method (default is False)', action='store_true')
@@ -1644,10 +1648,24 @@ def main():
     else:
         doc_lst = generic_txt_extrator(args.path, max_file_depth=params['max_file_depth'], boilerplate_rm_method=params['boilerplate_rm_method'])
     
-    params['add_stopwords'] = get_user_stopwords( generic_txt_extrator(params['add_stopwords']) )
+    '''
+        add_stopwords:
+        * unigrams in add_stopwords are used to complemented stopwords in getStopwordsSet() to build initial top n-ngram, see: CountVectorizer(stop_words=stopwords,...)
+        * n-ngrams in add_stopwords are used in removing sumgrams that have n-ngrams, see: rm_empty_and_stopword_ngrams()
+    '''
+    add_stopwords = []
+    params['add_stopwords_file'] = []
+    for st in generic_txt_extrator(params['add_stopwords']):
+        
+        if( 'filename' in st ):
+            params['add_stopwords_file'].append(st)
+        else:
+            add_stopwords.append(st)
+    
+    params['add_stopwords'] = get_user_stopwords(add_stopwords)
+    params['add_stopwords_file'] = get_user_stopwords(params['add_stopwords_file'])
     params['referrer'] = 'main'
     proc_req(doc_lst, params)
-    
 
 if __name__ == 'sumgram.sumgram':
     from sumgram.util import dumpJsonToFile
