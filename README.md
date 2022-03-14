@@ -60,12 +60,11 @@ doc_lst = [
   ]
 
 '''
-  Use 'add_stopwords' to include additional stopwords not included in stopwords list (https://github.com/oduwsdl/sumgram/blob/0224fc9d54034a25e296dd1c43c09c76244fc3c2/sumgram/util.py#L31)
-  'add_stopwords' expects a comma-separated string of stopwords, e.g., "image, photo, image of"
+  Use 'add_stopwords' to include list of additional stopwords not included in stopwords list (https://github.com/oduwsdl/sumgram/blob/0224fc9d54034a25e296dd1c43c09c76244fc3c2/sumgram/util.py#L31)
 '''
 params = {
     'top_sumgram_count': 10,
-    'add_stopwords': 'image',
+    'add_stopwords': ['image'],
     'no_rank_sentences': True,
     'title': 'Top sumgrams for Hurricane Harvey text collection'
 }
