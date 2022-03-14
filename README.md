@@ -20,6 +20,11 @@ OR
 $ git clone https://github.com/oduwsdl/sumgram.git
 $ cd sumgram; pip install .; cd ..; rm -rf sumgram;
 ```
+OR install/run within Docker container
+```
+$ docker run -it --rm --name Sumgram -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3.7-stretch bash
+$ pip install sumgram
+```
 OR install/run in locally built docker image
 ```
 $ git clone https://github.com/oduwsdl/sumgram.git
