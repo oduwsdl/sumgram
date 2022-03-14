@@ -29,7 +29,7 @@ class TestSumgram(unittest.TestCase):
         ]
         params = {
             'top_sumgram_count': 10,
-            'add_stopwords': 'image',
+            'add_stopwords': ['image'],
             'no_rank_docs': True,
             'no_rank_sentences': True,
             'title': 'Top sumgrams for Hurricane Harvey text collection'
