@@ -1471,7 +1471,7 @@ def get_args():
     parser.add_argument('-s', '--sentences-rank-count', help='The count of top ranked sentences to generate', type=int, default=10)
     parser.add_argument('-t', '--top-sumgram-count', help='The count of top sumgrams to generate', type=int, default=10)
     
-    parser.add_argument('--add-stopwords', nargs='+', help='Single or multiple additional stopwords', default=[])
+    parser.add_argument('--add-stopwords', nargs='+', help='Single or multiple additional stopwords or path to stopwords file (one stopword per line)', default=[])
     parser.add_argument('--boilerplate-rm-method', help='Method to apply for removing HTML boilerplate', choices=['boilerpy3.DefaultExtractor', 'boilerpy3.ArticleExtractor', 'boilerpy3.ArticleSentencesExtractor', 'boilerpy3.LargestContentExtractor', 'boilerpy3.CanolaExtractor', 'boilerpy3.KeepEverythingExtractor', 'boilerpy3.NumWordsRulesExtractor', 'nltk'], default='boilerpy3.ArticleExtractor')
     parser.add_argument('--collocations-pattern', help='User-defined regex rule to extract collocations for pos_glue_split_ngrams', default='')
     parser.add_argument('--corenlp-host', help='Stanford CoreNLP Server host (needed for decent sentence tokenizer)', default='localhost')
