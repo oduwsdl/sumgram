@@ -70,6 +70,7 @@ def fmt_posting(doc_dets):
 def fmt_report(ngram_lst, params):
 
     params['add_stopwords'] = list( params['add_stopwords'] )
+    params['add_stopwords_file'] = list( params['add_stopwords_file'] )
 
     for i in range(len(ngram_lst)):
         
@@ -1523,6 +1524,7 @@ def get_default_args(user_params):
             user_params[val.dest] = val.default
 
     del user_params['help']
+    user_params['add_stopwords_file'] = []
     return user_params
 
 
