@@ -1,4 +1,4 @@
-Highly informal algorithm description of Sumgram (2020-07-15)
+Highly informal algorithm description of sumgram (2020-07-15)
 
 Step 1
     1. Add plain_text into doc_lst
