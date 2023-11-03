@@ -25,7 +25,8 @@ setup(
         'numpy',
         'requests',
         'scikit-learn',
-        'NwalaTextUtils==0.0.5'
+        'NwalaTextUtils==0.0.5',
+        'urllib3<2.0'
     ],
     entry_points={'console_scripts': ['sumgram = sumgram.sumgram:main']}
 )
