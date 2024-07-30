@@ -1156,7 +1156,7 @@ def extract_top_ngrams(doc_lst, doc_dct_lst, n, params):
         binary_tf_flag = True
 
     bif_stopwords = bifurcate_stopwords( params['add_stopwords'] )
-    stopwords = bif_stopwords['unigrams'] | params['add_stopwords_file'] if params['no_default_stopwords'] is True else getStopwordsSet() | bif_stopwords['unigrams'] | params['add_stopwords_file']
+    stopwords = bif_stopwords['unigrams'] | params['add_stopwords_file'] if params['no_default_stopwords'] is True else list(getStopwordsSet() | bif_stopwords['unigrams'] | params['add_stopwords_file'])
     min_df = params['min_df']    
 
     try:
