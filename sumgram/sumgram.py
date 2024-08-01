@@ -1292,6 +1292,7 @@ def get_top_sumgrams(doc_dct_lst, n=2, params=None):
         #measure to avoid re-using previous state of params when get_top_sumgrams is called multiple times from a script
         params = copy.deepcopy(params)
     
+    doc_dct_lst = copy.deepcopy(doc_dct_lst)
     report = {}
     if( len(doc_dct_lst) == 0 ):
         return report
